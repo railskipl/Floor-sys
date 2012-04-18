@@ -40,8 +40,8 @@
                    <p class="lable">City</p>
                    <p class="field"><%= f.text_field :city %></p>
                    
-                   <p class="lable">County</p>
-                   <p class="field"><%= f.text_field :county %></p>
+                   <p class="lable">Country</p>
+                   <p class="field"><%= select :user, :county, Country.all.map {|c| [c.country_name]} %></p>
                    
                    <p class="lable">Fix Line</p>
                    <p class="field"><%= f.text_field :fix_line %></p>
@@ -58,12 +58,14 @@
                                   
                                   <% if current_user.id == 1 %>
                                     <% if role.name == "super_admin" %>
+                                      <%= f.hidden_field :s_id, :value => current_user.id %>
                                      <%= check_box_tag "user[role_ids][]", 2, @user.roles.include?(role) %>
                                       <%= "company" %> 
                                     <% end %>
                                      <% elsif %>
                                       <% if current_user.id != 1 %>
                                         <% if role.id == 2 %>
+                                          <%= f.hidden_field :s_id, :value => current_user.id %>
                                          <%= check_box_tag "user[role_ids][]",3, @user.roles.include?(role) %>
                                         <%= "staff" %> 
                                         <% end %>
