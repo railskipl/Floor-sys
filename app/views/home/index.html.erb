@@ -13,5 +13,6 @@
               <p class="text" align="center">Password</p>
               <p align="center"><%= f.password_field :password %></p>
               <p align="center" class="sing_btn"><%= f.submit "Sign In", :class => 'signin' %></p>
+              <%= link_to "Forgot Password", new_password_path('user'), :class =>  'lostpassword' %>
           <% end %>
       <% end %>
