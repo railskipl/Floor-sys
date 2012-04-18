@@ -1,0 +1,64 @@
+ <div class="profile_page">
+             	<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr>
+    <td width="18%" valign="top"><div><img src="/images/avtar.png" alt="" /></div></td>
+    <td width="82%" valign="top">
+    	<h2>Contact Information</h2>
+        <table width="100%" border="0" cellspacing="2" cellpadding="2">
+          <tr>
+            <td width="12%">Email : </td>
+            <td width="88%"><%= @user.email %></td>
+          </tr>
+          <tr>
+            <td width="12%">User Name :  </td>
+            <td width="88%"><%= @user.username %></td>
+          </tr>
+          
+        
+          <tr>
+            <td>Address :  </td>
+            <td><%= @user.address_line1 %></td>
+          </tr>
+           <tr>
+            <td>City :  </td>
+            <td><%= @user.city %></td>
+          </tr>
+          <tr>
+            <td>County :  </td>
+            <td><%= @user.county %></td>
+          </tr>
+          <tr>
+            <td>Phone :  </td>
+            <td><%= @user.fix_line %></td>
+          </tr>
+          
+           <tr>
+            <td>Mobile :  </td>
+            <td><%= @user.mobile_number %></td>
+          </tr>
+        </table><br />
+        <h2>Other Information</h2>
+         <table width="100%" border="0" cellspacing="2" cellpadding="2">
+          <tr>
+            <td width="12%">First Name :  </td>
+            <td width="88%"><%= @user.first_name %></td>
+          </tr>
+          <tr>
+            <td>Last Name :  </td>
+            <td><%= @user.surname %></td>
+          </tr>
+          <tr>
+            <td>Job Title :  </td>
+            <td><%= @user.job_title %></td>
+          </tr>
+          
+          
+                
+        </table>
+        
+    </td>
+  </tr>
+</table>
+ <%= link_to 'edit', edit_user_path(@user), :class => 'edit' %> &nbsp;&nbsp; <%= link_to 'back', users_path, :class => 'back' %>
+ 
+             </div>
