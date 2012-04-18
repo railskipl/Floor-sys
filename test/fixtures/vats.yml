@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  tax_rate: MyString
+  user_id: 1
+  company_id: 1
+
+two:
+  tax_rate: MyString
+  user_id: 1
+  company_id: 1

@@ -1,0 +1,17 @@
+      
+      <% if user_signed_in? %>
+      							    Signed in as <%= current_user.username %>. Not you?
+      							    <%= link_to "Sign out", destroy_user_session_path %>
+
+
+      <% else %>
+        <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+          	<p align="center"><img src="/images/login_sign.png" alt="" /></p>
+              <p class="text" align="center">Username</p>
+              <p align="center"><%= f.text_field :username %></p>
+              
+              <p class="text" align="center">Password</p>
+              <p align="center"><%= f.password_field :password %></p>
+              <p align="center" class="sing_btn"><%= f.submit "Sign In", :class => 'signin' %></p>
+          <% end %>
+      <% end %>

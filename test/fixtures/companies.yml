@@ -1,0 +1,33 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  company_name: MyString
+  company_address1: MyString
+  company_address2: MyString
+  company_town: MyString
+  country: 1
+  post_code: MyString
+  phone_number: MyString
+  fax_number: MyString
+  web_url: MyString
+  email: MyString
+  vat_no: MyString
+  vat_rate: MyString
+  reg_no: MyString
+  user_id: MyString
+
+two:
+  company_name: MyString
+  company_address1: MyString
+  company_address2: MyString
+  company_town: MyString
+  country: 1
+  post_code: MyString
+  phone_number: MyString
+  fax_number: MyString
+  web_url: MyString
+  email: MyString
+  vat_no: MyString
+  vat_rate: MyString
+  reg_no: MyString
+  user_id: MyString

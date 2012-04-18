@@ -1,0 +1,77 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Company name:</b>
+  <%= @company.company_name %>
+</p>
+
+<p>
+  <b>Company address1:</b>
+  <%= @company.company_address1 %>
+</p>
+
+<p>
+  <b>Company address2:</b>
+  <%= @company.company_address2 %>
+</p>
+
+<p>
+  <b>Company town:</b>
+  <%= @company.company_town %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%= @company.country %>
+</p>
+
+<p>
+  <b>Post code:</b>
+  <%= @company.post_code %>
+</p>
+
+<p>
+  <b>Phone number:</b>
+  <%= @company.phone_number %>
+</p>
+
+<p>
+  <b>Fax number:</b>
+  <%= @company.fax_number %>
+</p>
+
+<p>
+  <b>Web url:</b>
+  <%= @company.web_url %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @company.email %>
+</p>
+
+<p>
+  <b>Vat no:</b>
+  <%= @company.vat_no %>
+</p>
+
+<p>
+  <b>Vat rate:</b>
+  <%= @company.vat_rate %>
+</p>
+
+<p>
+  <b>Reg no:</b>
+  <%= @company.reg_no %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @company.user_id %>
+</p>
+
+<%= image_tag @company.logo.url(:thumb) %>
+
+
+<%= link_to 'Edit', edit_company_path(@company) %> |
+<%= link_to 'Back', companies_path %>

@@ -1,0 +1,80 @@
+<div class="signUp_area">
+     <%= form_for(@user) do |f| %>
+       
+          <%- @user.errors.full_messages.each do |message| -%>
+    		   <div class="errorExplanation"> <p><%= message %></p></div>
+    		  <%- end -%>
+    		  
+	                  <p class="lable">Username</p>
+                   <p class="field"><%= f.text_field :username %></p>
+ 
+                   <p class="lable">First Name</p>
+                   <p class="field"><%= f.text_field :first_name %></p>
+                   
+                   <p class="lable">Last Name</p>
+                   <p class="field"><%= f.text_field :surname %></p>
+                   
+                   <p class="lable">Email</p>
+                   <p class="field"><%= f.email_field :email %></p>
+                    
+                   <% if @current_method == "new" %>
+                   <p class="lable">Password</p>
+                   <p class="field"><%= f.password_field :password %></p>
+
+                   <p class="lable">Confirm Password</p>
+                   <p class="field"><%= f.password_field :password_confirmation %></p>
+                   <% end %> 
+                   
+                   <p class="lable">Job Title</p>
+                   <p class="field"><%= f.text_field :job_title %></p>
+                   
+                   <p class="lable">Address Line 1</p>
+                   <p class="field"><%= f.text_field :address_line1 %></p>
+                   
+                   <p class="lable">Address Line 2</p>
+                   <p class="field"><%= f.text_field :address_line2 %></p>
+                   
+                   <p class="lable">Address Line 3</p>
+                   <p class="field"><%= f.text_field :address_line3 %></p>
+                   
+                   <p class="lable">City</p>
+                   <p class="field"><%= f.text_field :city %></p>
+                   
+                   <p class="lable">County</p>
+                   <p class="field"><%= f.text_field :county %></p>
+                   
+                   <p class="lable">Fix Line</p>
+                   <p class="field"><%= f.text_field :fix_line %></p>
+                   
+                   <p class="lable">Mobile Number</p>
+                   <p class="field"><%= f.text_field :mobile_number %></p>
+                   
+                   <p class="lable">Post Code</p>
+                   <p class="field"><%= f.text_field :postcode %></p>
+                                        
+                             <% for role in Role.find(:all) %>
+                             
+                              
+                                  
+                                  <% if current_user.id == 1 %>
+                                    <% if role.name == "super_admin" %>
+                                     <%= check_box_tag "user[role_ids][]", 2, @user.roles.include?(role) %>
+                                      <%= "company" %> 
+                                    <% end %>
+                                     <% elsif %>
+                                      <% if current_user.id != 1 %>
+                                        <% if role.id == 2 %>
+                                         <%= check_box_tag "user[role_ids][]",3, @user.roles.include?(role) %>
+                                        <%= "staff" %> 
+                                        <% end %>
+                                      <%end%>
+                               
+                              <% end  %>
+                          
+                         </div>
+
+                  <% end  %>
+              
+               
+                   <%= f.submit " create", :class =>'submit'%></p>
+                   <% end %>
