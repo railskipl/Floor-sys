@@ -11,3 +11,5 @@ gem 'cocaine'
 gem 'aws-s3'
 
 gem 'cancan'
+
+gem 'ancestry'

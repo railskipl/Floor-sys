@@ -10,7 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120418103304) do
+ActiveRecord::Schema.define(:version => 20120419061413) do
+
+  create_table "categories", :force => true do |t|
+    t.string   "category_name"
+    t.string   "category_type"
+    t.integer  "company_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "ancestry"
+  end
 
   create_table "companies", :force => true do |t|
     t.string   "company_name"
@@ -41,6 +50,14 @@ ActiveRecord::Schema.define(:version => 20120418103304) do
     t.datetime "updated_at"
   end
 
+  create_table "outgoing_types", :force => true do |t|
+    t.string   "code"
+    t.string   "name"
+    t.integer  "company_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "roles", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -50,6 +67,14 @@ ActiveRecord::Schema.define(:version => 20120418103304) do
   create_table "roles_users", :id => false, :force => true do |t|
     t.integer "role_id"
     t.integer "user_id"
+  end
+
+  create_table "sales_types", :force => true do |t|
+    t.string   "code"
+    t.string   "name"
+    t.integer  "company_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|

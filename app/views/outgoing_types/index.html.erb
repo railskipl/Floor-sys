@@ -1,0 +1,27 @@
+<h1>Listing outgoing_types</h1>
+
+<table>
+  <tr>
+    <th>Code</th>
+    <th>Name</th>
+    <th>Company</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @outgoing_types.each do |outgoing_type| %>
+  <tr>
+    <td><%= outgoing_type.code %></td>
+    <td><%= outgoing_type.name %></td>
+    <td><%= outgoing_type.company_id %></td>
+    <td><%= link_to 'Show', outgoing_type %></td>
+    <td><%= link_to 'Edit', edit_outgoing_type_path(outgoing_type) %></td>
+    <td><%= link_to 'Destroy', outgoing_type, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Outgoing type', new_outgoing_type_path %>

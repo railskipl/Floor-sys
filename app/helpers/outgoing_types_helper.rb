@@ -1,0 +1,2 @@
+module OutgoingTypesHelper
+end

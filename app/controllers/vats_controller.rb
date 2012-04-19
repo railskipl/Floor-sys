@@ -1,5 +1,6 @@
 class VatsController < ApplicationController
-  # GET /vats
+ before_filter :authenticate_user!, :except => []
+ 
   # GET /vats.xml
   def index
     @vats = Vat.all

@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :user_id %><br />
+    <%= select :company, :user_id, @user.map {|c| ["#{c.first_name} #{c.surname}", c.id]} %>
+  </div>
+  
+  <div class="field">
     <%= f.label :company_name %><br />
     <%= f.text_field :company_name %>
   </div>

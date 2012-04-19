@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Code:</b>
+  <%= @sales_type.code %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @sales_type.name %>
+</p>
+
+<p>
+  <b>Company:</b>
+  <%= @sales_type.company_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_sales_type_path(@sales_type) %> |
+<%= link_to 'Back', sales_types_path %>

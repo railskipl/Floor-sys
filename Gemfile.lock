@@ -28,6 +28,8 @@ GEM
       activemodel (= 3.0.7)
       activesupport (= 3.0.7)
     activesupport (3.0.7)
+    ancestry (1.2.4)
+      activerecord (>= 2.2.2)
     arel (2.0.10)
     aws-s3 (0.6.2)
       builder
@@ -92,6 +94,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  ancestry
   aws-s3
   cancan
   cocaine

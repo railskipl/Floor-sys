@@ -1,0 +1,55 @@
+<!--sign in area defined-->
+<div id="signIn_area">
+	<div class="sign_in_tp">
+    	<div class="sign_left">
+        	<div class="sign_right">
+             	<h1>New Category</h1>
+          </div>
+        </div>
+    </div>
+    
+	<div class="sign_left_slc">
+    
+    	<div class="sign_right_slc">
+        <div class="signUp_area">
+        <%= form_for(@category) do |f| %>
+          <% if @category.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+                <ul>
+                <% @category.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
+                <%= f.hidden_field :parent_id %>
+               
+                 
+            	  <p class="lable">Category Name</p>
+                <p class="field"><%= f.text_field :category_name %></p>
+                
+                <p class="lable">Category Type</p>
+                <p class="field"><%= f.text_field :category_type %></p>&nbsp;
+                
+                
+                  <div class="actions">
+                    <%= f.submit %>
+                  </div>
+            <% end %>
+        </div>
+        
+         <div class="clear"></div>       
+      </div>
+    </div>
+    
+    <div class="sign_ftr_slc">
+    	<div class="sign_ftr_left">
+        	<div class="sign_ftr_right">
+              
+            </div>
+        </div>
+    </div>
+</div>
+<!--sign in area defined-->

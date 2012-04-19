@@ -1,4 +1,7 @@
 class CompaniesController < ApplicationController
+  
+  before_filter :authenticate_user!, :except => []
+  
   # GET /companies
   # GET /companies.xml
   def index
@@ -24,7 +27,9 @@ class CompaniesController < ApplicationController
   # GET /companies/new
   # GET /companies/new.xml
   def new
+    
     @company = Company.new
+    @user = User.find_all_by_admin_id(current_user.id)
 
     respond_to do |format|
       format.html # new.html.erb

@@ -1,0 +1,27 @@
+<h1>Listing sales_types</h1>
+
+<table>
+  <tr>
+    <th>Code</th>
+    <th>Name</th>
+    <th>Company</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sales_types.each do |sales_type| %>
+  <tr>
+    <td><%= sales_type.code %></td>
+    <td><%= sales_type.name %></td>
+    <td><%= sales_type.company_id %></td>
+    <td><%= link_to 'Show', sales_type %></td>
+    <td><%= link_to 'Edit', edit_sales_type_path(sales_type) %></td>
+    <td><%= link_to 'Destroy', sales_type, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Sales type', new_sales_type_path %>

@@ -1,0 +1,29 @@
+<%= form_for(@outgoing_type) do |f| %>
+  <% if @outgoing_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@outgoing_type.errors.count, "error") %> prohibited this outgoing_type from being saved:</h2>
+
+      <ul>
+      <% @outgoing_type.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :code %><br />
+    <%= f.text_field :code %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :company_id %><br />
+    <%= f.text_field :company_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

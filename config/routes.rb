@@ -1,7 +1,12 @@
 Floorsys::Application.routes.draw do
   
 
+  resources :outgoing_types
+
+  resources :sales_types
+
   resources :vats
+  resources :categories
 
   resources :companies
 
