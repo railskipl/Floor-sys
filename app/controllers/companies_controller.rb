@@ -42,6 +42,7 @@ class CompaniesController < ApplicationController
   # GET /companies/1/edit
   def edit
     @company = Company.find(params[:id])
+    @user = User.find_all_by_admin_id(current_user.id)
   end
 
   # POST /companies
@@ -51,6 +52,9 @@ class CompaniesController < ApplicationController
 
     respond_to do |format|
       if @company.save
+        
+        company = User.update(@company.user_id, :company_id => @company.id)
+        
         format.html { redirect_to(@company, :notice => 'Company was successfully created.') }
         format.xml  { render :xml => @company, :status => :created, :location => @company }
       else
@@ -67,6 +71,8 @@ class CompaniesController < ApplicationController
 
     respond_to do |format|
       if @company.update_attributes(params[:company])
+        company = User.update(@company.user_id, :company_id => @company.id)
+        
         format.html { redirect_to(@company, :notice => 'Company was successfully updated.') }
         format.xml  { head :ok }
       else
