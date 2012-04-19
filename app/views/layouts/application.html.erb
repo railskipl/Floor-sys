@@ -16,6 +16,7 @@
   <%= link_to 'Create Staff', new_user_path %> | 
 <% end %>
 <% if can? :new, Company %>
+  <%= link_to 'Company', {:controller=>"companies", :action=>"index"} %> | 
 <%= link_to 'Create Company', new_company_path %> | 
 <% end %>
 
