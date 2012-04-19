@@ -3,12 +3,18 @@ class VatsController < ApplicationController
  
   # GET /vats.xml
   def index
+  
+   if params[:company_id]
+     
     @vats = Vat.all
 
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @vats }
     end
+   else
+        redirect_to("/dashboard", :notice => 'Please create company.')
+   end
   end
 
   # GET /vats/1
@@ -35,7 +41,11 @@ class VatsController < ApplicationController
 
   # GET /vats/1/edit
   def edit
-    @vat = Vat.find(params[:id])
+    if params[:company_id]
+      @vat = Vat.find(params[:id])
+    else
+          redirect_to("/dashboard", :notice => 'Please create company.')
+     end
   end
 
   # POST /vats
