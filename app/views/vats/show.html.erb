@@ -5,10 +5,6 @@
   <%= @vat.tax_rate %>
 </p>
 
-<p>
-  <b>User:</b>
-  <%= @vat.user_id %>
-</p>
 
 <p>
   <b>Company:</b>
@@ -16,5 +12,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_vat_path(@vat) %> |
-<%= link_to 'Back', vats_path %>
+
+<%= link_to 'Back', {:controller=>"vats", :action=>"index", :company_id=>"#{@vat.company_id}"} %>

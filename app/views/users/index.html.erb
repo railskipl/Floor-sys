@@ -1,20 +1,20 @@
       <div class="userListing">
       	<table width="100%" border="0" cellspacing="0" cellpadding="0">
 <tr>
-  <th align="left">S.N.</th>
+  
   <th align="left">Username</th>
   <th align="left">Email</th>
   <th align="left" class="border-right">Action</th>
   </tr>
 <% @users.each do |user| %>
   <tr>
-    <td class="border-bottom"><%= user.id %></td>
+    
     <td class="border-bottom"><%= user.username %></td>
     <td class="border-bottom"><%= user.email %></td>
     
     
     
-      <td class="border-bottom-right"><%= link_to 'view', user %> | <%= link_to 'Edit', edit_user_path(user) %> | <%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td class="border-bottom-right"><%= link_to 'view', user %> | <%= link_to 'Edit', edit_user_path(user) %> | <%= link_to 'Destroy', {:controller=>"users", :action=>"destroy", :id=>"#{user.id}"}, :confirm => 'Are you sure?' %></td>
         </tr>
 <% end %>
 </table>

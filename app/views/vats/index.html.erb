@@ -3,7 +3,7 @@
 <table>
   <tr>
     <th>Tax rate</th>
-    <th>User</th>
+    
     <th>Company</th>
     <th></th>
     <th></th>
@@ -13,10 +13,10 @@
 <% @vats.each do |vat| %>
   <tr>
     <td><%= vat.tax_rate %></td>
-    <td><%= vat.user_id %></td>
+    
     <td><%= vat.company_id %></td>
     <td><%= link_to 'Show', vat %></td>
-    <td><%= link_to 'Edit', edit_vat_path(vat) %></td>
+    
     <td><%= link_to 'Destroy', vat, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>

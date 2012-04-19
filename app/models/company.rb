@@ -8,4 +8,7 @@ class Company < ActiveRecord::Base
               :thumb => "-background '#F7F4F4' -compose Copy -gravity center -extent 80x75"
           }
           
+          
+         
+          
 end

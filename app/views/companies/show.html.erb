@@ -73,5 +73,14 @@
 <%= image_tag @company.logo.url(:thumb) %>
 
 
+<h2>VAT</h2>
+<%= link_to "Add Vat", {:controller=>"vats", :action=>"new", :company_id=>"#{@company.id}"} %>
+
+<h2>Category</h2>
+<%= link_to "Add Category", {:controller=>"categories", :action=>"new", :company_id=>"#{@company.id}"} %>
+
+<br/><br/>
+
+
 <%= link_to 'Edit', edit_company_path(@company) %> |
 <%= link_to 'Back', companies_path %>

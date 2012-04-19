@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-      @users = User.all
+      @users = User.find_all_by_admin_id(current_user.id)
 
         respond_to do |format|
           format.html # index.html.erb

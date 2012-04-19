@@ -1,4 +1,7 @@
-Floorsys::Application.routes.draw do
+Floorsys::Application.routes.draw do|map|
+  
+  map.connect '/users/:id/delete', :controller=>'users', :action=>'destroy'
+  map.connect '/companies/:id/delete', :controller=>'companies', :action=>'destroy'
   
 
   resources :outgoing_types
