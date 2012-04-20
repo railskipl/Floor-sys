@@ -1,0 +1,83 @@
+<%= form_for(@contact) do |f| %>
+  <% if @contact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+
+      <ul>
+      <% @contact.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :contact_name %><br />
+    <%= f.text_field :contact_name %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_position %><br />
+    <%= f.text_field :contact_position %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_address1 %><br />
+    <%= f.text_area :contact_address1 %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_address2 %><br />
+    <%= f.text_area :contact_address2 %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_town %><br />
+    <%= f.text_field :contact_town %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_country %><br />
+    <%= f.text_field :contact_country %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_postcode %><br />
+    <%= f.text_field :contact_postcode %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_vat_number %><br />
+    <%= f.text_field :contact_vat_number %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_telephone %><br />
+    <%= f.text_field :contact_telephone %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_fax %><br />
+    <%= f.text_field :contact_fax %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_email %><br />
+    <%= f.text_field :contact_email %>
+  </div>
+  <div class="field">
+    <%= f.label :nominal_code %><br />
+    <%= f.text_field :nominal_code %>
+  </div>
+  <div class="field">
+    <%= f.label :vat_rate_sales %><br />
+    <%= f.text_field :vat_rate_sales %>
+  </div>
+  <div class="field">
+    <%= f.label :vat_rate_purchases %><br />
+    <%= f.text_field :vat_rate_purchases %>
+  </div>
+  <div class="field">
+    <%= f.label :skype %><br />
+    <%= f.text_field :skype %>
+  </div>
+  <div class="field">
+    <%= f.label :msn %><br />
+    <%= f.text_field :msn %>
+    <%= f.hidden_field :company_id, :value=>"#{current_user.company_id}" %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

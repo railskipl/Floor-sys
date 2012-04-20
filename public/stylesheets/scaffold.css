@@ -62,3 +62,8 @@ div.field, div.actions {
 .nested_categories .nested_categories .nested_categories .nested_categories {
   margin-left: 0;
 }
+
+.error {
+    color: #FE1717;
+    font: 13px "Trebuchet MS",Arial,Helvetica,sans-serif,sans-serif;
+}

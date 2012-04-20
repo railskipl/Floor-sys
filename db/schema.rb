@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120420042509) do
+ActiveRecord::Schema.define(:version => 20120420061906) do
 
   create_table "categories", :force => true do |t|
     t.string   "category_name"
@@ -43,6 +43,28 @@ ActiveRecord::Schema.define(:version => 20120420042509) do
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
     t.string   "country_name"
+  end
+
+  create_table "contacts", :force => true do |t|
+    t.string   "contact_name"
+    t.string   "contact_position"
+    t.text     "contact_address1"
+    t.text     "contact_address2"
+    t.string   "contact_town"
+    t.string   "contact_country"
+    t.string   "contact_postcode"
+    t.string   "contact_vat_number"
+    t.string   "contact_telephone"
+    t.string   "contact_fax"
+    t.string   "contact_email"
+    t.string   "nominal_code"
+    t.string   "vat_rate_sales"
+    t.string   "vat_rate_purchases"
+    t.string   "skype"
+    t.string   "msn"
+    t.integer  "company_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "countries", :force => true do |t|
