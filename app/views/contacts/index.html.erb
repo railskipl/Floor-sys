@@ -1,27 +1,27 @@
-<h1>Listing contacts</h1>
+<h1>Listing vats</h1>
 
 <table>
   <tr>
-    <th>Contact name</th>
-    <th>Contact position</th>
-    <th>Contact address1</th>
+    <th>Tax rate</th>
+    
+    <th>Company</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
-<% @contacts.each do |contact| %>
+<% @vats.each do |vat| %>
   <tr>
-    <td><%= contact.contact_name %></td>
-    <td><%= contact.contact_position %></td>
-    <td><%= contact.contact_address1 %></td>
-    <td><%= link_to 'Show', contact %></td>
-    <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
-    <td><%= link_to 'Destroy', contact, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= vat.tax_rate %></td>
+    
+    <td><%= vat.company_id %></td>
+    <td><%= link_to 'Show', vat %></td>
+    
+    <td><%= link_to 'Destroy', {:controller=>"vats", :action=>"destroy", :id=>"#{vat.id}"} , { :confirm => 'Are you sure?'} %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Contact', new_contact_path %>
+<%= link_to 'New Vat', new_vat_path %>

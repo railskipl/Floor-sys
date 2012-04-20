@@ -13,19 +13,20 @@ class VatsController < ApplicationController
       format.xml  { render :xml => @vats }
     end
    else
-        redirect_to("/dashboard", :notice => 'Please create company.')
+        redirect_to("/dashboard")
    end
   end
 
   # GET /vats/1
   # GET /vats/1.xml
   def show
+  
     @vat = Vat.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @vat }
     end
+   
   end
 
   # GET /vats/new
@@ -87,12 +88,15 @@ class VatsController < ApplicationController
   # DELETE /vats/1
   # DELETE /vats/1.xml
   def destroy
+  
     @vat = Vat.find(params[:id])
     @vat.destroy
 
     respond_to do |format|
-      format.html { redirect_to(vats_url) }
+      format.html { redirect_to({:controller=>"vats", :action=>"index", :company_id=>"#{@vat.company_id}"}) }
       format.xml  { head :ok }
     end
+    
+   
   end
 end
