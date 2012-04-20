@@ -17,7 +17,7 @@
 <% end %>
 <% if can? :new, Company %>
   <%= link_to 'Company', {:controller=>"companies", :action=>"index"} %> | 
-<%= link_to 'Create Company', new_company_path %> | 
+<%= link_to 'New Company', new_company_path %> | 
 <% end %>
 
   Signed in as <%= current_user.username %>. Not you?

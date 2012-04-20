@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120419061413) do
+ActiveRecord::Schema.define(:version => 20120420042509) do
 
   create_table "categories", :force => true do |t|
     t.string   "category_name"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20120419061413) do
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
+    t.string   "country_name"
   end
 
   create_table "countries", :force => true do |t|

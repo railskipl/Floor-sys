@@ -34,7 +34,7 @@
   </div>
   <div class="field">
     <%= f.label :country %><br />
-    <%= select :company, :country, Country.all.map {|c| [c.country_name]} %>
+    <%= select :company, :country_name, Country.all.map {|c| [c.country_name]} %>
   </div>
   <div class="field">
     <%= f.label :post_code %><br />
