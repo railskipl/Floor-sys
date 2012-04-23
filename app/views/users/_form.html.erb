@@ -75,6 +75,7 @@
                                       <% if current_user.id != 1 %>
                                         <% if role.id == 2 %>
                                           <%= f.hidden_field :admin_id, :value => current_user.id %>
+                                          <%= f.hidden_field :company_id, :value => current_user.company_id %>
                                          <%= check_box_tag "user[role_ids][]",3, @user.roles.include?(role) %>
                                         <%= "staff" %> 
                                         <% end %>

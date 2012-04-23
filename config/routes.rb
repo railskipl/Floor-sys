@@ -1,5 +1,9 @@
 Floorsys::Application.routes.draw do|map|
   
+  resources :prospects
+
+  resources :customers
+
   resources :contacts
 
   map.connect '/vats/company.id/delete', :controller=>'vats', :action=>'destroy'

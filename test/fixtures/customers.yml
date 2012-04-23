@@ -1,0 +1,65 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  contact_id: 1
+  nominal_gl_code: MyString
+  vat_rate_sales: MyString
+  vat_rate_purchases: MyString
+  contact_group: MyString
+  company_no: MyString
+  business_type: MyString
+  bank_name: MyString
+  account_name: MyString
+  sort_code: MyString
+  account_number: MyString
+  credit_limit: MyString
+  terms: MyString
+  on_hold: MyString
+  account_balance: MyString
+  note_date: 2012-04-23 11:47:07
+  note_type: MyString
+  note_description: MyString
+  attachement_date: 2012-04-23
+  attachement_type: MyString
+  attachement_details: MyString
+  status: MyString
+  communication_date: 2012-04-23 11:47:07
+  contact_type: MyString
+  contact: MyString
+  outcome: MyText
+  note_date: 2012-04-23
+  note: MyText
+  added_by: 1
+  company_id: 1
+
+two:
+  contact_id: 1
+  nominal_gl_code: MyString
+  vat_rate_sales: MyString
+  vat_rate_purchases: MyString
+  contact_group: MyString
+  company_no: MyString
+  business_type: MyString
+  bank_name: MyString
+  account_name: MyString
+  sort_code: MyString
+  account_number: MyString
+  credit_limit: MyString
+  terms: MyString
+  on_hold: MyString
+  account_balance: MyString
+  note_date: 2012-04-23 11:47:07
+  note_type: MyString
+  note_description: MyString
+  attachement_date: 2012-04-23
+  attachement_type: MyString
+  attachement_details: MyString
+  status: MyString
+  communication_date: 2012-04-23 11:47:07
+  contact_type: MyString
+  contact: MyString
+  outcome: MyText
+  note_date: 2012-04-23
+  note: MyText
+  added_by: 1
+  company_id: 1

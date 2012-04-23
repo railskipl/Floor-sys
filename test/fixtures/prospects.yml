@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  telephone: MyString
+  online: MyString
+  walk_in: MyText
+  product_interest: MyString
+  quotation_number_sent: MyString
+  date_of_purchase_to_make: MyString
+  notes: MyText
+  sales_person: 1
+  company_id: 1
+
+two:
+  telephone: MyString
+  online: MyString
+  walk_in: MyText
+  product_interest: MyString
+  quotation_number_sent: MyString
+  date_of_purchase_to_make: MyString
+  notes: MyText
+  sales_person: 1
+  company_id: 1

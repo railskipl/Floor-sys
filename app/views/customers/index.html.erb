@@ -1,0 +1,29 @@
+<h1>Listing customers</h1>
+
+<table>
+  <tr>
+    <th>Contact</th>
+    <th>Nominal gl code</th>
+    <th>Vat rate sales</th>
+    <th>Vat rate purchases</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @customers.each do |customer| %>
+  <tr>
+    <td><%= customer.contact_id %></td>
+    <td><%= customer.nominal_gl_code %></td>
+    <td><%= customer.vat_rate_sales %></td>
+    <td><%= customer.vat_rate_purchases %></td>
+    <td><%= link_to 'Show', customer %></td>
+    <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+    <td><%= link_to 'Destroy', customer, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Customer', new_customer_path %>

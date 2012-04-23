@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120420061906) do
+ActiveRecord::Schema.define(:version => 20120423072555) do
 
   create_table "categories", :force => true do |t|
     t.string   "category_name"
@@ -73,12 +73,61 @@ ActiveRecord::Schema.define(:version => 20120420061906) do
     t.datetime "updated_at"
   end
 
+  create_table "customers", :force => true do |t|
+    t.integer  "contact_id"
+    t.string   "nominal_gl_code"
+    t.string   "vat_rate_sales"
+    t.string   "vat_rate_purchases"
+    t.string   "contact_group"
+    t.string   "company_no"
+    t.string   "business_type"
+    t.string   "bank_name"
+    t.string   "account_name"
+    t.string   "sort_code"
+    t.string   "account_number"
+    t.string   "credit_limit"
+    t.string   "terms"
+    t.string   "on_hold"
+    t.string   "account_balance"
+    t.datetime "note_date"
+    t.string   "note_type"
+    t.string   "note_description"
+    t.date     "attachement_date"
+    t.string   "attachement_type"
+    t.string   "attachement_details"
+    t.string   "status"
+    t.datetime "communication_date"
+    t.string   "contact_type"
+    t.string   "contact"
+    t.text     "outcome"
+    t.text     "note"
+    t.integer  "added_by"
+    t.integer  "company_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "outgoing_types", :force => true do |t|
     t.string   "code"
     t.string   "name"
     t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "prospects", :force => true do |t|
+    t.string   "telephone"
+    t.string   "online"
+    t.text     "walk_in"
+    t.string   "product_interest"
+    t.string   "quotation_number_sent"
+    t.string   "date_of_purchase_to_make"
+    t.text     "notes"
+    t.integer  "sales_person"
+    t.integer  "company_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.date     "date_of_purchase"
   end
 
   create_table "roles", :force => true do |t|

@@ -10,18 +10,18 @@
     <th></th>
   </tr>
 
-<% @vats.each do |vat| %>
+<% @contacts.each do |contact| %>
   <tr>
-    <td><%= vat.tax_rate %></td>
+    <td><%= contact.contact_name %></td>
     
-    <td><%= vat.company_id %></td>
-    <td><%= link_to 'Show', vat %></td>
+    <td><%= contact.contact_position %></td>
+    <td><%= link_to 'Show', contact %></td>
     
-    <td><%= link_to 'Destroy', {:controller=>"vats", :action=>"destroy", :id=>"#{vat.id}"} , { :confirm => 'Are you sure?'} %></td>
+    <td><%= link_to 'Destroy', {:controller=>"contacts", :action=>"destroy", :id=>"#{contact.id}"} , { :confirm => 'Are you sure?'} %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Vat', new_vat_path %>
+<%= link_to 'New Contact', new_contact_path %>

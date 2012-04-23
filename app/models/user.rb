@@ -22,9 +22,7 @@ class User < ActiveRecord::Base
       return !!self.roles.find_by_name(role.to_s)
   end
   
-  def password_required?
-    (authentications.empty? || !password.blank?) && super  
-    end                                                
+                                            
          
       def update_with_password(params={}) 
       if params[:password].blank? 

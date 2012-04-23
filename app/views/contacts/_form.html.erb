@@ -33,7 +33,7 @@
   </div>
   <div class="field">
     <%= f.label :contact_country %><br />
-    <%= f.text_field :contact_country %>
+    <%= select :contact, :contact_country, Country.all.map {|c| [c.country_name]} %>
   </div>
   <div class="field">
     <%= f.label :contact_postcode %><br />

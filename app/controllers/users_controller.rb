@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  
+  before_filter :authenticate_user!, :except => []
+  
   def index
       @users = User.find_all_by_admin_id(current_user.id)
 

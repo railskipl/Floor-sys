@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Telephone:</b>
+  <%= @prospect.telephone %>
+</p>
+
+<p>
+  <b>Online:</b>
+  <%= @prospect.online %>
+</p>
+
+<p>
+  <b>Walk in:</b>
+  <%= @prospect.walk_in %>
+</p>
+
+<p>
+  <b>Product interest:</b>
+  <%= @prospect.product_interest %>
+</p>
+
+<p>
+  <b>Quotation number sent:</b>
+  <%= @prospect.quotation_number_sent %>
+</p>
+
+<p>
+  <b>Date of purchase to make:</b>
+  <%= @prospect.date_of_purchase_to_make %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @prospect.notes %>
+</p>
+
+<p>
+  <b>Sales person:</b>
+  <%= @prospect.sales_person %>
+</p>
+
+<p>
+  <b>Company:</b>
+  <%= @prospect.company_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_prospect_path(@prospect) %> |
+<%= link_to 'Back', prospects_path %>
