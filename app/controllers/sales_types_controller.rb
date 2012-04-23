@@ -1,40 +1,58 @@
 class SalesTypesController < ApplicationController
+  
+  before_filter :authenticate_user!, :except => []
+  
   # GET /sales_types
   # GET /sales_types.xml
   def index
-    @sales_types = SalesType.all
+       if params[:company_id]
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @sales_types }
-    end
+         @sales_types = SalesType.all
+
+        respond_to do |format|
+          format.html # index.html.erb
+          format.xml  { render :xml =>  @sales_types }
+        end
+       else
+            redirect_to("/dashboard", :notice => 'Please create company.')
+       end
   end
 
   # GET /sales_types/1
   # GET /sales_types/1.xml
   def show
-    @sales_type = SalesType.find(params[:id])
 
+    @sales_type = SalesType.find(params[:id])
+   
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @sales_type }
     end
+  
   end
 
   # GET /sales_types/new
   # GET /sales_types/new.xml
   def new
-    @sales_type = SalesType.new
+     if params[:company_id]
+        @sales_type = SalesType.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @sales_type }
-    end
+        respond_to do |format|
+          format.html # new.html.erb
+          format.xml  { render :xml => @outgoing_type }
+        end
+         else
+                redirect_to("/dashboard")
+           end
   end
 
   # GET /sales_types/1/edit
   def edit
-    @sales_type = SalesType.find(params[:id])
+     if params[:company_id]
+     @sales_type = SalesType.find(params[:id])
+      else
+            redirect_to("/dashboard")
+       end
   end
 
   # POST /sales_types
@@ -76,7 +94,7 @@ class SalesTypesController < ApplicationController
     @sales_type.destroy
 
     respond_to do |format|
-      format.html { redirect_to(sales_types_url) }
+      format.html { redirect_to({:controller=>"sales_types", :action=>"index", :company_id=>"#{@sales_type.company_id}"}) }
       format.xml  { head :ok }
     end
   end

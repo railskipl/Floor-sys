@@ -2,39 +2,53 @@ class OutgoingTypesController < ApplicationController
   # GET /outgoing_types
   # GET /outgoing_types.xml
   def index
-    @outgoing_types = OutgoingType.all
+   
+     if params[:company_id]
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @outgoing_types }
-    end
+     @outgoing_types = OutgoingType.all
+
+      respond_to do |format|
+        format.html # index.html.erb
+        format.xml  { render :xml => @outgoing_types }
+      end
+     else
+          redirect_to("/dashboard", :notice => 'Please create company.')
+     end
   end
 
   # GET /outgoing_types/1
   # GET /outgoing_types/1.xml
   def show
+
     @outgoing_type = OutgoingType.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @outgoing_type }
     end
+   
   end
 
   # GET /outgoing_types/new
   # GET /outgoing_types/new.xml
   def new
-    @outgoing_type = OutgoingType.new
+    if params[:company_id]
+      @outgoing_type = OutgoingType.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @outgoing_type }
-    end
+      respond_to do |format|
+        format.html # new.html.erb
+        format.xml  { render :xml => @outgoing_type }
+      end
+       else
+              redirect_to("/dashboard")
+         end
   end
 
   # GET /outgoing_types/1/edit
   def edit
-    @outgoing_type = OutgoingType.find(params[:id])
+    
+      @outgoing_type = OutgoingType.find(params[:id])
+     
   end
 
   # POST /outgoing_types
@@ -76,7 +90,7 @@ class OutgoingTypesController < ApplicationController
     @outgoing_type.destroy
 
     respond_to do |format|
-      format.html { redirect_to(outgoing_types_url) }
+       format.html { redirect_to({:controller=>"outgoing_types", :action=>"index", :company_id=>"#{@outgoing_type.company_id}"}) }
       format.xml  { head :ok }
     end
   end

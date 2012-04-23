@@ -79,6 +79,11 @@
 <h2>Category</h2>
 <%= link_to "Add Category", {:controller=>"categories", :action=>"new", :company_id=>"#{@company.id}"} %>
 
+<h2>Sales Types</h2>
+<%= link_to "Add Category", {:controller=>"sales_types", :action=>"new", :company_id=>"#{@company.id}"} %>
+
+<h2>Outgoing Types</h2>
+<%= link_to "Add Category", {:controller=>"outgoing_types", :action=>"new", :company_id=>"#{@company.id}"} %>
 <br/><br/>
 
 

@@ -13,7 +13,7 @@ class VatsController < ApplicationController
       format.xml  { render :xml => @vats }
     end
    else
-        redirect_to("/dashboard")
+        redirect_to("/dashboard", :notice => 'Please create company.')
    end
   end
 

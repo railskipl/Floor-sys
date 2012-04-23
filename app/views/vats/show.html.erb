@@ -12,5 +12,5 @@
 </p>
 
 
-
+<a href ='/vats/<%= @vat.id %>/edit?company_id=<%= @vat.company_id %>' >Edit</a>
 <%= link_to 'Back', {:controller=>"vats", :action=>"index", :company_id=>"#{@vat.company_id}"} %>

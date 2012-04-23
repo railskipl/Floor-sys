@@ -17,11 +17,9 @@
     <td><%= vat.company_id %></td>
     <td><%= link_to 'Show', vat %></td>
     
-    <td><%= link_to 'Destroy', vat, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Destroy', {:controller=>"vats", :action=>"destroy", :id=>"#{vat.id}"} , { :confirm => 'Are you sure?'} %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Vat', new_vat_path %>

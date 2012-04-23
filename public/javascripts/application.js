@@ -5,10 +5,6 @@ $(document).ready(function() {
   $("#new_company").validate({
 	errorElement:'div',
 	rules: {
-		"company[user_id]":{
-						required:true
-				
-		},
 		"company[company_name]":{
 					                  required: true,
                         			character:true,
@@ -18,13 +14,13 @@ $(document).ready(function() {
 		"company[email]":{
 						required:true,
 						email:true
-		}
-			
+		},
+			"company[user_id]":{
+							required:true
+					
+			}
 		},
 	messages: {
-		"company[user_id]":{
-						            required: "Please select the user"							         
-		},
 		"company[company_name]":{
 			required: "Please enter company name",
                         character: "Please enter only character",
@@ -34,8 +30,10 @@ $(document).ready(function() {
 		"company[email]":{
 						            required: "Please enter email address",
 						            email: "Please enter valid email id"						
-		}
-			
+		},
+			"company[user_id]":{
+							            required: "Please select the user"							         
+			}
 		
 		}
 	});

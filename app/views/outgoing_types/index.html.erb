@@ -16,12 +16,12 @@
     <td><%= outgoing_type.name %></td>
     <td><%= outgoing_type.company_id %></td>
     <td><%= link_to 'Show', outgoing_type %></td>
-    <td><%= link_to 'Edit', edit_outgoing_type_path(outgoing_type) %></td>
-    <td><%= link_to 'Destroy', outgoing_type, :confirm => 'Are you sure?', :method => :delete %></td>
+ 
+    <td><%= link_to 'Destroy', {:controller=>"outgoing_types", :action=>"destroy", :id=>"#{outgoing_type.id}"} , { :confirm => 'Are you sure?'} %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Outgoing type', new_outgoing_type_path %>
+
