@@ -1,0 +1,58 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Contact:</b>
+  <% if @subcontractor.contact_id.nil? %>
+  <% else %>
+     <% @contact = Contact.find(@subcontractor.contact_id) %>
+      <%= @contact.contact_name %>
+  <% end %>
+  
+  
+</p>
+
+<p>
+  <b>Rate:</b>
+  <%= @subcontractor.rate %>
+</p>
+
+<p>
+  <b>Communication date:</b>
+  <%= @subcontractor.communication_date %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @subcontractor.type_id %>
+</p>
+
+<p>
+  <b>Contact:</b>
+  <%= @subcontractor.contact %>
+</p>
+
+<p>
+  <b>Outcome:</b>
+  <%= @subcontractor.outcome %>
+</p>
+
+<p>
+  <b>Note date:</b>
+  <%= @subcontractor.note_date %>
+</p>
+
+<p>
+  <b>Note:</b>
+  <%= @subcontractor.note %>
+</p>
+
+<p>
+  <b>Addded by:</b>
+  <%= @subcontractor.addded_by %>
+</p>
+
+
+
+
+<%= link_to 'Edit', edit_subcontractor_path(@subcontractor) %> |
+<%= link_to 'Back', subcontractors_path %>

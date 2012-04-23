@@ -1,8 +1,14 @@
-<p id="notice"><%= notice %></p>
+
 
 <p>
   <b>Contact:</b>
-  <%= @customer.contact_id %>
+  
+  <% if @customer.contact_id.nil? %>
+  <% else %>
+     <% @contact = Contact.find(@customer.contact_id) %>
+      <%= @contact.contact_name %>
+  <% end %>
+  
 </p>
 
 <p>
@@ -142,13 +148,10 @@
 
 <p>
   <b>Added by:</b>
-  <%= @customer.added_by %>
+  <%= @customer.added_by_customer %>
 </p>
 
-<p>
-  <b>Company:</b>
-  <%= @customer.company_id %>
-</p>
+
 
 
 <%= link_to 'Edit', edit_customer_path(@customer) %> |

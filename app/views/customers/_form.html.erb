@@ -14,7 +14,7 @@
   <div class="field">
     <%= f.label :contact_id %><br />
    
-    <%= select :company, :contact_id, @contact.map {|c| ["#{c.contact_name}", c.id]} %>
+    <%= select :customer, :contact_id, @contact.map {|c| ["#{c.contact_name}", c.id]} %>
   </div>
   <div class="field">
     <%= f.label :nominal_gl_code %><br />
@@ -93,8 +93,8 @@
     <%= f.text_field :attachement_type %>
   </div>
   <div class="field">
-    <%= f.label :attachement_details %><br />
-    <%= f.text_field :attachement_details %>
+    <%= f.label :attachement_detail %><br />
+    <%= f.text_area :attachement_detail %>
   </div>
   <div class="field">
     <%= f.label :status %><br />
@@ -125,8 +125,8 @@
     <%= f.text_area :note %>
   </div>
   <div class="field">
-    <%= f.label :added_by %><br />
-    <%= f.text_field :added_by %>
+    <%= f.label :added_by_customer, "Added by" %><br />
+    <%= f.text_field :added_by_customer %>
     <%= f.hidden_field :company_id, :value=>"#{current_user.company_id}" %>
   </div>
   

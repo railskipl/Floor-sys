@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120423072555) do
+ActiveRecord::Schema.define(:version => 20120423113449) do
 
   create_table "categories", :force => true do |t|
     t.string   "category_name"
@@ -105,6 +105,8 @@ ActiveRecord::Schema.define(:version => 20120423072555) do
     t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "attachement_detail"
+    t.string   "added_by_customer"
   end
 
   create_table "outgoing_types", :force => true do |t|
@@ -128,6 +130,7 @@ ActiveRecord::Schema.define(:version => 20120423072555) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "date_of_purchase"
+    t.integer  "customer_id"
   end
 
   create_table "roles", :force => true do |t|
@@ -144,6 +147,21 @@ ActiveRecord::Schema.define(:version => 20120423072555) do
   create_table "sales_types", :force => true do |t|
     t.string   "code"
     t.string   "name"
+    t.integer  "company_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "subcontractors", :force => true do |t|
+    t.integer  "contact_id"
+    t.string   "rate"
+    t.datetime "communication_date"
+    t.integer  "type_id"
+    t.string   "contact"
+    t.text     "outcome"
+    t.date     "note_date"
+    t.text     "note"
+    t.string   "addded_by"
     t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"

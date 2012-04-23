@@ -13,13 +13,19 @@
 
 <% @customers.each do |customer| %>
   <tr>
-    <td><%= customer.contact_id %></td>
+    <td>
+    <% if customer.contact_id.nil? %>
+    <% else %>
+       <% @contact = Contact.find(customer.contact_id) %>
+        <%= @contact.contact_name %>
+    <% end %>
+    </td>
     <td><%= customer.nominal_gl_code %></td>
     <td><%= customer.vat_rate_sales %></td>
     <td><%= customer.vat_rate_purchases %></td>
     <td><%= link_to 'Show', customer %></td>
     <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-    <td><%= link_to 'Destroy', customer, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Destroy', {:controller=>'customers', :action=>'destroy', :id=>"#{customer.id}"}, :confirm => 'Are you sure?' %></td>
   </tr>
 <% end %>
 </table>

@@ -1,4 +1,7 @@
 class ProspectsController < ApplicationController
+  
+  before_filter :authenticate_user!, :except => []
+  
   # GET /prospects
   # GET /prospects.xml
   def index
@@ -25,7 +28,7 @@ class ProspectsController < ApplicationController
   # GET /prospects/new.xml
   def new
     @prospect = Prospect.new
-
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @prospect }

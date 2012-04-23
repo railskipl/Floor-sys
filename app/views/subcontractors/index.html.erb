@@ -1,0 +1,46 @@
+<h1>Listing subcontractors</h1>
+
+<table>
+  <tr>
+    <th>Contact</th>
+    <th>Rate</th>
+    <th>Communication date</th>
+    <th>Type</th>
+    <th>Contact</th>
+    <th>Outcome</th>
+    <th>Note date</th>
+    <th>Note</th>
+    <th>Addded by</th>
+    
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @subcontractors.each do |subcontractor| %>
+  <tr>
+    <td><% if subcontractor.contact_id.nil? %>
+    <% else %>
+       <% @contact = Contact.find(subcontractor.contact_id) %>
+        <%= @contact.contact_name %>
+    <% end %>
+    </td>
+    <td><%= subcontractor.rate %></td>
+    <td><%= subcontractor.communication_date %></td>
+    <td><%= subcontractor.type_id %></td>
+    <td><%= subcontractor.contact %></td>
+    <td><%= subcontractor.outcome %></td>
+    <td><%= subcontractor.note_date %></td>
+    <td><%= subcontractor.note %></td>
+    <td><%= subcontractor.addded_by %></td>
+    
+    <td><%= link_to 'Show', subcontractor %></td>
+    <td><%= link_to 'Edit', edit_subcontractor_path(subcontractor) %></td>
+    <td><%= link_to 'Destroy', {:controller=>'subcontractors', :action=>'destroy', :id=>"#{subcontractor.id}"}, :confirm => 'Are you sure?' %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Subcontractor', new_subcontractor_path %>

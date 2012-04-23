@@ -17,6 +17,7 @@ class CustomersController < ApplicationController
   # GET /customers/1.xml
   def show
     @customer = Customer.find(params[:id])
+    
 
     respond_to do |format|
       format.html # show.html.erb
@@ -40,6 +41,7 @@ class CustomersController < ApplicationController
   # GET /customers/1/edit
   def edit
     @customer = Customer.find(params[:id])
+    @contact = Contact.find_all_by_company_id(current_user.company_id)
   end
 
   # POST /customers
