@@ -4,12 +4,12 @@ common: &common
 
 development:
     <<: *common
-    bucket: stbgroup
+    bucket: floor_sys
 
 test:
     <<: *common
-    bucket: stbgroup
+    bucket: floor_sys
 
 production:
     <<: *common
-    bucket: stbgroup
+    bucket: floor_sys
