@@ -1,6 +1,7 @@
 class SubcontractorsController < ApplicationController
   
   before_filter :authenticate_user!, :except => []
+  load_and_authorize_resource
   
   # GET /subcontractors
   # GET /subcontractors.xml

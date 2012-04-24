@@ -1,5 +1,7 @@
 Floorsys::Application.routes.draw do|map|
   
+  resources :suppliers
+
   map.connect '/sale_representatives/:id/delete', :controller=>'sale_representatives', :action=>'destroy'
   resources :sale_representatives
 

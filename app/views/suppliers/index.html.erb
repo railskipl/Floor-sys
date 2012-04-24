@@ -1,0 +1,61 @@
+<h1>Listing suppliers</h1>
+
+<table>
+  <tr>
+    <th>Account reference</th>
+    <th>Company name</th>
+    <th>Account number</th>
+    <th>Vat number</th>
+    <th>Address line1</th>
+    <th>Address line2</th>
+    <th>Address line3</th>
+    <th>Town</th>
+    <th>Country</th>
+    <th>Postcode</th>
+    <th>Website</th>
+    <th>Glcode</th>
+    <th>Communication date</th>
+    <th>Type</th>
+    <th>Contact</th>
+    <th>Outcome</th>
+    <th>Note date</th>
+    <th>Note</th>
+    <th>Added by</th>
+    <th>Company</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @suppliers.each do |supplier| %>
+  <tr>
+    <td><%= supplier.account_reference %></td>
+    <td><%= supplier.company_name %></td>
+    <td><%= supplier.account_number %></td>
+    <td><%= supplier.vat_number %></td>
+    <td><%= supplier.address_line1 %></td>
+    <td><%= supplier.address_line2 %></td>
+    <td><%= supplier.address_line3 %></td>
+    <td><%= supplier.town %></td>
+    <td><%= supplier.country %></td>
+    <td><%= supplier.postcode %></td>
+    <td><%= supplier.website %></td>
+    <td><%= supplier.glcode %></td>
+    <td><%= supplier.communication_date %></td>
+    <td><%= supplier.type_id %></td>
+    <td><%= supplier.contact %></td>
+    <td><%= supplier.outcome %></td>
+    <td><%= supplier.note_date %></td>
+    <td><%= supplier.note %></td>
+    <td><%= supplier.added_by %></td>
+    <td><%= supplier.company_id %></td>
+    <td><%= link_to 'Show', supplier %></td>
+    <td><%= link_to 'Edit', edit_supplier_path(supplier) %></td>
+    <td><%= link_to 'Destroy', supplier, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Supplier', new_supplier_path %>
