@@ -559,3 +559,48 @@ $(document).ready(function() {
 		}
 	});
 });
+
+
+$(document).ready(function() {
+  $("#new_sale_representative").validate({
+	errorElement:'div',
+	rules: {
+	
+		
+		"sale_representative[type_id]":{
+						required:true
+		},
+		"sale_representative[contact]":{
+						required:true
+		},
+		"sale_representative[outcome]":{
+						required:true
+		},
+		"sale_representative[note]":{
+						required:true
+		},
+		"sale_representative[added_by]":{
+						required:true
+		}
+		},
+	messages: {
+		
+			"sale_representative[type_id]":{
+	required: "This field is required."
+			},
+			"sale_representative[contact]":{
+							required: "This field is required."
+			},
+			"sale_representative[outcome]":{
+							required: "This field is required."
+			},
+			"sale_representative[note]":{
+								required: "This field is required."
+			},
+			"sale_representative[added_by]":{
+							required: "This field is required."
+			}
+		
+		}
+	});
+});
