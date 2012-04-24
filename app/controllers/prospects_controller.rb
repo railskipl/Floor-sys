@@ -1,6 +1,7 @@
 class ProspectsController < ApplicationController
   
   before_filter :authenticate_user!, :except => []
+  load_and_authorize_resource
   
   # GET /prospects
   # GET /prospects.xml

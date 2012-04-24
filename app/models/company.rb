@@ -4,6 +4,9 @@ class Company < ActiveRecord::Base
         :styles => { :thumb => "80x75" },
        
        
+        :storage => :s3, 
+        :bucket => "floor_sys", :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
+                :path => "company/:id/:style/:basename.:extension",
         
         :convert_options => {
               :thumb => "-background '#F7F4F4' -compose Copy -gravity center -extent 80x75"

@@ -15,12 +15,16 @@ class Ability
       can :manage, [User]
       can :manage, [Contact]
       can :manage, [Customer]
+      can :manage, [Prospect]
+      can :manage, [SaleRepresentative]
       # check if user is staff grant only 'read & 'manage' permissions
     elsif user.role? :staff
       can :read, [User]
       can :manage, [User]
       can :manage, [Contact]
       can :manage, [Customer]
+      can :manage, [Prospect]
+      can :manage, [SaleRepresentative]
     else
       can :manage, [Role]
       can :manage, [Contact]

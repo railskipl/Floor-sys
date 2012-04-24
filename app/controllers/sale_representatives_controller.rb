@@ -1,4 +1,8 @@
 class SaleRepresentativesController < ApplicationController
+  
+  before_filter :authenticate_user!, :except => []
+  load_and_authorize_resource
+  
   # GET /sale_representatives
   # GET /sale_representatives.xml
   def index

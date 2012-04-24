@@ -510,3 +510,52 @@ $(document).ready(function() {
 		}
 	});
 });
+
+$(document).ready(function() {
+  $("#new_subcontractor").validate({
+	errorElement:'div',
+	rules: {
+		"subcontractor[rate]":{
+					                  required: true
+			},
+		
+		"subcontractor[type_id]":{
+						required:true
+		},
+		"subcontractor[contact]":{
+						required:true
+		},
+		"subcontractor[outcome]":{
+						required:true
+		},
+		"subcontractor[note]":{
+						required:true
+		},
+		"subcontractor[addded_by]":{
+						required:true
+		}
+		},
+	messages: {
+			"subcontractor[rate]":{
+						   	required: "This field is required."
+				},
+
+			"subcontractor[type_id]":{
+	required: "This field is required."
+			},
+			"subcontractor[contact]":{
+							required: "This field is required."
+			},
+			"subcontractor[outcome]":{
+							required: "This field is required."
+			},
+			"subcontractor[note]":{
+								required: "This field is required."
+			},
+			"subcontractor[addded_by]":{
+							required: "This field is required."
+			}
+		
+		}
+	});
+});
