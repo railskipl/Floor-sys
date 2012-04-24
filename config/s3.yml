@@ -4,12 +4,12 @@ common: &common
 
 development:
     <<: *common
-    bucket: csoffice
+    bucket: floor_sys
 
 test:
     <<: *common
-    bucket: csoffice
+    bucket: floor_sys
 
 production:
     <<: *common
-    bucket: csoffice
+    bucket: floor_sys
