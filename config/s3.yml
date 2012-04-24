@@ -1,16 +1,15 @@
+common: &common
+    access_key_id: AKIAIWWQF5REKTC4ZYGQ
+    secret_access_key: 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
+
 development:
-      bucket: floor_sys
-      access_key_id: AKIAIWWQF5REKTC4ZYGQ
-      secret_access_key: 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
+    <<: *common
+    bucket: csoffice
+
+test:
+    <<: *common
+    bucket: csoffice
 
 production:
-      bucket: floor_sys
-      access_key_id: AKIAIWWQF5REKTC4ZYGQ
-      secret_access_key: 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
-
-
-
-    
-
- 
-
+    <<: *common
+    bucket: csoffice
