@@ -1,6 +1,7 @@
 class CustomersController < ApplicationController
   
   before_filter :authenticate_user!, :except => []
+  load_and_authorize_resource
   
   # GET /customers
   # GET /customers.xml

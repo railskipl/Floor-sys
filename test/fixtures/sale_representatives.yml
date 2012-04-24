@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  contact_id: 1
+  communication_date: 2012-04-24 11:11:55
+  type_id: 1
+  contact: MyString
+  outcome: MyText
+  note_date: 2012-04-24
+  note: MyText
+  added_by: MyString
+  company_id: 1
+
+two:
+  contact_id: 1
+  communication_date: 2012-04-24 11:11:55
+  type_id: 1
+  contact: MyString
+  outcome: MyText
+  note_date: 2012-04-24
+  note: MyText
+  added_by: MyString
+  company_id: 1

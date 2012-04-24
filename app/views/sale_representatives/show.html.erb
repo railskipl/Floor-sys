@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Contact:</b>
+  
+  <% if @sale_representative.contact_id.nil? %>
+  <% else %>
+     <% @contact = Contact.find(@sale_representative.contact_id) %>
+      <%= @contact.contact_name %>
+  <% end %>
+</p>
+
+<p>
+  <b>Communication date:</b>
+  <%= @sale_representative.communication_date %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @sale_representative.type_id %>
+</p>
+
+<p>
+  <b>Contact:</b>
+  <%= @sale_representative.contact %>
+</p>
+
+<p>
+  <b>Outcome:</b>
+  <%= @sale_representative.outcome %>
+</p>
+
+<p>
+  <b>Note date:</b>
+  <%= @sale_representative.note_date %>
+</p>
+
+<p>
+  <b>Note:</b>
+  <%= @sale_representative.note %>
+</p>
+
+<p>
+  <b>Added by:</b>
+  <%= @sale_representative.added_by %>
+</p>
+
+<p>
+  <b>Company:</b>
+  <%= @sale_representative.company_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_sale_representative_path(@sale_representative) %> |
+<%= link_to 'Back', sale_representatives_path %>

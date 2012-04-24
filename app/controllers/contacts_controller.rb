@@ -1,6 +1,7 @@
 class ContactsController < ApplicationController
   
   before_filter :authenticate_user!, :except => []
+  load_and_authorize_resource
   
   # GET /contacts
   # GET /contacts.xml
