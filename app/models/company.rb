@@ -4,8 +4,8 @@ class Company < ActiveRecord::Base
         :styles => { :thumb => "80x75" },
        
        
-        :storage => :s3, 
-        :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
+        :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
+        :path => "public/attachments/ads/:id/:style/:basename.:extension",
         
         
         
