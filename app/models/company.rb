@@ -5,7 +5,7 @@ class Company < ActiveRecord::Base
        
        
         :storage => :s3, 
-        :bucket =>"floor_sys"
+        
         :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
                 :path => "company/:id/:style/:basename.:extension", 
         
