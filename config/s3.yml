@@ -1,15 +1,16 @@
-common: &common
-    access_key_id: AKIAIWWQF5REKTC4ZYGQ
-    secret_access_key: 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
-
 development:
-    <<: *common
-    bucket: floor_sys
-
-test:
-    <<: *common
-    bucket: floor_sys
+      bucket: floor_sys
+      access_key_id: AKIAIWWQF5REKTC4ZYGQ
+      secret_access_key: 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
 
 production:
-    <<: *common
-    bucket: floor_sys
+      bucket: floor_sys
+      access_key_id: AKIAIWWQF5REKTC4ZYGQ
+      secret_access_key: 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
+
+
+
+    
+
+ 
+
