@@ -5,8 +5,10 @@ class Company < ActiveRecord::Base
        
        
         :storage => :s3, 
-        
         :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
+        
+        
+        
                 :path => "company/:id/:style/:basename.:extension", 
         
         :convert_options => {
