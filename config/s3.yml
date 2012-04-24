@@ -1,15 +1,16 @@
-common: &common
-    access_key_id: AKIAIWWQF5REKTC4ZYGQ
-    secret_access_key: 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
-
 development:
-    <<: *common
-    bucket: stbgroup
-
-test:
-    <<: *common
-    bucket: stbgroup
+      bucket: floor_sys
+      access_key_id: AKIAIWWQF5REKTC4ZYGQ
+      secret_access_key: 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
 
 production:
-    <<: *common
-    bucket: stbgroup
+      bucket: floor_sys
+      access_key_id: AKIAIWWQF5REKTC4ZYGQ
+      secret_access_key: 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
+
+
+
+    
+
+ 
+
