@@ -116,7 +116,7 @@ DEPENDENCIES
   cancan
   cocaine
   devise (= 1.2.rc)
-  paperclip (= 3.0.2)
+  paperclip
   rails (= 3.0.9)
   ruby-mysql
   sqlite3
