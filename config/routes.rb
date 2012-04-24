@@ -12,6 +12,7 @@ Floorsys::Application.routes.draw do|map|
   map.connect '/customers/:id/delete', :controller=>'customers', :action=>'destroy'
   resources :customers
 
+  map.connect '/contacts/:id/delete', :controller=>'contacts', :action=>'destroy'
   resources :contacts
 
   

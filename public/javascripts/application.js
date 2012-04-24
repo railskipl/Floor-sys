@@ -357,7 +357,7 @@ $(document).ready(function() {
 																					required:true
 
 																	},
-																				"customer[added_by]":{
+																				"customer[added_by_customer]":{
 																								required:true
 
 																				}
@@ -438,7 +438,7 @@ $(document).ready(function() {
 																	"customer[note]":{
  required: "This field is required."
 																	},
-																				"customer[added_by]":{
+																				"customer[added_by_customer]":{
  required: "This field is required."
 																				}
 		}

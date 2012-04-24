@@ -45,11 +45,9 @@
   <div class="field">
     <%= f.label :sales_person %><br />
     <%= f.text_field :sales_person %>
+    <%= f.hidden_field :company_id, :value=>"#{current_user.company_id}" %>
   </div>
-  <div class="field">
-    <%= f.label :company_id %><br />
-    <%= f.text_field :company_id %>
-  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

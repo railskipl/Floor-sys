@@ -97,10 +97,6 @@
     <%= f.text_area :attachement_detail %>
   </div>
   <div class="field">
-    <%= f.label :status %><br />
-    <%= f.text_field :status %>
-  </div>
-  <div class="field">
     <%= f.label :communication_date %><br />
     <%= f.datetime_select :communication_date %>
   </div>
@@ -129,7 +125,10 @@
     <%= f.text_field :added_by_customer %>
     <%= f.hidden_field :company_id, :value=>"#{current_user.company_id}" %>
   </div>
-  
+  <div class="field">
+    <%= f.label :status %><br />
+   <%= f.select( :status,  { "Customer" => "c", "Prospect" => "p"}) %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

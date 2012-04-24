@@ -7,10 +7,7 @@
     <th>Walk in</th>
     <th>Product interest</th>
     <th>Quotation number sent</th>
-    <th>Date of purchase to make</th>
-    <th>Notes</th>
-    <th>Sales person</th>
-    <th>Company</th>
+    
     <th></th>
     <th></th>
     <th></th>
@@ -23,10 +20,6 @@
     <td><%= prospect.walk_in %></td>
     <td><%= prospect.product_interest %></td>
     <td><%= prospect.quotation_number_sent %></td>
-    <td><%= prospect.date_of_purchase_to_make %></td>
-    <td><%= prospect.notes %></td>
-    <td><%= prospect.sales_person %></td>
-    <td><%= prospect.company_id %></td>
     <td><%= link_to 'Show', prospect %></td>
     <td><%= link_to 'Edit', edit_prospect_path(prospect) %></td>
     <td><%= link_to 'Destroy', {:controller=>'prospects', :action=>'destroy', :id=>"#{prospect.id}"}, :confirm => 'Are you sure?' %></td>

@@ -24,7 +24,16 @@
 <% end %>  
 <% if can? :new, Customer %>
  <%= link_to 'Create Customer', new_customer_path %> 
- <% end %>   
+ <% end %>  
+ <% if can? :new, SaleRepresentative %>
+  <%= link_to 'Create Sale Representative', new_sale_representative_path %> 
+  <% end %>
+  <% if can? :new, Subcontractor %>
+   <%= link_to 'Create Sub-contractor', new_subcontractor_path %> 
+   <% end %>
+   <% if can? :new, Prospect %>
+     <%= link_to 'Create Prospect', new_prospect_path %> 
+     <% end %> 
   Signed in as <%= current_user.username %>. Not you?
   <%= link_to "Sign out", destroy_user_session_path %>
 
