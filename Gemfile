@@ -11,7 +11,7 @@ gem 'cancan'
 
 gem 'ancestry'
 
-gem 'paperclip'
+gem 'paperclip', '3.0.2'
 
 gem 'cocaine'
 gem 'aws-s3'
