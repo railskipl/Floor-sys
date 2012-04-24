@@ -9,7 +9,7 @@ class Company < ActiveRecord::Base
         
         
         
-                :path => "company/:id/:style/:basename.:extension", 
+            
         
         :convert_options => {
               :thumb => "-background '#F7F4F4' -compose Copy -gravity center -extent 80x75"
