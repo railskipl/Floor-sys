@@ -604,3 +604,106 @@ $(document).ready(function() {
 		}
 	});
 });
+
+$(document).ready(function() {
+  $("#new_supplier").validate({
+	errorElement:'div',
+	rules: {
+	
+		
+		"supplier[account_reference]":{
+						required:true
+		},
+		"supplier[company_name]":{
+						required:true
+		},
+		"supplier[account_number]":{
+						required:true
+		},
+		"supplier[vat_number]":{
+						required:true
+		},
+		"supplier[address_line1]":{
+						required:true
+		},
+		"supplier[address_line2]":{
+						required:true
+		},
+		"supplier[town]":{
+						required:true
+		},
+		"supplier[postcode]":{
+						required:true
+		},
+		"supplier[website]":{
+						required:true
+		},
+		"supplier[glcode]":{
+						required:true
+		},
+			"supplier[type_id]":{
+							required:true
+			},
+				"supplier[contact]":{
+								required:true
+				},
+					"supplier[outcome]":{
+									required:true
+					},
+		"supplier[note]":{
+						required:true
+		},
+		"supplier[added_by]":{
+						required:true
+		}
+		},
+	messages: {
+			"supplier[account_reference]":{
+							required: "This field is required."
+			},
+			"supplier[company_name]":{
+							required: "This field is required."
+			},
+			"supplier[account_number]":{
+							required: "This field is required."
+			},
+			"supplier[vat_number]":{
+							required: "This field is required."
+			},
+			"supplier[address_line1]":{
+							required: "This field is required."
+			},
+			"supplier[address_line2]":{
+						required: "This field is required."
+			},
+			"supplier[town]":{
+								required: "This field is required."
+			},
+			"supplier[postcode]":{
+							required: "This field is required."
+			},
+			"supplier[website]":{
+						required: "This field is required."
+			},
+			"supplier[glcode]":{
+							required: "This field is required."
+			},
+				"supplier[type_id]":{
+								required: "This field is required."
+				},
+					"supplier[contact]":{
+								required: "This field is required."
+					},
+						"supplier[outcome]":{
+										required: "This field is required."
+						},
+			"supplier[note]":{
+	required: "This field is required."
+				},
+			"supplier[added_by]":{
+							required: "This field is required."
+			}
+		
+		}
+	});
+});
