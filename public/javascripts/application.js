@@ -635,15 +635,9 @@ $(document).ready(function() {
 		"supplier[postcode]":{
 						required:true
 		},
-		"supplier[website]":{
-						required:true
-		},
 		"supplier[glcode]":{
 						required:true
 		},
-			"supplier[type_id]":{
-							required:true
-			},
 				"supplier[contact]":{
 								required:true
 				},
@@ -682,15 +676,9 @@ $(document).ready(function() {
 			"supplier[postcode]":{
 							required: "This field is required."
 			},
-			"supplier[website]":{
-						required: "This field is required."
-			},
 			"supplier[glcode]":{
 							required: "This field is required."
 			},
-				"supplier[type_id]":{
-								required: "This field is required."
-				},
 					"supplier[contact]":{
 								required: "This field is required."
 					},
