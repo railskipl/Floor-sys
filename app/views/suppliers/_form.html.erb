@@ -45,7 +45,7 @@
   </div>
   <div class="field">
     <%= f.label :country %><br />
-    <%= f.text_field :country %>
+    <%= select :supplier, :country, Country.all.map {|c| [c.country_name]} %>
   </div>
   <div class="field">
     <%= f.label :postcode %><br />
@@ -86,11 +86,9 @@
   <div class="field">
     <%= f.label :added_by %><br />
     <%= f.text_field :added_by %>
+    <%= f.hidden_field :company_id, :value=>"#{current_user.company_id}" %>
   </div>
-  <div class="field">
-    <%= f.label :company_id %><br />
-    <%= f.text_field :company_id %>
-  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
