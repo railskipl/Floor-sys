@@ -8,36 +8,35 @@
 </head>
 <body>
 <% if user_signed_in? %>
-
-<% if current_user.id == 1 %>
-  <%= link_to 'Create User', new_user_path %> 
-<% else %>
-  <%= link_to 'Create Staff', new_user_path %> 
-  
-<% end %>
-<% if can? :new, Company %>
+  <% if current_user.id == 1 %>
+  <%= link_to 'Create User', new_user_path %> |  
+  <% else %>
+  <%= link_to 'Create Staff', new_user_path %> |  
+  <% end %>
+  <% if can? :new, Company %>
   <%= link_to 'Company', {:controller=>"companies", :action=>"index"} %> | 
-<%= link_to 'New Company', new_company_path %> | 
-<% end %>
-<% if can? :new, Contact %>
-  <%= link_to 'Create Contact', new_contact_path %>
-<% end %>  
-<% if can? :new, Customer %>
- <%= link_to 'Create Customer', new_customer_path %> 
- <% end %>  
- <% if can? :new, SaleRepresentative %>
-  <%= link_to 'Create Sale Representative', new_sale_representative_path %> 
+  <%= link_to 'New Company', new_company_path %> | 
+  <% end %>
+  <% if can? :new, Contact %>
+  <%= link_to 'Create Contact', new_contact_path %> | 
+  <% end %>  
+  <% if can? :new, Customer %>
+  <%= link_to 'Create Customer', new_customer_path %> |  
+  <% end %>  
+  <% if can? :new, SaleRepresentative %>
+  <%= link_to 'Create Sale Representative', new_sale_representative_path %> |  
   <% end %>
   <% if can? :new, Subcontractor %>
-   <%= link_to 'Create Sub-contractor', new_subcontractor_path %> 
-   <% end %>
-   
+  <%= link_to 'Create Sub-contractor', new_subcontractor_path %> |  
+  <% end %>
+  <% if can? :new, Supplier %>
+  <%= link_to 'Create Supplier', new_supplier_path %> |  
+  <% end %>
   Signed in as <%= current_user.username %>. Not you?
   <%= link_to "Sign out", destroy_user_session_path %>
-
 <% end %>
 <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+<p class="alert"><%= alert %></p>
        
        
 <%= yield %>

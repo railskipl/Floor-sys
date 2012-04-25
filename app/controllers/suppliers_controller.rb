@@ -1,9 +1,11 @@
 class SuppliersController < ApplicationController
+  before_filter :authenticate_user!, :except => []
+  load_and_authorize_resource
   # GET /suppliers
   # GET /suppliers.xml
   def index
-    @suppliers = Supplier.all
-
+     @suppliers = Supplier.find_all_by_company_id(current_user.company_id)
+  
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @suppliers }

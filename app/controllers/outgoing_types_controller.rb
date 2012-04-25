@@ -5,7 +5,8 @@ class OutgoingTypesController < ApplicationController
    
      if params[:company_id]
 
-     @outgoing_types = OutgoingType.all
+     @outgoing_types = OutgoingType.find_all_by_company_id(params[:company_id])
+     
 
       respond_to do |format|
         format.html # index.html.erb

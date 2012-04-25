@@ -6,7 +6,8 @@ class SaleRepresentativesController < ApplicationController
   # GET /sale_representatives
   # GET /sale_representatives.xml
   def index
-    @sale_representatives = SaleRepresentative.all
+    @sale_representatives = SaleRepresentative.find_all_by_company_id(current_user.company_id)
+    
 
     respond_to do |format|
       format.html # index.html.erb

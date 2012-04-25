@@ -6,7 +6,7 @@ class VatsController < ApplicationController
   
    if params[:company_id]
      
-    @vats = Vat.all
+    @vats = Vat.find_all_by_company_id(params[:company_id])
 
     respond_to do |format|
       format.html # index.html.erb

@@ -6,7 +6,8 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.xml
   def index
-    @contacts = Contact.all
+    @contacts = Contact.find_all_by_company_id(current_user.company_id)
+    
 
     respond_to do |format|
       format.html # index.html.erb

@@ -7,7 +7,8 @@ class SalesTypesController < ApplicationController
   def index
        if params[:company_id]
 
-         @sales_types = SalesType.all
+         @sales_types = SalesType.find_all_by_company_id(params[:company_id])
+         
 
         respond_to do |format|
           format.html # index.html.erb

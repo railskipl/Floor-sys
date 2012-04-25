@@ -6,7 +6,8 @@ class SubcontractorsController < ApplicationController
   # GET /subcontractors
   # GET /subcontractors.xml
   def index
-    @subcontractors = Subcontractor.all
+    @subcontractors = Subcontractor.find_all_by_company_id(current_user.company_id)
+    
 
     respond_to do |format|
       format.html # index.html.erb
