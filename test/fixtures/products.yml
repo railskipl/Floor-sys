@@ -1,0 +1,45 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  category_id: 1
+  product_code: MyString
+  product_type_id: 1
+  product_group_id: 1
+  supplier_id: 1
+  range_name: MyString
+  product_fibre_id: 1
+  product_banking_id: 1
+  pile_height_gauge: MyString
+  pile_weight: MyString
+  unit_weight: MyString
+  product_wear_id: 1
+  product_style_type_id: 1
+  is_published: false
+  full_description: MyText
+  notes: MyText
+  attachement: MyString
+  colour_name: MyString
+  colour_number: MyString
+  company_id: 1
+
+two:
+  category_id: 1
+  product_code: MyString
+  product_type_id: 1
+  product_group_id: 1
+  supplier_id: 1
+  range_name: MyString
+  product_fibre_id: 1
+  product_banking_id: 1
+  pile_height_gauge: MyString
+  pile_weight: MyString
+  unit_weight: MyString
+  product_wear_id: 1
+  product_style_type_id: 1
+  is_published: false
+  full_description: MyText
+  notes: MyText
+  attachement: MyString
+  colour_name: MyString
+  colour_number: MyString
+  company_id: 1

@@ -1,0 +1,35 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  roll_cost: MyString
+  cut_cost: MyString
+  special_roll_cost: MyString
+  item_cost: MyString
+  item_special: MyString
+  special_price_description: MyText
+  roll_net: MyString
+  discount_roll_net: MyString
+  cut_net: MyString
+  discount_cu_net: MyString
+  start_date: 2012-04-26
+  expiry_date: 2012-04-26
+  srp: MyString
+  supplier_id: 1
+  product_id: 1
+
+two:
+  roll_cost: MyString
+  cut_cost: MyString
+  special_roll_cost: MyString
+  item_cost: MyString
+  item_special: MyString
+  special_price_description: MyText
+  roll_net: MyString
+  discount_roll_net: MyString
+  cut_net: MyString
+  discount_cu_net: MyString
+  start_date: 2012-04-26
+  expiry_date: 2012-04-26
+  srp: MyString
+  supplier_id: 1
+  product_id: 1

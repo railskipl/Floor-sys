@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name 1:</b>
+  <%= @product_backing.name_1 %>
+</p>
+
+<p>
+  <b>Name 2:</b>
+  <%= @product_backing.name_2 %>
+</p>
+
+<p>
+  <b>Company:</b>
+  <%= @product_backing.company_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_product_backing_path(@product_backing) %> |
+<%= link_to 'Back', product_backings_path %>

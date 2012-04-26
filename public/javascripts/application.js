@@ -1,8 +1,21 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 
-$(document).ready(function() {
-  $("#new_company").validate({
+function remove_fields(link) {
+  $(link).previous("input[type=hidden]").value = "1";
+  $(link).up(".fields").hide();
+}
+
+function add_fields(link, association, content) {
+  var new_id = new Date().getTime();
+  var regexp = new RegExp("new_" + association, "g")
+  $(link).up().insert({
+    before: content.replace(regexp, new_id)
+  });
+}
+
+jQuery(document).ready(function() {
+  jQuery("#new_company").validate({
 	errorElement:'div',
 	rules: {
 		"company[company_name]":{
@@ -39,8 +52,8 @@ $(document).ready(function() {
 	});
 });
 
-$(document).ready(function() {
-  $("#new_vat").validate({
+jQuery(document).ready(function() {
+  jQuery("#new_vat").validate({
 	errorElement:'div',
 	rules: {
 		"vat[tax_rate]":{
@@ -55,8 +68,8 @@ $(document).ready(function() {
 	});
 });
 
-$(document).ready(function() {
-  $("#new_category").validate({
+jQuery(document).ready(function() {
+  jQuery("#new_category").validate({
 	errorElement:'div',
 	rules: {
 		"category[category_name]":{
@@ -77,8 +90,8 @@ $(document).ready(function() {
 	});
 });
 
-$(document).ready(function() {
-  $("#new_sales_type").validate({
+jQuery(document).ready(function() {
+  jQuery("#new_sales_type").validate({
 	errorElement:'div',
 	rules: {
 		"sales_type[code]":{
@@ -105,8 +118,8 @@ $(document).ready(function() {
 	});
 });
 
-$(document).ready(function() {
-  $("#new_outgoing_type").validate({
+jQuery(document).ready(function() {
+  jQuery("#new_outgoing_type").validate({
 	errorElement:'div',
 	rules: {
 		"outgoing_type[code]":{
@@ -134,8 +147,8 @@ $(document).ready(function() {
 });
 
 
-$(document).ready(function() {
-  $("#new_contact").validate({
+jQuery(document).ready(function() {
+  jQuery("#new_contact").validate({
 	errorElement:'div',
 	rules: {
 		"contact[contact_name]":{
@@ -256,8 +269,8 @@ $(document).ready(function() {
 	});
 });
 
-$(document).ready(function() {
-  $("#new_customer").validate({
+jQuery(document).ready(function() {
+  jQuery("#new_customer").validate({
 	errorElement:'div',
 	rules: {
 		"customer[nominal_gl_code]":{
@@ -446,8 +459,8 @@ $(document).ready(function() {
 });
 
 
-$(document).ready(function() {
-  $("#new_prospect").validate({
+jQuery(document).ready(function() {
+  jQuery("#new_prospect").validate({
 	errorElement:'div',
 	rules: {
 		"prospect[telephone]":{
@@ -511,8 +524,8 @@ $(document).ready(function() {
 	});
 });
 
-$(document).ready(function() {
-  $("#new_subcontractor").validate({
+jQuery(document).ready(function() {
+  jQuery("#new_subcontractor").validate({
 	errorElement:'div',
 	rules: {
 		"subcontractor[rate]":{
@@ -561,8 +574,8 @@ $(document).ready(function() {
 });
 
 
-$(document).ready(function() {
-  $("#new_sale_representative").validate({
+jQuery(document).ready(function() {
+  jQuery("#new_sale_representative").validate({
 	errorElement:'div',
 	rules: {
 	
@@ -605,8 +618,8 @@ $(document).ready(function() {
 	});
 });
 
-$(document).ready(function() {
-  $("#new_supplier").validate({
+jQuery(document).ready(function() {
+  jQuery("#new_supplier").validate({
 	errorElement:'div',
 	rules: {
 	
@@ -635,9 +648,15 @@ $(document).ready(function() {
 		"supplier[postcode]":{
 						required:true
 		},
+		"supplier[website]":{
+						required:true
+		},
 		"supplier[glcode]":{
 						required:true
 		},
+			"supplier[type_id]":{
+							required:true
+			},
 				"supplier[contact]":{
 								required:true
 				},
@@ -676,9 +695,15 @@ $(document).ready(function() {
 			"supplier[postcode]":{
 							required: "This field is required."
 			},
+			"supplier[website]":{
+						required: "This field is required."
+			},
 			"supplier[glcode]":{
 							required: "This field is required."
 			},
+				"supplier[type_id]":{
+								required: "This field is required."
+				},
 					"supplier[contact]":{
 								required: "This field is required."
 					},
@@ -691,6 +716,164 @@ $(document).ready(function() {
 			"supplier[added_by]":{
 							required: "This field is required."
 			}
+		
+		}
+	});
+});
+
+
+jQuery(document).ready(function() {
+  jQuery("#new_product_type").validate({
+	errorElement:'div',
+	rules: {
+	
+		
+		"product_type[name]":{
+						required:true
+		}
+
+		},
+	messages: {
+	
+			"product_type[name]":{
+	required: "This field is required."
+			}
+		
+		}
+	});
+});
+
+
+jQuery(document).ready(function() {
+  jQuery("#new_product_backing").validate({
+	errorElement:'div',
+	rules: {
+	
+		
+		"product_backing[name_1]":{
+						required:true
+		},
+			"product_backing[name_2]":{
+							required:true
+			}
+
+		},
+	messages: {
+	
+			"product_backing[name_1]":{
+	required: "This field is required."
+			},
+					"product_backing[name_2]":{
+			required: "This field is required."
+					}
+		
+		}
+	});
+});
+
+jQuery(document).ready(function() {
+  jQuery("#new_product_fibre").validate({
+	errorElement:'div',
+	rules: {
+	
+		
+		"product_fibre[name_1]":{
+						required:true
+		},
+			"product_fibre[name_2]":{
+							required:true
+			}
+
+		},
+	messages: {
+	
+			"product_fibre[name_1]":{
+	required: "This field is required."
+			},
+					"product_fibre[name_2]":{
+			required: "This field is required."
+					}
+		
+		}
+	});
+});
+
+
+jQuery(document).ready(function() {
+  jQuery("#new_product_fibre").validate({
+	errorElement:'div',
+	rules: {
+	
+		
+		"product_fibre[name_1]":{
+						required:true
+		},
+			"product_fibre[name_2]":{
+							required:true
+			}
+
+		},
+	messages: {
+	
+			"product_fibre[name_1]":{
+	required: "This field is required."
+			},
+					"product_fibre[name_2]":{
+			required: "This field is required."
+					}
+		
+		}
+	});
+});
+
+jQuery(document).ready(function() {
+  jQuery("#new_product_style_type").validate({
+	errorElement:'div',
+	rules: {
+	
+		
+			"product_style_type[name_1]":{
+							required:true
+			},
+				"product_style_type[name_2]":{
+								required:true
+				}
+
+			},
+		messages: {
+
+				"product_style_type[name_1]":{
+		required: "This field is required."
+				},
+						"product_style_type[name_2]":{
+				required: "This field is required."
+						} 
+		
+		}
+	});
+});
+jQuery(document).ready(function() {
+  jQuery("#new_product_wear").validate({
+	errorElement:'div',
+	rules: {
+	
+		
+			"product_wear[name_1]":{
+							required:true
+			},
+				"product_wear[name_2]":{
+								required:true
+				}
+
+			},
+		messages: {
+
+				"product_wear[name_1]":{
+		required: "This field is required."
+				},
+						"product_wear[name_2]":{
+				required: "This field is required."
+						} 
 		
 		}
 	});

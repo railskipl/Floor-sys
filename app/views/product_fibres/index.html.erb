@@ -1,0 +1,27 @@
+<h1>Listing product_fibres</h1>
+
+<table>
+  <tr>
+    <th>Name 1</th>
+    <th>Name 2</th>
+    <th>Company</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @product_fibres.each do |product_fibre| %>
+  <tr>
+    <td><%= product_fibre.name_1 %></td>
+    <td><%= product_fibre.name_2 %></td>
+    <td><%= product_fibre.company_id %></td>
+    <td><%= link_to 'Show', product_fibre %></td>
+    <td><%= link_to 'Edit', edit_product_fibre_path(product_fibre) %></td>
+    <td><%= link_to 'Destroy', product_fibre, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Product fibre', new_product_fibre_path %>

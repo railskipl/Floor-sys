@@ -1,0 +1,61 @@
+<h1>Listing products</h1>
+
+<table>
+  <tr>
+    <th>Category</th>
+    <th>Product code</th>
+    <th>Product type</th>
+    <th>Product group</th>
+    <th>Supplier</th>
+    <th>Range name</th>
+    <th>Product fibre</th>
+    <th>Product banking</th>
+    <th>Pile height gauge</th>
+    <th>Pile weight</th>
+    <th>Unit weight</th>
+    <th>Product wear</th>
+    <th>Product style type</th>
+    <th>Is published</th>
+    <th>Full description</th>
+    <th>Notes</th>
+    <th>Attachement</th>
+    <th>Colour name</th>
+    <th>Colour number</th>
+    <th>Company</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @products.each do |product| %>
+  <tr>
+    <td><%= product.category_id %></td>
+    <td><%= product.product_code %></td>
+    <td><%= product.product_type_id %></td>
+    <td><%= product.product_group_id %></td>
+    <td><%= product.supplier_id %></td>
+    <td><%= product.range_name %></td>
+    <td><%= product.product_fibre_id %></td>
+    <td><%= product.product_banking_id %></td>
+    <td><%= product.pile_height_gauge %></td>
+    <td><%= product.pile_weight %></td>
+    <td><%= product.unit_weight %></td>
+    <td><%= product.product_wear_id %></td>
+    <td><%= product.product_style_type_id %></td>
+    <td><%= product.is_published %></td>
+    <td><%= product.full_description %></td>
+    <td><%= product.notes %></td>
+    <td><%= product.attachement %></td>
+    <td><%= product.colour_name %></td>
+    <td><%= product.colour_number %></td>
+    <td><%= product.company_id %></td>
+    <td><%= link_to 'Show', product %></td>
+    <td><%= link_to 'Edit', edit_product_path(product) %></td>
+    <td><%= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Product', new_product_path %>

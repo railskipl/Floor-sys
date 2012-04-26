@@ -1,0 +1,103 @@
+<%= form_for(@product) do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :category_id %><br />
+    <%= select_tag("category_ids[]", options_for_select(Category.find(:all).collect { |cat| [cat.category_name, cat.id] }, @product.categories.collect { |cat| cat.id}), {:multiple=>true, :size=>6})%>
+  </div>
+  <div class="field">
+    <%= f.label :product_code %><br />
+    <%= f.text_field :product_code %>
+  </div>
+  <div class="field">
+    <%= f.label :product_type_id %><br />
+    <%= f.text_field :product_type_id %>
+  </div>
+  <div class="field">
+    <%= f.label :product_group_id %><br />
+    <%= f.text_field :product_group_id %>
+  </div>
+  <div class="field">
+    <%= f.label :supplier_id %><br />
+    <%= f.text_field :supplier_id %>
+  </div>
+  <div class="field">
+    <%= f.label :range_name %><br />
+    <%= f.text_field :range_name %>
+  </div>
+  <div class="field">
+    <%= f.label :product_fibre_id %><br />
+    <%= f.text_field :product_fibre_id %>
+  </div>
+  <div class="field">
+    <%= f.label :product_banking_id %><br />
+    <%= f.text_field :product_banking_id %>
+  </div>
+  <div class="field">
+    <%= f.label :pile_height_gauge %><br />
+    <%= f.text_field :pile_height_gauge %>
+  </div>
+  <div class="field">
+    <%= f.label :pile_weight %><br />
+    <%= f.text_field :pile_weight %>
+  </div>
+  <div class="field">
+    <%= f.label :unit_weight %><br />
+    <%= f.text_field :unit_weight %>
+  </div>
+  <div class="field">
+    <%= f.label :product_wear_id %><br />
+    <%= f.text_field :product_wear_id %>
+  </div>
+  <div class="field">
+    <%= f.label :product_style_type_id %><br />
+    <%= f.text_field :product_style_type_id %>
+  </div>
+  <div class="field">
+    <%= f.label :is_published %><br />
+    <%= f.check_box :is_published %>
+  </div>
+  <div class="field">
+    <%= f.label :full_description %><br />
+    <%= f.text_area :full_description %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br />
+    <%= f.text_area :notes %>
+  </div>
+  <div class="field">
+    <%= f.label :attachement %><br />
+    <%= f.text_field :attachement %>
+  </div>
+  <div class="field">
+    <%= f.label :colour_name %><br />
+    <%= f.text_field :colour_name %>
+  </div>
+  <div class="field">
+    <%= f.label :colour_number %><br />
+    <%= f.text_field :colour_number %>
+  </div>
+  <div class="field">
+  <%= f.fields_for :product_prices do |builder| %>
+      <%= render "product_price_fields", :f => builder %>
+ 	<% end %>
+ 	<p><%= link_to_add_fields "Add Price", f, :product_prices %></p>
+ 	</div>
+ 	
+  <div class="field">
+    <%= f.hidden_field :company_id, :value=>"#{current_user.company_id}" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

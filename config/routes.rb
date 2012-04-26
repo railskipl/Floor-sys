@@ -1,5 +1,19 @@
 Floorsys::Application.routes.draw do|map|
   
+  resources :products
+
+  resources :product_style_types
+
+  resources :product_wears
+
+  resources :product_backings
+
+  resources :product_fibres
+
+  resources :product_groups
+
+  resources :product_types
+
   map.connect '/suppliers/:id/delete', :controller=>'suppliers', :action=>'destroy'
   resources :suppliers
 

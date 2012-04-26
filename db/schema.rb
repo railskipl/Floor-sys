@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120425061010) do
+ActiveRecord::Schema.define(:version => 20120426101023) do
 
   create_table "categories", :force => true do |t|
     t.string   "category_name"
@@ -19,6 +19,11 @@ ActiveRecord::Schema.define(:version => 20120425061010) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "ancestry"
+  end
+
+  create_table "categories_products", :id => false, :force => true do |t|
+    t.integer "category_id"
+    t.integer "product_id"
   end
 
   create_table "companies", :force => true do |t|
@@ -112,6 +117,97 @@ ActiveRecord::Schema.define(:version => 20120425061010) do
   create_table "outgoing_types", :force => true do |t|
     t.string   "code"
     t.string   "name"
+    t.integer  "company_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "product_backings", :force => true do |t|
+    t.string   "name_1"
+    t.string   "name_2"
+    t.integer  "company_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "product_fibres", :force => true do |t|
+    t.string   "name_1"
+    t.string   "name_2"
+    t.integer  "company_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "product_groups", :force => true do |t|
+    t.string   "name"
+    t.integer  "company_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "product_prices", :force => true do |t|
+    t.string   "roll_cost"
+    t.string   "cut_cost"
+    t.string   "special_roll_cost"
+    t.string   "item_cost"
+    t.string   "item_special"
+    t.text     "special_price_description"
+    t.string   "roll_net"
+    t.string   "discount_roll_net"
+    t.string   "cut_net"
+    t.string   "discount_cu_net"
+    t.date     "start_date"
+    t.date     "expiry_date"
+    t.string   "srp"
+    t.integer  "supplier_id"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "product_style_types", :force => true do |t|
+    t.string   "name_1"
+    t.string   "name_2"
+    t.integer  "company_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "product_types", :force => true do |t|
+    t.string   "name"
+    t.integer  "company_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "product_wears", :force => true do |t|
+    t.string   "name_1"
+    t.string   "name_2"
+    t.integer  "company_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "products", :force => true do |t|
+    t.integer  "category_id"
+    t.string   "product_code"
+    t.integer  "product_type_id"
+    t.integer  "product_group_id"
+    t.integer  "supplier_id"
+    t.string   "range_name"
+    t.integer  "product_fibre_id"
+    t.integer  "product_banking_id"
+    t.string   "pile_height_gauge"
+    t.string   "pile_weight"
+    t.string   "unit_weight"
+    t.integer  "product_wear_id"
+    t.integer  "product_style_type_id"
+    t.boolean  "is_published"
+    t.text     "full_description"
+    t.text     "notes"
+    t.string   "attachement"
+    t.string   "colour_name"
+    t.string   "colour_number"
     t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
