@@ -3,16 +3,13 @@ common: &common
     secret_access_key: qr8M0RpbdDP9yCECZAMEgz/uylJutQO0SvTeTroV
 
 development:
-    access_key_id: AKIAIWWQF5REKTC4ZYGQ
-    secret_access_key: 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
+    <<: *common
     bucket: csoffice
 
 test:
-    access_key_id: AKIAIWWQF5REKTC4ZYGQ
-    secret_access_key: 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
+    <<: *common
     bucket: csoffice
 
 production:
-    access_key_id: AKIAIWWQF5REKTC4ZYGQ
-    secret_access_key: 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
+    <<: *common
     bucket: csoffice
