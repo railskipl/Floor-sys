@@ -69,13 +69,7 @@ class ProductsController < ApplicationController
     @productstyletype = ProductStyleType.find_all_by_company_id(current_user.company_id)
     
     
-    1.times do
-      product_price = @product.product_prices.build
-    end
     
-    1.times do
-      uom = @product.uoms.build
-    end
     
   end
 

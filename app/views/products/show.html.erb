@@ -12,17 +12,32 @@
 
 <p>
   <b>Product type:</b>
-  <%= @product.product_type_id %>
+  
+  <% if @product.product_type_id.nil? %>
+  <% else %>
+  <% @producttype = ProductType.find(@product.product_type_id) %>
+    <%= @producttype.name %>
+  <% end %>
 </p>
 
 <p>
   <b>Product group:</b>
-  <%= @product.product_group_id %>
+  <% if @product.product_group_id.nil? %>
+   <% else %>
+   <% @productgroup = ProductGroup.find(@product.product_group_id) %>
+     <%= @productgroup.name %>
+   <% end %>
+ 
 </p>
 
 <p>
   <b>Supplier:</b>
-  <%= @product.supplier_id %>
+  <% if @product.supplier_id.nil? %>
+    <% else %>
+    <% @supplier = Supplier.find(@product.supplier_id) %>
+      <%= @supplier.account_reference %>
+    <% end %>
+  
 </p>
 
 <p>
@@ -32,12 +47,20 @@
 
 <p>
   <b>Product fibre:</b>
-  <%= @product.product_fibre_id %>
+  <% if @product.product_fibre_id.nil? %>
+    <% else %>
+    <% @productfibre = ProductFibre.find(@product.product_fibre_id) %>
+      <%= @productfibre.name_1 %> <% @productfibre.name_2 %>
+    <% end %>
 </p>
 
 <p>
-  <b>Product banking:</b>
-  <%= @product.product_banking_id %>
+  <b>Product backing:</b>
+  <% if  @product.product_banking_id.nil? %>
+     <% else %>
+     <% @productbacking = ProductBacking.find(@product.product_banking_id) %>
+       <%= @productbacking.name_1 %> <% @productbacking.name_2 %>
+     <% end %>
 </p>
 
 <p>
@@ -47,7 +70,7 @@
 
 <p>
   <b>Pile weight:</b>
-  <%= @product.pile_weight %>
+  <%= @product.pile_weight %> 
 </p>
 
 <p>
@@ -57,12 +80,21 @@
 
 <p>
   <b>Product wear:</b>
-  <%= @product.product_wear_id %>
+  <% if  @product.product_wear_id.nil? %>
+     <% else %>
+     <% @productwear = ProductWear.find(@product.product_wear_id) %>
+       <%= @productwear.name_1 %> <%= @productwear.name_2 %>
+     <% end %>
 </p>
 
 <p>
   <b>Product style type:</b>
-  <%= @product.product_style_type_id %>
+  <% if  @product.product_style_type_id.nil? %>
+     <% else %>
+     <% @productstyletype = ProductStyleType.find(@product.product_style_type_id) %>
+       <%= @productstyletype.name_1 %>  <% @productstyletype.name_2 %>
+     <% end %>
+  
 </p>
 
 <p>
@@ -95,11 +127,104 @@
   <%= @product.colour_number %>
 </p>
 
-<p>
-  <b>Company:</b>
-  <%= @product.company_id %>
-</p>
 
+ <% for product_prices in @product.product_prices %>
+ 
+  <p>
+      <b>Item Cost</b>
+      <%= product_prices.item_cost %>
+   </p>
+  
+   <p>
+       <b>Item Special</b>
+       <%= product_prices.item_special %>
+   </p>
+  
+   <p>
+       <b>Special Price Description</b>
+       <%= product_prices.special_price_description %>
+  </p>
+  
+   <p>
+       <b>Roll Net</b>
+       <%= product_prices.roll_net %>
+   </p>
+   
+   <p>
+       <b>Discount Roll Net</b>
+       <%= product_prices.discount_roll_net %>
+   </p>
+   
+   <p>
+       <b>Cut Net</b>
+       <%= product_prices.cut_net %>
+   </p>
+    
+   <p>
+       <b>Discount Cut Net</b>
+       <%= product_prices.discount_cu_net %>
+   </p>
+   
+   <p>
+        <b>Start Date</b>
+        <%= product_prices.start_date %>
+   </p>
+    
+    <p>
+        <b>Expiry Date</b>
+        <%= product_prices.expiry_date %>
+    </p>
+              
+     <p>
+        <b>Srp</b>
+        <%= product_prices.srp %>
+    </p>
+ <% end %>
+
+
+ <% for uoms in @product.uoms %>
+ 
+  <p>
+     <b>Roll</b>
+     <%= uoms.roll %>
+   </p>
+ 
+ <p>
+   <b>Roll Min</b>
+   <%= uoms.roll_min %>
+ </p>
+ 
+ <p>
+    <b>Std Length</b>
+    <%= uoms.std_length %>
+  </p>
+ 
+ <p>
+    <b>Std Width</b>
+    <%= uoms.std_width %>
+ </p>
+ 
+ <p>
+    <b>Item Length</b>
+    <%= uoms.item_length %>
+ </p>
+    
+ <p>
+   <b>Item Widt:</b>
+   <%= uoms.item_width %>
+ </p>
+     
+ <p>
+   <b>Buy in Multiples</b>
+   <%= uoms.buy_in_multiples %>
+ </p>
+      
+ <p>
+   <b>Sale In Multiples</b>
+   <%= uoms.sale_in_multiples %>
+ </p>
+ 
+ <% end %>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

@@ -34,6 +34,11 @@
   <% end %>
   Signed in as <%= current_user.username %>. Not you?
   <%= link_to "Sign out", destroy_user_session_path %>
+  <p>
+     <% if can? :new, Product %>
+     <%= link_to 'Create Product', new_product_path %> |  
+     <% end %> 
+  </p>
 <% end %>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
