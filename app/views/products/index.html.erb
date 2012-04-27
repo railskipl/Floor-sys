@@ -17,9 +17,30 @@
   <tr>
     
     <td><%= product.product_code %></td>
-    <td><%= product.product_type_id %></td>
-    <td><%= product.product_group_id %></td>
-    <td><%= product.supplier_id %></td>
+    <td>
+      
+      <% if product.product_type_id.nil? %>
+      <% else %>
+      <% @producttype = ProductType.find(product.product_type_id) %>
+        <%= @producttype.name %>
+      <% end %>
+    </td>
+    <td>
+        
+        <% if product.product_group_id.nil? %>
+        <% else %>
+        <% @producttype = ProductGroup.find(product.product_group_id) %>
+          <%= @producttype.name %>
+        <% end %>
+    </td>
+    <td>
+        
+        <% if product.supplier_id.nil? %>
+          <% else %>
+          <% @supplier = Supplier.find(product.supplier_id) %>
+            <%= @supplier.account_reference %>
+          <% end %>
+    </td>
     <td><%= product.range_name %></td>
     <td><%= link_to 'Show', product %></td>
     <td><%= link_to 'Edit', edit_product_path(product) %></td>
