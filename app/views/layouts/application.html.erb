@@ -35,9 +35,34 @@
   Signed in as <%= current_user.username %>. Not you?
   <%= link_to "Sign out", destroy_user_session_path %>
   <p>
+     <% if can? :new, ProductType %>
+      <%= link_to 'Create Product Type', new_product_type_path %> |  
+      <% end %>
+      
+      <% if can? :new, ProductGroup %>
+        <%= link_to 'Create Product Group', new_product_group_path %> |  
+      <% end %>
+      
+      <% if can? :new, ProductFibre %>
+        <%= link_to 'Create Product Fibre', new_product_fibre_path %> |  
+      <% end %>
+      
+      <% if can? :new, ProductBacking %>
+        <%= link_to 'Create Product Backing', new_product_backing_path %> |  
+      <% end %>
+      
+      <% if can? :new, ProductWear %>
+        <%= link_to 'Create Product Wear', new_product_wear_path %> |  
+      <% end %>
+      
+      <% if can? :new, ProductStyleType %>
+        <%= link_to 'Create Product Style Type', new_product_style_type_path %> |  
+      <% end %>
+      
      <% if can? :new, Product %>
-     <%= link_to 'Create Product', new_product_path %> |  
+     <%= link_to 'Create Product', new_product_path %> 
      <% end %> 
+     
   </p>
 <% end %>
 <p class="notice"><%= notice %></p>
