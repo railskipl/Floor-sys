@@ -16,20 +16,21 @@
     <%= select_tag("category_ids[]", options_for_select(Category.find(:all).collect { |cat| [cat.category_name, cat.id] }, @product.categories.collect { |cat| cat.id}), {:multiple=>true, :size=>6})%>
   </div>
   <div class="field">
-    <%= f.label :product_code %><br />
+    <%= f.label :product_code %><br/>
     <%= f.text_field :product_code %>
   </div>
   <div class="field">
-    <%= f.label :product_type_id %><br />
-    <%= f.text_field :product_type_id %>
+    <%= f.label :product_type_id %><br/>
+    <%= select :product, :product_type_id, @producttype.map {|c| ["#{c.name}", c.id]} %>
+    
   </div>
   <div class="field">
-    <%= f.label :product_group_id %><br />
-    <%= f.text_field :product_group_id %>
+    <%= f.label :product_group_id %><br/>
+    <%= select :product, :product_group_id, @productgroup.map {|c| ["#{c.name}", c.id]} %>
   </div>
   <div class="field">
     <%= f.label :supplier_id %><br />
-    <%= f.text_field :supplier_id %>
+    <%= select :product, :supplier_id, @supplier.map {|c| ["#{c.account_reference}", c.id]} %>
   </div>
   <div class="field">
     <%= f.label :range_name %><br />
@@ -37,11 +38,11 @@
   </div>
   <div class="field">
     <%= f.label :product_fibre_id %><br />
-    <%= f.text_field :product_fibre_id %>
+    <%= select :product, :product_fibre_id, @productfibre.map {|c| ["#{c.name_1} #{c.name_2}", c.id]} %>
   </div>
   <div class="field">
     <%= f.label :product_banking_id %><br />
-    <%= f.text_field :product_banking_id %>
+    <%= select :product, :product_banking_id, @productbacking.map {|c| ["#{c.name_1} #{c.name_2}", c.id]} %>
   </div>
   <div class="field">
     <%= f.label :pile_height_gauge %><br />
@@ -57,11 +58,13 @@
   </div>
   <div class="field">
     <%= f.label :product_wear_id %><br />
-    <%= f.text_field :product_wear_id %>
+    <%= select :product, :product_wear_id, @productwear.map {|c| ["#{c.name_1} #{c.name_2}", c.id]} %>
+    
   </div>
   <div class="field">
     <%= f.label :product_style_type_id %><br />
-    <%= f.text_field :product_style_type_id %>
+    <%= select :product, :product_style_type_id, @productstyletype.map {|c| ["#{c.name_1} #{c.name_2}", c.id]} %>
+    
   </div>
   <div class="field">
     <%= f.label :is_published %><br />
@@ -88,10 +91,18 @@
     <%= f.text_field :colour_number %>
   </div>
   <div class="field">
-  <%= f.fields_for :product_prices do |builder| %>
-      <%= render "product_price_fields", :f => builder %>
- 	<% end %>
- 	<p><%= link_to_add_fields "Add Price", f, :product_prices %></p>
+      <%= f.fields_for :product_prices do |builder| %>
+        <%= render "product_price_fields", :f => builder %>
+ 	    <% end %>
+ 	    <p><%= link_to_add_fields "Add Price", f, :product_prices %></p>
+ 	</div>
+ 	
+ 	<div class="field">
+ 	    <p>UOM</p>
+      <%= f.fields_for :uoms do |builder| %>
+        <%= render "uom_fields", :f => builder %>
+ 	    <% end %>
+ 	    
  	</div>
  	
   <div class="field">

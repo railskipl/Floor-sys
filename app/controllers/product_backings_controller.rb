@@ -1,4 +1,8 @@
 class ProductBackingsController < ApplicationController
+  
+  before_filter :authenticate_user!, :except => []
+  load_and_authorize_resource
+  
   # GET /product_backings
   # GET /product_backings.xml
   def index

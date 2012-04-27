@@ -1,4 +1,8 @@
 class ProductWearsController < ApplicationController
+  
+  before_filter :authenticate_user!, :except => []
+  load_and_authorize_resource
+  
   # GET /product_wears
   # GET /product_wears.xml
   def index

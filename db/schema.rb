@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120426101023) do
+ActiveRecord::Schema.define(:version => 20120426114300) do
 
   create_table "categories", :force => true do |t|
     t.string   "category_name"
@@ -304,6 +304,20 @@ ActiveRecord::Schema.define(:version => 20120426101023) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+  end
+
+  create_table "uoms", :force => true do |t|
+    t.string   "roll"
+    t.string   "roll_min"
+    t.integer  "std_length"
+    t.integer  "std_width"
+    t.integer  "item_width"
+    t.integer  "item_length"
+    t.string   "buy_in_multiples"
+    t.string   "sale_in_multiples"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|

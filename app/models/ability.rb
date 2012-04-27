@@ -19,7 +19,13 @@ class Ability
       can :manage, [SaleRepresentative]
       can :manage, [Subcontractor]
       can :manage, [Supplier]
-      
+      can :manage, [ProductBacking]
+      can :manage, [ProductFibre]
+      can :manage, [ProductGroup]
+      can :manage, [ProductStyleType]
+      can :manage, [ProductType]
+      can :manage, [ProductWear]
+      can :manage, [Product]    
       # check if user is staff grant only 'read & 'manage' permissions
     elsif user.role? :staff
       can :read,   [User]
@@ -30,6 +36,13 @@ class Ability
       can :manage, [SaleRepresentative]
       can :manage, [Subcontractor]
       can :manage, [Supplier]
+      can :manage, [ProductBacking]
+      can :manage, [ProductFibre]
+      can :manage, [ProductGroup]
+      can :manage, [ProductStyleType]
+      can :manage, [ProductType]
+      can :manage, [ProductWear]
+      can :manage, [Product]
     else
       can :manage, [Role]
       can :manage, [Contact]
@@ -38,6 +51,13 @@ class Ability
       can :manage, [SaleRepresentative]
       can :manage, [Subcontractor]
       can :manage, [Supplier]
+      can :manage, [ProductBacking]
+      can :manage, [ProductFibre]
+      can :manage, [ProductGroup]
+      can :manage, [ProductStyleType]
+      can :manage, [ProductType]
+      can :manage, [ProductWear]
+      can :manage, [Product]
     end
   end
   

@@ -1,4 +1,8 @@
 class ProductsController < ApplicationController
+  
+  before_filter :authenticate_user!, :except => []
+  load_and_authorize_resource
+  
   # GET /products
   # GET /products.xml
   def index
@@ -14,6 +18,9 @@ class ProductsController < ApplicationController
   # GET /products/1.xml
   def show
     @product = Product.find(params[:id])
+    
+    #multi-collection for show
+    @product.categories = Category.find(params[:category_ids]) if params[:category_ids]
 
     respond_to do |format|
       format.html # show.html.erb
@@ -26,9 +33,21 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @categories = Category.find(:all)
+    @producttype = ProductType.find_all_by_company_id(current_user.company_id)
+    @productgroup = ProductGroup.find_all_by_company_id(current_user.company_id)
+    @supplier = Supplier.find_all_by_company_id(current_user.company_id)
+    @productfibre = ProductFibre.find_all_by_company_id(current_user.company_id)
+    @productbacking = ProductBacking.find_all_by_company_id(current_user.company_id)
+    @productwear = ProductWear.find_all_by_company_id(current_user.company_id)
+    @productstyletype = ProductStyleType.find_all_by_company_id(current_user.company_id)
+    
     
     1.times do
-      uom = @product.product_prices.build
+      product_price = @product.product_prices.build
+    end
+    
+    1.times do
+      uom = @product.uoms.build
     end
 
     respond_to do |format|
@@ -40,12 +59,33 @@ class ProductsController < ApplicationController
   # GET /products/1/edit
   def edit
     @product = Product.find(params[:id])
+    @categories = Category.find(:all)
+    @producttype = ProductType.find_all_by_company_id(current_user.company_id)
+    @productgroup = ProductGroup.find_all_by_company_id(current_user.company_id)
+    @supplier = Supplier.find_all_by_company_id(current_user.company_id)
+    @productfibre = ProductFibre.find_all_by_company_id(current_user.company_id)
+    @productbacking = ProductBacking.find_all_by_company_id(current_user.company_id)
+    @productwear = ProductWear.find_all_by_company_id(current_user.company_id)
+    @productstyletype = ProductStyleType.find_all_by_company_id(current_user.company_id)
+    
+    
+    1.times do
+      product_price = @product.product_prices.build
+    end
+    
+    1.times do
+      uom = @product.uoms.build
+    end
+    
   end
 
   # POST /products
   # POST /products.xml
   def create
     @product = Product.new(params[:product])
+    
+    # multiselection functionality
+    @product.categories = Category.find(params[:category_ids]) if params[:category_ids]
 
     respond_to do |format|
       if @product.save
@@ -62,6 +102,9 @@ class ProductsController < ApplicationController
   # PUT /products/1.xml
   def update
     @product = Product.find(params[:id])
+    
+     # multiselection functionality
+      @product.categories = Category.find(params[:category_ids]) if params[:category_ids]
 
     respond_to do |format|
       if @product.update_attributes(params[:product])

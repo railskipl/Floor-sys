@@ -17,7 +17,7 @@
     <td><%= product_wear.company_id %></td>
     <td><%= link_to 'Show', product_wear %></td>
     <td><%= link_to 'Edit', edit_product_wear_path(product_wear) %></td>
-    <td><%= link_to 'Destroy', product_wear, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Destroy', {:controller=>'product_wears', :action=>'destroy', :id=>"#{product_wear.id}"}, :confirm => 'Are you sure?' %></td>
   </tr>
 <% end %>
 </table>

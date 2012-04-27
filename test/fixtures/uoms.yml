@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  roll: MyString
+  roll_min: MyString
+  std_length: 1
+  std_width: 1
+  item_width: 1
+  item_length: 1
+  buy_in_multiples: MyString
+  sale_in_multiples: MyString
+  product_id: 1
+
+two:
+  roll: MyString
+  roll_min: MyString
+  std_length: 1
+  std_width: 1
+  item_width: 1
+  item_length: 1
+  buy_in_multiples: MyString
+  sale_in_multiples: MyString
+  product_id: 1

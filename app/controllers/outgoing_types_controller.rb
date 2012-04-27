@@ -1,4 +1,8 @@
 class OutgoingTypesController < ApplicationController
+  
+  before_filter :authenticate_user!, :except => []
+  load_and_authorize_resource
+  
   # GET /outgoing_types
   # GET /outgoing_types.xml
   def index

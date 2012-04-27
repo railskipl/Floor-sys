@@ -35,9 +35,17 @@
     <p class="lable">Roll Cost</p>
     <p class="field"><%= f.date_select :expiry_date %></p>
     
-    <p class="lable">Roll Cost</p>
+    <p class="lable">srp</p>
     <p class="field"><%= f.text_field :srp %></p>
+    
+    <p class="lable">Supplier</p>
+    <p class="field">
+      <%= select :product, :supplier_id, @supplier.map {|c| ["#{c.account_reference}", c.id]} %>
+    </p>
   
     
     <p><%= link_to_remove_fields "remove", f %></p> 
 </div>
+
+
+  

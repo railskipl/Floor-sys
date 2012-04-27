@@ -878,3 +878,126 @@ jQuery(document).ready(function() {
 		}
 	});
 });
+
+jQuery(document).ready(function() {
+  jQuery("#new_product").validate({
+	errorElement:'div',
+	rules: {
+	
+		
+			"product[product_code]":{
+							required:true
+			},
+			"product[product_type_id]":{
+							required:true
+			},
+			"product[product_group_id]":{
+							required:true
+			},
+			"product[supplier_id]":{
+							required:true
+			},
+		
+			"product[range_name]":{
+								required:true
+			},
+			
+			"product[product_fibre_id]":{
+								required:true
+			},
+			"product[product_banking_id]":{
+								required:true
+			},
+			"product[pile_height_gauge]":{
+								required:true
+			},
+			"product[pile_weight]":{
+								required:true
+			},
+			"product[unit_weight]":{
+								required:true
+			},
+			"product[product_wear_id]":{
+								required:true
+			},
+			"product[product_style_type_id]":{
+								required:true
+			},
+			"product[is_published]":{
+								required:true
+			},
+			"product[full_description]":{
+								required:true
+			},
+			"product[notes]":{
+								required:true
+			},
+			
+			"product[colour_name]":{
+								required:true
+			}
+			
+			},
+		messages: {
+
+				"product[product_code]":{
+							required: "This field is required."
+				},
+				"product[product_type_id]":{
+							required: "This field is required."
+				},
+				"product[product_group_id]":{
+							required: "This field is required."
+				},
+				"product[supplier_id]":{
+							required: "This field is required."
+				},
+				"product[range_name]":{
+							required: "This field is required."
+				},
+				"product[product_fibre_id]":{
+							required: "This field is required."
+				},
+				"product[product_banking_id]":{
+							required: "This field is required."
+				},
+				"product[pile_height_gauge]":{
+							required: "This field is required."
+				},
+							
+				"product[pile_weight]":{
+							required: "This field is required."
+				},
+								
+				"product[unit_weight]":{
+							required: "This field is required."
+				},
+				"product[product_wear_id]":{
+							
+							required: "This field is required."
+				},
+				"product[product_style_type_id]":{
+							
+							required: "This field is required."
+				},
+				"product[is_published]":{
+							
+							required: "This field is required."
+				},
+				"product[full_description]":{
+							
+							required: "This field is required."
+				},
+				"product[notes]":{
+							
+							required: "This field is required."
+				},
+			
+				"product[colour_name]":{
+							
+							required: "This field is required."
+				}
+		
+		}
+	});
+});

@@ -1,4 +1,8 @@
 class ProductGroupsController < ApplicationController
+  
+  before_filter :authenticate_user!, :except => []
+  load_and_authorize_resource
+  
   # GET /product_groups
   # GET /product_groups.xml
   def index

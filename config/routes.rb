@@ -1,17 +1,24 @@
 Floorsys::Application.routes.draw do|map|
   
+  map.connect '/products/:id/delete', :controller=>'products', :action=>'destroy'
   resources :products
 
+  map.connect '/product_style_types/:id/delete', :controller=>'product_style_types', :action=>'destroy'
   resources :product_style_types
 
+  map.connect '/product_wears/:id/delete', :controller=>'product_wears', :action=>'destroy'
   resources :product_wears
 
+  map.connect '/product_backings/:id/delete', :controller=>'product_backings', :action=>'destroy'
   resources :product_backings
 
+  map.connect '/product_fibres/:id/delete', :controller=>'product_fibres', :action=>'destroy'
   resources :product_fibres
 
+  map.connect '/product_groups/:id/delete', :controller=>'product_groups', :action=>'destroy'
   resources :product_groups
 
+  map.connect '/product_types/:id/delete', :controller=>'product_types', :action=>'destroy'
   resources :product_types
 
   map.connect '/suppliers/:id/delete', :controller=>'suppliers', :action=>'destroy'

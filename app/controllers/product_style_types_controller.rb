@@ -1,4 +1,8 @@
 class ProductStyleTypesController < ApplicationController
+  
+  before_filter :authenticate_user!, :except => []
+  load_and_authorize_resource
+  
   # GET /product_style_types
   # GET /product_style_types.xml
   def index
