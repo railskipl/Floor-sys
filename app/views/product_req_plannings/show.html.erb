@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Notes:</b>
+  <%= @product_req_planning.notes %>
+</p>
+
+<p>
+  <b>Product:</b>
+  <%= @product_req_planning.product_id %>
+</p>
+
+<p>
+  <b>Uom:</b>
+  <%= @product_req_planning.uom_id %>
+</p>
+
+
+
+<p>
+  <b>Date required on:</b>
+  <%= @product_req_planning.date_required_on %>
+</p>
+
+
+<%= link_to 'Edit', edit_product_req_planning_path(@product_req_planning) %> |
+<%= link_to 'Back', product_req_plannings_path %>

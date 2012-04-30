@@ -3,7 +3,7 @@
 <table>
   <tr>
     
-    <th>Product code</th>
+    <th>Product name</th>
     <th>Product type</th>
     <th>Product group</th>
     <th>Supplier</th>
@@ -16,7 +16,7 @@
 <% @products.each do |product| %>
   <tr>
     
-    <td><%= product.product_code %></td>
+    <td><%= product.product_name %></td>
     <td>
       
       <% if product.product_type_id.nil? %>

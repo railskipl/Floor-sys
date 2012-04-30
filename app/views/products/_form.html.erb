@@ -15,6 +15,11 @@
     <%= f.label :category_id %><br />
     <%= select_tag("category_ids[]", options_for_select(Category.find(:all).collect { |cat| [cat.category_name, cat.id] }, @product.categories.collect { |cat| cat.id}), {:multiple=>true, :size=>6})%>
   </div>
+  
+  <div class="field">
+    <%= f.label :product_name %><br/>
+    <%= f.text_field :product_name %>
+  </div>
   <div class="field">
     <%= f.label :product_code %><br/>
     <%= f.text_field :product_code %>

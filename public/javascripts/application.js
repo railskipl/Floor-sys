@@ -1001,3 +1001,46 @@ jQuery(document).ready(function() {
 		}
 	});
 });
+
+
+jQuery(document).ready(function() {
+  jQuery("#new_product_req_planning").validate({
+	errorElement:'div',
+	rules: {
+	
+		
+			"product_req_planning[notes]":{
+							required:true
+			}
+
+			},
+		messages: {
+
+				"product_req_planning[notes]":{
+		required: "This field is required."
+				}
+		
+		}
+	});
+});
+
+jQuery(document).ready(function() {
+  jQuery("#new_quotation").validate({
+	errorElement:'div',
+	rules: {
+	
+		
+			"quotation[quotation_number]":{
+							required:true
+			}
+
+			},
+		messages: {
+
+				"quotation[quotation_number]":{
+		required: "This field is required."
+				}
+		
+		}
+	});
+});

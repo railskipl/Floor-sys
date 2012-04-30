@@ -1,0 +1,36 @@
+<%= form_for(@product_req_planning) do |f| %>
+  <% if @product_req_planning.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product_req_planning.errors.count, "error") %> prohibited this product_req_planning from being saved:</h2>
+
+      <ul>
+      <% @product_req_planning.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :notes %><br />
+    <%= f.text_area :notes %>
+  </div>
+  <div class="field">
+   <%= f.label :product_id %><br/>
+    <%= select :product_req_planning, :product_id, @product.map {|c| ["#{c.product_name}", c.id]} %> 
+  </div>
+  <div class="field">
+  <%= f.label :uom_id %><br/>
+   <%= select :product_req_planning, :uom_id, @uom.map {|c| ["#{c.roll_min}", c.id]} %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :company_id, :value=>"#{current_user.company_id}" %>
+  </div>
+  <div class="field">
+    <%= f.label :date_required_on %><br />
+    <%= f.date_select :date_required_on %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

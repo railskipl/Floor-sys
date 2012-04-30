@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Product:</b>
+  <%= @quotation.product_id %>
+</p>
+
+<p>
+  <b>Uom:</b>
+  <%= @quotation.uom_id %>
+</p>
+
+<p>
+  <b>Supplier:</b>
+  <%= @quotation.supplier_id %>
+</p>
+
+
+<p>
+  <b>Quotation number:</b>
+  <%= @quotation.quotation_number %>
+</p>
+
+<p>
+  <b>Date generated:</b>
+  <%= @quotation.date_generated %>
+</p>
+
+
+<%= link_to 'Edit', edit_quotation_path(@quotation) %> |
+<%= link_to 'Back', quotations_path %>

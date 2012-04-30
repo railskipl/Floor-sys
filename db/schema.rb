@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120426114300) do
+ActiveRecord::Schema.define(:version => 20120430114512) do
 
   create_table "categories", :force => true do |t|
     t.string   "category_name"
@@ -165,6 +165,16 @@ ActiveRecord::Schema.define(:version => 20120426114300) do
     t.datetime "updated_at"
   end
 
+  create_table "product_req_plannings", :force => true do |t|
+    t.text     "notes"
+    t.integer  "product_id"
+    t.integer  "uom_id"
+    t.integer  "company_id"
+    t.date     "date_required_on"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "product_style_types", :force => true do |t|
     t.string   "name_1"
     t.string   "name_2"
@@ -211,6 +221,7 @@ ActiveRecord::Schema.define(:version => 20120426114300) do
     t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "product_name"
   end
 
   create_table "prospects", :force => true do |t|
@@ -227,6 +238,17 @@ ActiveRecord::Schema.define(:version => 20120426114300) do
     t.datetime "updated_at"
     t.date     "date_of_purchase"
     t.integer  "customer_id"
+  end
+
+  create_table "quotations", :force => true do |t|
+    t.integer  "product_id"
+    t.integer  "uom_id"
+    t.integer  "supplier_id"
+    t.integer  "company_id"
+    t.string   "quotation_number"
+    t.date     "date_generated"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "roles", :force => true do |t|

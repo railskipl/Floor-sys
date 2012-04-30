@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  notes: MyText
+  product_id: 1
+  uom_id: 1
+  company_id: 1
+  date_required_on: 2012-04-30
+
+two:
+  notes: MyText
+  product_id: 1
+  uom_id: 1
+  company_id: 1
+  date_required_on: 2012-04-30

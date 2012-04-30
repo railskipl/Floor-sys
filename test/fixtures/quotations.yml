@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  product_id: 1
+  uom_id: 1
+  supplier_id: 1
+  company_id: 1
+  quotation_number: MyString
+  date_generated: 2012-04-30
+
+two:
+  product_id: 1
+  uom_id: 1
+  supplier_id: 1
+  company_id: 1
+  quotation_number: MyString
+  date_generated: 2012-04-30

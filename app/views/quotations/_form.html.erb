@@ -1,0 +1,41 @@
+<%= form_for(@quotation) do |f| %>
+  <% if @quotation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@quotation.errors.count, "error") %> prohibited this quotation from being saved:</h2>
+
+      <ul>
+      <% @quotation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+   <%= f.label :product_id %><br/>
+    <%= select :quotation, :product_id, @product.map {|c| ["#{c.product_name}", c.id]} %>
+ 
+  </div>
+  <div class="field">
+  <%= f.label :uom_id %><br/>
+   <%= select :quotation, :uom_id, @uom.map {|c| ["#{c.roll_min}", c.id]} %>
+  </div>
+  <div class="field">
+    <%= f.label :supplier_id %><br />
+    <%= select :quotation, :supplier_id, @supplier.map {|c| ["#{c.account_reference}", c.id]} %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :company_id, :value=>"#{current_user.company_id}" %>
+  </div>
+  <div class="field">
+    <%= f.label :quotation_number %><br />
+    <%= f.text_field :quotation_number %>
+  </div>
+  <div class="field">
+    <%= f.label :date_generated %><br />
+    <%= f.date_select :date_generated %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
