@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.xml
   def index
-    @products = Product.all
+    @products = Product.find_all_by_company_id(current_user.company_id)
 
     respond_to do |format|
       format.html # index.html.erb

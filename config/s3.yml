@@ -4,12 +4,12 @@ common: &common
 
 development:
     <<: *common
-    bucket: csoffice
+    bucket: stbgroup
 
 test:
     <<: *common
-    bucket: csoffice
+    bucket: stbgroup
 
 production:
     <<: *common
-    bucket: csoffice
+    bucket: stbgroup
