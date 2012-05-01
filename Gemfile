@@ -11,7 +11,9 @@ gem 'cancan'
 
 gem 'ancestry'
 
-gem "paperclip"
+gem "carrierwave"
+gem "rmagick"
+gem 'fog'
 
 gem 'cocaine'
 gem 'aws-s3', :require =>"aws/s3"
