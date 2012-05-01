@@ -2,7 +2,11 @@
 
 <p>
   <b>Product:</b>
-  <%= @quotation.product_id %>
+ <% if @quotation.product_id.nil? %>
+          <% else %>
+          <% @product = Product.find(@quotation.product_id) %>
+            <%= @product.product_name %>
+          <% end %>
 </p>
 
 <p>
@@ -10,10 +14,13 @@
   <%= @quotation.uom_id %>
 </p>
 
-<p>
   <b>Supplier:</b>
-  <%= @quotation.supplier_id %>
-</p>
+  <% if @quotation.supplier_id.nil? %>
+    <% else %>
+    <% @supplier = Supplier.find(@quotation.supplier_id) %>
+      <%= @supplier.account_reference %>
+    <% end %>
+
 
 
 <p>

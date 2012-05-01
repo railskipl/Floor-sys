@@ -5,7 +5,6 @@
     <th>Product</th>
     <th>Uom</th>
     <th>Supplier</th>
-    <th>Company</th>
     <th>Quotation number</th>
     <th>Date generated</th>
     <th></th>
@@ -15,10 +14,18 @@
 
 <% @quotations.each do |quotation| %>
   <tr>
-    <td><%= quotation.product_id %></td>
+    <td> <% if quotation.product_id.nil? %>
+          <% else %>
+          <% @product = Product.find(quotation.product_id) %>
+            <%= @product.product_name %>
+          <% end %></td>
     <td><%= quotation.uom_id %></td>
-    <td><%= quotation.supplier_id %></td>
-    <td><%= quotation.company_id %></td>
+    <td> <% if quotation.supplier_id.nil? %>
+          <% else %>
+          <% @supplier = Supplier.find(quotation.supplier_id) %>
+            <%= @supplier.account_reference %>
+          <% end %></td>
+
     <td><%= quotation.quotation_number %></td>
     <td><%= quotation.date_generated %></td>
     <td><%= link_to 'Show', quotation %></td>

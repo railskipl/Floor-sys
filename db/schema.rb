@@ -43,10 +43,6 @@ ActiveRecord::Schema.define(:version => 20120430114512) do
     t.string   "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "logo_file_name"
-    t.string   "logo_content_type"
-    t.integer  "logo_file_size"
-    t.datetime "logo_updated_at"
     t.string   "country_name"
   end
 

@@ -5,7 +5,7 @@
     <th>Notes</th>
     <th>Product</th>
     <th>Uom</th>
-    <th>Company</th>
+
     <th>Date required on</th>
     <th></th>
     <th></th>
@@ -15,9 +15,15 @@
 <% @product_req_plannings.each do |product_req_planning| %>
   <tr>
     <td><%= product_req_planning.notes %></td>
-    <td><%= product_req_planning.product_id %></td>
+
+     <td> <% if product_req_planning.product_id.nil? %>
+          <% else %>
+          <% @product = Product.find(product_req_planning.product_id) %>
+            <%= @product.product_name %>
+          <% end %></td>
+
     <td><%= product_req_planning.uom_id %></td>
-    <td><%= product_req_planning.company_id %></td>
+ 
     <td><%= product_req_planning.date_required_on %></td>
     <td><%= link_to 'Show', product_req_planning %></td>
     <td><%= link_to 'Edit', edit_product_req_planning_path(product_req_planning) %></td>

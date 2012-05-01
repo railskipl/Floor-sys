@@ -7,14 +7,17 @@
 
 <p>
   <b>Product:</b>
-  <%= @product_req_planning.product_id %>
+ <% if @product_req_planning.product_id.nil? %>
+          <% else %>
+          <% @product = Product.find(@product_req_planning.product_id) %>
+            <%= @product.product_name %>
+          <% end %>
 </p>
 
 <p>
   <b>Uom:</b>
   <%= @product_req_planning.uom_id %>
 </p>
-
 
 
 <p>

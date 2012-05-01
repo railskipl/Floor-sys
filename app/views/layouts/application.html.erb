@@ -54,6 +54,9 @@
       <% if can? :new, ProductWear %>
         <%= link_to 'Create Product Wear', new_product_wear_path %> |  
       <% end %>
+      <% if can? :new, ProductReqPlanning %>
+       <%= link_to 'Product Req Planning', product_req_plannings_path %> 
+      <% end %>
       
       <% if can? :new, ProductStyleType %>
         <%= link_to 'Create Product Style Type', new_product_style_type_path %> |  
@@ -63,11 +66,17 @@
      <%= link_to 'Create Product', new_product_path %> 
      <% end %> 
      
+      
+      
+      <% if can? :new, ProductReqPlanning %>
+       <%= link_to 'Product Req Planning', product_req_plannings_path %> 
+      <% end %>
+     
   </p>
 <% end %>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
-       
+  
        
 <%= yield %>
 
