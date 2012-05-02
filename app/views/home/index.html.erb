@@ -1,17 +1,30 @@
+<div id="loginbox">
+
+   
+  <table width="90%" border="0" cellspacing="10" cellpadding="0">
+  	 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+    <tr>
+      <td align="right" valign="middle"><strong>Username: </strong></td>
+      <td align="left" valign="top"><label>
+     <%= f.text_field :login,:class => "logintextfield" %>
+       
+      </label></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle"><strong>Password: </strong></td>
+      <td align="left" valign="top">
+      	<%= f.password_field :password, :class => "logintextfield"  %></td>
+    </tr>
+    <tr>
+      <td align="left" valign="top">&nbsp;</td>
+      <td align="left" valign="top">
+	<%= f.submit "Login", :class => "button" %>
+       
       
-      <% if user_signed_in? %>
-      							    
 
-
-      <% else %>
-        <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-          	<p align="center"><img src="/images/login_sign.png" alt="" /></p>
-              <p class="text" align="center">Username</p>
-              <p align="center"><%= f.text_field :login %></p>
-              
-              <p class="text" align="center">Password</p>
-              <p align="center"><%= f.password_field :password %></p>
-              <p align="center" class="sing_btn"><%= f.submit "Sign In", :class => 'signin' %></p>
-              <%= link_to "Forgot Password", new_password_path('user'), :class =>  'lostpassword' %>
-          <% end %>
+          <div align="right" style="width:50%; float:right; margin-right:5px"> <%= link_to "forgot your password?", new_password_path('user'), :class => "fp" %></div>
       <% end %>
+      </td>
+    </tr>
+  </table>
+</div>
