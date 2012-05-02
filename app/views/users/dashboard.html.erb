@@ -85,15 +85,15 @@ Cash Register</a></li>
         	 <% if can? :new, Company %>
           <li><a href="#">Company</a>
               <ul>
-                <li><a href="companies/new">New</a></li>
-                <li><a href="edit.html">Edit</a></li>
+                <li><a href="#">New</a></li>
+                <li><a href="#">Edit</a></li>
               </ul>
           </li>
           <% end %>
           <li><a href="#">Company User</a>
               <ul>
-                <li><a href="users/new">New</a></li>
-                <li><a href="edit.html">Edit</a></li>
+                <li><a href="#">New</a></li>
+                <li><a href="#">Edit</a></li>
               </ul>
           </li>
         </ul>
@@ -117,7 +117,8 @@ Cash Register</a></li>
         	<% unless user.username=='admin' %>
           <td><%= user.username %> </td>
           <td><a href=""><%= user.email %></a></td>
-          <td class="options-width"> <%= link_to '', new_user_path,:class => "icon-1 info-tooltip"%><%= link_to '', edit_user_path(user),:class =>"icon-2 info-tooltip" %> <%= link_to '', {:controller=>"users", :action=>"destroy", :id=>"#{user.id}"}, :confirm => 'Are you sure?',  :class => "icon-3 info-tooltip"%></td>
+          <td class="options-width"> 
+            <a href="#" title="Add" class="icon-1 info-tooltip"></a> <a href="#" title="Edit" class="icon-2 info-tooltip"></a> <a href="#" title="Delete" class="icon-3 info-tooltip"></a>          </td>
         </tr>
         <%end%>
         <%end%>
