@@ -85,7 +85,10 @@
     <%= f.text_field :added_by %>
     <%= f.hidden_field :company_id, :value=>"#{current_user.company_id}" %>
   </div>
-  
+  <div class="field">
+    <%= f.label :supplierimage %><br />
+    <%= f.file_field :supplierimage %>
+  </div>
   
   
   <div class="actions">
