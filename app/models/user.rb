@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
   attr_accessor :login
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me,:company_id, :first_name, :surname, :job_title, :address_line1, :address_line2, :address_line3, :city, :postcode, :fix_line, :mobile_number, :county, :username, :role_ids, :admin_id, :login
+  attr_accessible :email, :password, :password_confirmation, :remember_me,:company_id, :first_name, :surname, :job_title, :address_line1, :address_line2, :address_line3, :city, :postcode, :fix_line, :mobile_number, :county, :username, :role_ids, :admin_id, :login, :userimage
+  mount_uploader :userimage, UserimageUploader
   
   validates_presence_of             :first_name, :surname, :job_title, :address_line1, :address_line2, :address_line3, 
                                     :city, :postcode, :fix_line, :mobile_number, :county, :username

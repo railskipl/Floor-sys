@@ -1,5 +1,5 @@
 <div class="signUp_area">
-     <%= form_for(@user) do |f| %>
+     <%= form_for(@user, :html => { :multipart => true }) do |f| %>
        
           <% if @user.errors.any? %>
           <div id="error_explanation">
@@ -60,6 +60,9 @@
                    
                    <p class="lable">Post Code</p>
                    <p class="field"><%= f.text_field :postcode %></p>
+                   
+                   <p class="lable">User Image</p>
+                   <p class="field"><%= f.file_field :userimage %></p>
                                         
                              <% for role in Role.find(:all) %>
                              
