@@ -83,3 +83,17 @@ ul#css3menu1 li.topmenu:hover>a,ul#css3menu1 li.topmenu>a.pressed{
     top: 7px;
     width: 0;}
 
+	.toparrow{
+	
+border-style: dashed dashed solid;
+    border-width: 0 10px 10px;
+    cursor: default;
+    display: inline-block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    position: absolute;
+    top: 0;
+    width: 0;
+    z-index: 1000; border-bottom-color: #FFFFFF !important; left: 25px;
+    margin: -10px 0 0; color: #666666; border-color: transparent }

@@ -1,12 +1,27 @@
-<h2>Forgot your password?</h2>
 
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= devise_error_messages! %>
 
-  <p><%= f.label :email %><br />
-  <%= f.text_field :login %></p>
-
-  <p><%= f.submit "Send me reset password instructions" %></p>
-<% end %>
-
-<%= render :partial => "devise/shared/links" %>
+    <div id="reset_password">
+      <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+      <table width="100%" border="0" cellspacing="10" cellpadding="0">
+        <tr>
+              <td colspan="2" align="center" valign="middle"><h1>Forgot your Password</h1> </td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle"><strong>E-mail: </strong></td>
+          <td align="left" valign="top"><label>
+            <%= f.text_field :email, :class=>"logintextfield" %>
+          </label></td>
+        </tr>
+        
+        <tr>
+          <td align="left" valign="top">&nbsp;</td>
+          <td align="left" valign="top"><a href="dashboard.html" style="text-decoration:none">
+            
+             <%= f.submit "Send", :class=>"button" %>
+            </a>
+             </td>
+        </tr>
+      </table>
+      <% end %>
+    </div>
+  

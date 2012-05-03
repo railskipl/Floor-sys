@@ -4,17 +4,21 @@ body{ font-family:Arial, Helvetica, sans-serif; font-size:12px; margin:0; paddin
 
 #maindiv{ width:100%; height:auto; overflow:hidden;}
 
-#header{ width:100%; height:30px; overflow:hidden; background:#2D2D2D; border-bottom:1px solid #fff}
+#header{ width:100%; min-height:30px; height:auto; overflow:hidden; background:#e7e7e7; border-bottom:1px solid #fff}
 
-#header_wrap{ width:1000px; height:30px; overflow:hidden;}
+#header_wrap{ width:1000px; height:auto; overflow:hidden;}
 
 #logo{ width:123px; height:75px; padding:10px 0 10px 0}
 
-#logo2{ width:87px; height:34px; padding:10px 0 10px 0; float:left}
+#topsearchbox{float:left; margin:22px 0 0 20px; text-align:left; width:435px}
+
+#username{float:left; margin:22px 0 0 10px; text-align:left; max-width:200px; font-weight:bold }
+
+#logo2{ width:130px; height:57px; padding:10px 0 10px 0; float:left; margin-left:50px}
 
 #welcomeuser{ width:500px; height:auto; float:right; padding:3px 0 0 0; text-align:right; color:#d0d0d0}
 
-#wrap{ width:1000px; height:auto; overflow:hidden; min-height:400px}
+#wrap{ width:1000px; height:auto; margin-top:20px}
 
 #signindiv{ margin:50px 0 20px 0; width:100%; height:auto; clear:left}
 
@@ -22,25 +26,50 @@ h1{ font-size:20px; color:#2d2d2e}
 
 #loginbox{ width:470px; height:auto; border:1px solid #bcbcbc; background:#fff; padding:20px; border-radius: 10px 10px 10px 10px;}
 #loginbox2{ color:#444444; width:600px; height:auto; border-top:1px solid #fff; border-right:1px solid #bcbcbc; border-bottom:1px solid #bcbcbc; border-left:1px solid #bcbcbc; background:#f1f1f1; padding:20px; border-radius: 0px 0px 10px 10px; overflow:hidden}
+#reset_password{ width:485px; height:auto; border:1px solid #bcbcbc; background:#fff; padding:20px; border-radius: 10px 10px 10px 10px;}
 
 
 #footer{ width:100%; height:auto; overflow:hidden; padding:10px;}
 
 .logintextfield{ width:300px; height:auto; padding:7px; border-radius: 5px 5px 5px 5px; background:#FFFFFF; border:1px solid #bcbcbc}
 
-.button{background: -webkit-gradient(linear, left top, left bottom, from(#ed1c24), to(#af0007)); background: -moz-linear-gradient(top,  #ed1c24,  #af0007); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ed1c24', endColorstr='#af0007'); border:1px solid #940006; color:#444444; font-weight:bold; padding:2px 5px 2px 5px; border-radius: 3px 3px 3px 3px; cursor:pointer; color:#FFFFFF; font-size:12px}
+.button{background: -webkit-gradient(linear, left top, left bottom, from(#ed1c24), to(#af0007)); background: -moz-linear-gradient(top,  #ed1c24,  #af0007); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ed1c24', endColorstr='#af0007'); border:1px solid #940006; color:#444444; font-weight:bold; padding:2px 5px 2px 5px; border-radius: 3px 3px 3px 3px; cursor:pointer; color:#FFFFFF; font-size:12px
+
+}
 
 .button2{background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ededed)); background: -moz-linear-gradient(top,  #fff,  #ededed); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed'); border:1px solid #9c9c9c; color:#444444; font-weight:bold; padding:5px 10px 5px 10px; border-radius: 3px 3px 3px 3px; cursor:pointer;
 
 }
 
+.notification{background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ededed)); background: -moz-linear-gradient(top,  #fff,  #ededed); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed'); border:1px solid #9c9c9c; color:#444444; font-weight:bold; padding:3px 3px 3px 3px; border-radius: 3px 3px 3px 3px; cursor:pointer; width:auto; float:left; margin:24px 0 0 10px
+
+}
 
 
-#left{ width:10%; height:auto; float:left; text-align:left}
+.mail{
+	background: -moz-linear-gradient(top,  #fff,  #ededed);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed'); 	border:1px solid #9c9c9c;
+	color:#444444;
+	font-weight:bold;
+	padding:5px 5px 5px 30px;
+	border-radius: 3px 3px 3px 3px;
+	cursor:pointer;
+	width:auto;
+	float:left;
+	margin:20px 0 0 10px;
+	background:url(../images/mail.png) no-repeat;
+	background-image: url(../images/mail.png);
+	background-repeat: no-repeat;
+	background-position: 3px center;
+}
 
-#right{ width:85%; height:auto; float:right;border:1px solid #bcbcbc; background:#fff; padding:20px; text-align:left; border-radius: 10px 10px 10px 10px; margin:0 0 20px 0}
 
-#searchdiv{ width:100%; height:auto; float:left; padding:20px 0 20px 0; text-align:left}
+
+
+#left{ width:15%; height:auto; float:left; text-align:left}
+
+#right{ width:80%; height:auto; float:right;border:1px solid #bcbcbc; background:#fff; padding:20px; text-align:left; border-radius: 10px 10px 10px 10px; margin:0 0 20px 0}
+
 
 
 .searcfield {
@@ -127,6 +156,178 @@ background: url(../images/right.gif) no-repeat 97% 50%;
 	background-position: center top; display:block
 }
 .m1 a:hover{color:#000; background:url(../images/profile.png) no-repeat top center;}
+
+
+
+
+.m2{ width:100px; height:auto; text-align:center; color:#999999; text-decoration:none; margin-bottom:10px;}
+.m2 a {
+	text-decoration:none; width:100px;
+	color:#999999;
+	padding-top:50px;
+	background-attachment: scroll;
+	background-image: url(../images/company2.png);
+	background-repeat: no-repeat;
+	background-position: center top; display:block
+}
+.m2 a:hover{color:#000; background:url(../images/company.png) no-repeat top center;}
+
+
+
+.m3{ width:100px; height:auto; text-align:center; color:#999999; text-decoration:none; margin-bottom:10px;}
+.m3 a {
+	text-decoration:none; width:100px;
+	color:#999999;
+	padding-top:50px;
+	background-attachment: scroll;
+	background-image: url(../images/clients2.png);
+	background-repeat: no-repeat;
+	background-position: center top; display:block
+}
+.m3 a:hover{color:#000; background:url(../images/clients.png) no-repeat top center;}
+
+
+
+.m4{ width:100px; height:auto; text-align:center; color:#999999; text-decoration:none; margin-bottom:10px;}
+.m4 a {
+	text-decoration:none; width:100px;
+	color:#999999;
+	padding-top:50px;
+	background-attachment: scroll;
+	background-image: url(../images/contact2.png);
+	background-repeat: no-repeat;
+	background-position: center top; display:block
+}
+.m4 a:hover{color:#000; background:url(../images/contact.png) no-repeat top center;}
+
+
+
+.m5{ width:100px; height:auto; text-align:center; color:#999999; text-decoration:none; margin-bottom:10px;}
+.m5 a {
+	text-decoration:none; width:100px;
+	color:#999999;
+	padding-top:50px;
+	background-attachment: scroll;
+	background-image: url(../images/supplier2.png);
+	background-repeat: no-repeat;
+	background-position: center top; display:block
+}
+.m5 a:hover{color:#000; background:url(../images/supplier.png) no-repeat top center;}
+
+
+
+
+.m6{ width:100px; height:auto; text-align:center; color:#999999; text-decoration:none; margin-bottom:10px;}
+.m6 a {
+	text-decoration:none; width:100px;
+	color:#999999;
+	padding-top:50px;
+	background-attachment: scroll;
+	background-image: url(../images/product2.png);
+	background-repeat: no-repeat;
+	background-position: center top; display:block
+}
+.m6 a:hover{color:#000; background:url(../images/product.png) no-repeat top center;}
+
+
+.m7{ width:100px; height:auto; text-align:center; color:#999999; text-decoration:none; margin-bottom:10px;}
+.m7 a {
+	text-decoration:none; width:100px;
+	color:#999999;
+	padding-top:50px;
+	background-attachment: scroll;
+	background-image: url(../images/quote2.png);
+	background-repeat: no-repeat;
+	background-position: center top; display:block
+}
+.m7 a:hover{color:#000; background:url(../images/quote.png) no-repeat top center;}
+
+
+
+
+.m8{ width:100px; height:auto; text-align:center; color:#999999; text-decoration:none; margin-bottom:10px;}
+.m8 a {
+	text-decoration:none; width:100px;
+	color:#999999;
+	padding-top:50px;
+	background-attachment: scroll;
+	background-image: url(../images/po2.png);
+	background-repeat: no-repeat;
+	background-position: center top; display:block
+}
+.m8 a:hover{color:#000; background:url(../images/po.png) no-repeat top center;}
+
+
+
+.m9{ width:100px; height:auto; text-align:center; color:#999999; text-decoration:none; margin-bottom:10px;}
+.m9 a {
+	text-decoration:none; width:100px;
+	color:#999999;
+	padding-top:50px;
+	background-attachment: scroll;
+	background-image: url(../images/iog2.png);
+	background-repeat: no-repeat;
+	background-position: center top; display:block
+}
+.m9 a:hover{color:#000; background:url(../images/iog.png) no-repeat top center;}
+
+
+
+.m10{ width:100px; height:auto; text-align:center; color:#999999; text-decoration:none; margin-bottom:10px;}
+.m10 a {
+	text-decoration:none; width:100px;
+	color:#999999;
+	padding-top:50px;
+	background-attachment: scroll;
+	background-image: url(../images/sales2.png);
+	background-repeat: no-repeat;
+	background-position: center top; display:block
+}
+.m10 a:hover{color:#000; background:url(../images/sales.png) no-repeat top center;}
+
+
+
+.m11{ width:100px; height:auto; text-align:center; color:#999999; text-decoration:none; margin-bottom:10px;}
+.m11 a {
+	text-decoration:none; width:100px;
+	color:#999999;
+	padding-top:50px;
+	background-attachment: scroll;
+	background-image: url(../images/cash2.png);
+	background-repeat: no-repeat;
+	background-position: center top; display:block
+}
+.m11 a:hover{color:#000; background:url(../images/cash.png) no-repeat top center;}
+
+
+.m12{ width:100px; height:auto; text-align:center; color:#999999; text-decoration:none; margin-bottom:10px;}
+.m12 a {
+	text-decoration:none; width:100px;
+	color:#999999;
+	padding-top:50px;
+	background-attachment: scroll;
+	background-image: url(../images/complaint2.png);
+	background-repeat: no-repeat;
+	background-position: center top; display:block
+}
+.m12 a:hover{color:#000; background:url(../images/complaint.png) no-repeat top center;}
+
+
+.m13{ width:100px; height:auto; text-align:center; color:#999999; text-decoration:none; margin-bottom:10px;}
+.m13 a {
+	text-decoration:none; width:100px;
+	color:#999999;
+	padding-top:50px;
+	background-attachment: scroll;
+	background-image: url(../images/setting2.png);
+	background-repeat: no-repeat;
+	background-position: center top; display:block
+}
+.m13 a:hover{color:#000; background:url(../images/setting.png) no-repeat top center;}
+
+
+
+
 .rightcorner{border-radius: 2px 2px 2px 2px; background:#0099CC}
 
 
