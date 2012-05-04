@@ -380,3 +380,20 @@ background: url(../images/right.gif) no-repeat 97% 50%;
 .nested_messages .nested_messages .nested_messages .nested_messages {
     margin-left: 0;
 }
+
+.notification{
+    background: -moz-linear-gradient(top,  #fff,  #ededed);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed'); border:1px solid #9c9c9c;
+    color:#444444;
+    font-weight:bold;
+    width:24px;
+    height:17px;
+    padding:3px;
+    border-radius: 3px 3px 3px 3px;
+    float:left;
+    margin:24px 0 0 3px;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.notificationvalue{ border-radius:10px; background:#ed1c24; color:#FFFFFF; position: relative; top:-27px; left:12px; font-size:11px; width:16px; height: auto}

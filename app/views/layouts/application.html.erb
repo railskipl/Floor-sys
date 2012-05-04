@@ -113,7 +113,11 @@ setInterval("getthedate()",1000)
       </div>
 	  <div id="clock" style="width:130px; float:left; margin:25px 0 0 0; font-size:12px; text-align:left; font-weight:bold; color:#666666"></div>
 	  
-	  <div class="notification" title="Notification"><img src="/images/mail.png" alt="" /></div>
+	  <div class="notification" title="Notification"><img src="/images/mail.png" alt="" border="0" />
+
+          <div class="notificationvalue">2</div>
+
+    </div>
 	 
       <div id="username"> Floorserve Ltd. <br/>
       	<% if user_signed_in? %>
