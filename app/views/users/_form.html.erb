@@ -1,5 +1,28 @@
-<div class="signUp_area">
-     <%= form_for(@user, :html => { :multipart => true }) do |f| %>
+<div id="right">
+      <div id="smoothmenu1" class="ddsmoothmenu">
+      	<ul class="rightcorner">
+ <% if can? :new, Company %>
+<li><a href="#">Company</a>
+  <ul>
+
+ <li> <%= link_to 'New', new_company_path %></li>
+  <li><%= link_to 'Edit', "#" %></li>
+
+  </ul>
+</li>
+   <% end %>
+<li><a href="#">Company User</a>
+  <ul>
+
+  <li><%= link_to 'New', new_user_path %></li>
+  <li><%= link_to 'Edit', "#" %></li>
+
+  </ul>
+</li>
+
+</ul>
+<br style="clear: left" />
+    <%= form_for(@user) do |f| %>
        
           <% if @user.errors.any? %>
           <div id="error_explanation">
@@ -13,83 +36,113 @@
           </ul>
           </div>
           <% end %>
-    		  
-	                  <p class="lable">Username</p>
-                   <p class="field"><%= f.text_field :username %></p>
- 
-                   <p class="lable">First Name</p>
-                   <p class="field"><%= f.text_field :first_name %></p>
-                   
-                   <p class="lable">Last Name</p>
-                   <p class="field"><%= f.text_field :surname %></p>
-                   
-                   <p class="lable">Email</p>
-                   <p class="field"><%= f.email_field :email %></p>
-                    
-                   <% if @current_method == "new" %>
-                   <p class="lable">Password</p>
-                   <p class="field"><%= f.password_field :password %></p>
 
-                   <p class="lable">Confirm Password</p>
-                   <p class="field"><%= f.password_field :password_confirmation %></p>
-                   <% end %> 
-                   
-                   <p class="lable">Job Title</p>
-                   <p class="field"><%= f.text_field :job_title %></p>
-                   
-                   <p class="lable">Address Line 1</p>
-                   <p class="field"><%= f.text_field :address_line1 %></p>
-                   
-                   <p class="lable">Address Line 2</p>
-                   <p class="field"><%= f.text_field :address_line2 %></p>
-                   
-                   <p class="lable">Address Line 3</p>
-                   <p class="field"><%= f.text_field :address_line3 %></p>
-                   
-                   <p class="lable">City</p>
-                   <p class="field"><%= f.text_field :city %></p>
-                   
-                   <p class="lable">Country</p>
-                   <p class="field"><%= select :user, :county, Country.all.map {|c| [c.country_name]} %></p>
-                   
-                   <p class="lable">Fix Line</p>
-                   <p class="field"><%= f.text_field :fix_line %></p>
-                   
-                   <p class="lable">Mobile Number</p>
-                   <p class="field"><%= f.text_field :mobile_number %></p>
-                   
-                   <p class="lable">Post Code</p>
-                   <p class="field"><%= f.text_field :postcode %></p>
-                   
-                   <p class="lable">User Image</p>
-                   <p class="field"><%= f.file_field :userimage %></p>
-                                        
-                             <% for role in Role.find(:all) %>
-                             
-                              
-                                  
-                                  <% if current_user.id == 1 %>
+</div>
+      <h1>New User</h1>
+      <table width="60%" border="0" cellspacing="10" cellpadding="5">
+        <tr>
+          <td align="right" valign="middle">Email Id </td>
+          <td align="center" valign="middle">:</td>
+          <td><%= f.text_field :email,:class =>"field1" %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Password</td>
+          <td align="center" valign="middle">:</td>
+          <td><%= f.password_field :password,:class =>"field1" %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Confirm Password </td>
+          <td align="center" valign="middle">:</td>
+          <td><%= f.password_field :password_confirmation,:class =>"field1" %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Username</td>
+          <td align="center" valign="middle">:</td>
+          <td><%= f.text_field :username,:class =>"field1" %> </td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">First Name </td>
+          <td align="center" valign="middle">:</td>
+          <td><%= f.text_field :first_name,:class =>"field1" %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Last Name </td>
+          <td align="center" valign="middle">:</td>
+          <td><%= f.text_field :surname,:class =>"field1" %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Job Title </td>
+          <td align="center" valign="middle">:</td>
+          <td><%= f.text_field :job_title,:class =>"field1" %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Address Line 1 </td>
+          <td align="center" valign="middle">:</td>
+          <td> <%= f.text_area :address_line1, :rows => 4,:class =>"field1" %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Address Line 2 </td>
+          <td align="center" valign="middle">:</td>
+          <td><%= f.text_area :address_line2, :rows => 4,:class =>"field1" %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Address Line 3 </td>
+          <td align="center" valign="middle">:</td>
+          <td><%= f.text_area :address_line3, :rows => 4,:class =>"field1" %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">City</td>
+          <td align="center" valign="middle">:</td>
+          <td><%= f.text_field :city,:class =>"field1" %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Postcode</td>
+          <td align="center" valign="middle">:</td>
+          <td><%= f.text_field :postcode,:class =>"field1" %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Fix Line Number </td>
+          <td align="center" valign="middle">:</td>
+          <td><%= f.text_field :fix_line,:class =>"field1" %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Mobile </td>
+          <td align="center" valign="middle">:</td>
+          <td><%= f.text_field :mobile_number,:class =>"field1" %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Country</td>
+          <td align="center" valign="middle">:</td>
+          <td><%= select :user, :county, Country.all.map {|c| [c.country_name]},:class =>"field1" %> </td>
+        </tr>
+        <tr>
+        	 <td align="right" valign="middle">Select User</td>
+          <td align="center" valign="middle">:</td>
+        	 <% for role in Role.find(:all) %>                                                          
+                                     <% if current_user.id == 1 %>
                                     <% if role.name == "super_admin" %>
                                       <%= f.hidden_field :admin_id, :value => current_user.id %>
-                                     <%= check_box_tag "user[role_ids][]", 2, @user.roles.include?(role) %>
-                                      <%= "Company Admin" %> 
+                                     <td>   <%= check_box_tag "user[role_ids][]", 2, @user.roles.include?(role) %>
+                                   <%= "Company Admin" %> </td>
                                     <% end %>
                                      <% elsif %>
                                       <% if current_user.id != 1 %>
                                         <% if role.id == 2 %>
                                           <%= f.hidden_field :admin_id, :value => current_user.id %>
                                           <%= f.hidden_field :company_id, :value => current_user.company_id %>
-                                         <%= check_box_tag "user[role_ids][]",3, @user.roles.include?(role) %>
-                                        <%= "staff" %> 
+                                       <td>    <%= check_box_tag "user[role_ids][]",3, @user.roles.include?(role) %>
+                                        <%= "staff" %> </td>
                                         <% end %>
-                                      <%end%>
-                               
-                              <% end  %>
-                          
-                         </div>
-
-                  <% end  %>
-              
-               
-                   <%= f.submit " create", :class =>'submit'%></p>
-                   <% end %>
+                                       <%end%>                              
+                               <% end  %>                                                  
+                           <% end  %>                                          
+                 </tr>
+                 <tr> 
+          <td align="right" valign="middle">&nbsp;</td>
+          <td align="center" valign="middle">&nbsp;</td>
+          <td><%= f.submit "submit", :class =>'button'%></td>
+        </tr>
+      </table>
+    </div>
+   <% end %>
+    </div>

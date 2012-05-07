@@ -4,7 +4,7 @@ body{ font-family:Arial, Helvetica, sans-serif; font-size:12px; margin:0; paddin
 
 #maindiv{ width:100%; height:auto; overflow:hidden;}
 
-#header{ width:100%; min-height:30px; height:auto; overflow:hidden; background:#e7e7e7; border-bottom:1px solid #fff}
+#header{ width:100%; min-height:30px; height:auto; overflow:hidden; background:#e7e7e7; border-bottom:1px solid #fff; position:fixed;}
 
 #header_wrap{ width:1000px; height:auto; overflow:hidden;}
 
@@ -65,9 +65,9 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endC
 
 
 
-#left{ width:15%; height:auto; float:left; text-align:left}
+#left{ width:15%; height:auto; float:left; text-align:left; margin-top:76px; position:fixed;}
 
-#right{ width:80%; height:auto; float:right;border:1px solid #bcbcbc; background:#fff; padding:20px; text-align:left; border-radius: 10px 10px 10px 10px; margin:0 0 20px 0}
+#right{ width:80%; height:auto; float:right;border:1px solid #bcbcbc; background:#fff; padding:20px; text-align:left; border-radius: 10px 10px 10px 10px; margin:76px 20px 0}
 
 
 

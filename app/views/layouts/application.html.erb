@@ -124,7 +124,7 @@ setInterval("getthedate()",1000)
         <%= current_user.username %> </div>
         <% end %>
         
-      <div style="width:1000px; float:right; position:absolute">  
+      <div style="width:1000px; float:right; position:fixed">  
       <div id="container">
         <div id="loginContainer"> <a href="#" id="loginButton"><span><img src="/images/user.jpg" alt="" /></span><em></em></a>
             <div style="clear:both"></div>
@@ -159,6 +159,103 @@ setInterval("getthedate()",1000)
   </div>
   
   
+   <%= javascript_include_tag :all %>
+
+   <div id="wrap">
+      <div id="left">
+
+  	<ul id="css3menu1" class="topmenu">
+  	<li class="topmenu"><a href="#" title="Home" style="width: 100px;"><img src="/images/home_new.png" alt="Home" style="padding-right:0px"><br />
+  Home</a></li>
+
+    <li class="topmenu"><a href="#" title="Diary" style="width: 100px;"><img src="/images/book.png" alt="Home" style="padding-right:0px"><br />
+  Diary</a></li>
+
+    <li class="topmenu"><a href="#" title="Contact" style="width: 100px;"><img src="/images/contact_email.png" alt="Home" style="padding-right:0px"><br />
+  Contacts</a></li>
+
+  	<li class="topmenu"><a href="#" title="Customers" style="width: 100px;"><span><img src="/images/clients.png" alt="Product info" style="padding-right:0px"><br />
+       Customers</span></a>
+  	<div class="submenu" style="width:250px;">
+  	<div class="leftarrow"></div>
+  	<div class="column" style="width:100%">
+  	<ul>
+
+  		<li><a href="#" title="Features"><img src="/images/sales.png">Sales Estimates</a></li>
+
+  		<li><a href="#" title="Parameters info"><img src="/images/so.png">Sales Orders</a></li>
+
+  		<li><a href="#" title="Parameters info"><img src="/images/si.png">Sales Invoices</a></li>
+  		<li><a href="#" title="Parameters info"><img src="/images/complaint.png">Customer Complaints</a></li>
+
+  	</ul></div>
+  	</div>
+  </li>
+
+    <li class="topmenu"><a href="#" title="Cash Register" style="width: 100px;"><img src="/images/cash_register.png" alt="Home" style="padding-right:0px"><br />
+    Cash Register</a></li>
+
+   <li class="topmenu"><a href="#" title="Projects" style="width: 100px;"><img src="/images/projects.png" alt="Home" style="padding-right:0px" /><br />
+         Projects</a></li>
+
+
+
+
+  <li class="topmenu"><a href="#" title="Suppliers" style="width: 100px;"><span><img src="/images/supplier.png" alt="Product info" style="padding-right:0px"><br />
+       Suppliers</span></a>
+  	<div class="submenu" style="width:250px;">
+  	<div class="leftarrow"></div>
+  	<div class="column" style="width:100%">
+  	<ul>
+
+  		<li><a href="#" title="Features"><img src="/images/so.png">Purchase Orders</a></li>
+
+  		<li><a href="#" title="Parameters info"><img src="/images/si.png">Purchase Invoices</a></li>
+
+  		<li><a href="#" title="Parameters info"><img src="/images/quote.png">Purchase Quotes</a></li>
+
+
+  	</ul></div>
+  	</div>
+  </li>
+
+
+
+  <li class="topmenu"><a href="#" title="Products" style="width: 100px;"><span><img src="/images/product.png" alt="Product info" style="padding-right:0px"><br />
+       Products</span></a>
+  	<div class="submenu" style="width:250px;">
+  	<div class="leftarrow"></div>
+  	<div class="column" style="width:100%">
+  	<ul>
+
+  		<li><a href="#" title="Features"><img src="/images/goods.png">Goods Inwards</a></li>
+  		</ul></div>
+  		</div>
+  		</li>
+
+
+  		<li class="topmenu"><a href="#" title="More" style="width: 100px;"><span><img src="/images/more2.png" alt="Product info" style="padding-right:0px"><br />
+       More</span></a>
+  	<div class="submenu" style="width:250px;">
+  	<div class="leftarrow"></div>
+  	<div class="column" style="width:100%">
+  	<ul>
+
+  		<li><a href="#" title="Features"><img src="/images/goods.png">Sample Link 1</a></li>
+
+
+  		</ul></div>
+  		</div>
+  		</li>
+
+
+
+
+
+  </ul>
+
+
+      </div>
   
   <p class="notice"><%= notice %></p>
  <p class="alert"><%= alert %></p>
