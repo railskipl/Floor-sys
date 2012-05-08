@@ -1,3 +1,4 @@
+<div id="blank"></div>
 <div id="right">
       <div id="smoothmenu1" class="ddsmoothmenu">
       	<ul class="rightcorner">
@@ -20,9 +21,17 @@
   </ul>
 </li>
 
-</ul>
-<br style="clear: left" />
-    <%= form_for(@user) do |f| %>
+	</ul>
+	<br style="clear: left" />
+	</div>
+ </div>
+
+
+	<div id="right2">
+	 
+      <h1>New User</h1>
+      
+      <%= form_for(@user) do |f| %>
        
           <% if @user.errors.any? %>
           <div id="error_explanation">
@@ -35,10 +44,7 @@
           <% end %>
           </ul>
           </div>
-          <% end %>
-
-</div>
-      <h1>New User</h1>
+         <% end %>
       <table width="60%" border="0" cellspacing="10" cellpadding="5">
         <tr>
           <td align="right" valign="middle">Email Id </td>
@@ -143,6 +149,8 @@
           <td><%= f.submit "submit", :class =>'button'%></td>
         </tr>
       </table>
+      <% end %>
+      </div>
     </div>
-   <% end %>
-    </div>
+   
+    

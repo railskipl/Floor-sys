@@ -16,8 +16,8 @@ ul#css3menu1 ul .submenu{
 ul#css3menu1 li>.submenu{
 	opacity:0;-moz-transition:all 0.5s;-webkit-transition:opacity 0.5s;-o-transition:opacity 0.5s;}
 ul#css3menu1{
-	padding:0 3px 3px;font-size:0;z-index:999;position:relative;display:inline-block;zoom:1;
-	*display:inline; width:150px}
+	padding:0 3px 3px;font-size:0;z-index:999;position: fixed;display:inline-block;zoom:1;
+	*display:inline; width:auto; margin:67px 0 0 0}
 ul#css3menu1 .column{
 	float:left;}
 ul#css3menu1>li,ul#css3menu1 li{

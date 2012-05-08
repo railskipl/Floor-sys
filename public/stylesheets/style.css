@@ -4,21 +4,32 @@ body{ font-family:Arial, Helvetica, sans-serif; font-size:12px; margin:0; paddin
 
 #maindiv{ width:100%; height:auto; overflow:hidden;}
 
-#header{ width:100%; min-height:30px; height:auto; overflow:hidden; background:#e7e7e7; border-bottom:1px solid #fff; position:fixed;}
+#header{
+	width:100%;
+	min-height:30px;
+	height:auto;
+	overflow: hidden;
+	position: fixed;
+	background:#e7e7e7;
+	border-bottom:1px solid #fff;
+	z-index: 100;
+	left: 0px;
+	top: 0px;
+}
 
-#header_wrap{ width:1000px; height:auto; overflow:hidden;}
+#header_wrap{ width:100%; height:auto; overflow:hidden;}
 
 #logo{ width:123px; height:75px; padding:10px 0 10px 0}
 
-#topsearchbox{float:left; margin:22px 0 0 20px; text-align:left; width:456px}
+#topsearchbox{float:left; margin:22px 0 0 20px; text-align:left; width:435px}
 
-#username{float:left; margin:22px 0 0 18px; text-align:left; max-width:200px; font-weight:bold }
+#username{float:left; margin:22px 0 0 10px; text-align:left; max-width:200px; font-weight:bold }
 
-#logo2{ width:130px; height:57px; padding:10px 0 10px 0; float:left; margin-left:50px}
+#logo2{ width:130px; height:57px; padding:10px 0 10px 0; float:left; margin-left:40px}
 
 #welcomeuser{ width:500px; height:auto; float:right; padding:3px 0 0 0; text-align:right; color:#d0d0d0}
 
-#wrap{ width:1000px; min-height:440px; margin-top:20px; }
+#wrap{ width:100%; height:auto; margin-top:20px}
 
 #signindiv{ margin:50px 0 20px 0; width:100%; height:auto; clear:left}
 
@@ -26,6 +37,7 @@ h1{ font-size:20px; color:#2d2d2e}
 
 #loginbox{ width:470px; height:auto; border:1px solid #bcbcbc; background:#fff; padding:20px; border-radius: 10px 10px 10px 10px;}
 #loginbox2{ color:#444444; width:600px; height:auto; border-top:1px solid #fff; border-right:1px solid #bcbcbc; border-bottom:1px solid #bcbcbc; border-left:1px solid #bcbcbc; background:#f1f1f1; padding:20px; border-radius: 0px 0px 10px 10px; overflow:hidden}
+#reset_password{ width:485px; height:auto; border:1px solid #bcbcbc; background:#fff; padding:20px; border-radius: 10px 10px 10px 10px;}
 
 
 #footer{ width:100%; height:auto; overflow:hidden; padding:10px;}
@@ -40,9 +52,22 @@ h1{ font-size:20px; color:#2d2d2e}
 
 }
 
-.notification{background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ededed)); background: -moz-linear-gradient(top,  #fff,  #ededed); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed'); border:1px solid #9c9c9c; color:#444444; font-weight:bold; padding:1px 2px 1px 2px; border-radius: 3px 3px 3px 3px; cursor:pointer; width:auto; float:left; margin:24px 0 0 10px
-
+.notification{
+	background: -moz-linear-gradient(top,  #fff,  #ededed);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed'); border:1px solid #9c9c9c;
+	color:#444444;
+	font-weight:bold;
+	width:24px;
+	height:17px;
+	padding:3px;
+	border-radius: 3px 3px 3px 3px;
+	float:left;
+	margin:24px 0 0 3px;
+	background-repeat: no-repeat;
+	background-position: center center;
 }
+
+.notificationvalue{ border-radius:10px; background:#ed1c24; color:#FFFFFF; position: relative; top:-27px; left:12px; font-size:11px; width:16px; height: auto}
 
 
 .mail{
@@ -65,9 +90,19 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endC
 
 
 
-#left{ width:15%; height:auto; float:left; text-align:left; margin-top:76px; position:fixed;}
+#left{
+	width:10%;
+	height:auto;
+	float:left;
+	text-align:left;
 
-#right{ width:80%; height:auto; float:right;border:1px solid #bcbcbc; background:#fff; padding:20px; text-align:left; border-radius: 10px 10px 10px 10px; margin:76px 20px 0}
+	}
+	
+	#blank{ width:85%; height:20px; float:right; background:#F1F1F1; padding:20px; border:1px solid #F1F1F1; position:fixed; right:20px; top:78px}
+
+#right{ width:85%; height:auto; float:right;border-right:1px solid #bcbcbc; border-top:1px solid #bcbcbc; border-left:1px solid #bcbcbc; border-bottom:1px solid #fff; background:#fff; padding:20px; text-align:left; border-radius: 10px 10px 0px 0px; position:fixed; right:20px; top:97px}
+
+#right2{ width:85%; height:auto; float:right;border:1px solid #bcbcbc; background:#fff; padding:20px; text-align:left; border-radius: 0px 0px 10px 10px; clear:both; margin-top:115px; margin-right:20px}
 
 
 
@@ -380,20 +415,3 @@ background: url(../images/right.gif) no-repeat 97% 50%;
 .nested_messages .nested_messages .nested_messages .nested_messages {
     margin-left: 0;
 }
-
-.notification{
-    background: -moz-linear-gradient(top,  #fff,  #ededed);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed'); border:1px solid #9c9c9c;
-    color:#444444;
-    font-weight:bold;
-    width:24px;
-    height:17px;
-    padding:3px;
-    border-radius: 3px 3px 3px 3px;
-    float:left;
-    margin:24px 0 0 3px;
-    background-repeat: no-repeat;
-    background-position: center center;
-}
-
-.notificationvalue{ border-radius:10px; background:#ed1c24; color:#FFFFFF; position: relative; top:-27px; left:12px; font-size:11px; width:16px; height: auto}
