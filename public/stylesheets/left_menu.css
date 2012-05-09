@@ -16,8 +16,8 @@ ul#css3menu1 ul .submenu{
 ul#css3menu1 li>.submenu{
 	opacity:0;-moz-transition:all 0.5s;-webkit-transition:opacity 0.5s;-o-transition:opacity 0.5s;}
 ul#css3menu1{
-	padding:0 3px 3px;font-size:0;z-index:999;position: fixed;display:inline-block;zoom:1;
-	*display:inline; width:auto; margin:67px 0 0 0}
+	padding:0 3px 3px;font-size:0;z-index:999;display:inline-block;zoom:1;
+	*display:inline; width:auto; }
 ul#css3menu1 .column{
 	float:left;}
 ul#css3menu1>li,ul#css3menu1 li{
@@ -49,7 +49,7 @@ ul#css3menu1 span{
 ul#css3menu1 ul span{
 	/*background-image:url("arrowsub.png");padding-right:31px;*/}
 ul#css3menu1 a{
-	padding:8px 18px;background-color:;background-repeat:repeat;border-width:0px;border-style:none;border-color:;color:#999999;text-decoration:none; text-align:center}
+	padding:8px 0px;background-color:;background-repeat:repeat;border-width:0px;border-style:none;border-color:;color:#999999;text-decoration:none; text-align:center}
 ul#css3menu1 li:hover>a,ul#css3menu1 li>a.pressed{
 	border-style:none;color:#000;text-decoration:none;text-shadow:#999999 0 0px 0px;}
 ul#css3menu1 ul li:hover>a,ul#css3menu1 ul li>a.pressed{
@@ -95,5 +95,5 @@ border-style: dashed dashed solid;
     position: absolute;
     top: 0;
     width: 0;
-    z-index: 1000; border-bottom-color: #FFFFFF !important; right: 44px;
+    z-index: 1000; border-bottom-color: #FFFFFF !important; left: 25px;
     margin: -10px 0 0; color: #666666; border-color: transparent }
