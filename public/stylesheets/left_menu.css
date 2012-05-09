@@ -95,5 +95,5 @@ border-style: dashed dashed solid;
     position: absolute;
     top: 0;
     width: 0;
-    z-index: 1000; border-bottom-color: #FFFFFF !important; left: 25px;
+    z-index: 1000; border-bottom-color: #FFFFFF !important; right: 45px;
     margin: -10px 0 0; color: #666666; border-color: transparent }
