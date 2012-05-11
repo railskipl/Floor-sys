@@ -1,33 +1,35 @@
 <div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
 <div id="blank"></div>
 <div id="right">
-      <div id="smoothmenu1" class="ddsmoothmenu">
-          <ul class="rightcorner">
- <% if can? :new, Company %>
-<li><a href="#">Company</a>
-  <ul>
+<div class="leftarrow2" style="float:left"></div>
+    <div id="smoothmenu1" class="ddsmoothmenu">
+      <ul class="rightcorner">
+      <li><%= link_to "User", users_path %>
+     <ul>
 
- <li> <%= link_to 'New', new_company_path %></li>
-  <li><%= link_to 'Edit', "#" %></li>
-
-  </ul>
-</li>
-   <% end %>
-<li><a href="#">Company User</a>
-  <ul>
-
-  <li><%= link_to 'New', new_user_path %></li>
-  <li><%= link_to 'Edit', "#" %></li>
-
-  </ul>
-</li>
-
-    </ul>
-    <br style="clear: left" />
-    </div>
- </div>
+      <li><%= link_to 'New', new_user_path %></li>
 
 
+      </ul>
+    </li>
+       <% if can? :new, Company %>
+         <li><%= link_to "Company", companies_path %>
+      <ul>
+
+      <li> <%= link_to 'New', new_company_path %></li>
+      
+
+      </ul>
+      </li>
+ <% end %>
+  
+ </ul>
+
+      <br style="clear: left" />
+      </div>
+      </div>
+    
+    
     <div id="right2">
      
       <h1>Profile</h1>

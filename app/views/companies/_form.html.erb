@@ -1,36 +1,4 @@
-<div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
-<div id="blank"></div>
-<div id="right">
-      <div id="smoothmenu1" class="ddsmoothmenu">
-      	<ul class="rightcorner">
- <% if can? :new, Company %>
-<li><a href="#">Company</a>
-  <ul>
 
- <li> <%= link_to 'New', new_company_path %></li>
-  <li><%= link_to 'Edit', "#" %></li>
-
-  </ul>
-</li>
-   <% end %>
-<li><a href="#">Company User</a>
-  <ul>
-
-  <li><%= link_to 'New', new_user_path %></li>
-  <li><%= link_to 'Edit', "#" %></li>
-
-  </ul>
-</li>
-
-	</ul>
-	<br style="clear: left" />
-	</div>
- </div>
-
-
-	<div id="right2">
-	 
-      <h1>New Company</h1>
       
   <%= form_for(@company, :html => { :multipart => true }) do |f| %>
   <% if @company.errors.any? %>

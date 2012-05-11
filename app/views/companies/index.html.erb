@@ -44,7 +44,7 @@
       	
         <td><%= company.company_name %> </td>
         <td><%= company.company_address1 %></td>     
-        <td class="options-width"> <%= link_to '', new_company_path,:class => "icon-1 info-tooltip"%><%= link_to '', edit_company_path(company),:class =>"icon-2 info-tooltip" %> <%= link_to '', {:controller=>"companies", :action=>"destroy", :id=>"#{company.id}"} , :class => "icon-3 info-tooltip"%></td>
+        <td class="options-width"> <%= link_to '', company_path(company),:class => "icon-1 info-tooltip"%><%= link_to '', edit_company_path(company),:class =>"icon-2 info-tooltip" %> <%= link_to '', {:controller=>"companies", :action=>"destroy", :id=>"#{company.id}"} , :class => "icon-3 info-tooltip"%></td>
       </tr>
       
       <% end %>

@@ -1,91 +1,119 @@
-<p id="notice"><%= notice %></p>
+<div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
+<div id="blank"></div>
+<div id="right">
+<div class="leftarrow2" style="float:left"></div>
+    <div id="smoothmenu1" class="ddsmoothmenu">
+      <ul class="rightcorner">
+      <li><%= link_to "User", users_path %>
+     <ul>
 
-<p>
-  <b>Company name:</b>
-  <%= @company.company_name %>
-</p>
-
-<p>
-  <b>Company address1:</b>
-  <%= @company.company_address1 %>
-</p>
-
-<p>
-  <b>Company address2:</b>
-  <%= @company.company_address2 %>
-</p>
-
-<p>
-  <b>Company town:</b>
-  <%= @company.company_town %>
-</p>
-
-<p>
-  <b>Country:</b>
-  <%= @company.country_name %>
-</p>
-
-<p>
-  <b>Post code:</b>
-  <%= @company.post_code %>
-</p>
-
-<p>
-  <b>Phone number:</b>
-  <%= @company.phone_number %>
-</p>
-
-<p>
-  <b>Fax number:</b>
-  <%= @company.fax_number %>
-</p>
-
-<p>
-  <b>Web url:</b>
-  <%= @company.web_url %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @company.email %>
-</p>
-
-<p>
-  <b>Vat no:</b>
-  <%= @company.vat_no %>
-</p>
-
-<p>
-  <b>Vat rate:</b>
-  <%= @company.vat_rate %>
-</p>
-
-<p>
-  <b>Reg no:</b>
-  <%= @company.reg_no %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @company.user_id %>
-</p>
-
-<%= image_tag @company.companylogo_url(:thumb) %>
+      <li><%= link_to 'New', new_user_path %></li>
 
 
-<h2>VAT</h2>
-<%= link_to "Add Vat", {:controller=>"vats", :action=>"new", :company_id=>"#{@company.id}"} %>
+      </ul>
+    </li>
+       <% if can? :new, Company %>
+         <li><%= link_to "Company", companies_path %>
+      <ul>
 
-<h2>Category</h2>
-<%= link_to "Add Category", {:controller=>"categories", :action=>"new", :company_id=>"#{@company.id}"} %>
+      <li> <%= link_to 'New', new_company_path %></li>
+      
 
-<h2>Sales Types</h2>
-<%= link_to "Add Category", {:controller=>"sales_types", :action=>"new", :company_id=>"#{@company.id}"} %>
+      </ul>
+      </li>
+ <% end %>
+  
+ </ul>
 
-<h2>Outgoing Types</h2>
-<%= link_to "Add Category", {:controller=>"outgoing_types", :action=>"new", :company_id=>"#{@company.id}"} %>
-<br/><br/>
-
-
-<%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %>
+      <br style="clear: left" />
+      </div>
+      </div>
+    
+    
+    <div id="right2">
+     
+      <h1>Company Profile</h1>
+      <table width="60%" border="0" cellspacing="10" cellpadding="5">
+        <tr>
+          <td align="right" valign="middle"><strong>
+          <h1><%= @company.company_name %></h1> 
+          </strong></td>
+          <td align="center" valign="middle">&nbsp;</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Company Name </td>
+          <td align="center" valign="middle">:</td>
+          <td> <%= @company.company_name %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Address</td>
+          <td align="center" valign="middle">:</td>
+          <td><%= @company.company_address1 %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Address 2 </td>
+          <td align="center" valign="middle">:</td>
+          <td><%= @company.company_address2 %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Town</td>
+          <td align="center" valign="middle">:</td>
+          <td><%= @company.company_town %></td>
+        </tr>
+         <tr>
+          <td align="right" valign="middle">Country</td>
+          <td align="center" valign="middle">:</td>
+          <td><%= @company.country_name %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Phone</td>
+          <td align="center" valign="middle">:</td>
+          <td> <%= @company.phone_number %></td>
+        </tr>
+           <tr>
+          <td align="right" valign="middle">Post code</td>
+          <td align="center" valign="middle">:</td>
+          <td> <%= @company.post_code %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Fax Number</td>
+          <td align="center" valign="middle">:</td>
+          <td>  <%= @company.fax_number %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Web url</td>
+          <td align="center" valign="middle">:</td>
+          <td> <%= @company.web_url %></td>
+        </tr>
+         <tr>
+          <td align="right" valign="middle">Email</td>
+          <td align="center" valign="middle">:</td>
+          <td>  <%= @company.email %></td>
+        </tr>
+         <tr>
+          <td align="right" valign="middle">Vat No.</td>
+          <td align="center" valign="middle">:</td>
+          <td>  <%= @company.vat_no %></td>
+        </tr>
+         <tr>
+          <td align="right" valign="middle">Vate Rate</td>
+          <td align="center" valign="middle">:</td>
+          <td>  <%= @company.vat_rate %></td>
+        </tr>
+          <tr>
+          <td align="right" valign="middle">Reg no</td>
+          <td align="center" valign="middle">:</td>
+          <td> <%= @company.reg_no %></td>
+        </tr>
+         <tr>
+          <td align="right" valign="middle">Company Logo</td>
+          <td align="center" valign="middle">:</td>
+          <td><%= image_tag @company.companylogo_url(:thumb) %></td>
+        </tr>
+        
+      </table>
+      
+      </div>
+   
+    </div>
