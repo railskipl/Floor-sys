@@ -144,7 +144,7 @@ setInterval("getthedate()",1000)
                           <td align="left" valign="top"><% if user_signed_in? %><%= current_user.username %>       <% end %></td>
                         </tr>
                         <tr>
-                          <td align="left" valign="top"><a href="#"><img src="/images/setting.png" alt="" border="0" /></a><span> <%= link_to "Sign out", destroy_user_session_path %></span></td>
+                          <td align="left" valign="top"><%= link_to image_tag("setting.png", :border => 0), users_path %><span> <%= link_to "Sign out", destroy_user_session_path %></span></td>
                         </tr>
                     </table></td>
                   </tr>
@@ -246,6 +246,11 @@ setInterval("getthedate()",1000)
   		</ul></div>
   		</div>
   		</li>
+  		
+  	
+  	  <li class="topmenu"><a href="/users" title="Setting" style="width: 100px;"><span><img src="/images/setting.png" alt="Product info" style="padding-right:0px"><br />
+           Setting</span></a></li>
+  		
 
 
   		<li class="topmenu"><a href="#" title="More" style="width: 100px;"><span><img src="/images/more2.png" alt="Product info" style="padding-right:0px"><br />
