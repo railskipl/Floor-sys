@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  supplier_id: 1
+  deliver_to: MyString
+  deliver_phone: MyString
+  order_date: 2012-05-11
+  expected_date: 2012-05-11
+  purchase_order_notes: MyText
+  company_id: 1
+
+two:
+  supplier_id: 1
+  deliver_to: MyString
+  deliver_phone: MyString
+  order_date: 2012-05-11
+  expected_date: 2012-05-11
+  purchase_order_notes: MyText
+  company_id: 1

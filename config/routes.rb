@@ -1,5 +1,18 @@
 Floorsys::Application.routes.draw do|map|
   
+  map.connect '/purchase_orders/:id/remove_basket_item', :controller=>'purchase_orders', :action=>'remove_basket_item'
+  map.connect '/purchase_orders/:id/remove_purchase_order_item', :controller=>'purchase_orders', :action=>'remove_purchase_order_item'
+  
+  resources :purchase_orders do
+    member do
+      get 'invoice_pdf'
+      put 'add_basket_item'
+      put 'add_purchase_order_item'
+      delete 'remove_basket_item'
+      delete 'remove_purchase_order_item'
+    end
+  end
+  
   map.connect '/quotations/:id/delete', :controller=>'quotations', :action=>'destroy'
   resources :quotations
   

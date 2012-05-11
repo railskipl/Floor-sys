@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120502054403) do
+ActiveRecord::Schema.define(:version => 20120511041308) do
 
   create_table "categories", :force => true do |t|
     t.string   "category_name"
@@ -219,6 +219,7 @@ ActiveRecord::Schema.define(:version => 20120502054403) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "product_name"
+    t.decimal  "purchase_price",        :precision => 10, :scale => 0
   end
 
   create_table "prospects", :force => true do |t|
@@ -235,6 +236,26 @@ ActiveRecord::Schema.define(:version => 20120502054403) do
     t.datetime "updated_at"
     t.date     "date_of_purchase"
     t.integer  "customer_id"
+  end
+
+  create_table "purchase_order_items", :force => true do |t|
+    t.integer  "purchase_order_id"
+    t.integer  "product_id"
+    t.decimal  "quantity",          :precision => 10, :scale => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "purchase_orders", :force => true do |t|
+    t.integer  "supplier_id"
+    t.string   "deliver_to"
+    t.string   "deliver_phone"
+    t.date     "order_date"
+    t.date     "expected_date"
+    t.text     "purchase_order_notes"
+    t.integer  "company_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "quotations", :force => true do |t|
@@ -324,6 +345,7 @@ ActiveRecord::Schema.define(:version => 20120502054403) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.string   "supplierimage"
+    t.string   "name"
   end
 
   create_table "uoms", :force => true do |t|

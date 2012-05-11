@@ -1,0 +1,27 @@
+<div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
+<div id="blank"></div>
+<div id="right">
+<table width="100%" class="listing">
+<tr>
+      <th>Deliver to</th>
+      <th>Purchase Price</th>
+      <th>Created</th>
+      <th></th>
+</tr>
+
+<% @purchase_orders.each do |purchase_order| %>
+<tr>
+      <td class="text"><%= purchase_order.deliver_to %></td>
+      <td width="8%" class="status"><%= purchase_order.total_price %></td>
+      <td width="12%" class="status"><%= purchase_order.created_at %></td>
+      <td width="10%" class="status"><%= link_to "Edit", edit_purchase_order_url(purchase_order) %></td>
+ </tr>
+ <% end %>
+ </table>
+ 
+ </div>
+
+</div>
+
+</div>
+ 

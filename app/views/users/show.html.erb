@@ -1,65 +1,107 @@
- <div class="profile_page">
-             	<table width="100%" border="0" cellspacing="2" cellpadding="2">
-  <tr>
-    <td width="18%" valign="top"><div><img src="/images/avtar.png" alt="" /></div></td>
-    <td width="82%" valign="top">
-    	<h2>Contact Information</h2>
-        <table width="100%" border="0" cellspacing="2" cellpadding="2">
-          <tr>
-            <td width="12%">Email : </td>
-            <td width="88%"><%= @user.email %></td>
-          </tr>
-          <tr>
-            <td width="12%">User Name :  </td>
-            <td width="88%"><%= @user.username %></td>
-          </tr>
-          
-        
-          <tr>
-            <td>Address :  </td>
-            <td><%= @user.address_line1 %></td>
-          </tr>
-           <tr>
-            <td>City :  </td>
-            <td><%= @user.city %></td>
-          </tr>
-          <tr>
-            <td>County :  </td>
-            <td><%= @user.county %></td>
-          </tr>
-          <tr>
-            <td>Phone :  </td>
+<div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
+<div id="blank"></div>
+<div id="right">
+      <div id="smoothmenu1" class="ddsmoothmenu">
+          <ul class="rightcorner">
+ <% if can? :new, Company %>
+<li><a href="#">Company</a>
+  <ul>
+
+ <li> <%= link_to 'New', new_company_path %></li>
+  <li><%= link_to 'Edit', "#" %></li>
+
+  </ul>
+</li>
+   <% end %>
+<li><a href="#">Company User</a>
+  <ul>
+
+  <li><%= link_to 'New', new_user_path %></li>
+  <li><%= link_to 'Edit', "#" %></li>
+
+  </ul>
+</li>
+
+    </ul>
+    <br style="clear: left" />
+    </div>
+ </div>
+
+
+    <div id="right2">
+     
+      <h1>Profile</h1>
+      <table width="60%" border="0" cellspacing="10" cellpadding="5">
+       
+        <tr>
+          <td align="right" valign="middle">First Name </td>
+          <td align="center" valign="middle">:</td>
+          <td> <%= @user.first_name %> </td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Last Name </td>
+          <td align="center" valign="middle">:</td>
+          <td><%= @user.surname %></td>
+        </tr>
+         <tr>
+          <td align="right" valign="middle">Email</td>
+          <td align="center" valign="middle">:</td>
+          <td><%= @user.email %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Address</td>
+          <td align="center" valign="middle">:</td>
+          <td><%= @user.address_line1 %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Address 2 </td>
+          <td align="center" valign="middle">:</td>
+          <td><%= @user.address_line2 %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Address 3</td>
+          <td align="center" valign="middle">:</td>
+          <td><%= @user.address_line3 %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">City</td>
+          <td align="center" valign="middle">:</td>
+          <td><%= @user.city %></td>
+        </tr>
+         <tr>
+            <td align="right" valign="middle">Postcode</td>
+            <td align="center" valign="middle">:</td>
+            <td><%= @user.postcode %></td>
+        </tr>
+        <tr>
+            <td align="right" valign="middle">Fix Line Number</td>
+            <td align="center" valign="middle">:</td>
             <td><%= @user.fix_line %></td>
-          </tr>
-          
-           <tr>
-            <td>Mobile :  </td>
+        </tr>
+        <tr>
+            <td align="right" valign="middle">Mobile</td>
+            <td align="center" valign="middle">:</td>
             <td><%= @user.mobile_number %></td>
-          </tr>
-        </table><br />
-        <h2>Other Information</h2>
-         <table width="100%" border="0" cellspacing="2" cellpadding="2">
-          <tr>
-            <td width="12%">First Name :  </td>
-            <td width="88%"><%= @user.first_name %></td>
-          </tr>
-          <tr>
-            <td>Last Name :  </td>
-            <td><%= @user.surname %></td>
-          </tr>
-          <tr>
-            <td>Job Title :  </td>
-            <td><%= @user.job_title %></td>
-          </tr>
-          
-          <tr><td><%= image_tag @user.userimage_url(:thumb) %></td></tr>
-          
-                
-        </table>
+        </tr> 
         
-    </td>
-  </tr>
-</table>
- <%= link_to 'edit', edit_user_path(@user), :class => 'edit' %> &nbsp;&nbsp; <%= link_to 'back', users_path, :class => 'back' %>
- 
-             </div>
+        <tr>
+            <td align="right" valign="middle">Country</td>
+            <td align="center" valign="middle">:</td>
+            <td><%= @user.county %></td>
+        </tr>
+          
+        <tr>
+          <td align="right" valign="middle">Phone</td>
+          <td align="center" valign="middle">:</td>
+          <td><%= @user.fix_line %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Mobile</td>
+          <td align="center" valign="middle">:</td>
+          <td><%= @user.mobile_number %></td>
+        </tr>
+     
+      </table>
+      </div>
+   
+    </div>

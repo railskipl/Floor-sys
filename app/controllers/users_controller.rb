@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!, :except => []
   
   def index
-      @users = User.find_all_by_admin_id(current_user.id)
+      @users = User.all
 
         respond_to do |format|
           format.html # index.html.erb
@@ -63,7 +63,7 @@ class UsersController < ApplicationController
 
      respond_to do |format|
        if @user.update_attributes(params[:user])
-         format.html { redirect_to(@user, :notice => 'User was successfully updated.') }
+         format.html { redirect_to('/users') }
          format.xml  { head :ok }
        else
          format.html { render :action => "edit" }

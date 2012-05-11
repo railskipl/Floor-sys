@@ -54,7 +54,7 @@ class CompaniesController < ApplicationController
         
         company = User.update(@company.user_id, :company_id => @company.id)
         
-        format.html { redirect_to(@company, :notice => 'Company was successfully created.') }
+        format.html { redirect_to('/companies/') }
         format.xml  { render :xml => @company, :status => :created, :location => @company }
       else
         format.html { render :action => "new" }
@@ -72,7 +72,7 @@ class CompaniesController < ApplicationController
       if @company.update_attributes(params[:company])
         company = User.update(@company.user_id, :company_id => @company.id)
         
-        format.html { redirect_to(@company, :notice => 'Company was successfully updated.') }
+        format.html { redirect_to('/companies/') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

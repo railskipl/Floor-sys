@@ -1,38 +1,62 @@
 
-<h1>Listing companies</h1>
+<div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
+<div id="blank"></div>
+<div id="right">
+<div class="leftarrow2" style="float:left"></div>
+    <div id="smoothmenu1" class="ddsmoothmenu">
+      <ul class="rightcorner">
+      <li><%= link_to "User", users_path %>
+     <ul>
 
-<table>
-  <tr>
-    <th>Company name</th>
-    <th>Company address1</th>
+      <li><%= link_to 'New', new_user_path %></li>
+
+
+      </ul>
+    </li>
+       <% if can? :new, Company %>
+         <li><%= link_to "Company", companies_path %>
+      <ul>
+
+      <li> <%= link_to 'New', new_company_path %></li>
+      
+
+      </ul>
+      </li>
+ <% end %>
+  
+ </ul>
+
+      <br style="clear: left" />
+      </div>
+      </div>
     
-    <th>Post code</th>
-    <th>Phone number</th>
-    <th>Fax number</th>
-   
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @companies.each do |company| %>
-  <tr>
-    <td><%= company.company_name %></td>
-    <td><%= company.company_address1 %></td>
     
-    <td><%= company.post_code %></td>
-    <td><%= company.phone_number %></td>
-    <td><%= company.fax_number %></td>
-    
-    <td><%= link_to 'Show', company %></td>
-    <td><%= link_to 'Edit', edit_company_path(company) %></td>
-    <td><%= link_to 'Destroy', {:controller=>"companies", :action=>"destroy", :id=>"#{company.id}"} , { :confirm => 'Are you sure?'} %></td>
-  </tr>
-<% end %>
-</table>
+    <div id="right2">
+ 
+    <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+      <tr>
+        <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Company name</a> </th>
+        <th align="center" valign="middle" class="table-header-repeat line-left"><a href="">Company address</a></th>
+        <th align="center" valign="middle" class="table-header-options line-left"><a href="">Action</a></th>
+      </tr>
+      <tr>
+      <% @companies.each do |company| %>
+      	
+        <td><%= company.company_name %> </td>
+        <td><%= company.company_address1 %></td>     
+        <td class="options-width"> <%= link_to '', new_company_path,:class => "icon-1 info-tooltip"%><%= link_to '', edit_company_path(company),:class =>"icon-2 info-tooltip" %> <%= link_to '', {:controller=>"companies", :action=>"destroy", :id=>"#{company.id}"} , :class => "icon-3 info-tooltip"%></td>
+      </tr>
+      
+      <% end %>
+    </table>
+    </div>
 
+  </div>
 
-
-<br />
-
-<%= link_to 'New Company', new_company_path %>
+  </div>
+  
+  
+  
+  
+  
+  

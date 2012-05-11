@@ -1,4 +1,38 @@
-<%= form_for(@company, :html => { :multipart => true }) do |f| %>
+<div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
+<div id="blank"></div>
+<div id="right">
+      <div id="smoothmenu1" class="ddsmoothmenu">
+      	<ul class="rightcorner">
+ <% if can? :new, Company %>
+<li><a href="#">Company</a>
+  <ul>
+
+ <li> <%= link_to 'New', new_company_path %></li>
+  <li><%= link_to 'Edit', "#" %></li>
+
+  </ul>
+</li>
+   <% end %>
+<li><a href="#">Company User</a>
+  <ul>
+
+  <li><%= link_to 'New', new_user_path %></li>
+  <li><%= link_to 'Edit', "#" %></li>
+
+  </ul>
+</li>
+
+	</ul>
+	<br style="clear: left" />
+	</div>
+ </div>
+
+
+	<div id="right2">
+	 
+      <h1>New Company</h1>
+      
+  <%= form_for(@company, :html => { :multipart => true }) do |f| %>
   <% if @company.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@company.errors.count, "error") %> prohibited this company from being saved:</h2>
@@ -10,71 +44,83 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= select :company, :user_id, @user.map {|c| ["#{c.first_name} #{c.surname}", c.id]} %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :company_name %><br />
-    <%= f.text_field :company_name %>
-  </div>
-  <div class="field">
-    <%= f.label :company_address1 %><br />
-    <%= f.text_field :company_address1 %>
-  </div>
-  <div class="field">
-    <%= f.label :company_address2 %><br />
-    <%= f.text_field :company_address2 %>
-  </div>
-  <div class="field">
-    <%= f.label :company_town %><br />
-    <%= f.text_field :company_town %>
-  </div>
-  <div class="field">
-    <%= f.label :country %><br />
-    <%= select :company, :country_name, Country.all.map {|c| [c.country_name]} %>
-  </div>
-  <div class="field">
-    <%= f.label :post_code %><br />
-    <%= f.text_field :post_code %>
-  </div>
-  <div class="field">
-    <%= f.label :phone_number %><br />
-    <%= f.text_field :phone_number %>
-  </div>
-  <div class="field">
-    <%= f.label :fax_number %><br />
-    <%= f.text_field :fax_number %>
-  </div>
-  <div class="field">
-    <%= f.label :web_url %><br />
-    <%= f.text_field :web_url %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :vat_no %><br />
-    <%= f.text_field :vat_no %>
-  </div>
-  <div class="field">
-    <%= f.label :vat_rate %><br />
-    <%= f.text_field :vat_rate %>
-  </div>
-  <div class="field">
-    <%= f.label :reg_no %><br />
-    <%= f.text_field :reg_no %>
+      <table width="60%" border="0" cellspacing="10" cellpadding="5">
+        <tr>
+          <td align="right" valign="middle">User</td>
+          <td align="center" valign="middle">:</td>
+          <td> <%= select :company, :user_id, @user.map {|c| ["#{c.first_name} #{c.surname}", c.id]} %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Company Name</td>
+          <td align="center" valign="middle">:</td>
+          <td> <%= f.text_field :company_name, :class => "field1"%></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Company Address1 </td>
+          <td align="center" valign="middle">:</td>
+          <td><%= f.text_field :company_address1, :class => "field1"%></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Company Address2</td>
+          <td align="center" valign="middle">:</td>
+          <td><%= f.text_field :company_address2, :class => "field1"%> </td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Company Town </td>
+          <td align="center" valign="middle">:</td>
+          <td><%= f.text_field :company_town, :class => "field1"%></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Country </td>
+          <td align="center" valign="middle">:</td>
+          <td>  <%= select :company, :country_name, Country.all.map {|c| [c.country_name]} %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Postal code </td>
+          <td align="center" valign="middle">:</td>
+          <td><%= f.text_field :post_code,:class =>"field1" %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Phone Number </td>
+          <td align="center" valign="middle">:</td>
+          <td> <%= f.text_field :phone_number,:class =>"field1" %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Fax number </td>
+          <td align="center" valign="middle">:</td>
+          <td> <%= f.text_field :fax_number,:class =>"field1" %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Email</td>
+          <td align="center" valign="middle">:</td>
+          <td><%= f.text_field :email,:class =>"field1" %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Vat No</td>
+          <td align="center" valign="middle">:</td>
+          <td><%= f.text_field :vat_no,:class =>"field1" %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Vat Rate</td>
+          <td align="center" valign="middle">:</td>
+          <td><%= f.text_field :vat_rate,:class =>"field1" %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Company Logo </td>
+          <td align="center" valign="middle">:</td>
+          <td>  <%= f.file_field :companylogo %></td>
+        </tr>
+      
+        <tr> 
+          <td align="right" valign="middle">&nbsp;</td>
+          <td align="center" valign="middle">&nbsp;</td>
+          <td><%= f.submit "submit", :class =>'button'%></td>
+        </tr>
+      </table>
+      <% end %>
+      </div>
+   
+    </div>
     
-  </div>
-  <div class="field">
-    <%= f.label :companylogo %><br />
-    <%= f.file_field :companylogo %>
-  </div>
-  
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+
+   

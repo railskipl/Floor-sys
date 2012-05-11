@@ -1,1 +1,150 @@
-<%= render 'form' %>
+<div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
+<div id="blank"></div>
+<div id="right">
+      <div id="smoothmenu1" class="ddsmoothmenu">
+      <ul class="rightcorner">
+          <li><%= link_to "User", users_path %>
+         <ul>
+
+          <li><%= link_to 'New', new_user_path %></li>
+
+
+          </ul>
+        </li>
+           <% if can? :new, Company %>
+             <li><%= link_to "Company", companies_path %>
+          <ul>
+
+          <li> <%= link_to 'New', new_company_path %></li>
+
+
+          </ul>
+          </li>
+     <% end %>
+
+     </ul>
+	<br style="clear: left" />
+	</div>
+ </div>
+
+
+	<div id="right2">
+	 
+      <h1>New User</h1>
+      
+      <%= form_for(@user) do |f| %>
+       
+          <% if @user.errors.any? %>
+          <div id="error_explanation">
+          <h2><%= pluralize(@user.errors.count, "error") %>
+          prohibited this user from being saved:</h2>
+          <p>There were problems with the following fields:</p>
+          <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+          <% end %>
+          </ul>
+          </div>
+         <% end %>
+      <table width="60%" border="0" cellspacing="10" cellpadding="5">
+        <tr>
+          <td align="right" valign="middle">Email Id </td>
+          <td align="center" valign="middle">:</td>
+          <td><%= f.text_field :email,:class =>"field1" %></td>
+        </tr>
+        
+        <tr>
+          <td align="right" valign="middle">Username</td>
+          <td align="center" valign="middle">:</td>
+          <td><%= f.text_field :username,:class =>"field1" %> </td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">First Name </td>
+          <td align="center" valign="middle">:</td>
+          <td><%= f.text_field :first_name,:class =>"field1" %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Last Name </td>
+          <td align="center" valign="middle">:</td>
+          <td><%= f.text_field :surname,:class =>"field1" %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Job Title </td>
+          <td align="center" valign="middle">:</td>
+          <td><%= f.text_field :job_title,:class =>"field1" %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Address Line 1 </td>
+          <td align="center" valign="middle">:</td>
+          <td> <%= f.text_area :address_line1, :rows => 4,:class =>"field1" %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Address Line 2 </td>
+          <td align="center" valign="middle">:</td>
+          <td><%= f.text_area :address_line2, :rows => 4,:class =>"field1" %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Address Line 3 </td>
+          <td align="center" valign="middle">:</td>
+          <td><%= f.text_area :address_line3, :rows => 4,:class =>"field1" %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">City</td>
+          <td align="center" valign="middle">:</td>
+          <td><%= f.text_field :city,:class =>"field1" %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Postcode</td>
+          <td align="center" valign="middle">:</td>
+          <td><%= f.text_field :postcode,:class =>"field1" %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Fix Line Number </td>
+          <td align="center" valign="middle">:</td>
+          <td><%= f.text_field :fix_line,:class =>"field1" %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Mobile </td>
+          <td align="center" valign="middle">:</td>
+          <td><%= f.text_field :mobile_number,:class =>"field1" %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Country</td>
+          <td align="center" valign="middle">:</td>
+          <td><%= select :user, :county, Country.all.map {|c| [c.country_name]},:class =>"field1" %> </td>
+        </tr>
+        <tr>
+        	 <td align="right" valign="middle">Select User</td>
+          <td align="center" valign="middle">:</td>
+        	 <% for role in Role.find(:all) %>                                                          
+                                     <% if current_user.id == 1 %>
+                                    <% if role.name == "super_admin" %>
+                                      <%= f.hidden_field :admin_id, :value => current_user.id %>
+                                     <td>   <%= check_box_tag "user[role_ids][]", 2, @user.roles.include?(role) %>
+                                   <%= "Company Admin" %> </td>
+                                    <% end %>
+                                     <% elsif %>
+                                      <% if current_user.id != 1 %>
+                                        <% if role.id == 2 %>
+                                          <%= f.hidden_field :admin_id, :value => current_user.id %>
+                                          <%= f.hidden_field :company_id, :value => current_user.company_id %>
+                                       <td>    <%= check_box_tag "user[role_ids][]",3, @user.roles.include?(role) %>
+                                        <%= "staff" %> </td>
+                                        <% end %>
+                                       <%end%>                              
+                               <% end  %>                                                  
+                           <% end  %>                                          
+                 </tr>
+                 <tr> 
+          <td align="right" valign="middle">&nbsp;</td>
+          <td align="center" valign="middle">&nbsp;</td>
+          <td><%= f.submit "submit", :class =>'button'%></td>
+        </tr>
+      </table>
+      <% end %>
+      </div>
+   
+    </div>
+    
+
+   
