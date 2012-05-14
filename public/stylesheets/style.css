@@ -102,7 +102,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endC
 
 #right{ width:81%; height:auto; float:left;border-right:1px solid #bcbcbc; border-top:1px solid #bcbcbc; border-left:1px solid #bcbcbc; border-bottom:1px solid #fff; background:#fff; padding:20px; text-align:left; border-radius: 10px 10px 0px 0px; position:fixed; top:99px}
 
-#right2{ width:90%; height:auto; float:left;border:1px solid #bcbcbc; background:#fff; padding:20px; text-align:left; border-radius: 0px 0px 10px 10px; clear:both; margin-top:115px; }
+#right2{ width:90%; height:auto; float:left;border:1px solid #bcbcbc; background:#fff; padding:20px; text-align:left; border-radius: 0px 0px 10px 10px; clear:both; margin-top:115px; min-height:580px }
 	
 
 
@@ -423,4 +423,18 @@ background: url(../images/right.gif) no-repeat 97% 50%;
 
 .nested_categories .nested_categories .nested_categories .nested_categories {
   margin-left: 0;
+}
+
+.leftarrow_setting { border-color: transparent #BCBCBC; border-style: solid; border-width: 9px 9px 9px 0; bottom: auto; left: -29px;
+    position: relative; top: 540px; width: 0; }
+
+
+#profilebox{ width:50%; height:auto; float:left; border:1px solid #dedede; background:#f8f8f8; padding:20px; text-align:left; border-radius: 10px 10px 10px 10px;}
+
+.td1 {
+    border-bottom: 1px solid #DEDEDE;
+}
+.td2 {
+    border-bottom: 1px solid #DEDEDE;
+    color: #333333;
 }

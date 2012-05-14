@@ -1,7 +1,7 @@
 <div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
 <div id="blank"></div>
 <div id="right">
-<div class="leftarrow2" style="float:left"></div>
+<div class="leftarrow_setting" style="float:left"></div>
     <div id="smoothmenu1" class="ddsmoothmenu">
       <ul class="rightcorner">
       <li><%= link_to "User", users_path %>
@@ -21,7 +21,39 @@
 
       </ul>
       </li>
- <% end %>
+  <% end %>
+  
+    <% if can? :new, Vat %>
+     <li><%= link_to "Vat", vats_path %>
+          <ul>
+               <li><%= link_to 'New', new_vat_path %></li>
+          </ul>
+      </li>
+      <% end %>
+
+      <% if can? :new, Category %>
+     	<li><%= link_to "Category", categories_path %>
+          <ul>
+              <li><%= link_to 'New', new_category_path %></li>
+          </ul>
+      </li>
+      <% end %>
+
+      <% if can? :new, SalesType %>
+     	<li><%= link_to "Sales Types", sales_types_path %>
+          <ul>
+              <li><%= link_to 'New', new_sales_type_path %></li>
+          </ul>
+      </li>
+      <% end %>
+
+      <% if can? :new, OutgoingType %>
+     	<li><%= link_to "Outgoing Types", outgoing_types_path %>
+          <ul>
+              <li><%= link_to 'New', new_outgoing_type_path %></li>
+          </ul>
+      </li>
+      <% end %>
   
  </ul>
 
@@ -35,15 +67,15 @@
     <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
       <tr>
         <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Tax rate</a> </th>
-        <th align="center" valign="middle" class="table-header-repeat line-left"><a href="">Company</a></th>
+        
         <th align="center" valign="middle" class="table-header-options line-left"><a href="">Action</a></th>
       </tr>
       <tr>
       <% @vats.each do |vat| %>
       	
         <td><%= vat.tax_rate %> </td>
-        <td><%= vat.company_id %></a></td>     
-        <td class="options-width"> <%= link_to '', vat ,:class =>"icon-1 info-tooltip" %> <%= link_to '', {:controller=>"vats", :action=>"destroy", :id=>"#{vat.id}"} , :class => "icon-3 info-tooltip"%></td>
+        
+        <td class="options-width"> <%= link_to '', vat ,:class =>"icon-1 info-tooltip" %> <%= link_to '', edit_vat_path(vat) ,:class =>"icon-2 info-tooltip" %> <%= link_to '', {:controller=>"vats", :action=>"destroy", :id=>"#{vat.id}"} , :class => "icon-3 info-tooltip"%></td>
       </tr>
       
       <% end %>

@@ -14,7 +14,8 @@ class Ability
       can :read,   [User]
       can :manage, [User]
       can :manage, [Contact]
-      can :manage, [Customer]
+      can :manage, [Customer] 
+      can :manage, [Category]
       can :manage, [Prospect]
       can :manage, [SaleRepresentative]
       can :manage, [Subcontractor]
@@ -30,12 +31,14 @@ class Ability
       can :manage, [Quotation]  
       can :manage, [OutgoingType]
       can :manage, [SalesType]
+      can :manage, [Vat]
       # check if user is staff grant only 'read & 'manage' permissions
     elsif user.role? :staff
       can :read,   [User]
       can :manage, [User]
       can :manage, [Contact]
       can :manage, [Customer]
+      can :manage, [Category]
       can :manage, [Prospect]
       can :manage, [SaleRepresentative]
       can :manage, [Subcontractor]
@@ -51,6 +54,7 @@ class Ability
       can :manage, [Quotation] 
       can :manage, [OutgoingType]
       can :manage, [SalesType]
+      can :manage, [Vat]
     else
       can :manage, [Role]
       can :manage, [Contact]

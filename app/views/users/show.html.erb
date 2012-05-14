@@ -1,7 +1,8 @@
 <div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
 <div id="blank"></div>
 <div id="right">
-<div class="leftarrow2" style="float:left"></div>
+
+   <div class="leftarrow_setting" style="float:left"></div>
     <div id="smoothmenu1" class="ddsmoothmenu">
       <ul class="rightcorner">
       <li><%= link_to "User", users_path %>
@@ -14,14 +15,43 @@
     </li>
        <% if can? :new, Company %>
          <li><%= link_to "Company", companies_path %>
-      <ul>
+          <ul>
+              <li> <%= link_to 'New', new_company_path %></li>
+          </ul>
+        </li>
+       <% end %>
+       
+       <% if can? :new, Vat %>
+       <li><%= link_to "Vat", vats_path %>
+            <ul>
+                 <li><%= link_to 'New', new_vat_path %></li>
+            </ul>
+        </li>
+        <% end %>
 
-      <li> <%= link_to 'New', new_company_path %></li>
-      
+        <% if can? :new, Category %>
+       	<li><%= link_to "Category", categories_path %>
+            <ul>
+                <li><%= link_to 'New', new_category_path %></li>
+            </ul>
+        </li>
+        <% end %>
 
-      </ul>
-      </li>
- <% end %>
+        <% if can? :new, SalesType %>
+       	<li><%= link_to "Sales Types", sales_types_path %>
+            <ul>
+                <li><%= link_to 'New', new_sales_type_path %></li>
+            </ul>
+        </li>
+        <% end %>
+
+        <% if can? :new, OutgoingType %>
+       	<li><%= link_to "Outgoing Types", outgoing_types_path %>
+            <ul>
+                <li><%= link_to 'New', new_outgoing_type_path %></li>
+            </ul>
+        </li>
+        <% end %>
   
  </ul>
 
@@ -33,77 +63,83 @@
     <div id="right2">
      
       <h1>Profile</h1>
-      <table width="60%" border="0" cellspacing="10" cellpadding="5">
-       
-        <tr>
-          <td align="right" valign="middle">First Name </td>
-          <td align="center" valign="middle">:</td>
-          <td> <%= @user.first_name %> </td>
-        </tr>
-        <tr>
-          <td align="right" valign="middle">Last Name </td>
-          <td align="center" valign="middle">:</td>
-          <td><%= @user.surname %></td>
-        </tr>
-         <tr>
-          <td align="right" valign="middle">Email</td>
-          <td align="center" valign="middle">:</td>
-          <td><%= @user.email %></td>
-        </tr>
-        <tr>
-          <td align="right" valign="middle">Address</td>
-          <td align="center" valign="middle">:</td>
-          <td><%= @user.address_line1 %></td>
-        </tr>
-        <tr>
-          <td align="right" valign="middle">Address 2 </td>
-          <td align="center" valign="middle">:</td>
-          <td><%= @user.address_line2 %></td>
-        </tr>
-        <tr>
-          <td align="right" valign="middle">Address 3</td>
-          <td align="center" valign="middle">:</td>
-          <td><%= @user.address_line3 %></td>
-        </tr>
-        <tr>
-          <td align="right" valign="middle">City</td>
-          <td align="center" valign="middle">:</td>
-          <td><%= @user.city %></td>
-        </tr>
-         <tr>
-            <td align="right" valign="middle">Postcode</td>
-            <td align="center" valign="middle">:</td>
-            <td><%= @user.postcode %></td>
-        </tr>
-        <tr>
-            <td align="right" valign="middle">Fix Line Number</td>
-            <td align="center" valign="middle">:</td>
-            <td><%= @user.fix_line %></td>
-        </tr>
-        <tr>
-            <td align="right" valign="middle">Mobile</td>
-            <td align="center" valign="middle">:</td>
-            <td><%= @user.mobile_number %></td>
-        </tr> 
-        
-        <tr>
-            <td align="right" valign="middle">Country</td>
-            <td align="center" valign="middle">:</td>
-            <td><%= @user.county %></td>
-        </tr>
-          
-        <tr>
-          <td align="right" valign="middle">Phone</td>
-          <td align="center" valign="middle">:</td>
-          <td><%= @user.fix_line %></td>
-        </tr>
-        <tr>
-          <td align="right" valign="middle">Mobile</td>
-          <td align="center" valign="middle">:</td>
-          <td><%= @user.mobile_number %></td>
-        </tr>
-     
-      </table>
+      
+      <div id="profilebox">
+            <table width="100%" border="0" cellspacing="10" cellpadding="10">
+              <tr>
+                <td align="left" valign="top" width="20%"><img src="/images/user.jpg" alt="" width="50" height="50" /></td>
+                <td align="center" valign="middle">&nbsp;</td>
+                <td align="left" valign="top"><strong>
+                <h1>John Smith</h1> 
+                </strong></td>
+              </tr>
+              <tr>
+                <td align="left" valign="top" class="td1"><strong>First Name </strong></td>
+                <td align="center" valign="middle" class="td1">:</td>
+                <td align="left" valign="top" class="td2"> <%= @user.first_name %> </td>
+              </tr>
+              <tr>
+                <td align="left" valign="top" class="td1"><strong>Last Name </strong></td>
+                <td align="center" valign="middle" class="td1">:</td>
+                <td align="left" valign="top" class="td2"><%= @user.surname %> </td>
+              </tr>
+              <tr>
+                <td align="left" valign="top" class="td1"><strong>Address1</strong></td>
+                <td align="center" valign="middle" class="td1">:</td>
+                <td align="left" valign="top" class="td2"><%= @user.address_line1 %></td>
+              </tr>
+              <tr>
+                <td align="left" valign="top" class="td1"><strong>Address 2 </strong></td>
+                <td align="center" valign="middle" class="td1">:</td>
+                <td align="left" valign="top" class="td2"><%= @user.address_line2 %></td>
+              </tr>
+              <tr>
+                <td align="left" valign="top" class="td1"><strong>Address 3 </strong></td>
+                <td align="center" valign="middle" class="td1">:</td>
+                <td align="left" valign="top" class="td2"><%= @user.address_line3 %></td>
+              </tr>
+              <tr>
+                <td align="left" valign="top" class="td1"><strong>City</strong></td>
+                <td align="center" valign="middle" class="td1">:</td>
+                <td align="left" valign="top" class="td2"><%= @user.city %></td>
+              </tr>
+              <tr>
+                <td align="left" valign="top" class="td1"><strong>Postcode</strong></td>
+                <td align="center" valign="middle" class="td1">:</td>
+                <td align="left" valign="top" class="td2"><%= @user.postcode %></td>
+              </tr>
+              <tr>
+                <td align="left" valign="top" class="td1"><strong>Fix Line Number</strong></td>
+                <td align="center" valign="middle" class="td1">:</td>
+                <td align="left" valign="top" class="td2"><%= @user.fix_line %></td>
+              </tr>
+              <tr>
+                <td align="left" valign="top" class="td1"><strong>Mobile</strong></td>
+                <td align="center" valign="middle" class="td1">:</td>
+                <td align="left" valign="top" class="td2"><%= @user.mobile_number %></td>
+              </tr>
+              <tr>
+                <td align="left" valign="top" class="td1"><strong>Country</strong></td>
+                <td align="center" valign="middle" class="td1">:</td>
+                <td align="left" valign="top" class="td2"><%= @user.county %></td>
+              </tr>
+             
+            </table>
+      	  </div>
+      	  
+      	  
+      	  
+      	  
+      	  
+      
+      
+      
+      
+      
+      
+      
+      
+      
       </div>
    
     </div>

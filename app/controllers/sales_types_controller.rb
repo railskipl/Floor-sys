@@ -92,7 +92,7 @@ class SalesTypesController < ApplicationController
     @sales_type.destroy
 
     respond_to do |format|
-      format.html { redirect_to({:controller=>"sales_types", :action=>"index", :company_id=>"#{@sales_type.company_id}"}) }
+      format.html { redirect_to({:controller=>"sales_types", :action=>"index"}) }
       format.xml  { head :ok }
     end
   end

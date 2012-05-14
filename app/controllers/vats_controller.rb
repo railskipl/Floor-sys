@@ -40,11 +40,9 @@ class VatsController < ApplicationController
 
   # GET /vats/1/edit
   def edit
-    if params[:company_id]
+   
       @vat = Vat.find(params[:id])
-    else
-          redirect_to("/dashboard")
-     end
+    
   end
 
   # POST /vats
