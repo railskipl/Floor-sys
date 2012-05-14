@@ -97,3 +97,12 @@ border-style: dashed dashed solid;
     width: 0;
     z-index: 1000; border-bottom-color: #FFFFFF !important; right: 45px;
     margin: -10px 0 0; color: #666666; border-color: transparent }
+
+
+	.home{ background:url(../images/home.png) no-repeat center top !important; padding:35px 0 0 0!important}
+	.home:hover{ background:url(../images/home_hover.png) no-repeat center top !important;}
+	.home_selected{ background:url(../images/home_hover.png) no-repeat center top !important; padding:35px 0 0 0!important}
+
+	.settings{ background:url(../images/setting.png) no-repeat center top !important; padding:35px 0 0 0!important}
+	.settings:hover{ background:url(../images/setting_hover.png) no-repeat center top !important;}
+	.settings_selected{ background:url(../images/setting_hover.png) no-repeat center top !important; padding:35px 0 0 0!important}

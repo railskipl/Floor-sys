@@ -167,10 +167,10 @@ setInterval("getthedate()",1000)
       <div id="left">
 
   	<ul id="css3menu1" class="topmenu">
-  	<li class="topmenu"><a href="#" title="Home" style="width: 100px;"><img src="/images/home_new.png" alt="Home" style="padding-right:0px"><br />
-  Home</a></li>
+  	
+      <li><a <% if controller.controller_name == 'dashboards' %> class="home_selected" <% else %> class="home" <% end %> href="/" title="Home">Home</a></li>
 
-    <li class="topmenu"><a href="#" title="Diary" style="width: 100px;"><img src="/images/book.png" alt="Home" style="padding-right:0px"><br />
+      <li class="topmenu"><a href="#" title="Diary" style="width: 100px;"><img src="/images/book.png" alt="Home" style="padding-right:0px"><br />
   Diary</a></li>
 
     <li class="topmenu"><a href="#" title="Contact" style="width: 100px;"><img src="/images/contact_email.png" alt="Home" style="padding-right:0px"><br />
@@ -248,8 +248,9 @@ setInterval("getthedate()",1000)
   		</li>
   		
   	
-  	  <li class="topmenu"><a href="/users" title="Setting" style="width: 100px;"><span><img src="/images/setting.png" alt="Product info" style="padding-right:0px"><br />
-           Setting</span></a></li>
+  	  <li><a <% if controller.controller_name == 'users' %> class="settings_selected" <% elsif controller.controller_name == 'vats' %> class="settings_selected" 
+  	    <% elsif controller.controller_name == 'categories' %> class="settings_selected" <% elsif controller.controller_name == 'sales_types' %> class="settings_selected" <% elsif controller.controller_name == 'outgoing_types' %> class="settings_selected" 
+  	    <% elsif controller.controller_name == 'companies' %> class="settings_selected" <% else %> class="settings" <% end %> href="/users" title="Settings">Settings</a></li>
   		
 
 

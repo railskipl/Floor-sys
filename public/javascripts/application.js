@@ -99,10 +99,7 @@ jQuery(document).ready(function() {
 											 },
 	  "sales_type[name]":{
 					                  required: true
-					              },
-		"sales_type[company_id]":{
-					                  required: true
-        								}
+					              }
 		},
 	messages: {
 		"sales_type[code]":{
@@ -110,9 +107,6 @@ jQuery(document).ready(function() {
                     		},
   	"sales_type[name]":{
 		                	required:  "Please enter the name",
-											},
-	  "sales_type[company_id]":{
-					              required:  "Please enter the company",
 											}
 		}
 	});

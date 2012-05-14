@@ -79,6 +79,6 @@ Floorsys::Application.routes.draw do|map|
   resources :users
 
   root :to => "home#index"
-  match 'dashboard' => 'users#dashboard', :as => 'user_root'
+  match 'dashboard' => 'dashboards#dashboard', :as => 'user_root'
   
 end

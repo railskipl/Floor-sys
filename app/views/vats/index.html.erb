@@ -1,25 +1,55 @@
-<h1>Listing vats</h1>
+<div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
+<div id="blank"></div>
+<div id="right">
+<div class="leftarrow2" style="float:left"></div>
+    <div id="smoothmenu1" class="ddsmoothmenu">
+      <ul class="rightcorner">
+      <li><%= link_to "User", users_path %>
+     <ul>
 
-<table>
-  <tr>
-    <th>Tax rate</th>
-    
-    <th>Company</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+      <li><%= link_to 'New', new_user_path %></li>
 
-<% @vats.each do |vat| %>
-  <tr>
-    <td><%= vat.tax_rate %></td>
-    
-    <td><%= vat.company_id %></td>
-    <td><%= link_to 'Show', vat %></td>
-    
-    <td><%= link_to 'Destroy', {:controller=>"vats", :action=>"destroy", :id=>"#{vat.id}"} , { :confirm => 'Are you sure?'} %></td>
-  </tr>
-<% end %>
-</table>
 
-<br />
+      </ul>
+    </li>
+       <% if can? :new, Company %>
+         <li><%= link_to "Company", companies_path %>
+      <ul>
+
+      <li> <%= link_to 'New', new_company_path %></li>
+      
+
+      </ul>
+      </li>
+ <% end %>
+  
+ </ul>
+
+      <br style="clear: left" />
+      </div>
+      </div>
+    
+    
+    <div id="right2">
+ 
+    <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+      <tr>
+        <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Tax rate</a> </th>
+        <th align="center" valign="middle" class="table-header-repeat line-left"><a href="">Company</a></th>
+        <th align="center" valign="middle" class="table-header-options line-left"><a href="">Action</a></th>
+      </tr>
+      <tr>
+      <% @vats.each do |vat| %>
+      	
+        <td><%= vat.tax_rate %> </td>
+        <td><%= vat.company_id %></a></td>     
+        <td class="options-width"> <%= link_to '', vat ,:class =>"icon-1 info-tooltip" %> <%= link_to '', {:controller=>"vats", :action=>"destroy", :id=>"#{vat.id}"} , :class => "icon-3 info-tooltip"%></td>
+      </tr>
+      
+      <% end %>
+    </table>
+    </div>
+
+  </div>
+
+  </div>

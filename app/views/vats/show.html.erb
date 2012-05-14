@@ -1,16 +1,54 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Tax rate:</b>
-  <%= @vat.tax_rate %>
-</p>
+<div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
+<div id="blank"></div>
+<div id="right">
+<div class="leftarrow2" style="float:left"></div>
+    <div id="smoothmenu1" class="ddsmoothmenu">
+      <ul class="rightcorner">
+      <li><%= link_to "User", users_path %>
+     <ul>
+
+      <li><%= link_to 'New', new_user_path %></li>
 
 
-<p>
-  <b>Company:</b>
-  <%= @vat.company_id %>
-</p>
+      </ul>
+    </li>
+       <% if can? :new, Company %>
+         <li><%= link_to "Company", companies_path %>
+      <ul>
 
+      <li> <%= link_to 'New', new_company_path %></li>
+      
 
-<a href ='/vats/<%= @vat.id %>/edit?company_id=<%= @vat.company_id %>' >Edit</a>
-<%= link_to 'Back', {:controller=>"vats", :action=>"index", :company_id=>"#{@vat.company_id}"} %>
+      </ul>
+      </li>
+ <% end %>
+  
+ </ul>
+
+      <br style="clear: left" />
+      </div>
+      </div>
+    
+    
+    <div id="right2">
+     
+      <h1>Show</h1>
+      <table width="60%" border="0" cellspacing="10" cellpadding="5">
+       
+        <tr>
+          <td align="right" valign="middle">Tax rate</td>
+          <td align="center" valign="middle">:</td>
+          <td> <%= @vat.tax_rate %> </td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Company</td>
+          <td align="center" valign="middle">:</td>
+          <td><%= @vat.company_id %></td>
+        </tr>
+         
+     
+      </table>
+      </div>
+   
+    </div>

@@ -100,7 +100,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endC
 	
 	#blank{ width:85%; height:30px; float:right; background:#F1F1F1;  border:1px solid #F1F1F1; position:fixed; top:78px}
 
-#right{ width:81%; height:auto; float:left;border-right:1px solid #bcbcbc; border-top:1px solid #bcbcbc; border-left:1px solid #bcbcbc; border-bottom:1px solid #fff; background:#fff; padding:20px; text-align:left; border-radius: 10px 10px 0px 0px; position:fixed; top:97px}
+#right{ width:81%; height:auto; float:left;border-right:1px solid #bcbcbc; border-top:1px solid #bcbcbc; border-left:1px solid #bcbcbc; border-bottom:1px solid #fff; background:#fff; padding:20px; text-align:left; border-radius: 10px 10px 0px 0px; position:fixed; top:99px}
 
 #right2{ width:90%; height:auto; float:left;border:1px solid #bcbcbc; background:#fff; padding:20px; text-align:left; border-radius: 0px 0px 10px 10px; clear:both; margin-top:115px; }
 	
@@ -414,4 +414,13 @@ background: url(../images/right.gif) no-repeat 97% 50%;
 }
 .nested_messages .nested_messages .nested_messages .nested_messages {
     margin-left: 0;
+}
+
+
+.nested_categories {
+  margin-left: 30px;
+}
+
+.nested_categories .nested_categories .nested_categories .nested_categories {
+  margin-left: 0;
 }

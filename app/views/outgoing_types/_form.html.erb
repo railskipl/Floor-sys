@@ -1,28 +1,76 @@
-<%= form_for(@outgoing_type) do |f| %>
-  <% if @outgoing_type.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@outgoing_type.errors.count, "error") %> prohibited this outgoing_type from being saved:</h2>
+<div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
+<div id="blank"></div>
+<div id="right">
+      <div id="smoothmenu1" class="ddsmoothmenu">
+      <ul class="rightcorner">
+          <li><%= link_to "User", users_path %>
+         <ul>
 
-      <ul>
-      <% @outgoing_type.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+          <li><%= link_to 'New', new_user_path %></li>
+
+
+          </ul>
+        </li>
+           <% if can? :new, Company %>
+             <li><%= link_to "Company", companies_path %>
+          <ul>
+
+          <li> <%= link_to 'New', new_company_path %></li>
+
+
+          </ul>
+          </li>
+     <% end %>
+
+     </ul>
+	<br style="clear: left" />
+	</div>
+ </div>
+
+
+	<div id="right2">
+	 
+      <h1>New Outgoing Type</h1>
+      
+      <%= form_for(@outgoing_type) do |f| %>
+       
+          <% if @outgoing_type.errors.any? %>
+          <div id="error_explanation">
+          <h2><%= pluralize(@outgoing_type.errors.count, "error") %> prohibited this category from being saved:</h2>
+          <p>There were problems with the following fields:</p>
+          <ul>
+            <% @outgoing_type.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+          </div>
+         <% end %>
+      <table width="60%" border="0" cellspacing="10" cellpadding="5">
+        <tr>
+          <td align="right" valign="middle">Code </td>
+          <td align="center" valign="middle">:</td>
+          <td><%= f.text_field :code,:class =>"field1" %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Name</td>
+          <td align="center" valign="middle">:</td>
+          <td><%= f.text_field :name,:class =>"field1" %>
+           <%= f.hidden_field :company_id, :value=>"#{current_user.company_id}" %>
+          </td>
+        </tr>
+        
+        <tr> 
+          <td align="right" valign="middle">&nbsp;</td>
+          <td align="center" valign="middle">&nbsp;</td>
+          <td><%= f.submit "submit", :class =>'button'%></td>
+      </tr>
+        
+      </table>
       <% end %>
-      </ul>
+      </div>
+   
     </div>
-  <% end %>
+    
 
-  <div class="field">
-    <%= f.label :code %><br />
-    <%= f.text_field :code %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.hidden_field :company_id, :value=>"#{params[:company_id]}" %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+   
+

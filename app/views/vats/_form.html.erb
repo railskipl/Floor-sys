@@ -1,26 +1,71 @@
-<%= form_for(@vat) do |f| %>
-  <% if @vat.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@vat.errors.count, "error") %> prohibited this vat from being saved:</h2>
+<div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
+<div id="blank"></div>
+<div id="right">
+      <div id="smoothmenu1" class="ddsmoothmenu">
+      <ul class="rightcorner">
+          <li><%= link_to "User", users_path %>
+         <ul>
 
-      <ul>
-      <% @vat.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+          <li><%= link_to 'New', new_user_path %></li>
+
+
+          </ul>
+        </li>
+           <% if can? :new, Company %>
+             <li><%= link_to "Company", companies_path %>
+          <ul>
+
+          <li> <%= link_to 'New', new_company_path %></li>
+
+
+          </ul>
+          </li>
+     <% end %>
+
+     </ul>
+	<br style="clear: left" />
+	</div>
+ </div>
+
+
+	<div id="right2">
+	 
+      <h1>New Vats</h1>
+      
+      <%= form_for(@vat) do |f| %>
+       
+          <% if @vat.errors.any? %>
+          <div id="error_explanation">
+          <h2><%= pluralize(@vat.errors.count, "error") %> prohibited this vat from being saved:</h2>
+          <p>There were problems with the following fields:</p>
+          <ul>
+          <% @vat.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+          </div>
+         <% end %>
+      <table width="60%" border="0" cellspacing="10" cellpadding="5">
+        <tr>
+          <td align="right" valign="middle">Tax rate </td>
+          <td align="center" valign="middle">:</td>
+          <td><%= f.text_field :tax_rate,:class =>"field1" %>
+           <%= f.hidden_field :company_id, :value=>"#{current_user.company_id}" %>
+          </td>
+        </tr>
+        
+      <tr> 
+            <td align="right" valign="middle">&nbsp;</td>
+            <td align="center" valign="middle">&nbsp;</td>
+            <td><%= f.submit "submit", :class =>'button'%></td>
+      </tr>
+        
+      </table>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :tax_rate %><br />
-    <%= f.text_field :tax_rate %>
-  </div>
-  <div class="field">
+      </div>
    
-    <%= f.hidden_field :company_id, :value=>"#{params[:company_id]}" %>
-  </div>
-  
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+    </div>
+    
+
+   
+

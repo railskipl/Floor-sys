@@ -4,17 +4,13 @@ class VatsController < ApplicationController
   # GET /vats.xml
   def index
   
-   if params[:company_id]
-     
-    @vats = Vat.find_all_by_company_id(params[:company_id])
+    @vats = Vat.find_all_by_company_id(current_user.company_id)
 
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @vats }
     end
-   else
-        redirect_to("/dashboard", :notice => 'Please create company.')
-   end
+   
   end
 
   # GET /vats/1
@@ -32,16 +28,14 @@ class VatsController < ApplicationController
   # GET /vats/new
   # GET /vats/new.xml
   def new
-   if params[:company_id]
+   
     @vat = Vat.new
 
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @vat }
     end
-     else
-            redirect_to("/dashboard")
-       end
+     
   end
 
   # GET /vats/1/edit
@@ -93,7 +87,7 @@ class VatsController < ApplicationController
     @vat.destroy
 
     respond_to do |format|
-      format.html { redirect_to({:controller=>"vats", :action=>"index", :company_id=>"#{@vat.company_id}"}) }
+      format.html { redirect_to({:controller=>"vats", :action=>"index"}) }
       format.xml  { head :ok }
     end
     

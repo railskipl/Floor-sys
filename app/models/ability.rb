@@ -28,6 +28,8 @@ class Ability
       can :manage, [Product] 
       can :manage, [ProductReqPlanning]  
       can :manage, [Quotation]  
+      can :manage, [OutgoingType]
+      can :manage, [SalesType]
       # check if user is staff grant only 'read & 'manage' permissions
     elsif user.role? :staff
       can :read,   [User]
@@ -47,6 +49,8 @@ class Ability
       can :manage, [Product]
       can :manage, [ProductReqPlanning]
       can :manage, [Quotation] 
+      can :manage, [OutgoingType]
+      can :manage, [SalesType]
     else
       can :manage, [Role]
       can :manage, [Contact]

@@ -7,18 +7,16 @@ class OutgoingTypesController < ApplicationController
   # GET /outgoing_types.xml
   def index
    
-     if params[:company_id]
+    
 
-     @outgoing_types = OutgoingType.find_all_by_company_id(params[:company_id])
+     @outgoing_types = OutgoingType.find_all_by_company_id(current_user.company_id)
      
 
       respond_to do |format|
         format.html # index.html.erb
         format.xml  { render :xml => @outgoing_types }
       end
-     else
-          redirect_to("/dashboard", :notice => 'Please create company.')
-     end
+     
   end
 
   # GET /outgoing_types/1
@@ -37,16 +35,14 @@ class OutgoingTypesController < ApplicationController
   # GET /outgoing_types/new
   # GET /outgoing_types/new.xml
   def new
-    if params[:company_id]
+    
       @outgoing_type = OutgoingType.new
 
       respond_to do |format|
         format.html # new.html.erb
         format.xml  { render :xml => @outgoing_type }
       end
-       else
-              redirect_to("/dashboard")
-         end
+       
   end
 
   # GET /outgoing_types/1/edit

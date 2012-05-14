@@ -1,22 +1,21 @@
 class SalesTypesController < ApplicationController
   
   before_filter :authenticate_user!, :except => []
+  load_and_authorize_resource
   
   # GET /sales_types
   # GET /sales_types.xml
   def index
-       if params[:company_id]
+       
 
-         @sales_types = SalesType.find_all_by_company_id(params[:company_id])
+         @sales_types = SalesType.find_all_by_company_id(current_user.company_id)
          
 
         respond_to do |format|
           format.html # index.html.erb
           format.xml  { render :xml =>  @sales_types }
         end
-       else
-            redirect_to("/dashboard", :notice => 'Please create company.')
-       end
+       
   end
 
   # GET /sales_types/1
@@ -35,16 +34,14 @@ class SalesTypesController < ApplicationController
   # GET /sales_types/new
   # GET /sales_types/new.xml
   def new
-     if params[:company_id]
+     
         @sales_type = SalesType.new
 
         respond_to do |format|
           format.html # new.html.erb
           format.xml  { render :xml => @outgoing_type }
         end
-         else
-                redirect_to("/dashboard")
-           end
+         
   end
 
   # GET /sales_types/1/edit

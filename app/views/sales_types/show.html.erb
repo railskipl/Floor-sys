@@ -1,21 +1,67 @@
-<p id="notice"><%= notice %></p>
+<div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
+<div id="blank"></div>
+<div id="right">
+<div class="leftarrow2" style="float:left"></div>
+    <div id="smoothmenu1" class="ddsmoothmenu">
+      <ul class="rightcorner">
+      <li><%= link_to "User", users_path %>
+     <ul>
 
-<p>
-  <b>Code:</b>
-  <%= @sales_type.code %>
-</p>
-
-<p>
-  <b>Name:</b>
-  <%= @sales_type.name %>
-</p>
-
-<p>
-<b>Company:</b>
- <%= @sales_type.company_id %>
-
-</p>
+      <li><%= link_to 'New', new_user_path %></li>
 
 
-<a href ='/sales_types/<%= @sales_type.id %>/edit?company_id=<%= @sales_type.company_id %>'>Edit</a> |
-<%= link_to 'Back', {:controller=>"sales_types", :action=>"index", :company_id=>"#{@sales_type.company_id}"} %>
+      </ul>
+    </li>
+       <% if can? :new, Company %>
+         <li><%= link_to "Company", companies_path %>
+      <ul>
+
+      <li> <%= link_to 'New', new_company_path %></li>
+      
+
+      </ul>
+      </li>
+ <% end %>
+  
+ </ul>
+
+      <br style="clear: left" />
+      </div>
+      </div>
+    
+    
+    <div id="right2">
+     
+      <h1>Show</h1>
+      <table width="60%" border="0" cellspacing="10" cellpadding="5">
+       
+        <tr>
+          <td align="right" valign="middle">Code</td>
+          <td align="center" valign="middle">:</td>
+          <td> <%= @sales_type.code %> </td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Name</td>
+          <td align="center" valign="middle">:</td>
+          <td><%= @sales_type.name %></td>
+        </tr>
+         
+     
+      </table>
+      </div>
+   
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,55 +1,83 @@
-<!--sign in area defined-->
-<div id="signIn_area">
-	<div class="sign_in_tp">
-    	<div class="sign_left">
-        	<div class="sign_right">
-             	<h1>New Category</h1>
-          </div>
-        </div>
-    </div>
-    
-	<div class="sign_left_slc">
-    
-    	<div class="sign_right_slc">
-        <div class="signUp_area">
-        <%= form_for(@category) do |f| %>
-          <% if @category.errors.any? %>
-              <div id="error_explanation">
-                <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
 
-                <ul>
-                <% @category.errors.full_messages.each do |msg| %>
-                  <li><%= msg %></li>
-                <% end %>
-                </ul>
-              </div>
+
+
+
+
+
+
+
+
+
+<div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
+<div id="blank"></div>
+<div id="right">
+      <div id="smoothmenu1" class="ddsmoothmenu">
+      <ul class="rightcorner">
+          <li><%= link_to "User", users_path %>
+         <ul>
+
+          <li><%= link_to 'New', new_user_path %></li>
+
+
+          </ul>
+        </li>
+           <% if can? :new, Company %>
+             <li><%= link_to "Company", companies_path %>
+          <ul>
+
+          <li> <%= link_to 'New', new_company_path %></li>
+
+
+          </ul>
+          </li>
+     <% end %>
+
+     </ul>
+	<br style="clear: left" />
+	</div>
+ </div>
+
+
+	<div id="right2">
+	 
+      <h1>New Category</h1>
+      
+      <%= form_for(@category) do |f| %>
+       
+          <% if @category.errors.any? %>
+          <div id="error_explanation">
+          <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+          <p>There were problems with the following fields:</p>
+          <ul>
+            <% @category.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
             <% end %>
-                <%= f.hidden_field :parent_id %>
-               
-                 
-            	  <p class="lable">Category Name</p>
-                <p class="field"><%= f.text_field :category_name %></p>
-                
-                <p class="lable">Category Type</p>
-                <p class="field"><%= f.text_field :category_type %></p>&nbsp;
-                
-                
-                  <div class="actions">
-                    <%= f.submit %>
-                  </div>
-            <% end %>
-        </div>
+          </ul>
+          </div>
+         <% end %>
+      <table width="60%" border="0" cellspacing="10" cellpadding="5">
+        <tr>
+          <td align="right" valign="middle">Category Name </td>
+          <td align="center" valign="middle">:</td>
+          <td><%= f.text_field :category_name,:class =>"field1" %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Category Type</td>
+          <td align="center" valign="middle">:</td>
+          <td><%= f.text_field :category_type,:class =>"field1" %></td>
+        </tr>
         
-         <div class="clear"></div>       
+        <tr> 
+          <td align="right" valign="middle">&nbsp;</td>
+          <td align="center" valign="middle">&nbsp;</td>
+          <td><%= f.submit "submit", :class =>'button'%></td>
+      </tr>
+        
+      </table>
+      <% end %>
       </div>
+   
     </div>
     
-    <div class="sign_ftr_slc">
-    	<div class="sign_ftr_left">
-        	<div class="sign_ftr_right">
-              
-            </div>
-        </div>
-    </div>
-</div>
-<!--sign in area defined-->
+
+   
