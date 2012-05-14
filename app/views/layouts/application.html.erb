@@ -144,7 +144,7 @@ setInterval("getthedate()",1000)
                           <td align="left" valign="top"><% if user_signed_in? %><%= current_user.username %>       <% end %></td>
                         </tr>
                         <tr>
-                          <td align="left" valign="top"><%= link_to image_tag("setting.png", :border => 0), users_path %><span> <%= link_to "Sign out", destroy_user_session_path %></span></td>
+                          <td align="left" valign="top"><span> <%= link_to "Sign out", destroy_user_session_path %></span></td>
                         </tr>
                     </table></td>
                   </tr>
