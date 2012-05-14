@@ -31,6 +31,38 @@
           </ul>
           </li>
      <% end %>
+     
+      <% if can? :new, Vat %>
+       <li><%= link_to "Vat", vats_path %>
+            <ul>
+                 <li><%= link_to 'New', new_vat_path %></li>
+            </ul>
+        </li>
+        <% end %>
+
+        <% if can? :new, Category %>
+       	<li><%= link_to "Category", categories_path %>
+            <ul>
+                <li><%= link_to 'New', new_category_path %></li>
+            </ul>
+        </li>
+        <% end %>
+
+        <% if can? :new, SalesType %>
+       	<li><%= link_to "Sales Types", sales_types_path %>
+            <ul>
+                <li><%= link_to 'New', new_sales_type_path %></li>
+            </ul>
+        </li>
+        <% end %>
+
+        <% if can? :new, OutgoingType %>
+       	<li><%= link_to "Outgoing Types", outgoing_types_path %>
+            <ul>
+                <li><%= link_to 'New', new_outgoing_type_path %></li>
+            </ul>
+        </li>
+        <% end %>
 
      </ul>
 	<br style="clear: left" />

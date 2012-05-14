@@ -1,13 +1,17 @@
+  <div class="category">
+    
+    <div class="content">
+      <%= category.category_name %>
+    </div>
+    <div class="actions">
+      <%= link_to "Sub Category", new_category_path(:parent_id => category) %> |
+      
+      
+    </div>
+  </div>
+  
   
      
      
      
-     <p>
-      <%= category.category_name %>
-      ...
-      <%= link_to "Sub Category", new_category_path(:parent_id => category) %> |
-
-      <p>
-
-
- 
+     

@@ -1,16 +1,100 @@
-<p id="notice"><%= notice %></p>
+
+<div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
+<div id="blank"></div>
+<div id="right">
+  <div class="leftarrow_setting" style="float:left"></div>
+    <div id="smoothmenu1" class="ddsmoothmenu">
+      <ul class="rightcorner">
+      <li><%= link_to "User", users_path %>
+     <ul>
+
+      <li><%= link_to 'New', new_user_path %></li>
 
 
-<p>
-  <b>Category name:</b>
-  <%= @category.category_name %>
-</p>
+      </ul>
+    </li>
+       <% if can? :new, Company %>
+         <li><%= link_to "Company", companies_path %>
+      <ul>
 
-<p>
-  <b>Category type:</b>
-  <%= @category.category_type %>
-</p>
+      <li> <%= link_to 'New', new_company_path %></li>
+      
+
+      </ul>
+      </li>
+    <% end %>
+    
+    <% if can? :new, Vat %>
+     <li><%= link_to "Vat", vats_path %>
+          <ul>
+               <li><%= link_to 'New', new_vat_path %></li>
+          </ul>
+      </li>
+      <% end %>
+
+      <% if can? :new, Category %>
+     	<li><%= link_to "Category", categories_path %>
+          <ul>
+              <li><%= link_to 'New', new_category_path %></li>
+          </ul>
+      </li>
+      <% end %>
+
+      <% if can? :new, SalesType %>
+     	<li><%= link_to "Sales Types", sales_types_path %>
+          <ul>
+              <li><%= link_to 'New', new_sales_type_path %></li>
+          </ul>
+      </li>
+      <% end %>
+
+      <% if can? :new, OutgoingType %>
+     	<li><%= link_to "Outgoing Types", outgoing_types_path %>
+          <ul>
+              <li><%= link_to 'New', new_outgoing_type_path %></li>
+          </ul>
+      </li>
+      <% end %>
+  
+ </ul>
+
+      <br style="clear: left" />
+      </div>
+      </div>
+    
+    
+    <div id="right2">
+     
+      <h1>Show</h1>
+      <table width="60%" border="0" cellspacing="10" cellpadding="5">
+       
+        <tr>
+          <td align="right" valign="middle">Category name</td>
+          <td align="center" valign="middle">:</td>
+          <td> <%= @category.category_name %> </td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Category type</td>
+          <td align="center" valign="middle">:</td>
+          <td><%= @category.category_type %></td>
+        </tr>
+         
+     
+      </table>
+      </div>
+   
+    </div>
 
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+
+
+
+
+
+
+
+
+
+
+
+

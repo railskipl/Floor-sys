@@ -71,6 +71,7 @@ Floorsys::Application.routes.draw do|map|
   resources :sales_types
 
   resources :vats
+  map.connect '/categories/:id/delete', :controller=>'categories', :action=>'destroy'
   resources :categories
 
   resources :companies

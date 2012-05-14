@@ -438,3 +438,35 @@ background: url(../images/right.gif) no-repeat 97% 50%;
     border-bottom: 1px solid #DEDEDE;
     color: #333333;
 }
+
+
+
+.category {
+    background: -moz-linear-gradient(center top , #FFFFFF, #F5F5F5) repeat scroll 0 0 transparent;
+    border: 1px solid #BCBCBC;
+    border-radius: 5px 5px 5px 5px;
+    margin: 8px 0;
+    padding: 8px 15px;
+    width: 250px;
+}
+.category .content a {
+    color: #000000;
+    text-decoration: none;
+}
+.category .created_at {
+    color: #555555;
+    float: right;
+    font-size: 12px;
+}
+.category .actions {
+    font-size: 12px;
+    margin-top: 5px;
+}
+.category .actions a {
+    color: #3366CC;
+    text-decoration: none;
+}
+.category .actions a:hover {
+    color: #000000;
+    text-decoration: none;
+}
