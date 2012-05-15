@@ -108,11 +108,14 @@
           <td align="center" valign="middle">:</td>
           <td> <%= @company.reg_no %></td>
         </tr>
+        
+         <% unless @company.companylogo_url(:thumb).nil? %>
          <tr>
           <td align="right" valign="middle">Company Logo</td>
           <td align="center" valign="middle">:</td>
           <td><%= image_tag @company.companylogo_url(:thumb) %></td>
         </tr>
+         <% end %>
         
       </table>
       </div>
