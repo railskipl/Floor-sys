@@ -1,90 +1,19 @@
 <div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
 <div id="blank"></div>
  
- <div id="right">
+  <div id="right">
       <div class="leftarrow2" style="float:left"></div>
        <div id="smoothmenu1" class="ddsmoothmenu">
-       	<ul class="rightcorner">
-        <li><%= link_to "User", users_path %>
-       <ul>
-
-        <li><%= link_to 'New', new_user_path %></li>
-
-
-        </ul>
-      </li>
-         <% if can? :new, Company %>
-           <li><%= link_to "Company", companies_path %>
-        <ul>
-
-        <li> <%= link_to 'New', new_company_path %></li>
-        
-
-        </ul>
-        </li>
-   <% end %>
-   
-      <% if can? :new, Vat %>
-       <li><%= link_to "Vat", vats_path %>
-            <ul>
-                 <li><%= link_to 'New', new_vat_path %></li>
-            </ul>
-        </li>
-        <% end %>
-
-        <% if can? :new, Category %>
-       	<li><%= link_to "Category", categories_path %>
-            <ul>
-                <li><%= link_to 'New', new_category_path %></li>
-            </ul>
-        </li>
-        <% end %>
-
-        <% if can? :new, SalesType %>
-       	<li><%= link_to "Sales Types", sales_types_path %>
-            <ul>
-                <li><%= link_to 'New', new_sales_type_path %></li>
-            </ul>
-        </li>
-        <% end %>
-
-        <% if can? :new, OutgoingType %>
-       	<li><%= link_to "Outgoing Types", outgoing_types_path %>
-            <ul>
-                <li><%= link_to 'New', new_outgoing_type_path %></li>
-            </ul>
-        </li>
-        <% end %>
-    
-   </ul>
- 	<br style="clear: left" />
- 	</div>
+       	     <div style="margin:10px; color:#000">Welcome!</div>
+ 	     </div>
   </div>
 
 
-    <div id="right2">
+    <div id="right2" style="margin-top:150px;">
 	 
-	    <h1>Listing Users</h1>
+	    <h1>Welcome to the FloorSYS Business Management Information System</h1>
       
-      <div class="formbox">
-      <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
-        <tr>
-          <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Name</a> </th>
-          <th align="center" valign="middle" class="table-header-repeat line-left"><a href="">Email</a></th>
-          <th align="center" valign="middle" class="table-header-options line-left"><a href="">Action</a></th>
-        </tr>
-        <tr>
-        	<% @users.each do |user| %>
-        	<% unless user.username=='admin' %>
-          <td><%= user.username %> </td>
-          <td><a href=""><%= user.email %></a></td>
-          <td class="options-width"> 
-            <%= link_to '', user_path(user),:class => "icon-1 info-tooltip"%><%= link_to '', edit_user_path(user),:class =>"icon-2 info-tooltip" %> <%= link_to '', {:controller=>"users", :action=>"destroy", :id=>"#{user.id}"}, :confirm => 'Are you sure?',  :class => "icon-3 info-tooltip"%>          </td>
-        </tr>
-        <%end%>
-        <%end%>
-      </table>
-    </div>
+      
     </div>
 	
   </div>
