@@ -156,6 +156,13 @@
           <td align="center" valign="middle">:</td>
           <td><%= select :user, :county, Country.all.map {|c| [c.country_name]},:class =>"field1" %> </td>
         </tr>
+        
+        <tr>
+            <td align="right" valign="middle">Photo</td>
+            <td align="center" valign="middle">:</td>
+            <td><%= f.file_field :userimage %> </td>
+        </tr>
+        
         <tr>
         	 <td align="right" valign="middle">Select User</td>
           <td align="center" valign="middle">:</td>
