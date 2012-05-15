@@ -79,7 +79,7 @@
           <td><%= user.username %> </td>
           <td><a href=""><%= user.email %></a></td>
           <td class="options-width"> 
-            <a href="#" title="Add" class="icon-1 info-tooltip"></a> <a href="#" title="Edit" class="icon-2 info-tooltip"></a> <a href="#" title="Delete" class="icon-3 info-tooltip"></a>          </td>
+            <%= link_to '', user_path(user),:class => "icon-1 info-tooltip"%><%= link_to '', edit_user_path(user),:class =>"icon-2 info-tooltip" %> <%= link_to '', {:controller=>"users", :action=>"destroy", :id=>"#{user.id}"}, :confirm => 'Are you sure?',  :class => "icon-3 info-tooltip"%>          </td>
         </tr>
         <%end%>
         <%end%>
