@@ -78,7 +78,11 @@
       	
         <td><%= sales_type.code %> </td>
         <td><%= sales_type.name %></td>     
-        <td class="options-width"> <%= link_to '', sales_type, :class => "icon-1 info-tooltip" %> <%= link_to '', {:controller=>"sales_types", :action=>"destroy", :id=>"#{sales_type.id}"} , :class => "icon-3 info-tooltip"%></td>
+        <td class="options-width"> <%= link_to '', sales_type, :class => "icon-1 info-tooltip" %> 
+          <%= link_to("", {:controller=>"sales_types", :action=>"destroy", :id=>"#{sales_type.id}"}, :method => :delete, :class => 'icon-3 info-tooltip', :confirm => 'Are you sure?') %>
+          
+         
+        </td>
       </tr>
       
       <% end %>
