@@ -377,7 +377,7 @@ background: url(../images/right.gif) no-repeat 97% 50%;
     color: #666666;
     font-family: arial,verdana;
     padding: 5px;
-    width: 200px; background:#fafafa}
+    width: 200px; background:#fff}
 	
 /*category	*/
 
@@ -429,7 +429,7 @@ background: url(../images/right.gif) no-repeat 97% 50%;
     position: relative; top: 540px; width: 0; }
 
 
-#profilebox{ width:50%; height:auto; float:left; border:1px solid #dedede; background:#f8f8f8; padding:20px; text-align:left; border-radius: 10px 10px 10px 10px;}
+.formbox{ width:60%; height:auto; float:left; border:1px solid #dedede; background:#f8f8f8; padding:20px; text-align:left; border-radius: 10px 10px 10px 10px; color:#303030;}
 
 .td1 {
     border-bottom: 1px solid #DEDEDE;

@@ -4,7 +4,7 @@
       <%= category.category_name %>
     </div>
     <div class="actions">
-      <%= link_to "Sub Category", new_category_path(:parent_id => category) %> |
+      <%= link_to "Sub Category", new_category_path(:parent_id => category) %> | <%= link_to 'Destroy', {:controller=>"categories", :action=>"destroy", :id=>"#{category.id}"}%>
       
       
     </div>

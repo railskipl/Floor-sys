@@ -64,8 +64,14 @@
     
     
     <div id="right2">
+    
+          <h1>Categories</h1>
+
+          <div class="formbox">
     					
     					<%= nested_categories @categories.arrange(:order => :created_at) %> 
+    			
+    			</div>
     
               </div>
 

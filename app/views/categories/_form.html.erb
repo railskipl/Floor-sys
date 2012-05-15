@@ -74,6 +74,8 @@
 	 
       <h1>New Category</h1>
       
+      <div class="formbox">
+      
       <%= form_for(@category) do |f| %>
        
           <% if @category.errors.any? %>
@@ -88,6 +90,8 @@
           </div>
          <% end %>
       <table width="60%" border="0" cellspacing="10" cellpadding="5">
+      <%= f.hidden_field :parent_id %>
+      <%= f.hidden_field :company_id, :value=>"#{current_user.company_id}" %>
         <tr>
           <td align="right" valign="middle">Category Name </td>
           <td align="center" valign="middle">:</td>
@@ -108,6 +112,7 @@
       </table>
       <% end %>
       </div>
+    </div>
    
     </div>
     

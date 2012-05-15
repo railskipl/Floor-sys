@@ -65,6 +65,7 @@
 	 
       <h1>New User</h1>
       
+      <div class="formbox">
       <%= form_for(@user) do |f| %>
        
           <% if @user.errors.any? %>
@@ -184,6 +185,7 @@
         </tr>
       </table>
       <% end %>
+      </div>
       </div>
    
     </div>
