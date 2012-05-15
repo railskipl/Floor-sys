@@ -67,10 +67,10 @@
       <div class="formbox">
             <table width="100%" border="0" cellspacing="10" cellpadding="10">
               <tr>
-                <td align="left" valign="top" width="20%"><%= image_tag @user.userimage_url(:thumb) %></td>
+                <td align="left" valign="top" width="20%"><img src="/images/user.jpg" alt="" width="50" height="50" /></td>
                 <td align="center" valign="middle">&nbsp;</td>
                 <td align="left" valign="top"><strong>
-                <h1>John Smith</h1> 
+                <h1><%= @user.first_name %> <%= @user.surname %></h1> 
                 </strong></td>
               </tr>
               <tr>
