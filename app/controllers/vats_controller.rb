@@ -52,7 +52,7 @@ class VatsController < ApplicationController
 
     respond_to do |format|
       if @vat.save
-        format.html { redirect_to(@vat, :notice => 'Vat was successfully created.') }
+        format.html { redirect_to(vats_path, :notice => 'Vat was successfully created.') }
         format.xml  { render :xml => @vat, :status => :created, :location => @vat }
       else
         format.html { render :action => "new" }
@@ -68,7 +68,7 @@ class VatsController < ApplicationController
 
     respond_to do |format|
       if @vat.update_attributes(params[:vat])
-        format.html { redirect_to(@vat, :notice => 'Vat was successfully updated.') }
+        format.html { redirect_to(vats_path, :notice => 'Vat was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

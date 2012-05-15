@@ -59,7 +59,7 @@ class OutgoingTypesController < ApplicationController
 
     respond_to do |format|
       if @outgoing_type.save
-        format.html { redirect_to(@outgoing_type, :notice => 'Outgoing type was successfully created.') }
+        format.html { redirect_to(outgoing_types_path, :notice => 'Outgoing type was successfully created.') }
         format.xml  { render :xml => @outgoing_type, :status => :created, :location => @outgoing_type }
       else
         format.html { render :action => "new" }
@@ -75,7 +75,7 @@ class OutgoingTypesController < ApplicationController
 
     respond_to do |format|
       if @outgoing_type.update_attributes(params[:outgoing_type])
-        format.html { redirect_to(@outgoing_type, :notice => 'Outgoing type was successfully updated.') }
+        format.html { redirect_to(outgoing_types_path, :notice => 'Outgoing type was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

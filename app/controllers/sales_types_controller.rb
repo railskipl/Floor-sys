@@ -6,11 +6,8 @@ class SalesTypesController < ApplicationController
   # GET /sales_types
   # GET /sales_types.xml
   def index
-       
-
-         @sales_types = SalesType.find_all_by_company_id(current_user.company_id)
-         
-
+    
+      @sales_types = SalesType.find_all_by_company_id(current_user.company_id)
         respond_to do |format|
           format.html # index.html.erb
           format.xml  { render :xml =>  @sales_types }
@@ -46,11 +43,9 @@ class SalesTypesController < ApplicationController
 
   # GET /sales_types/1/edit
   def edit
-     if params[:company_id]
+     
      @sales_type = SalesType.find(params[:id])
-      else
-            redirect_to("/dashboard")
-       end
+     
   end
 
   # POST /sales_types
@@ -60,7 +55,7 @@ class SalesTypesController < ApplicationController
 
     respond_to do |format|
       if @sales_type.save
-        format.html { redirect_to(@sales_type, :notice => 'Sales type was successfully created.') }
+        format.html { redirect_to(sales_types_path, :notice => 'Sales type was successfully created.') }
         format.xml  { render :xml => @sales_type, :status => :created, :location => @sales_type }
       else
         format.html { render :action => "new" }
@@ -76,7 +71,7 @@ class SalesTypesController < ApplicationController
 
     respond_to do |format|
       if @sales_type.update_attributes(params[:sales_type])
-        format.html { redirect_to(@sales_type, :notice => 'Sales type was successfully updated.') }
+        format.html { redirect_to(sales_types_path, :notice => 'Sales type was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
