@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   mount_uploader :userimage, UserimageUploader
   
   validates_presence_of             :first_name, :surname, :job_title, :address_line1,
-                                     :city, :fix_line, :mobile_number, :county
+                                     :city,  :mobile_numbers, :county
    validates_length_of               :first_name, :maximum=>30
    validates_length_of               :surname, :maximum=>30, :message=>"less than %d if you don't mind"
    validates_format_of               :mobile_numbers, 
