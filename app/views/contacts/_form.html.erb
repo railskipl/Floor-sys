@@ -1,3 +1,4 @@
+<div class="formbox">
 <%= form_for(@contact) do |f| %>
   <% if @contact.errors.any? %>
     <div id="error_explanation">
@@ -10,74 +11,121 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :contact_name %><br />
-    <%= f.text_field :contact_name %>
-  </div>
-  <div class="field">
-    <%= f.label :contact_position %><br />
-    <%= f.text_field :contact_position %>
-  </div>
-  <div class="field">
-    <%= f.label :contact_address1 %><br />
-    <%= f.text_area :contact_address1 %>
-  </div>
-  <div class="field">
-    <%= f.label :contact_address2 %><br />
-    <%= f.text_area :contact_address2 %>
-  </div>
-  <div class="field">
-    <%= f.label :contact_town %><br />
-    <%= f.text_field :contact_town %>
-  </div>
-  <div class="field">
-    <%= f.label :contact_country %><br />
-    <%= select :contact, :contact_country, Country.all.map {|c| [c.country_name]} %>
-  </div>
-  <div class="field">
-    <%= f.label :contact_postcode %><br />
-    <%= f.text_field :contact_postcode %>
-  </div>
-  <div class="field">
-    <%= f.label :contact_vat_number %><br />
-    <%= f.text_field :contact_vat_number %>
-  </div>
-  <div class="field">
-    <%= f.label :contact_telephone %><br />
-    <%= f.text_field :contact_telephone %>
-  </div>
-  <div class="field">
-    <%= f.label :contact_fax %><br />
-    <%= f.text_field :contact_fax %>
-  </div>
-  <div class="field">
-    <%= f.label :contact_email %><br />
-    <%= f.text_field :contact_email %>
-  </div>
-  <div class="field">
-    <%= f.label :nominal_code %><br />
-    <%= f.text_field :nominal_code %>
-  </div>
-  <div class="field">
-    <%= f.label :vat_rate_sales %><br />
-    <%= f.text_field :vat_rate_sales %>
-  </div>
-  <div class="field">
-    <%= f.label :vat_rate_purchases %><br />
-    <%= f.text_field :vat_rate_purchases %>
-  </div>
-  <div class="field">
-    <%= f.label :skype %><br />
-    <%= f.text_field :skype %>
-  </div>
-  <div class="field">
-    <%= f.label :msn %><br />
-    <%= f.text_field :msn %>
-    <%= f.hidden_field :company_id, :value=>"#{current_user.company_id}" %>
-  </div>
   
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+  <table width="60%" border="0" cellspacing="10" cellpadding="5">
+    <tr>
+      <td align="right" valign="middle">Contact Name </td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_field :contact_name,:class =>"field1" %></td>
+    </tr>
+    
+    <tr>
+      <td align="right" valign="middle">Contact Position</td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_field :contact_position,:class =>"field1" %></td>
+    </tr>
+
+    <tr>
+      <td align="right" valign="middle">Contact Address1</td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_area :contact_address1, :rows => 2,:class =>"field1" %></td>
+    </tr>
+    
+    <tr>
+      <td align="right" valign="middle">Contact Address2</td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_area :contact_address2, :rows => 2,:class =>"field1" %></td>
+    </tr>
+    
+    <tr>
+      <td align="right" valign="middle">Contact Town</td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_field :contact_town,:class =>"field1" %></td>
+    </tr>
+    
+    <tr>
+      <td align="right" valign="middle">Country</td>
+      <td align="center" valign="middle">:</td>
+      <td><%= select :contact, :contact_country, Country.all.map {|c| [c.country_name]} %></td>
+    </tr>
+    
+    <tr>
+      <td align="right" valign="middle">Postcode</td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_field :contact_postcode,:class =>"field1" %></td>
+    </tr>
+    
+    <tr>
+      <td align="right" valign="middle">Vat Number</td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_field :contact_vat_number,:class =>"field1" %></td>
+    </tr>
+    
+    <tr>
+      <td align="right" valign="middle">Telephone</td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_field :contact_telephone,:class =>"field1" %></td>
+    </tr>
+    
+    <tr>
+      <td align="right" valign="middle">Fax Number</td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_field :contact_fax,:class =>"field1" %></td>
+    </tr>
+    
+    <tr>
+      <td align="right" valign="middle">Email</td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_field :contact_email,:class =>"field1" %></td>
+    </tr>
+    
+    <tr>
+      <td align="right" valign="middle">Vat Number</td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_field :contact_vat_number,:class =>"field1" %></td>
+    </tr>
+    
+    <tr>
+      <td align="right" valign="middle">Nominal Code</td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_field :nominal_code,:class =>"field1" %></td>
+    </tr>
+    
+    <tr>
+      <td align="right" valign="middle">Vat Rate Sales</td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_field :vat_rate_sales,:class =>"field1" %></td>
+    </tr>
+    
+    <tr>
+      <td align="right" valign="middle">Vat Rate Purchases</td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_field :vat_rate_purchases,:class =>"field1" %></td>
+    </tr>
+    
+    <tr>
+      <td align="right" valign="middle">Skype</td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_field :skype,:class =>"field1" %></td>
+    </tr>
+    
+    <tr>
+      <td align="right" valign="middle">msn</td>
+      <td align="center" valign="middle">:</td>
+      <td>
+          <%= f.text_field :msn,:class =>"field1" %>
+          <%= f.hidden_field :company_id, :value=>"#{current_user.company_id}" %>
+      </td>
+    </tr>
+  
+    <tr> 
+      <td align="right" valign="middle">&nbsp;</td>
+      <td align="center" valign="middle">&nbsp;</td>
+      <td><%= f.submit "submit", :class =>'button'%></td>
+  </tr>
+  </table>
+  <% end %>
+
+ </div>
+
+

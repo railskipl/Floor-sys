@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120511041308) do
+ActiveRecord::Schema.define(:version => 20120517094649) do
 
   create_table "categories", :force => true do |t|
     t.string   "category_name"
@@ -389,6 +389,9 @@ ActiveRecord::Schema.define(:version => 20120511041308) do
     t.string   "username"
     t.integer  "admin_id"
     t.string   "userimage"
+    t.string   "postcodeuk"
+    t.string   "land_line"
+    t.string   "mobile_numbers"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

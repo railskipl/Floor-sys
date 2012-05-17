@@ -1,5 +1,32 @@
-<h1>New contact</h1>
+<div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
+  <div id="blank"></div>
+    <div id="right">
+      <div class="leftarrow_setting" style="float:left"></div>
+      <div id="smoothmenu1" class="ddsmoothmenu">
+       <ul class="rightcorner">
 
-<%= render 'form' %>
+        <% if can? :new, Contact %>
+          <li><%= link_to "Contact", contacts_path %>
+       <ul>
 
-<%= link_to 'Back', contacts_path %>
+       <li> <%= link_to 'New', new_contact_path %></li>
+
+
+       </ul>
+       </li>
+       <% end %>
+       </ul>
+
+      <br style="clear: left" />
+      </div>
+      </div>
+
+      <div id="right2">
+      <h1>New contact</h1>
+
+      <%= render 'form' %>
+
+       
+
+      </div>
+      </div>

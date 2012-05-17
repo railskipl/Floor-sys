@@ -12,7 +12,7 @@ class Ability
       # check if user is 'admin' grant only 'update', 'new', 'manage' permissions
     elsif user.role? :company_admin    
       can :read,   [User]
-      can :manage, [User]
+      can :create, [User]
       can :manage, [Contact]
       can :manage, [Customer] 
       can :manage, [Category]
@@ -35,7 +35,7 @@ class Ability
       # check if user is staff grant only 'read & 'manage' permissions
     elsif user.role? :staff
       can :read,   [User]
-      can :manage, [User]
+      can :create, [User]
       can :manage, [Contact]
       can :manage, [Customer]
       can :manage, [Category]

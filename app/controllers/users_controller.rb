@@ -3,13 +3,22 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!, :except => []
   
   def index
+    
+    unless current_user.company_id.nil?
+      
+      @users = User.find_all_by_company_id(current_user.company_id)
+      
+    else
+      
       @users = User.all
 
-        respond_to do |format|
-          format.html # index.html.erb
-          format.xml  { render :xml => @users }
-        end
+      respond_to do |format|
+        format.html # index.html.erb
+        format.xml  { render :xml => @users }
+      end
+      
     end
+  end
     
   def dashboard
       @users = User.all

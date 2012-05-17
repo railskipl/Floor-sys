@@ -9,15 +9,15 @@ class User < ActiveRecord::Base
   
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me,:company_id, :first_name, :surname, :job_title, :address_line1, :address_line2, :address_line3, :city, :postcode, :fix_line, :mobile_number, :county, :username, :role_ids, :admin_id, :userimage
+  attr_accessible :email, :password, :password_confirmation, :remember_me,:company_id, :first_name, :surname, :job_title, :address_line1, :address_line2, :address_line3, :city, :postcodeuk, :land_line, :mobile_numbers, :county, :username, :role_ids, :admin_id, :userimage
   mount_uploader :userimage, UserimageUploader
   
-  validates_presence_of             :first_name, :surname, :job_title, :address_line1, :address_line2, :address_line3, 
-                                    :city, :postcode, :fix_line, :mobile_number, :county, :username
-  validates_numericality_of         :mobile_number, :postcode, :on => :create
-  validates_length_of               :first_name, :maximum=>30
-  validates_length_of               :surname, :maximum=>30, :message=>"less than %d if you don't mind"
-  validates_length_of               :username, :within => 4..20, :too_long => "pick a shorter name", :too_short => "pick a longer name"
+  validates_presence_of             :first_name, :surname, :job_title, :address_line1,
+                                     :city, :fix_line, :mobile_number, :county
+   validates_length_of               :first_name, :maximum=>30
+   validates_length_of               :surname, :maximum=>30, :message=>"less than %d if you don't mind"
+   validates_format_of               :mobile_numbers, 
+                                     :with => /^\(?[0-9]{3}\)?|[0-9]{3}[-. ]? [0-9]{3}[-. ]?[0-9]{4}$/
   
   def role?(role)
       return !!self.roles.find_by_name(role.to_s)

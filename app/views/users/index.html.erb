@@ -79,7 +79,7 @@
         	<% unless user.username=='admin' %>
           <td><%= user.username %> </td>
           <td><a href=""><%= user.email %></a></td>     
-          <td class="options-width"> <%= link_to '', user_path(user),:class => "icon-1 info-tooltip"%><%= link_to '', edit_user_path(user),:class =>"icon-2 info-tooltip" %> <%= link_to '', {:controller=>"users", :action=>"destroy", :id=>"#{user.id}"}, :confirm => 'Are you sure?',  :class => "icon-3 info-tooltip"%></td>
+          <td class="options-width"> <%= link_to '', user_path(user),:class => "icon-1 info-tooltip"%><%= link_to '', edit_user_path(user),:class =>"icon-2 info-tooltip" %> <% if can? :destroy, User %><a href="/users/<%= user.id %>/delete" onclick="if(confirm('Are you sure you want to delete this page?'))  return true;  else  return false;" class = "icon-3 info-tooltip" ></a><% end %></td>
         </tr>
         <% end %>
         <% end %>

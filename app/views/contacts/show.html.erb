@@ -1,87 +1,118 @@
-<p id="notice"><%= notice %></p>
+<div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
+<div id="blank"></div>
+<div id="right">
+  <div id="smoothmenu1" class="ddsmoothmenu">
+       <ul class="rightcorner">
+        <% if can? :new, Contact %>
+        <li><%= link_to "Contact", contacts_path %>
+         <ul>
 
-<p>
-  <b>Contact name:</b>
-  <%= @contact.contact_name %>
-</p>
-
-<p>
-  <b>Contact position:</b>
-  <%= @contact.contact_position %>
-</p>
-
-<p>
-  <b>Contact address1:</b>
-  <%= @contact.contact_address1 %>
-</p>
-
-<p>
-  <b>Contact address2:</b>
-  <%= @contact.contact_address2 %>
-</p>
-
-<p>
-  <b>Contact town:</b>
-  <%= @contact.contact_town %>
-</p>
-
-<p>
-  <b>Contact country:</b>
-  <%= @contact.contact_country %>
-</p>
-
-<p>
-  <b>Contact postcode:</b>
-  <%= @contact.contact_postcode %>
-</p>
-
-<p>
-  <b>Contact vat number:</b>
-  <%= @contact.contact_vat_number %>
-</p>
-
-<p>
-  <b>Contact telephone:</b>
-  <%= @contact.contact_telephone %>
-</p>
-
-<p>
-  <b>Contact fax:</b>
-  <%= @contact.contact_fax %>
-</p>
-
-<p>
-  <b>Contact email:</b>
-  <%= @contact.contact_email %>
-</p>
-
-<p>
-  <b>Nominal code:</b>
-  <%= @contact.nominal_code %>
-</p>
-
-<p>
-  <b>Vat rate sales:</b>
-  <%= @contact.vat_rate_sales %>
-</p>
-
-<p>
-  <b>Vat rate purchases:</b>
-  <%= @contact.vat_rate_purchases %>
-</p>
-
-<p>
-  <b>Skype:</b>
-  <%= @contact.skype %>
-</p>
-
-<p>
-  <b>Msn:</b>
-  <%= @contact.msn %>
-</p>
+         <li> <%= link_to 'New', new_contact_path %></li>
 
 
+         </ul>
+         </li>
+         <% end %>
+
+  	     </ul>
+	<br style="clear: left" />
+	</div>
+ </div>
 
 
-<%= link_to 'Edit', edit_contact_path(@contact) %> |
-<%= link_to 'Back', contacts_path %>
+	<div id="right2">
+	 
+      <h1>Contact</h1>
+      <div class="formbox">
+      <table width="60%" border="0" cellspacing="10" cellpadding="5">
+        
+        <tr>
+          <td align="right" valign="middle">Contact Name </td>
+          <td align="center" valign="middle">:</td>
+          <td> <%= @contact.contact_name %> </td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Contact Position </td>
+          <td align="center" valign="middle">:</td>
+          <td> <%= @contact.contact_position %></td>
+        </tr>
+          <tr>
+          <td align="right" valign="middle">Address1</td>
+          <td align="center" valign="middle">:</td>
+          <td>  <%= @contact.contact_address1 %></td>
+        </tr>
+          <tr>
+          <td align="right" valign="middle">Address2</td>
+          <td align="center" valign="middle">:</td>
+          <td>  <%= @contact.contact_address2 %></td>
+        </tr>
+          <tr>
+          <td align="right" valign="middle"> Town</td>
+          <td align="center" valign="middle">:</td>
+          <td>  <%= @contact.contact_town %></td>
+        </tr>
+         <tr>
+          <td align="right" valign="middle">Country</td>
+          <td align="center" valign="middle">:</td>
+          <td>  <%= @contact.contact_country %></td>
+        </tr>
+          <tr>
+          <td align="right" valign="middle">Post Code</td>
+          <td align="center" valign="middle">:</td>
+          <td>  <%= @contact.contact_postcode %></td>
+        </tr>
+          <tr>
+          <td align="right" valign="middle">Vat Number</td>
+          <td align="center" valign="middle">:</td>
+          <td>   <%= @contact.contact_vat_number %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Telephone</td>
+          <td align="center" valign="middle">:</td>
+          <td>   <%= @contact.contact_telephone %></td>
+        </tr>
+     
+             <tr>
+          <td align="right" valign="middle">Fax</td>
+          <td align="center" valign="middle">:</td>
+          <td>  <%= @contact.contact_fax %></td>
+        </tr>
+                <tr>
+          <td align="right" valign="middle">Email</td>
+          <td align="center" valign="middle">:</td>
+          <td>   <%= @contact.contact_email %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Nominal code</td>
+          <td align="center" valign="middle">:</td>
+          <td>  <%= @contact.nominal_code %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Vat rate sales </td>
+          <td align="center" valign="middle">:</td>
+          <td> <%= @contact.vat_rate_sales %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Vat rate purchases</td>
+          <td align="center" valign="middle">:</td>
+          <td><%= @contact.vat_rate_purchases %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Skype</td>
+          <td align="center" valign="middle">:</td>
+          <td>  <%= @contact.skype %></td>
+        </tr>
+        
+        <tr>
+          <td align="right" valign="middle">Msn</td>
+          <td align="center" valign="middle">:</td>
+          <td> <%= @contact.msn %></td>
+        </tr>
+     
+     
+      </table>
+      </div>
+      </div>
+   
+    </div>
+    </div>
