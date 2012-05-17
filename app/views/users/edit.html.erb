@@ -139,9 +139,14 @@
           <td><%= f.text_field :mobile_numbers,:class =>"field1" %></td>
         </tr>
         <tr>
+          <td align="right" valign="middle">County</td>
+          <td align="center" valign="middle">:</td>
+          <td><%= f.text_field :county,:class =>"field1" %></td>
+        </tr>
+        <tr>
           <td align="right" valign="middle">Country</td>
           <td align="center" valign="middle">:</td>
-          <td><%= select :user, :county, Country.all.map {|c| [c.country_name]},:class =>"field1" %> </td>
+          <td><%= select :user, :country, Country.all.map {|c| [c.country_name]},:class =>"field1" %> </td>
         </tr>
         <tr>
           <td align="right" valign="middle">Photo</td>
