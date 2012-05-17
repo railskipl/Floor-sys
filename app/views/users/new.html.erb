@@ -179,7 +179,7 @@
                                           <%= f.hidden_field :admin_id, :value => current_user.id %>
                                           <%= f.hidden_field :company_id, :value => current_user.company_id %>
                                        <td>    <%= check_box_tag "user[role_ids][]",3, @user.roles.include?(role) %>
-                                        <%= "staff" %> </td>
+                                        <%= "Staff" %> </td>
                                         <% end %>
                                        <%end%>                              
                                <% end  %>                                                  

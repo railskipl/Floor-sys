@@ -425,8 +425,10 @@ background: url(../images/right.gif) no-repeat 97% 50%;
   margin-left: 0;
 }
 
-.leftarrow_setting { border-color: transparent #BCBCBC; border-style: solid; border-width: 9px 9px 9px 0; bottom: auto; left: -29px;
-    position: relative; top: 540px; width: 0; }
+
+ .leftarrow_setting { background: url("/images/left_arrow.png") no-repeat scroll 0 0 transparent; height: 19px; left: -30px; position: relative;
+	    top: 540px; width: 10px; }
+
 
 
 .formbox{ width:60%; height:auto; float:left; border:1px solid #dedede; background:#f8f8f8; padding:20px; text-align:left; border-radius: 10px 10px 10px 10px; color:#303030;}
@@ -469,4 +471,13 @@ background: url(../images/right.gif) no-repeat 97% 50%;
 .category .actions a:hover {
     color: #000000;
     text-decoration: none;
+}
+
+.leftarrow2 {
+    background: url("/images/left_arrow.png") no-repeat scroll 0 0 transparent;
+    height: 19px;
+    left: -30px;
+    position: relative;
+    top: 7px;
+    width: 10px;
 }

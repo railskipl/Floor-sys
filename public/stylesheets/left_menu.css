@@ -73,30 +73,20 @@ ul#css3menu1 li.topmenu:hover>a,ul#css3menu1 li.topmenu>a.pressed{
     top: 21px;
     width: 0;}
 	
-	.leftarrow2{	
-	border-color: transparent #BCBCBC;
-    border-style: solid;
-    border-width: 9px 9px 9px 0;
-    bottom: auto;
-    left: -29px;
-    position: relative;
-    top: -16px;
-    width: 0;}
-
-	.toparrow{
 	
-border-style: dashed dashed solid;
-    border-width: 0 10px 10px;
-    cursor: default;
-    display: inline-block;
-    font-size: 0;
-    height: 0;
-    line-height: 0;
-    position: absolute;
-    top: 0;
-    width: 0;
-    z-index: 1000; border-bottom-color: #FFFFFF !important; right: 45px;
-    margin: -10px 0 0; color: #666666; border-color: transparent }
+	.toparrow {
+		border-style: dashed dashed solid;
+    	border-width: 0 10px 10px;
+    	cursor: default;
+    	display: inline-block;
+    	font-size: 0;
+    	height: 0;
+    	line-height: 0;
+    	position: absolute;
+    	top: 0;
+    	width: 0;
+    	z-index: 1000; border-bottom-color: #FFFFFF !important; right: 45px;
+    	margin: -10px 0 0; color: #666666; border-color: transparent }
 
 
 	.home{ background:url(../images/home.png) no-repeat center top !important; padding:35px 0 0 0!important}
