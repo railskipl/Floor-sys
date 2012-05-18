@@ -1,6 +1,37 @@
-<h1>Editing customer</h1>
+<div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
+  <div id="blank"></div>
+    <div id="right">
+      <div class="leftarrow_setting" style="float:left"></div>
+      <div id="smoothmenu1" class="ddsmoothmenu">
+       <ul class="rightcorner">
 
-<%= render 'form' %>
+        <% if can? :new, Contact %>
+        <li><%= link_to "Contact", contacts_path %>
+          <ul>
+              <li> <%= link_to 'New', new_contact_path %></li>
+          </ul>
+        </li>
+       <% end %>
+       
+       <% if can? :new, Customer %>
+       <li><%= link_to "Customer", customers_path %>
+         <ul>
+             <li> <%= link_to 'New', new_customer_path %></li>
+         </ul>
+       </li>
+      <% end %>
+       
+       
+      </ul>
 
-<%= link_to 'Show', @customer %> |
-<%= link_to 'Back', customers_path %>
+      <br style="clear: left" />
+      </div>
+      </div>
+
+      <div id="right2">
+      <h1>Editing customer</h1>
+
+      <%= render 'form' %>
+
+      </div>
+    </div>

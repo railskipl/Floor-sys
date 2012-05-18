@@ -98,9 +98,9 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endC
 
 	}
 	
-	#blank{ width:85%; height:30px; float:right; background:#F1F1F1;  border:1px solid #F1F1F1; position:fixed; top:78px}
+	#blank{ width:85%; height:30px; float:right; background:#F1F1F1;  border:1px solid #F1F1F1; position:fixed; top:78px; z-index:100;}
 
-#right{ width:81%; height:auto; float:left;border-right:1px solid #bcbcbc; border-top:1px solid #bcbcbc; border-left:1px solid #bcbcbc; border-bottom:1px solid #fff; background:#fff; padding:20px; text-align:left; border-radius: 10px 10px 0px 0px; position:fixed; top:99px}
+#right{ width:81%; height:auto; float:left;border-right:1px solid #bcbcbc; border-top:1px solid #bcbcbc; border-left:1px solid #bcbcbc; border-bottom:1px solid #fff; background:#fff; padding:20px; text-align:left; border-radius: 10px 10px 0px 0px; position:fixed; top:99px; z-index:100;}
 
 #right2{ width:90%; height:auto; float:left;border:1px solid #bcbcbc; background:#fff; padding:20px; text-align:left; border-radius: 0px 0px 10px 10px; clear:both; margin-top:115px; min-height:580px }
 	
@@ -480,4 +480,9 @@ background: url(../images/right.gif) no-repeat 97% 50%;
     position: relative;
     top: 7px;
     width: 10px;
+}
+
+.error {
+    color: #FE1717;
+    font: 13px "Trebuchet MS",Arial,Helvetica,sans-serif,sans-serif;
 }

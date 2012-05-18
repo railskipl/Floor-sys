@@ -6,86 +6,26 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>FloorSYS</title>
 
- <%= stylesheet_link_tag 'style', 'ddsmoothmenu', 'screen', 'ddlevelsmenu-topbar', 'login', 'left_menu' %>
+ <%= stylesheet_link_tag 'style', 'ddsmoothmenu', 'screen', 'ddlevelsmenu-topbar', 'login', 'left_menu', 'tab' %>
 
- <%= javascript_include_tag "jquerycssmenu","login","menucontents","ddlevelsmenu","ddsmoothmenu", "jquery.min", "rails" %>
-
-
+ <%= javascript_include_tag "jquerycssmenu","login","menucontents","ddlevelsmenu","ddsmoothmenu", "jquery.min", "rails", 'jquery-1.5.2.min' %>
 
 
 
-</script>
+ <script language="JavaScript">
+ $(document).ready(function() {
 
-<script type="text/javascript">
+     $(".tabs .tab[id^=tab_menu]").click(function() {
+         var curMenu=$(this);
+         $(".tabs .tab[id^=tab_menu]").removeClass("selected");
+         curMenu.addClass("selected");
 
-ddsmoothmenu.init({
-	mainmenuid: "smoothmenu1", //menu DIV id
-	orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
-	classname: 'ddsmoothmenu', //class added to menu's outer DIV
-	//customtheme: ["#1c5a80", "#18374a"],
-	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
-})
-
-ddsmoothmenu.init({
-	mainmenuid: "smoothmenu2", //Menu DIV id
-	orientation: 'v', //Horizontal or vertical menu: Set to "h" or "v"
-	classname: 'ddsmoothmenu-v', //class added to menu's outer DIV
-	//customtheme: ["#804000", "#482400"],
-	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
-})
-
-</script>
-
-<script>
-
-
-
-var dayarray=new Array("Sun","Mon","Tue","Wed","Thu","Fri","Sat")
-var montharray=new Array("January","February","March","April","May","June","July","August","September","October","November","December")
-
-function getthedate(){
-var mydate=new Date()
-var year=mydate.getYear()
-if (year < 1000)
-year+=1900
-var day=mydate.getDay()
-var month=mydate.getMonth()
-var daym=mydate.getDate()
-if (daym<10)
-daym="0"+daym
-var hours=mydate.getHours()
-var minutes=mydate.getMinutes()
-var seconds=mydate.getSeconds()
-var dn="AM"
-if (hours>=12)
-dn="PM"
-if (hours>12){
-hours=hours-12
-}
-if (hours==0)
-hours=12
-if (minutes<=9)
-minutes="0"+minutes
-if (seconds<=9)
-seconds="0"+seconds
-//change font size here
-var cdate="<midium><font color='#666666' face='Arial'><b>"+dayarray[day]+", "+montharray[month]+" "+daym+", "+year+" "+hours+":"+minutes+":"+seconds+" "+dn
-+"</b></font></midium>"
-if (document.all)
-document.all.clock.innerHTML=cdate
-else if (document.getElementById)
-document.getElementById("clock").innerHTML=cdate
-else
-document.write(cdate)
-}
-if (!document.all&&!document.getElementById)
-getthedate()
-function goforit(){
-if (document.all||document.getElementById)
-setInterval("getthedate()",1000)
-}
-
-</script>
+         var index=curMenu.attr("id").split("tab_menu_")[1];
+         $(".curvedContainer .tabcontent").css("display","none");
+         $(".curvedContainer #tab_content_"+index).css("display","block");
+     });
+ });
+ </script>
 
 
 </head>
@@ -168,8 +108,10 @@ setInterval("getthedate()",1000)
       <li class="topmenu"><a href="#" title="Diary" style="width: 100px;"><img src="/images/book.png" alt="Home" style="padding-right:0px"><br />
   Diary</a></li>
 
-    <li class="topmenu"><a href="#" title="Contact" style="width: 100px;"><img src="/images/contact_email.png" alt="Home" style="padding-right:0px"><br />
-  Contacts</a></li>
+  
+    <li><a <% if controller.controller_name == 'contacts' %> class="contacts_selected" <% elsif controller.controller_name == 'customers' %> class="contacts_selected" 
+	    <% elsif controller.controller_name == 'prospects' %> class="contacts_selected" <% elsif controller.controller_name == 'subcontractors' %> class="contacts_selected" <% elsif controller.controller_name == 'sale_representatives' %> class="contacts_selected" 
+	    <% else %> class="contacts" <% end %> href="/contacts" title="Contacts">Contacts</a></li>
 
   	<li class="topmenu"><a href="#" title="Customers" style="width: 100px;"><span><img src="/images/clients.png" alt="Product info" style="padding-right:0px"><br />
        Customers</span></a>

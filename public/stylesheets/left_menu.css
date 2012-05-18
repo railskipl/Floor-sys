@@ -96,3 +96,8 @@ ul#css3menu1 li.topmenu:hover>a,ul#css3menu1 li.topmenu>a.pressed{
 	.settings{ background:url(../images/setting.png) no-repeat center top !important; padding:35px 0 0 0!important}
 	.settings:hover{ background:url(../images/setting_hover.png) no-repeat center top !important;}
 	.settings_selected{ background:url(../images/setting_hover.png) no-repeat center top !important; padding:35px 0 0 0!important}
+	
+	
+	.contacts{ background:url(../images/contact_email.png) no-repeat center top !important; padding:35px 0 0 0!important}
+	.contacts:hover{ background:url(../images/contact_email_hover.png) no-repeat center top !important;}
+	.contacts_selected{ background:url(../images/contact_email_hover.png) no-repeat center top !important; padding:35px 0 0 0!important}
