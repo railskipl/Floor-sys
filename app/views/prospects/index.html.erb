@@ -1,32 +1,88 @@
-<h1>Listing prospects</h1>
+<div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
+<div id="blank"></div>
+<div id="right">
+    <div class="leftarrow_contacts" style="float:left"></div>
+    <div id="smoothmenu1" class="ddsmoothmenu">
+      <ul class="rightcorner">
+      
+      <% if can? :new, Contact %>
+      <li><%= link_to "Contact", contacts_path %>
+       <ul>
 
-<table>
+       <li> <%= link_to 'New', new_contact_path %></li>
+
+
+       </ul>
+       </li>
+       <% end %>
+       
+       <% if can? :new, Customer %>
+       <li><%= link_to "Customer", customers_path %>
+          <ul>
+                  <li> <%= link_to 'New', new_customer_path %></li>
+          </ul>
+       </li>
+       <% end %>
+       
+       <% if can? :new, Prospect %>
+        <li><%= link_to "Prospect", prospects_path %>
+           <ul>
+                   <li> <%= link_to 'New', new_prospect_path %></li>
+           </ul>
+        </li>
+        <% end %>
+        
+        <% if can? :new, Subcontractor %>
+          <li><%= link_to "Subcontractor", subcontractors_path %>
+             <ul>
+                     <li> <%= link_to 'New', new_subcontractor_path %></li>
+             </ul>
+          </li>
+        <% end %>
+        
+        <% if can? :new, SaleRepresentative %>
+          <li><%= link_to "Sale Representative", sale_representatives_path %>
+             <ul>
+                     <li> <%= link_to 'New', new_sale_representative_path %></li>
+             </ul>
+          </li>
+        <% end %>
+
+	     </ul>
+	     <br style="clear: left" />
+	     </div>
+ </div>
+
+
+	<div id="right2">
+  <h1>Listing prospects</h1>
+  
+  <div class="formbox">
+
+  <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
   <tr>
-    <th>Telephone</th>
-    <th>Online</th>
-    <th>Walk in</th>
-    <th>Product interest</th>
-    <th>Quotation number sent</th>
+    <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Telephone<a></th>
+    <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Online</a></th>
+    <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Walk in</a></th>
+    <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Product interest</a></th>
+    <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Quotation number sent</a></th>
     
-    <th></th>
-    <th></th>
-    <th></th>
+    <th align="center" valign="middle" class="table-header-options line-left"><a href="">Action</a></th>
+  
   </tr>
 
-<% @prospects.each do |prospect| %>
+  <% @prospects.each do |prospect| %>
   <tr>
     <td><%= prospect.telephone %></td>
     <td><%= prospect.online %></td>
     <td><%= prospect.walk_in %></td>
     <td><%= prospect.product_interest %></td>
     <td><%= prospect.quotation_number_sent %></td>
-    <td><%= link_to 'Show', prospect %></td>
-    <td><%= link_to 'Edit', edit_prospect_path(prospect) %></td>
-    <td><%= link_to 'Destroy', {:controller=>'prospects', :action=>'destroy', :id=>"#{prospect.id}"}, :confirm => 'Are you sure?' %></td>
+    <td><%= link_to 'Show', prospect %> <%= link_to 'Edit', edit_prospect_path(prospect) %> <%= link_to 'Destroy', {:controller=>'prospects', :action=>'destroy', :id=>"#{prospect.id}"}, :confirm => 'Are you sure?' %></td>
   </tr>
-<% end %>
-</table>
+  <% end %>
+  </table>
+  
+  </div>
 
-<br />
-
-<%= link_to 'New Prospect', new_prospect_path %>
+</div>

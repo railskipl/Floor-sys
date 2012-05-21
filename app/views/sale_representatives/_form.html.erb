@@ -1,52 +1,81 @@
-<%= form_for(@sale_representative) do |f| %>
-  <% if @sale_representative.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@sale_representative.errors.count, "error") %> prohibited this sale_representative from being saved:</h2>
+  <div class="tabscontainer">
+       <div class="tabs">
+           <div class="tab selected first" id="tab_menu_1">
+               <div class="link">General</div>
+               <div class="arrow"></div>
+           </div>
+           <div class="tab" id="tab_menu_2">
+               <div class="link">Communications</div>
+               <div class="arrow"></div>
+           </div>
 
-      <ul>
-      <% @sale_representative.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :contact_id %><br />
-    
-    <%= select :sale_representative, :contact_id, @contact.map {|c| ["#{c.contact_name}", c.id]} %>
-  </div>
-  <div class="field">
-    <%= f.label :communication_date %><br />
-    <%= f.datetime_select :communication_date %>
-  </div>
-  <div class="field">
-    <%= f.label :type_id %><br />
-    <%= f.text_field :type_id %>
-  </div>
-  <div class="field">
-    <%= f.label :contact %><br />
-    <%= f.text_field :contact %>
-  </div>
-  <div class="field">
-    <%= f.label :outcome %><br />
-    <%= f.text_area :outcome %>
-  </div>
-  <div class="field">
-    <%= f.label :note_date %><br />
-    <%= f.date_select :note_date %>
-  </div>
-  <div class="field">
-    <%= f.label :note %><br />
-    <%= f.text_area :note %>
-  </div>
-  <div class="field">
-    <%= f.label :added_by %><br />
-    <%= f.text_field :added_by %>
-    <%= f.hidden_field :company_id, :value=>"#{current_user.company_id}" %>
-  </div>
+            <div class="tab" id="tab_menu_3">
+               <div class="link">Notes </div>
+               <div class="arrow"></div>
+           </div>
+
+      </div>
   
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+    <%= form_for(@sale_representative) do |f| %>
+      <div class="curvedContainer">
+    		<div class="tabcontent" id="tab_content_1" style="display:block">
+        <table width="60%" border="0" cellspacing="10" cellpadding="10">
+            <tr>
+              <td align="right" valign="middle">Contact </td>
+              <td align="center" valign="middle">:</td>
+              <td><%= select :sale_representative, :contact_id, @contact.map {|c| ["#{c.contact_name}", c.id]} %></td>
+            </tr>
+        </table>
+        </div>
+    		<div class="tabcontent" id="tab_content_2">
+    		<table width="60%" border="0" cellspacing="10" cellpadding="10">
+            <tr>
+              <td align="right" valign="middle">Date </td>
+              <td align="center" valign="middle">:</td>
+              <td><%= f.datetime_select :communication_date %></td>
+            </tr>
+            <tr>
+              <td align="right" valign="middle">Type </td>
+              <td align="center" valign="middle">:</td>
+              <td><%= f.text_field :type_id %></td>
+            </tr>
+            <tr>
+              <td align="right" valign="middle">Contact </td>
+              <td align="center" valign="middle">:</td>
+              <td><%= f.text_field :contact %></td>
+            </tr>
+            <tr>
+              <td align="right" valign="middle">Outcome </td>
+              <td align="center" valign="middle">:</td>
+              <td><%= f.text_area :outcome, :rows => 2 %></td>
+            </tr>
+        </table>
+        </div>
+        	<div class="tabcontent" id="tab_content_3">
+      		<table width="60%" border="0" cellspacing="10" cellpadding="10">
+              <tr>
+                <td align="right" valign="middle">Date </td>
+                <td align="center" valign="middle">:</td>
+                <td><%= f.date_select :note_date %></td>
+              </tr>
+              <tr>
+                <td align="right" valign="middle">Notes </td>
+                <td align="center" valign="middle">:</td>
+                <td><%= f.text_area :note, :rows => 2 %></td>
+              </tr>
+              <tr>
+                <td align="right" valign="middle">Added by </td>
+                <td align="center" valign="middle">:</td>
+                <td><%= f.text_field :added_by %></td>
+                <%= f.hidden_field :company_id, :value=>"#{current_user.company_id}" %>
+              </tr>
+          </table>
+          </div>
+          
+          <div align="center"><%= f.submit "Submit", :class=>"button" %></div>
+
+      	</div>
+      	<% end %>
+
+      </div>

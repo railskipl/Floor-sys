@@ -1,46 +1,95 @@
-<h1>Listing subcontractors</h1>
+<div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
+<div id="blank"></div>
+<div id="right">
+    <div class="leftarrow_contacts" style="float:left"></div>
+    <div id="smoothmenu1" class="ddsmoothmenu">
+      <ul class="rightcorner">
+      
+      <% if can? :new, Contact %>
+      <li><%= link_to "Contact", contacts_path %>
+       <ul>
 
-<table>
-  <tr>
-    <th>Contact</th>
-    <th>Rate</th>
-    <th>Communication date</th>
-    <th>Type</th>
-    <th>Contact</th>
-    <th>Outcome</th>
-    <th>Note date</th>
-    <th>Note</th>
-    <th>Addded by</th>
+       <li> <%= link_to 'New', new_contact_path %></li>
+
+
+       </ul>
+       </li>
+       <% end %>
+       
+       <% if can? :new, Customer %>
+       <li><%= link_to "Customer", customers_path %>
+          <ul>
+                  <li> <%= link_to 'New', new_customer_path %></li>
+          </ul>
+       </li>
+       <% end %>
+       
+       <% if can? :new, Prospect %>
+        <li><%= link_to "Prospect", prospects_path %>
+           <ul>
+                   <li> <%= link_to 'New', new_prospect_path %></li>
+           </ul>
+        </li>
+        <% end %>
+        
+        <% if can? :new, Subcontractor %>
+          <li><%= link_to "Subcontractor", subcontractors_path %>
+             <ul>
+                     <li> <%= link_to 'New', new_subcontractor_path %></li>
+             </ul>
+          </li>
+        <% end %>
+        
+        <% if can? :new, SaleRepresentative %>
+          <li><%= link_to "Sale Representative", sale_representatives_path %>
+             <ul>
+                     <li> <%= link_to 'New', new_sale_representative_path %></li>
+             </ul>
+          </li>
+        <% end %>
+
+	     </ul>
+	     <br style="clear: left" />
+	     </div>
+ </div>
+
+
+	<div id="right2">
+    <h1>Listing subcontractors</h1>
     
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+    <div class="formbox">
 
-<% @subcontractors.each do |subcontractor| %>
-  <tr>
-    <td><% if subcontractor.contact_id.nil? %>
-    <% else %>
-       <% @contact = Contact.find(subcontractor.contact_id) %>
-        <%= @contact.contact_name %>
+    <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+    <tr>
+      <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Contact<a></th>
+      <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Rate</a></th>
+      <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Communication date</a></th>
+      <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Type</a></th>
+      <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Contact</a></th>
+      
+      <th align="center" valign="middle" class="table-header-options line-left"><a href="">Action</a></th>
+    
+    </tr>
+
+    <% @subcontractors.each do |subcontractor| %>
+    <tr>
+        <td><% if subcontractor.contact_id.nil? %>
+        <% else %>
+            <% @contact = Contact.find(subcontractor.contact_id) %>
+            <%= @contact.contact_name %>
+        <% end %>
+        </td>
+        <td><%= subcontractor.rate %></td>
+        <td><%= subcontractor.communication_date %></td>
+        <td><%= subcontractor.type_id %></td>
+        <td><%= subcontractor.contact %></td>
+        
+    
+        <td><%= link_to '', subcontractor, :class => "icon-1 info-tooltip" %> <%= link_to '', edit_subcontractor_path(subcontractor), :class =>"icon-2 info-tooltip" %> <%= link_to '', {:controller=>'subcontractors', :action=>'destroy', :id=>"#{subcontractor.id}"},  :class => "icon-3 info-tooltip" %></td>
+    </tr>
     <% end %>
-    </td>
-    <td><%= subcontractor.rate %></td>
-    <td><%= subcontractor.communication_date %></td>
-    <td><%= subcontractor.type_id %></td>
-    <td><%= subcontractor.contact %></td>
-    <td><%= subcontractor.outcome %></td>
-    <td><%= subcontractor.note_date %></td>
-    <td><%= subcontractor.note %></td>
-    <td><%= subcontractor.addded_by %></td>
+    </table>
     
-    <td><%= link_to 'Show', subcontractor %></td>
-    <td><%= link_to 'Edit', edit_subcontractor_path(subcontractor) %></td>
-    <td><%= link_to 'Destroy', {:controller=>'subcontractors', :action=>'destroy', :id=>"#{subcontractor.id}"}, :confirm => 'Are you sure?' %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Subcontractor', new_subcontractor_path %>
+    </div>
+ 
+  </div>

@@ -158,39 +158,22 @@ jQuery(document).ready(function() {
 									required:true
 
 					},
-					"contact[contact_town]":{
-									required:true
-
-					},
 						"contact[contact_country]":{
 										required:true
 
 						},
-							"contact[contact_postcode]":{
-											required:true
+							"contact[contact_town]":{
+									required:true
 
 							},
-								"contact[contact_vat_number]":{
-												required:true
-
-								},
+							
+							
 										"contact[contact_telephone]":{
 														required:true
 
 										},
-												"contact[contact_fax]":{
-																required:true
-
-												},
 														
-		"contact[contact_email]":{
-						required:true,
-						email:true
-		},
-			"contact[nominal_code]":{
-							required:true
-
-			},
+										
 				"contact[vat_rate_sales]":{
 								required:true
 
@@ -198,15 +181,7 @@ jQuery(document).ready(function() {
 					"contact[vat_rate_purchases]":{
 									required:true
 
-					},
-			"contact[skype]":{
-							required:true
-					
-			},
-				"contact[msn]":{
-								required:true
-
-				}
+					}
 		},
 	messages: {
 		"contact[company_name]":{
@@ -225,39 +200,24 @@ jQuery(document).ready(function() {
 				"contact[contact_position]":{
 								            required: "Please enter the contact position"							         
 				},
-				"contact[contact_town]":{
-								            required: "Please enter the contact town"							         
-				},
 					"contact[contact_country]":{
 									            required: "Please select the country"							         
 					},
-						"contact[contact_postcode]":{
-										            required: "Please enter the contact postcode"							         
-						},
+						"contact[contact_town]":{
+											required: "Please enter the contact town"							         
+					 },
 							"contact[contact_vat_number]":{
 											            required: "Please enter the vat number"							         
 							},
 								"contact[contact_telephone]":{
 												            required: "Please enter the telephone number"							         
 								},
-									"contact[contact_fax]":{
-													            required: "Please enter the fax number"							         
-									},
-										"contact[nominal_code]":{
-														            required: "Please enter the nominal code"							         
-										},
 											"contact[vat_rate_sales]":{
 															            required: "Please enter the rate sales"							         
 											},
 												"contact[vat_rate_purchases]":{
 																            required: "Please enter the rate purchase"							         
-												},
-													"contact[skype]":{
-																	            required: "Please enter the skype"							         
-													},											
-													"contact[msn]":{
-																												            required: "Please enter the msm"							         
-																								}
+												}
 		
 		}
 	});
@@ -522,13 +482,12 @@ jQuery(document).ready(function() {
   jQuery("#new_subcontractor").validate({
 	errorElement:'div',
 	rules: {
+		"subcontractor[contact_id]":{
+						required:true
+		},
 		"subcontractor[rate]":{
 					                  required: true
 			},
-		
-		"subcontractor[type_id]":{
-						required:true
-		},
 		"subcontractor[contact]":{
 						required:true
 		},
@@ -543,13 +502,16 @@ jQuery(document).ready(function() {
 		}
 		},
 	messages: {
+		
+			"subcontractor[contact_id]":{
+				required: "This field is required."
+			},
+			
 			"subcontractor[rate]":{
 						   	required: "This field is required."
 				},
 
-			"subcontractor[type_id]":{
-	required: "This field is required."
-			},
+			
 			"subcontractor[contact]":{
 							required: "This field is required."
 			},
@@ -574,7 +536,7 @@ jQuery(document).ready(function() {
 	rules: {
 	
 		
-		"sale_representative[type_id]":{
+		"sale_representative[contact_id]":{
 						required:true
 		},
 		"sale_representative[contact]":{
@@ -592,7 +554,7 @@ jQuery(document).ready(function() {
 		},
 	messages: {
 		
-			"sale_representative[type_id]":{
+			"sale_representative[contact_id]":{
 	required: "This field is required."
 			},
 			"sale_representative[contact]":{

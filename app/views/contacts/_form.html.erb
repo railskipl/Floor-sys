@@ -38,15 +38,15 @@
     </tr>
     
     <tr>
-      <td align="right" valign="middle">Contact Town</td>
-      <td align="center" valign="middle">:</td>
-      <td><%= f.text_field :contact_town,:class =>"field1" %></td>
-    </tr>
-    
-    <tr>
       <td align="right" valign="middle">Country</td>
       <td align="center" valign="middle">:</td>
       <td><%= select :contact, :contact_country, Country.all.map {|c| [c.country_name]} %></td>
+    </tr>
+    
+    <tr>
+      <td align="right" valign="middle">Contact Town</td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_field :contact_town,:class =>"field1" %></td>
     </tr>
     
     <tr>

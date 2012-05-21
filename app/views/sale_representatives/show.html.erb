@@ -1,55 +1,122 @@
-<p id="notice"><%= notice %></p>
+<div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
+<div id="blank"></div>
+<div id="right">
+  <div class="leftarrow_contacts" style="float:left"></div>
+  <div id="smoothmenu1" class="ddsmoothmenu">
+       <ul class="rightcorner">
+        <% if can? :new, Contact %>
+        <li><%= link_to "Contact", contacts_path %>
+         <ul>
 
-<p>
-  <b>Contact:</b>
-  
-  <% if @sale_representative.contact_id.nil? %>
-  <% else %>
-     <% @contact = Contact.find(@sale_representative.contact_id) %>
-      <%= @contact.contact_name %>
-  <% end %>
-</p>
-
-<p>
-  <b>Communication date:</b>
-  <%= @sale_representative.communication_date %>
-</p>
-
-<p>
-  <b>Type:</b>
-  <%= @sale_representative.type_id %>
-</p>
-
-<p>
-  <b>Contact:</b>
-  <%= @sale_representative.contact %>
-</p>
-
-<p>
-  <b>Outcome:</b>
-  <%= @sale_representative.outcome %>
-</p>
-
-<p>
-  <b>Note date:</b>
-  <%= @sale_representative.note_date %>
-</p>
-
-<p>
-  <b>Note:</b>
-  <%= @sale_representative.note %>
-</p>
-
-<p>
-  <b>Added by:</b>
-  <%= @sale_representative.added_by %>
-</p>
-
-<p>
-  <b>Company:</b>
-  <%= @sale_representative.company_id %>
-</p>
+         <li> <%= link_to 'New', new_contact_path %></li>
 
 
-<%= link_to 'Edit', edit_sale_representative_path(@sale_representative) %> |
-<%= link_to 'Back', sale_representatives_path %>
+         </ul>
+         </li>
+         <% end %>
+
+         <% if can? :new, Customer %>
+         <li><%= link_to "Customer", customers_path %>
+            <ul>
+                    <li> <%= link_to 'New', new_customer_path %></li>
+            </ul>
+         </li>
+         <% end %>
+
+         <% if can? :new, Prospect %>
+          <li><%= link_to "Prospect", prospects_path %>
+             <ul>
+                     <li> <%= link_to 'New', new_prospect_path %></li>
+             </ul>
+          </li>
+          <% end %>
+
+          <% if can? :new, Subcontractor %>
+            <li><%= link_to "Subcontractor", subcontractors_path %>
+               <ul>
+                       <li> <%= link_to 'New', new_subcontractor_path %></li>
+               </ul>
+            </li>
+          <% end %>
+
+          <% if can? :new, SaleRepresentative %>
+            <li><%= link_to "Sale Representative", sale_representatives_path %>
+               <ul>
+                       <li> <%= link_to 'New', new_sale_representative_path %></li>
+               </ul>
+            </li>
+          <% end %>
+
+  	     </ul>
+	<br style="clear: left" />
+	</div>
+ </div>
+
+
+	<div id="right2">
+  <h1>Show Sales representative</h1>
+  <div class="formbox">
+  <table width="60%" border="0" cellspacing="10" cellpadding="5">
+    
+    <tr>
+      <td align="right" valign="middle">Contact Name </td>
+      <td align="center" valign="middle">:</td>
+      <td> <% if @sale_representative.contact_id.nil? %>
+      <% else %>
+         <% @contact = Contact.find(@sale_representative.contact_id) %>
+          <%= @contact.contact_name %>
+      <% end %> </td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Communication date </td>
+      <td align="center" valign="middle">:</td>
+      <td> <%= @sale_representative.communication_date %></td>
+    </tr>
+    
+    <tr>
+      <td align="right" valign="middle">Type </td>
+      <td align="center" valign="middle">:</td>
+      <td> <%= @sale_representative.type_id %></td>
+    </tr>
+    
+    <tr>
+      <td align="right" valign="middle">Contact </td>
+      <td align="center" valign="middle">:</td>
+      <td> <%= @sale_representative.contact %></td>
+    </tr>
+    
+    <tr>
+      <td align="right" valign="middle">Outcome </td>
+      <td align="center" valign="middle">:</td>
+      <td> <%= @sale_representative.outcome %></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Note date </td>
+      <td align="center" valign="middle">:</td>
+      <td> <%= @sale_representative.note_date %></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Note</td>
+      <td align="center" valign="middle">:</td>
+      <td> <%= @sale_representative.note %></td>
+    </tr>
+    
+    <tr>
+      <td align="right" valign="middle">Added by</td>
+      <td align="center" valign="middle">:</td>
+      <td> <%= @sale_representative.added_by %></td>
+    </tr>
+    
+    <tr>
+      <td align="right" valign="middle">Added by</td>
+      <td align="center" valign="middle">:</td>
+      <td> <%= @sale_representative.added_by %></td>
+    </tr>
+    </table>
+    </div>
+    </div>
+ 
+  </div>
+  </div>
+
+

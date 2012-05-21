@@ -123,9 +123,9 @@
           <td><%= f.text_field :attachement_type %></td>
         </tr>
         <tr>
-          <td align="right" valign="middle">Note Description</td>
+          <td align="right" valign="middle">Attachement Details</td>
           <td align="center" valign="middle">:</td>
-          <td><%= f.text_area :attachement_detail %></td>
+          <td><%= f.text_area :attachement_detail, :rows => 2 %></td>
         </tr>
       </table>
 		</div>
@@ -144,7 +144,7 @@
         <tr>
           <td align="right" valign="middle">Outcome</td>
           <td align="center" valign="middle">:</td>
-          <td><%= f.text_area :outcome %></td>
+          <td><%= f.text_area :outcome, :rows => 2 %></td>
         </tr>
        
       </table>
@@ -159,7 +159,7 @@
         <tr>
           <td align="right" valign="middle">Note</td>
           <td align="center" valign="middle">:</td>
-          <td><%= f.text_area :note %></td>
+          <td><%= f.text_area :note, :rows => 2 %></td>
         </tr>
         <tr>
           <td align="right" valign="middle">Added By Customer</td>

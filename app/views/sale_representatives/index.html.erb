@@ -1,37 +1,91 @@
-<h1>Listing sale_representatives</h1>
+  <div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
+  <div id="blank"></div>
+  <div id="right">
+      <div class="leftarrow_contacts" style="float:left"></div>
+      <div id="smoothmenu1" class="ddsmoothmenu">
+        <ul class="rightcorner">
 
-<table>
-  <tr>
-    <th>Contact</th>
-    <th>Communication date</th>
-    
-    <th>Contact</th>
-    
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+        <% if can? :new, Contact %>
+        <li><%= link_to "Contact", contacts_path %>
+         <ul>
 
-<% @sale_representatives.each do |sale_representative| %>
-  <tr>
-    <td>
-    <% if sale_representative.contact_id.nil? %>
-    <% else %>
-       <% @contact = Contact.find(sale_representative.contact_id) %>
-        <%= @contact.contact_name %>
-    <% end %>
-    </td>
-    <td><%= sale_representative.communication_date %></td>
-    
-    <td><%= sale_representative.contact %></td>
-    
-    <td><%= link_to 'Show', sale_representative %></td>
-    <td><%= link_to 'Edit', edit_sale_representative_path(sale_representative) %></td>
-    <td><%= link_to 'Destroy', {:controller=>'sale_representatives', :action=>'destroy', :id=>"#{sale_representative.id}"}, :confirm => 'Are you sure?' %></td>
-  </tr>
-<% end %>
-</table>
+         <li> <%= link_to 'New', new_contact_path %></li>
 
-<br />
 
-<%= link_to 'New Sale representative', new_sale_representative_path %>
+         </ul>
+         </li>
+         <% end %>
+
+         <% if can? :new, Customer %>
+         <li><%= link_to "Customer", customers_path %>
+            <ul>
+                    <li> <%= link_to 'New', new_customer_path %></li>
+            </ul>
+         </li>
+         <% end %>
+
+         <% if can? :new, Prospect %>
+          <li><%= link_to "Prospect", prospects_path %>
+             <ul>
+                     <li> <%= link_to 'New', new_prospect_path %></li>
+             </ul>
+          </li>
+          <% end %>
+
+          <% if can? :new, Subcontractor %>
+            <li><%= link_to "Subcontractor", subcontractors_path %>
+               <ul>
+                       <li> <%= link_to 'New', new_subcontractor_path %></li>
+               </ul>
+            </li>
+          <% end %>
+
+          <% if can? :new, SaleRepresentative %>
+            <li><%= link_to "Sale Representative", sale_representatives_path %>
+               <ul>
+                       <li> <%= link_to 'New', new_sale_representative_path %></li>
+               </ul>
+            </li>
+          <% end %>
+
+  	     </ul>
+  	     <br style="clear: left" />
+  	     </div>
+   </div>
+
+
+  	<div id="right2">
+    <h1>Listing sale_representatives</h1>
+    
+      <div class="formbox">
+
+      <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+        <tr>
+            <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Contact</a></th>
+            <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Communication date</a></th>
+            <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Contact</a></th>
+            <th align="center" valign="middle" class="table-header-options line-left"><a href="">Action</a></th>
+        </tr>
+        
+        <% @sale_representatives.each do |sale_representative| %>
+          <tr>
+              <td>
+                 <% if sale_representative.contact_id.nil? %>
+                  <% else %>
+                     <% @contact = Contact.find(sale_representative.contact_id) %>
+                      <%= @contact.contact_name %>
+                  <% end %>
+                </td>
+                <td><%= sale_representative.communication_date %></td>
+                <td><%= sale_representative.contact %></td>
+                <td><%= link_to '', sale_representative, :class => "icon-1 info-tooltip" %> <%= link_to '', edit_sale_representative_path(sale_representative), :class =>"icon-2 info-tooltip" %> <%= link_to '', {:controller=>'sale_representatives', :action=>'destroy', :id=>"#{sale_representative.id}"},  :class => "icon-3 info-tooltip" %></td>
+          </tr>
+        <% end %>
+
+      </table>
+
+      </div>
+
+    </div>
+    
+    

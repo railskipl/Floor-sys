@@ -1,6 +1,7 @@
 <div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
 <div id="blank"></div>
 <div id="right">
+    <div class="leftarrow_contacts" style="float:left"></div>
     <div id="smoothmenu1" class="ddsmoothmenu">
       <ul class="rightcorner">
       
@@ -79,7 +80,7 @@
               <td><%= customer.nominal_gl_code %></td>
               <td><%= customer.vat_rate_sales %></td>
               <td><%= customer.vat_rate_purchases %></td>
-              <td><%= link_to 'Show', customer %> <%= link_to 'Edit', edit_customer_path(customer) %> <%= link_to 'Destroy', {:controller=>'customers', :action=>'destroy', :id=>"#{customer.id}"}, :confirm => 'Are you sure?' %></td>
+              <td><%= link_to '', customer, :class => "icon-1 info-tooltip" %> <%= link_to '', edit_customer_path(customer), :class =>"icon-2 info-tooltip" %> <%= link_to '', {:controller=>'customers', :action=>'destroy', :id=>"#{customer.id}"}, :confirm => 'Are you sure?',  :class => "icon-3 info-tooltip" %></td>
         </tr>
       <% end %>
 
