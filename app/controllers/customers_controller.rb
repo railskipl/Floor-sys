@@ -93,4 +93,11 @@ class CustomersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def make_as_prospect
+    @cnt = Customer.find(params[:id])
+    showtimes = Customer.update(@cnt.id, :status => 'p') 
+    redirect_to(new_prospect_path)
+  end
+  
 end

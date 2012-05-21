@@ -1,47 +1,102 @@
-<p id="notice"><%= notice %></p>
+<div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
+  <div id="blank"></div>
+  <div id="right">
+    <div class="leftarrow_contacts" style="float:left"></div>
+    <div id="smoothmenu1" class="ddsmoothmenu">
+    <ul class="rightcorner">
+      <% if can? :new, Contact %>
+      <li><%= link_to "Contact", contacts_path %>
+       <ul>
 
-<p>
-  <b>Telephone:</b>
-  <%= @prospect.telephone %>
-</p>
-
-<p>
-  <b>Online:</b>
-  <%= @prospect.online %>
-</p>
-
-<p>
-  <b>Walk in:</b>
-  <%= @prospect.walk_in %>
-</p>
-
-<p>
-  <b>Product interest:</b>
-  <%= @prospect.product_interest %>
-</p>
-
-<p>
-  <b>Quotation number sent:</b>
-  <%= @prospect.quotation_number_sent %>
-</p>
-
-<p>
-  <b>Date of purchase to make:</b>
-  <%= @prospect.date_of_purchase_to_make %>
-</p>
-
-<p>
-  <b>Notes:</b>
-  <%= @prospect.notes %>
-</p>
-
-<p>
-  <b>Sales person:</b>
-  <%= @prospect.sales_person %>
-</p>
+       <li> <%= link_to 'New', new_contact_path %></li>
 
 
+       </ul>
+       </li>
+       <% end %>
+
+       <% if can? :new, Customer %>
+       <li><%= link_to "Customer", customers_path %>
+          <ul>
+                  <li> <%= link_to 'New', new_customer_path %></li>
+          </ul>
+       </li>
+       <% end %>
+
+       <% if can? :new, Prospect %>
+        <li><%= link_to "Prospect", prospects_path %>
+           <ul>
+                   <li> <%= link_to 'New', new_prospect_path %></li>
+           </ul>
+        </li>
+        <% end %>
+
+        <% if can? :new, Subcontractor %>
+          <li><%= link_to "Subcontractor", subcontractors_path %>
+             <ul>
+                     <li> <%= link_to 'New', new_subcontractor_path %></li>
+             </ul>
+          </li>
+        <% end %>
+
+        <% if can? :new, SaleRepresentative %>
+          <li><%= link_to "Sale Representative", sale_representatives_path %>
+             <ul>
+                     <li> <%= link_to 'New', new_sale_representative_path %></li>
+             </ul>
+          </li>
+        <% end %>
+
+	     </ul>
+<br style="clear: left" />
+</div>
+</div>
 
 
-<%= link_to 'Edit', edit_prospect_path(@prospect) %> |
-<%= link_to 'Back', prospects_path %>
+<div id="right2">
+ 
+    <h1>Show Prospect</h1>
+    <div class="formbox">
+    <table width="60%" border="0" cellspacing="10" cellpadding="5">
+      <tr>
+        <td align="right" valign="middle">Telephone </td>
+        <td align="center" valign="middle">:</td>
+        <td> <%= @prospect.telephone %> </td>
+      </tr>
+      <tr>
+        <td align="right" valign="middle">Online </td>
+        <td align="center" valign="middle">:</td>
+        <td> <%= @prospect.online %> </td>
+      </tr>
+      <tr>
+        <td align="right" valign="middle">Walk in </td>
+        <td align="center" valign="middle">:</td>
+        <td> <%= @prospect.walk_in %> </td>
+      </tr>
+      <tr>
+        <td align="right" valign="middle">Product interest </td>
+        <td align="center" valign="middle">:</td>
+        <td> <%= @prospect.product_interest %> </td>
+      </tr>
+      <tr>
+        <td align="right" valign="middle">Quotation number sent </td>
+        <td align="center" valign="middle">:</td>
+        <td> <%= @prospect.quotation_number_sent %> </td>
+      </tr>
+      <tr>
+        <td align="right" valign="middle">Date of purchase to make </td>
+        <td align="center" valign="middle">:</td>
+        <td> <%= @prospect.date_of_purchase_to_make %> </td>
+      </tr>
+      <tr>
+        <td align="right" valign="middle">Date </td>
+        <td align="center" valign="middle">:</td>
+        <td> <%= @prospect.notes %> </td>
+      </tr>
+      
+      </table>
+      </div>
+      </div>
+   
+    </div>
+    </div>

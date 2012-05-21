@@ -1,4 +1,5 @@
-<%= form_for(@prospect) do |f| %>
+  <div class="formbox">
+  <%= form_for(@prospect) do |f| %>
   <% if @prospect.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@prospect.errors.count, "error") %> prohibited this prospect from being saved:</h2>
@@ -11,44 +12,52 @@
     </div>
   <% end %>
 
+  <table width="60%" border="0" cellspacing="10" cellpadding="5">
+    <tr>
+      <td align="right" valign="middle">Telephone </td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_field :telephone,:class =>"field1" %></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Online </td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_field :online,:class =>"field1" %></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Walk In </td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_field :walk_in,:class =>"field1" %></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Product interest </td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_field :product_interest,:class =>"field1" %></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Quotation number </td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_field :quotation_number_sent,:class =>"field1" %></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Date of purchase </td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.date_select :date_of_purchase,:class =>"field1" %></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Notes </td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_area :notes %>
+        <%= f.hidden_field :company_id, :value=>"#{current_user.company_id}" %>
+      </td>
+    </tr>
+    
+    <tr> 
+      <td align="right" valign="middle">&nbsp;</td>
+      <td align="center" valign="middle">&nbsp;</td>
+      <td><%= f.submit "submit", :class =>'button'%></td>
+  </tr>
+  </table>
+  <% end %>
+
+ </div>
   
-  
-  
-  <div class="field">
-    <%= f.label :telephone %><br />
-    <%= f.text_field :telephone %>
-  </div>
-  <div class="field">
-    <%= f.label :online %><br />
-    <%= f.text_field :online %>
-  </div>
-  <div class="field">
-    <%= f.label :walk_in %><br />
-    <%= f.text_area :walk_in %>
-  </div>
-  <div class="field">
-    <%= f.label :product_interest %><br />
-    <%= f.text_field :product_interest %>
-  </div>
-  <div class="field">
-    <%= f.label :quotation_number_sent %><br />
-    <%= f.text_field :quotation_number_sent %>
-  </div>
-  <div class="field">
-    <%= f.label :date_of_purchase %><br />
-    <%= f.date_select :date_of_purchase %>
-  </div>
-  <div class="field">
-    <%= f.label :notes %><br />
-    <%= f.text_area :notes %>
-  </div>
-  <div class="field">
-    <%= f.label :sales_person %><br />
-    <%= f.text_field :sales_person %>
-    <%= f.hidden_field :company_id, :value=>"#{current_user.company_id}" %>
-  </div>
-  
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>

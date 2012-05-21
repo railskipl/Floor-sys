@@ -78,7 +78,7 @@
     <td><%= prospect.walk_in %></td>
     <td><%= prospect.product_interest %></td>
     <td><%= prospect.quotation_number_sent %></td>
-    <td><%= link_to 'Show', prospect %> <%= link_to 'Edit', edit_prospect_path(prospect) %> <%= link_to 'Destroy', {:controller=>'prospects', :action=>'destroy', :id=>"#{prospect.id}"}, :confirm => 'Are you sure?' %></td>
+    <td><%= link_to '', prospect, :class => "icon-1 info-tooltip" %> <%= link_to '', edit_prospect_path(prospect), :class => "icon-2 info-tooltip" %> <%= link_to '', {:controller=>'prospects', :action=>'destroy', :id=>"#{prospect.id}"}, :class => "icon-3 info-tooltip" %></td>
   </tr>
   <% end %>
   </table>
