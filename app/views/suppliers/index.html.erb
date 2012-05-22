@@ -1,39 +1,102 @@
-<h1>Listing suppliers</h1>
+  <div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
+  <div id="blank"></div>
+  <div id="right">
+	<div class="leftarrow_setting" style="float:left"></div>
+      <div id="smoothmenu1" class="ddsmoothmenu">
+        <ul class="rightcorner">
+        <li><%= link_to "User", users_path %>
+       <ul>
 
-<table>
-  <tr>
-    <th>Account reference</th>
-    <th>Company name</th>
-    <th>Account number</th>
-    <th>Vat number</th>
-    <th>Address line1</th>
-    
-    <th>Town</th>
-    <th>Country</th>
-    
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+        <li><%= link_to 'New', new_user_path %></li>
 
-<% @suppliers.each do |supplier| %>
-  <tr>
-    <td><%= supplier.account_reference %></td>
-    <td><%= supplier.company_name %></td>
-    <td><%= supplier.account_number %></td>
-    <td><%= supplier.vat_number %></td>
-    <td><%= supplier.address_line1 %></td>
+
+        </ul>
+      </li>
+         <% if can? :new, Company %>
+           <li><%= link_to "Company", companies_path %>
+        <ul>
+
+        <li> <%= link_to 'New', new_company_path %></li>
+        
+
+        </ul>
+        </li>
+   <% end %>
    
-    <td><%= supplier.town %></td>
-    <td><%= supplier.country %></td>
+      <% if can? :new, Vat %>
+       <li><%= link_to "Vat", vats_path %>
+            <ul>
+                 <li><%= link_to 'New', new_vat_path %></li>
+            </ul>
+        </li>
+        <% end %>
+
+        <% if can? :new, Category %>
+       	<li><%= link_to "Category", categories_path %>
+            <ul>
+                <li><%= link_to 'New', new_category_path %></li>
+            </ul>
+        </li>
+        <% end %>
+
+        <% if can? :new, SalesType %>
+       	<li><%= link_to "Sales Types", sales_types_path %>
+            <ul>
+                <li><%= link_to 'New', new_sales_type_path %></li>
+            </ul>
+        </li>
+        <% end %>
+
+        <% if can? :new, OutgoingType %>
+       	<li><%= link_to "Outgoing Types", outgoing_types_path %>
+            <ul>
+                <li><%= link_to 'New', new_outgoing_type_path %></li>
+            </ul>
+        </li>
+        <% end %>
+        
+        <% if can? :new, Supplier %>
+       	<li><%= link_to "Supplier", suppliers_path %>
+            <ul>
+                <li><%= link_to 'New', new_supplier_path %></li>
+            </ul>
+        </li>
+        <% end %>
     
-    <td><%= link_to 'Show', supplier %></td>
-    <td><%= link_to 'Edit', edit_supplier_path(supplier) %></td>
-    <td><%= link_to 'Destroy', {:controller=>"suppliers", :action=>"destroy", :id=>"#{supplier.id}"}, :confirm => 'Are you sure?' %></td>
-  </tr>
-<% end %>
-</table>
+   </ul>
+  
+        <br style="clear: left" />
+        </div>
+        </div>
+      
+      
+      <div id="right2">
+      <h1>Listing suppliers</h1>
+      
+      <div class="formbox">
+	 
+      <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+        <tr>
+          <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Supplier name</a> </th>
+          <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Account reference</a> </th>
+          <th align="center" valign="middle" class="table-header-repeat line-left"><a href="">Company name</a></th>
+          <th align="center" valign="middle" class="table-header-options line-left"><a href="">Action</a></th>
+        </tr>
 
-<br />
+        <tr>
+        	<% @suppliers.each do |supplier| %>
+        	<td><%= supplier.name %> </td>
+          <td><%= supplier.account_reference %> </td>
+          <td><%= supplier.company_name %></td>     
+          <td class="options-width"> <%= link_to '', supplier,:class => "icon-1 info-tooltip"%><%= link_to '', edit_supplier_path(supplier),:class =>"icon-2 info-tooltip" %> <a href="/suppliers/<%= supplier.id %>/delete" onclick="if(confirm('Are you sure you want to delete this page?'))  return true;  else  return false;" class = "icon-3 info-tooltip" ></a></td>
+        </tr>
+        <% end %>
+      </table>
+      </div>
+      </div>
 
-<%= link_to 'New Supplier', new_supplier_path %>
+    </div>
+
+    </div>
+
+

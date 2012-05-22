@@ -1,103 +1,204 @@
-<p id="notice"><%= notice %></p>
+<div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
+<div id="blank"></div>
+<div id="right">
 
-<p>
-  <b>Account reference:</b>
-  <%= @supplier.account_reference %>
-</p>
+   <div class="leftarrow_setting" style="float:left"></div>
+    <div id="smoothmenu1" class="ddsmoothmenu">
+      <ul class="rightcorner">
+      <li><%= link_to "User", users_path %>
+     <ul>
 
-<p>
-  <b>Company name:</b>
-  <%= @supplier.company_name %>
-</p>
-
-<p>
-  <b>Account number:</b>
-  <%= @supplier.account_number %>
-</p>
-
-<p>
-  <b>Vat number:</b>
-  <%= @supplier.vat_number %>
-</p>
-
-<p>
-  <b>Address line1:</b>
-  <%= @supplier.address_line1 %>
-</p>
-
-<p>
-  <b>Address line2:</b>
-  <%= @supplier.address_line2 %>
-</p>
-
-<p>
-  <b>Address line3:</b>
-  <%= @supplier.address_line3 %>
-</p>
-
-<p>
-  <b>Town:</b>
-  <%= @supplier.town %>
-</p>
-
-<p>
-  <b>Country:</b>
-  <%= @supplier.country %>
-</p>
-
-<p>
-  <b>Postcode:</b>
-  <%= @supplier.postcode %>
-</p>
-
-<p>
-  <b>Website:</b>
-  <%= @supplier.website %>
-</p>
-
-<p>
-  <b>Glcode:</b>
-  <%= @supplier.glcode %>
-</p>
-
-<p>
-  <b>Communication date:</b>
-  <%= @supplier.communication_date %>
-</p>
+      <li><%= link_to 'New', new_user_path %></li>
 
 
+      </ul>
+    </li>
+       <% if can? :new, Company %>
+         <li><%= link_to "Company", companies_path %>
+          <ul>
+              <li> <%= link_to 'New', new_company_path %></li>
+          </ul>
+        </li>
+       <% end %>
+       
+       <% if can? :new, Vat %>
+       <li><%= link_to "Vat", vats_path %>
+            <ul>
+                 <li><%= link_to 'New', new_vat_path %></li>
+            </ul>
+        </li>
+        <% end %>
 
-<p>
-  <b>Contact:</b>
-  <%= @supplier.contact %>
-</p>
+        <% if can? :new, Category %>
+       	<li><%= link_to "Category", categories_path %>
+            <ul>
+                <li><%= link_to 'New', new_category_path %></li>
+            </ul>
+        </li>
+        <% end %>
 
-<p>
-  <b>Outcome:</b>
-  <%= @supplier.outcome %>
-</p>
+        <% if can? :new, SalesType %>
+       	<li><%= link_to "Sales Types", sales_types_path %>
+            <ul>
+                <li><%= link_to 'New', new_sales_type_path %></li>
+            </ul>
+        </li>
+        <% end %>
 
-<p>
-  <b>Note date:</b>
-  <%= @supplier.note_date %>
-</p>
+        <% if can? :new, OutgoingType %>
+       	<li><%= link_to "Outgoing Types", outgoing_types_path %>
+            <ul>
+                <li><%= link_to 'New', new_outgoing_type_path %></li>
+            </ul>
+        </li>
+        <% end %>
+        
+        <% if can? :new, Supplier %>
+       	<li><%= link_to "Supplier", suppliers_path %>
+            <ul>
+                <li><%= link_to 'New', new_supplier_path %></li>
+            </ul>
+        </li>
+        <% end %>
+  
+ </ul>
 
-<p>
-  <b>Note:</b>
-  <%= @supplier.note %>
-</p>
+      <br style="clear: left" />
+      </div>
+      </div>
+    
+    
+    <div id="right2">
+     
+      <h1>View Supplier Details</h1>
+      
+      <div class="formbox">
+          <table width="100%" border="0" cellspacing="10" cellpadding="10">
+            <tr>
+              <td align="left" valign="top" class="td1"><strong>Supplier Name </strong></td>
+              <td align="center" valign="middle" class="td1">:</td>
+              <td align="left" valign="top" class="td2"> <%= @supplier.name %> </td>
+            </tr>
+            <tr>
+              <td align="left" valign="top" class="td1"><strong>Account Reference </strong></td>
+              <td align="center" valign="middle" class="td1">:</td>
+              <td align="left" valign="top" class="td2"> <%= @supplier.account_reference %> </td>
+            </tr>
+            <tr>
+              <td align="left" valign="top" class="td1"><strong>Company Name </strong></td>
+              <td align="center" valign="middle" class="td1">:</td>
+              <td align="left" valign="top" class="td2"> <%= @supplier.company_name %> </td>
+            </tr>
+            <tr>
+              <td align="left" valign="top" class="td1"><strong>Account Number </strong></td>
+              <td align="center" valign="middle" class="td1">:</td>
+              <td align="left" valign="top" class="td2"> <%= @supplier.account_number %> </td>
+            </tr>
+            <tr>
+              <td align="left" valign="top" class="td1"><strong>Vat Number </strong></td>
+              <td align="center" valign="middle" class="td1">:</td>
+              <td align="left" valign="top" class="td2"> <%= @supplier.vat_number %> </td>
+            </tr>
+            <tr>
+              <td align="left" valign="top" class="td1"><strong>Address Line1 </strong></td>
+              <td align="center" valign="middle" class="td1">:</td>
+              <td align="left" valign="top" class="td2"> <%= @supplier.address_line1 %> </td>
+            </tr>
+            <tr>
+              <td align="left" valign="top" class="td1"><strong>Address Line2 </strong></td>
+              <td align="center" valign="middle" class="td1">:</td>
+              <td align="left" valign="top" class="td2"> <%= @supplier.address_line3 %> </td>
+            </tr>
+            <tr>
+              <td align="left" valign="top" class="td1"><strong>Address Line3 </strong></td>
+              <td align="center" valign="middle" class="td1">:</td>
+              <td align="left" valign="top" class="td2"> <%= @supplier.address_line3 %> </td>
+            </tr>
+            <tr>
+              <td align="left" valign="top" class="td1"><strong>Address Line3 </strong></td>
+              <td align="center" valign="middle" class="td1">:</td>
+              <td align="left" valign="top" class="td2"> <%= @supplier.address_line3 %> </td>
+            </tr>
+            <tr>
+              <td align="left" valign="top" class="td1"><strong>Address Line3 </strong></td>
+              <td align="center" valign="middle" class="td1">:</td>
+              <td align="left" valign="top" class="td2"> <%= @supplier.address_line3 %> </td>
+            </tr>
+            <tr>
+              <td align="left" valign="top" class="td1"><strong>Country </strong></td>
+              <td align="center" valign="middle" class="td1">:</td>
+              <td align="left" valign="top" class="td2"> <%= @supplier.country %> </td>
+            </tr>
+            <tr>
+              <td align="left" valign="top" class="td1"><strong>Town </strong></td>
+              <td align="center" valign="middle" class="td1">:</td>
+              <td align="left" valign="top" class="td2"> <%= @supplier.town %> </td>
+            </tr>
+            <tr>
+              <td align="left" valign="top" class="td1"><strong>Postcode </strong></td>
+              <td align="center" valign="middle" class="td1">:</td>
+              <td align="left" valign="top" class="td2"> <%= @supplier.postcode %> </td>
+            </tr>
+            <tr>
+              <td align="left" valign="top" class="td1"><strong>Website </strong></td>
+              <td align="center" valign="middle" class="td1">:</td>
+              <td align="left" valign="top" class="td2"> <%= @supplier.website %> </td>
+            </tr>
+            <tr>
+              <td align="left" valign="top" class="td1"><strong>Glcode </strong></td>
+              <td align="center" valign="middle" class="td1">:</td>
+              <td align="left" valign="top" class="td2"> <%= @supplier.glcode %> </td>
+            </tr>
+            <tr>
+              <td align="left" valign="top" class="td1"><strong>Communication Date </strong></td>
+              <td align="center" valign="middle" class="td1">:</td>
+              <td align="left" valign="top" class="td2"> <%= @supplier.communication_date %> </td>
+            </tr>
+            <tr>
+              <td align="left" valign="top" class="td1"><strong>Contact </strong></td>
+              <td align="center" valign="middle" class="td1">:</td>
+              <td align="left" valign="top" class="td2"> <%= @supplier.contact %> </td>
+            </tr>
+            <tr>
+              <td align="left" valign="top" class="td1"><strong>Outcome </strong></td>
+              <td align="center" valign="middle" class="td1">:</td>
+              <td align="left" valign="top" class="td2"> <%= @supplier.outcome %> </td>
+            </tr>
+            <tr>
+              <td align="left" valign="top" class="td1"><strong>Note Date </strong></td>
+              <td align="center" valign="middle" class="td1">:</td>
+              <td align="left" valign="top" class="td2"> <%= @supplier.note_date %> </td>
+            </tr>
+            <tr>
+              <td align="left" valign="top" class="td1"><strong>Note </strong></td>
+              <td align="center" valign="middle" class="td1">:</td>
+              <td align="left" valign="top" class="td2"> <%= @supplier.note %> </td>
+            </tr>
+            <tr>
+              <td align="left" valign="top" class="td1"><strong>Added by </strong></td>
+              <td align="center" valign="middle" class="td1">:</td>
+              <td align="left" valign="top" class="td2"> <%= @supplier.added_by %> </td>
+            </tr>
+            <% unless @supplier.supplierimage_url(:thumb).nil? %>
+            <tr>
+              <td align="left" valign="top" class="td1"><strong>Image </strong></td>
+              <td align="center" valign="middle" class="td1">:</td>
+              <td align="left" valign="top" class="td2"> <%= image_tag @supplier.supplierimage_url(:thumb) %> </td>
+            </tr>
+            <% end %>
+            </table>
+      	  </div>
+      </div>
+   
+    </div>
 
-<p>
-  <b>Added by:</b>
-  <%= @supplier.added_by %>
-</p>
-
-<p>
-  <b>Supplier Image:</b>
-  <%= image_tag @supplier.supplierimage_url(:thumb) %>
-</p>
 
 
 
-<%= link_to 'Edit', edit_supplier_path(@supplier) %> |
-<%= link_to 'Back', suppliers_path %>
+
+
+
+
+
+
+

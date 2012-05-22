@@ -54,6 +54,14 @@
                 </ul>
             </li>
             <% end %>
+            
+            <% if can? :new, Supplier %>
+           	<li><%= link_to "Supplier", suppliers_path %>
+                <ul>
+                    <li><%= link_to 'New', new_supplier_path %></li>
+                </ul>
+            </li>
+            <% end %>
 
      </ul>
 	<br style="clear: left" />

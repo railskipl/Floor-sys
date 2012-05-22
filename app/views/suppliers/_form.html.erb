@@ -1,97 +1,145 @@
-<%= form_for @supplier, :html => { :multipart => true } do |f| %>
-  <% if @supplier.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@supplier.errors.count, "error") %> prohibited this supplier from being saved:</h2>
-
-      <ul>
-      <% @supplier.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+  <div class="tabscontainer">
+     <div class="tabs">
+         <div class="tab selected first" id="tab_menu_1">
+             <div class="link">General</div>
+             <div class="arrow"></div>
+         </div>
+         <div class="tab" id="tab_menu_2">
+             <div class="link">Communications</div>
+             <div class="arrow"></div>
+         </div>
+		 
+		 
+          <div class="tab" id="tab_menu_3">
+             <div class="link">Notes </div>
+             <div class="arrow"></div>
+         </div>
+		 
     </div>
-  <% end %>
+    
+    <%= form_for @supplier, :html => { :multipart => true } do |f| %>
+      
+      <div class="curvedContainer">
+    		<div class="tabcontent" id="tab_content_1" style="display:block">
+        <table width="60%" border="0" cellspacing="10" cellpadding="10">
+            <tr>
+              <td align="right" valign="middle">Supplier Name </td>
+              <td align="center" valign="middle">:</td>
+              <td><%= f.text_field :name %></td>
+            </tr>
+            <tr>
+              <td align="right" valign="middle">Account Reference </td>
+              <td align="center" valign="middle">:</td>
+              <td><%= f.text_field :account_reference %></td>
+            </tr>
+            <tr>
+              <td align="right" valign="middle">Company Name </td>
+              <td align="center" valign="middle">:</td>
+              <td><%= f.text_field :company_name %></td>
+            </tr>
+            <tr>
+              <td align="right" valign="middle">Account Number</td>
+              <td align="center" valign="middle">:</td>
+              <td><%= f.text_field :account_number %></td>
+            </tr>
+            <tr>
+              <td align="right" valign="middle">Vat Number</td>
+              <td align="center" valign="middle">:</td>
+              <td><%= f.text_field :vat_number %></td>
+            </tr>
+            <tr>
+              <td align="right" valign="middle">Address Line1</td>
+              <td align="center" valign="middle">:</td>
+              <td><%= f.text_area :address_line1, :rows=>"2" %></td>
+            </tr>
+            <tr>
+              <td align="right" valign="middle">Address Line2</td>
+              <td align="center" valign="middle">:</td>
+              <td><%= f.text_area :address_line2, :rows=>"2" %></td>
+            </tr>
+            <tr>
+              <td align="right" valign="middle">Address Line3</td>
+              <td align="center" valign="middle">:</td>
+              <td><%= f.text_area :address_line3, :rows=>"2" %></td>
+            </tr>
+            <tr>
+              <td align="right" valign="middle">Country</td>
+              <td align="center" valign="middle">:</td>
+              <td><%= select :supplier, :country, Country.all.map {|c| [c.country_name]} %></td>
+            </tr>
+            <tr>
+              <td align="right" valign="middle">Town</td>
+              <td align="center" valign="middle">:</td>
+              <td><%= f.text_field :town %></td>
+            </tr>
+            <tr>
+              <td align="right" valign="middle">Postcode</td>
+              <td align="center" valign="middle">:</td>
+              <td><%= f.text_field :postcode %></td>
+            </tr>
+            <tr>
+              <td align="right" valign="middle">Website</td>
+              <td align="center" valign="middle">:</td>
+              <td><%= f.text_field :website %></td>
+            </tr>
+            <tr>
+              <td align="right" valign="middle">Glcode</td>
+              <td align="center" valign="middle">:</td>
+              <td><%= f.text_field :glcode %></td>
+            </tr>
+         </table>
+      	</div>
+      		<div class="tabcontent" id="tab_content_2">
+      			<table width="60%" border="0" cellspacing="10" cellpadding="5">
+              <tr>
+                <td align="right" valign="middle">Date</td>
+                <td align="center" valign="middle">:</td>
+                <td><%= f.datetime_select :communication_date %></td>
+              </tr>
+              <tr>
+                <td align="right" valign="middle">Contact</td>
+                <td align="center" valign="middle">:</td>
+                <td><%= f.text_field :contact %></td>
+              </tr>
+              <tr>
+                <td align="right" valign="middle">Outcome</td>
+                <td align="center" valign="middle">:</td>
+                <td><%= f.text_area :outcome, :rows=>"2" %></td>
+              </tr>
+            </table>
+        		</div>
+        		<div class="tabcontent" id="tab_content_3">
+        			<table width="60%" border="0" cellspacing="10" cellpadding="5">
+                <tr>
+                  <td align="right" valign="middle">Note Date</td>
+                  <td align="center" valign="middle">:</td>
+                  <td><%= f.date_select :note_date %></td>
+                </tr>
+                <tr>
+                  <td align="right" valign="middle">Note</td>
+                  <td align="center" valign="middle">:</td>
+                  <td><%= f.text_area :note, :rows=>"2" %></td>
+                </tr>
+                <tr>
+                  <td align="right" valign="middle">Added by</td>
+                  <td align="center" valign="middle">:</td>
+                  <td><%= f.text_field :added_by %>
+                    <%= f.hidden_field :company_id, :value=>"#{current_user.company_id}" %>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="right" valign="middle">Image</td>
+                  <td align="center" valign="middle">:</td>
+                  <td><%= f.file_field :supplierimage %></td>
+                </tr>
+                </table>
+              </div>
 
-  <div class="field">
-    <%= f.label :account_reference %><br />
-    <%= f.text_field :account_reference %>
-  </div>
-  <div class="field">
-    <%= f.label :company_name %><br />
-    <%= f.text_field :company_name %>
-  </div>
-  <div class="field">
-    <%= f.label :account_number %><br />
-    <%= f.text_field :account_number %>
-  </div>
-  <div class="field">
-    <%= f.label :vat_number %><br />
-    <%= f.text_field :vat_number %>
-  </div>
-  <div class="field">
-    <%= f.label :address_line1 %><br />
-    <%= f.text_area :address_line1 %>
-  </div>
-  <div class="field">
-    <%= f.label :address_line2 %><br />
-    <%= f.text_area :address_line2 %>
-  </div>
-  <div class="field">
-    <%= f.label :address_line3 %><br />
-    <%= f.text_area :address_line3 %>
-  </div>
-  <div class="field">
-    <%= f.label :town %><br />
-    <%= f.text_field :town %>
-  </div>
-  <div class="field">
-    <%= f.label :country %><br />
-    <%= select :supplier, :country, Country.all.map {|c| [c.country_name]} %>
-  </div>
-  <div class="field">
-    <%= f.label :postcode %><br />
-    <%= f.text_field :postcode %>
-  </div>
-  <div class="field">
-    <%= f.label :website %><br />
-    <%= f.text_field :website %>
-  </div>
-  <div class="field">
-    <%= f.label :glcode %><br />
-    <%= f.text_field :glcode %>
-  </div>
-  <div class="field">
-    <%= f.label :communication_date %><br />
-    <%= f.datetime_select :communication_date %>
-  </div>
+
+                <div align="center"><%= f.submit "Submit", :class=>"button" %></div>
+
+              </div>
+            <% end %>
+
+          </div>  
   
-  <div class="field">
-    <%= f.label :contact %><br />
-    <%= f.text_field :contact %>
-  </div>
-  <div class="field">
-    <%= f.label :outcome %><br />
-    <%= f.text_area :outcome %>
-  </div>
-  <div class="field">
-    <%= f.label :note_date %><br />
-    <%= f.date_select :note_date %>
-  </div>
-  <div class="field">
-    <%= f.label :note %><br />
-    <%= f.text_area :note %>
-  </div>
-  <div class="field">
-    <%= f.label :added_by %><br />
-    <%= f.text_field :added_by %>
-    <%= f.hidden_field :company_id, :value=>"#{current_user.company_id}" %>
-  </div>
-  <div class="field">
-    <%= f.label :supplierimage %><br />
-    <%= f.file_field :supplierimage %>
-  </div>
-  
-  
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>

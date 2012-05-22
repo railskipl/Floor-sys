@@ -1,13 +1,3 @@
-
-
-
-
-
-
-
-
-
-
 <div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
 <div id="blank"></div>
 <div id="right">
@@ -60,6 +50,14 @@
        	<li><%= link_to "Outgoing Types", outgoing_types_path %>
             <ul>
                 <li><%= link_to 'New', new_outgoing_type_path %></li>
+            </ul>
+        </li>
+        <% end %>
+        
+        <% if can? :new, Supplier %>
+       	<li><%= link_to "Supplier", suppliers_path %>
+            <ul>
+                <li><%= link_to 'New', new_supplier_path %></li>
             </ul>
         </li>
         <% end %>
