@@ -102,7 +102,9 @@ ul#css3menu1 li.topmenu:hover>a,ul#css3menu1 li.topmenu>a.pressed{
 	.contacts:hover{ background:url(../images/contact_email_hover.png) no-repeat center top !important;}
 	.contacts_selected{ background:url(../images/contact_email_hover.png) no-repeat center top !important; padding:35px 0 0 0!important}
 	
-	.leftarrow_setting { background: url("/images/left_arrow.png") no-repeat scroll 0 0 transparent; height: 19px; left: -30px; position: relative;
-	    top: 540px; width: 10px; }
-	 .leftarrow_contacts { background: url("/images/left_arrow.png") no-repeat scroll 0 0 transparent; height: 19px; left: -30px; position: relative;
-		    top: 93px; width: 10px; }
+	.products{ background:url(../images/products.png) no-repeat center top !important; padding:35px 0 0 0!important; margin-top:10px}
+	.products:hover{ background:url(../images/products_hover.png) no-repeat center top !important;}
+	.products_selected{ background:url(../images/products_hover.png) no-repeat center top !important; padding:35px 0 0 0!important; margin-top:10px}
+	
+	.leftarrow_setting { background: url("/images/left_arrow.png") no-repeat scroll 0 0 transparent; height: 19px; left: -30px; position: relative; top: 540px; width: 10px; }
+	.leftarrow_contacts { background: url("/images/left_arrow.png") no-repeat scroll 0 0 transparent; height: 19px; left: -30px; position: relative; top: 93px; width: 10px; }
