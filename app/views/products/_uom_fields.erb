@@ -1,32 +1,54 @@
 <div class="fields">
-    <p class="lable">Roll</p>
-    <p class="field">
-      <%= f.select( :roll,  { "roll" => "roll", "item" => "item", "roll_item" => "roll_item"}) %>
-     
-    </p>
+
+    <tr>
+      <td align="right" valign="middle">Roll </td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.select( :roll,  { "roll" => "roll", "item" => "item", "roll_item" => "roll_item"}) %></td>
+    </tr>
     
-    <p class="lable">Roll min</p>
-    <p class="field"><%= f.text_field :roll_min %></p>
+    <tr>
+      <td align="right" valign="middle">Roll Min </td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_field :roll_min %></td>
+    </tr>
     
-    <p class="lable">Std Length</p>
-    <p class="field"><%= f.text_field :std_length %></p>
+    <tr>
+      <td align="right" valign="middle">Std Length </td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_field :std_length %></td>
+    </tr>
     
-    <p class="lable">Std Width</p>
-    <p class="field"><%= f.text_field :std_width %></p>
+    <tr>
+      <td align="right" valign="middle">Std Width </td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_field :std_width %></td>
+    </tr>
     
-    <p class="lable">Item Length</p>
-    <p class="field"><%= f.text_field :item_length %></p>
+    <tr>
+      <td align="right" valign="middle">Item Length </td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_field :item_length %></td>
+    </tr>
     
-    <p class="lable">Item Width</p>
-    <p class="field"><%= f.text_field :item_width %></p>
+    <tr>
+      <td align="right" valign="middle">Item Width </td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_field :item_width %></td>
+    </tr>
     
-    <p class="lable">Buy in Multiples</p>
-    <p class="field"><%= f.text_field :buy_in_multiples %></p>
+    <tr>
+      <td align="right" valign="middle">Buy in Multiples </td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_field :buy_in_multiples %></td>
+    </tr>
     
-    <p class="lable">Sale in multiples</p>
-    <p class="field"><%= f.text_field :sale_in_multiples %></p>
+    <tr>
+      <td align="right" valign="middle">Sale in multiples </td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_field :sale_in_multiples %></td>
+    </tr>
     
-    
+
 </div>
 
 
