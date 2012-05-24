@@ -16,7 +16,7 @@ class Basket
     item.product_id = product.id
     item.quantity = quantity
     item.product_name = product.product_name
-    item.supplier_name = product.supplier_account_reference
+    item.supplier_name = product.supplier_name
    
     item.price = product.purchase_price
     item.total_price = product.purchase_price * item.quantity

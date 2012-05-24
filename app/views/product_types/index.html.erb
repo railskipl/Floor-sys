@@ -1,25 +1,94 @@
-<h1>Listing product_types</h1>
+<div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
+<div id="blank"></div>
+<div id="right">
+    <div class="leftarrow_contacts" style="float:left"></div>
+    <div id="smoothmenu1" class="ddsmoothmenu">
+      <ul class="rightcorner">
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Company</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+      <% if can? :new, ProductType %>
+      <li><%= link_to "Product Type", product_types_path %>
+       <ul>
+            <li> <%= link_to 'New', new_product_type_path %></li>
+       </ul>
+      </li>
+      <% end %>
+      
+      <% if can? :new, ProductGroup %>
+      <li><%= link_to "Product Group", product_groups_path %>
+       <ul>
+            <li> <%= link_to 'New', new_product_group_path %></li>
+       </ul>
+      </li>
+      <% end %>
+      
+      <% if can? :new, ProductFibre %>
+      <li><%= link_to "Product Fibre", product_fibres_path %>
+       <ul>
+            <li> <%= link_to 'New', new_product_fibre_path %></li>
+       </ul>
+      </li>
+      <% end %>
+      
+      <% if can? :new, ProductBacking %>
+      <li><%= link_to "Product Backing", product_backings_path %>
+       <ul>
+            <li> <%= link_to 'New', new_product_backing_path %></li>
+       </ul>
+      </li>
+      <% end %>
+      
+      <% if can? :new, ProductWear %>
+      <li><%= link_to "Product Wear", product_wears_path %>
+       <ul>
+            <li> <%= link_to 'New', new_product_wear_path %></li>
+       </ul>
+      </li>
+      <% end %>
+      
+      <% if can? :new, ProductStyleType %>
+      <li><%= link_to "Product Style Type", product_style_types_path %>
+       <ul>
+            <li> <%= link_to 'New', new_product_style_type_path %></li>
+       </ul>
+      </li>
+      <% end %>
 
-<% @product_types.each do |product_type| %>
-  <tr>
-    <td><%= product_type.name %></td>
-    <td><%= product_type.company_id %></td>
-    <td><%= link_to 'Show', product_type %></td>
-    <td><%= link_to 'Edit', edit_product_type_path(product_type) %></td>
-    <td><%= link_to 'Destroy', {:controller=>'product_types', :action=>'destroy', :id=>"#{product_type.id}"}, :confirm => 'Are you sure?' %></td>
-  </tr>
-<% end %>
-</table>
+      <% if can? :new, Product %>
+      <li><%= link_to "Product", products_path %>
+       <ul>
+            <li> <%= link_to 'New', new_product_path %></li>
+       </ul>
+      </li>
+      <% end %>
+      
 
-<br />
+	     </ul>
+	     <br style="clear: left" />
+	     </div>
+ </div>
 
-<%= link_to 'New Product type', new_product_type_path %>
+
+	<div id="right2">
+  <h1>Listing Product Types</h1>
+  
+    <div class="formbox">
+
+    <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+      <tr>
+          <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Name</a></th>
+          <th align="center" valign="middle" class="table-header-options line-left"><a href="">Action</a></th>
+      </tr>
+      
+      <% @product_types.each do |product_type| %>
+      <tr>
+          <td><%= product_type.name %></td>
+          <td><%= link_to '', product_type, :class =>"icon-1 info-tooltip" %> <%= link_to '', edit_product_type_path(product_type), :class =>"icon-2 info-tooltip" %> <%= link_to '', {:controller=>'product_types', :action=>'destroy', :id=>"#{product_type.id}"}, :confirm => 'Are you sure?', :class =>"icon-3 info-tooltip" %>
+          </td>
+      </tr>
+    <% end %>
+
+  </table>
+  
+  </div>
+
+</div>

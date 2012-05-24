@@ -47,7 +47,7 @@ class ProductStyleTypesController < ApplicationController
 
     respond_to do |format|
       if @product_style_type.save
-        format.html { redirect_to(@product_style_type, :notice => 'Product style type was successfully created.') }
+        format.html { redirect_to(product_style_types_path, :notice => 'Product style type was successfully created.') }
         format.xml  { render :xml => @product_style_type, :status => :created, :location => @product_style_type }
       else
         format.html { render :action => "new" }
@@ -63,7 +63,7 @@ class ProductStyleTypesController < ApplicationController
 
     respond_to do |format|
       if @product_style_type.update_attributes(params[:product_style_type])
-        format.html { redirect_to(@product_style_type, :notice => 'Product style type was successfully updated.') }
+        format.html { redirect_to(product_style_types_path, :notice => 'Product style type was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

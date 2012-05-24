@@ -47,7 +47,7 @@ class ProductFibresController < ApplicationController
 
     respond_to do |format|
       if @product_fibre.save
-        format.html { redirect_to(@product_fibre, :notice => 'Product fibre was successfully created.') }
+        format.html { redirect_to(product_fibres_path, :notice => 'Product fibre was successfully created.') }
         format.xml  { render :xml => @product_fibre, :status => :created, :location => @product_fibre }
       else
         format.html { render :action => "new" }
@@ -63,7 +63,7 @@ class ProductFibresController < ApplicationController
 
     respond_to do |format|
       if @product_fibre.update_attributes(params[:product_fibre])
-        format.html { redirect_to(@product_fibre, :notice => 'Product fibre was successfully updated.') }
+        format.html { redirect_to(product_fibres_path, :notice => 'Product fibre was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

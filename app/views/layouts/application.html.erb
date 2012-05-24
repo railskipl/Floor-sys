@@ -8,11 +8,24 @@
 
  <%= stylesheet_link_tag 'style', 'ddsmoothmenu', 'screen', 'ddlevelsmenu-topbar', 'login', 'left_menu', 'tab' %>
 
- <%= javascript_include_tag "jquerycssmenu","login","menucontents","ddlevelsmenu","ddsmoothmenu", "jquery.min", "rails", 'jquery-1.5.2.min' %>
+ <%= javascript_include_tag "jquery-1.5.2.min","jquerycssmenu","login","menucontents","ddlevelsmenu","ddsmoothmenu" %>
 
-
+ 
 
  <script language="JavaScript">
+ function remove_fields(link) {
+   $(link).previous("input[type=hidden]").value = "1";
+   $(link).up(".fields").hide();
+ }
+
+ function add_fields(link, association, content) {
+   var new_id = new Date().getTime();
+   var regexp = new RegExp("new_" + association, "g")
+   $(link).up().insert({
+     before: content.replace(regexp, new_id)
+   });
+ }
+ 
  $(document).ready(function() {
 
      $(".tabs .tab[id^=tab_menu]").click(function() {

@@ -94,7 +94,7 @@ class PurchaseOrdersController < ApplicationController
   end
 
   def remove_purchase_order_item
-    @purchase_order_item = PurchaseOrderItem.find(params[:id])
+    @purchase_order_item = PurchaseOrderItem.find(params[:id2])
     @purchase_order_item.destroy
     
     redirect_to :action => :edit, :id => params[:id]

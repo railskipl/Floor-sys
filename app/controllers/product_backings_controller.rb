@@ -47,7 +47,7 @@ class ProductBackingsController < ApplicationController
 
     respond_to do |format|
       if @product_backing.save
-        format.html { redirect_to(@product_backing, :notice => 'Product backing was successfully created.') }
+        format.html { redirect_to(product_backings_path, :notice => 'Product backing was successfully created.') }
         format.xml  { render :xml => @product_backing, :status => :created, :location => @product_backing }
       else
         format.html { render :action => "new" }
@@ -63,7 +63,7 @@ class ProductBackingsController < ApplicationController
 
     respond_to do |format|
       if @product_backing.update_attributes(params[:product_backing])
-        format.html { redirect_to(@product_backing, :notice => 'Product backing was successfully updated.') }
+        format.html { redirect_to(product_backings_path, :notice => 'Product backing was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

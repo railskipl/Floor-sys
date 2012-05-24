@@ -1,51 +1,78 @@
 <div class="fields">
-    <p class="lable">Roll Cost</p>
-    <p class="field"><%= f.text_field :roll_cost %></p>
+    <tr>
+      <td align="right" valign="middle">Roll Cost </td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_field :roll_cost %></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Cut Cost </td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_field :cut_cost %></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Special Roll Cost </td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_field :special_roll_cost %></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Item Cost </td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_field :item_cost %></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Item Special </td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_field :item_special %></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Price Description </td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_area :special_price_description, :rows=>"2" %></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Roll Net </td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_field :roll_net %></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Discount Roll Net </td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_field :discount_roll_net %></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Cut Net </td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_field :cut_net %></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Discount Cut Net </td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_field :discount_cu_net %></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Start Date </td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.date_select :start_date %></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Expiry Date </td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.date_select :expiry_date %></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Srp </td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_field :srp %></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Supplier </td>
+      <td align="center" valign="middle">:</td>
+      <td><%= select :product, :supplier_id, @supplier.map {|c| ["#{c.account_reference}", c.id]} %></td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle"> </td>
+      <td align="center" valign="middle"></td>
+      <td><%= link_to_remove_fields "remove", f %></td>
+    </tr>
     
-    <p class="lable">Cut Cost</p>
-    <p class="field"><%= f.text_field :cut_cost %></p>
-    
-    <p class="lable">Special Roll Cost</p>
-    <p class="field"><%= f.text_field :special_roll_cost %></p>
-    
-    <p class="lable">Item Cost</p>
-    <p class="field"><%= f.text_field :item_cost %></p>
-    
-    <p class="lable">Item Special</p>
-    <p class="field"><%= f.text_field :item_special %></p>
-    
-    <p class="lable">Price Description</p>
-    <p class="field"><%= f.text_area :special_price_description %></p>
-    
-    <p class="lable">Roll Net</p>
-    <p class="field"><%= f.text_field :roll_net %></p>
-    
-    <p class="lable">Discount Roll Net</p>
-    <p class="field"><%= f.text_field :discount_roll_net %></p>
-    
-    <p class="lable">Cut Net</p>
-    <p class="field"><%= f.text_field :cut_net %></p>
-    
-    <p class="lable">Discount Cut Net</p>
-    <p class="field"><%= f.text_field :discount_cu_net %></p>
-    
-    <p class="lable">Roll Cost</p>
-    <p class="field"><%= f.date_select :start_date %></p>
-    
-    <p class="lable">Roll Cost</p>
-    <p class="field"><%= f.date_select :expiry_date %></p>
-    
-    <p class="lable">srp</p>
-    <p class="field"><%= f.text_field :srp %></p>
-    
-    <p class="lable">Supplier</p>
-    <p class="field">
-      <%= select :product, :supplier_id, @supplier.map {|c| ["#{c.account_reference}", c.id]} %>
-    </p>
-  
-    
-    <p><%= link_to_remove_fields "remove", f %></p> 
 </div>
-
-
-  

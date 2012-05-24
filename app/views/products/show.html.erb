@@ -1,230 +1,332 @@
-<p id="notice"><%= notice %></p>
+<div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
+<div id="blank"></div>
+<div id="right">
+    <div class="leftarrow_contacts" style="float:left"></div>
+    <div id="smoothmenu1" class="ddsmoothmenu">
+      <ul class="rightcorner">
 
-<p>
-  <b>Category:</b>
-  <%= @product.categories.collect { |cat| cat.category_name} %>
-</p>
+      <% if can? :new, ProductType %>
+      <li><%= link_to "Product Type", product_types_path %>
+       <ul>
+            <li> <%= link_to 'New', new_product_type_path %></li>
+       </ul>
+      </li>
+      <% end %>
 
-<p>
-  <b>Product name:</b>
-  <%= @product.product_name %>
-</p>
+      <% if can? :new, ProductGroup %>
+      <li><%= link_to "Product Group", product_groups_path %>
+       <ul>
+            <li> <%= link_to 'New', new_product_group_path %></li>
+       </ul>
+      </li>
+      <% end %>
 
-<p>
-  <b>Product code:</b>
-  <%= @product.product_code %>
-</p>
+      <% if can? :new, ProductFibre %>
+      <li><%= link_to "Product Fibre", product_fibres_path %>
+       <ul>
+            <li> <%= link_to 'New', new_product_fibre_path %></li>
+       </ul>
+      </li>
+      <% end %>
 
-<p>
-  <b>Product type:</b>
-  
-  <% if @product.product_type_id.nil? %>
-  <% else %>
-  <% @producttype = ProductType.find(@product.product_type_id) %>
-    <%= @producttype.name %>
-  <% end %>
-</p>
+      <% if can? :new, ProductBacking %>
+      <li><%= link_to "Product Backing", product_backings_path %>
+       <ul>
+            <li> <%= link_to 'New', new_product_backing_path %></li>
+       </ul>
+      </li>
+      <% end %>
 
-<p>
-  <b>Product group:</b>
-  <% if @product.product_group_id.nil? %>
-   <% else %>
-   <% @productgroup = ProductGroup.find(@product.product_group_id) %>
-     <%= @productgroup.name %>
-   <% end %>
- 
-</p>
+      <% if can? :new, ProductWear %>
+      <li><%= link_to "Product Wear", product_wears_path %>
+       <ul>
+            <li> <%= link_to 'New', new_product_wear_path %></li>
+       </ul>
+      </li>
+      <% end %>
 
-<p>
-  <b>Supplier:</b>
-  <% if @product.supplier_id.nil? %>
-    <% else %>
-    <% @supplier = Supplier.find(@product.supplier_id) %>
-      <%= @supplier.account_reference %>
-    <% end %>
-  
-</p>
+      <% if can? :new, ProductStyleType %>
+      <li><%= link_to "Product Style Type", product_style_types_path %>
+       <ul>
+            <li> <%= link_to 'New', new_product_style_type_path %></li>
+       </ul>
+      </li>
+      <% end %>
 
-<p>
-  <b>Range name:</b>
-  <%= @product.range_name %>
-</p>
+      <% if can? :new, Product %>
+      <li><%= link_to "Product", products_path %>
+       <ul>
+            <li> <%= link_to 'New', new_product_path %></li>
+       </ul>
+      </li>
+      <% end %>
 
-<p>
-  <b>Product fibre:</b>
-  <% if @product.product_fibre_id.nil? %>
-    <% else %>
-    <% @productfibre = ProductFibre.find(@product.product_fibre_id) %>
-      <%= @productfibre.name_1 %> <% @productfibre.name_2 %>
-    <% end %>
-</p>
-
-<p>
-  <b>Product backing:</b>
-  <% if  @product.product_banking_id.nil? %>
-     <% else %>
-     <% @productbacking = ProductBacking.find(@product.product_banking_id) %>
-       <%= @productbacking.name_1 %> <% @productbacking.name_2 %>
-     <% end %>
-</p>
-
-<p>
-  <b>Pile height gauge:</b>
-  <%= @product.pile_height_gauge %>
-</p>
-
-<p>
-  <b>Pile weight:</b>
-  <%= @product.pile_weight %> 
-</p>
-
-<p>
-  <b>Unit weight:</b>
-  <%= @product.unit_weight %>
-</p>
-
-<p>
-  <b>Product wear:</b>
-  <% if  @product.product_wear_id.nil? %>
-     <% else %>
-     <% @productwear = ProductWear.find(@product.product_wear_id) %>
-       <%= @productwear.name_1 %> <%= @productwear.name_2 %>
-     <% end %>
-</p>
-
-<p>
-  <b>Product style type:</b>
-  <% if  @product.product_style_type_id.nil? %>
-     <% else %>
-     <% @productstyletype = ProductStyleType.find(@product.product_style_type_id) %>
-       <%= @productstyletype.name_1 %>  <% @productstyletype.name_2 %>
-     <% end %>
-  
-</p>
-
-<p>
-  <b>Is published:</b>
-  <%= @product.is_published %>
-</p>
-
-<p>
-  <b>Full description:</b>
-  <%= @product.full_description %>
-</p>
-
-<p>
-  <b>Notes:</b>
-  <%= @product.notes %>
-</p>
-
-<p>
-  <b>Colour name:</b>
-  <%= @product.colour_name %>
-</p>
-
-<p>
-  <b>Colour number:</b>
-  <%= @product.colour_number %>
-</p>
-
-
- <% for product_prices in @product.product_prices %>
- 
-  <p>
-      <b>Item Cost</b>
-      <%= product_prices.item_cost %>
-   </p>
-  
-   <p>
-       <b>Item Special</b>
-       <%= product_prices.item_special %>
-   </p>
-  
-   <p>
-       <b>Special Price Description</b>
-       <%= product_prices.special_price_description %>
-  </p>
-  
-   <p>
-       <b>Roll Net</b>
-       <%= product_prices.roll_net %>
-   </p>
-   
-   <p>
-       <b>Discount Roll Net</b>
-       <%= product_prices.discount_roll_net %>
-   </p>
-   
-   <p>
-       <b>Cut Net</b>
-       <%= product_prices.cut_net %>
-   </p>
-    
-   <p>
-       <b>Discount Cut Net</b>
-       <%= product_prices.discount_cu_net %>
-   </p>
-   
-   <p>
-        <b>Start Date</b>
-        <%= product_prices.start_date %>
-   </p>
-    
-    <p>
-        <b>Expiry Date</b>
-        <%= product_prices.expiry_date %>
-    </p>
-              
-     <p>
-        <b>Srp</b>
-        <%= product_prices.srp %>
-    </p>
- <% end %>
-
-
- <% for uoms in @product.uoms %>
- 
-  <p>
-     <b>Roll</b>
-     <%= uoms.roll %>
-   </p>
- 
- <p>
-   <b>Roll Min</b>
-   <%= uoms.roll_min %>
- </p>
- 
- <p>
-    <b>Std Length</b>
-    <%= uoms.std_length %>
-  </p>
- 
- <p>
-    <b>Std Width</b>
-    <%= uoms.std_width %>
- </p>
- 
- <p>
-    <b>Item Length</b>
-    <%= uoms.item_length %>
- </p>
-    
- <p>
-   <b>Item Widt:</b>
-   <%= uoms.item_width %>
- </p>
-     
- <p>
-   <b>Buy in Multiples</b>
-   <%= uoms.buy_in_multiples %>
- </p>
       
- <p>
-   <b>Sale In Multiples</b>
-   <%= uoms.sale_in_multiples %>
- </p>
- 
+
+	     </ul>
+	     <br style="clear: left" />
+	     </div>
+ </div>
+
+
+	<div id="right2">
+  <h1>Show Customer</h1>
+  
+  <div class="formbox">
+  <table width="60%" border="0" cellspacing="10" cellpadding="5">
+    
+    <tr>
+      <td align="right" valign="middle">Category </td>
+      <td align="center" valign="middle">:</td>
+      <td> <%= @product.categories.collect { |cat| cat.category_name} %> </td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Product Name </td>
+      <td align="center" valign="middle">:</td>
+      <td> <%= @product.product_name %> </td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Product Code </td>
+      <td align="center" valign="middle">:</td>
+      <td> <%= @product.product_code %> </td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Product Type </td>
+      <td align="center" valign="middle">:</td>
+      <td>  
+          <% if @product.product_type_id.nil? %>
+          <% else %>
+          <% @producttype = ProductType.find(@product.product_type_id) %>
+            <%= @producttype.name %>
+          <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Product Group </td>
+      <td align="center" valign="middle">:</td>
+      <td>  
+          <% if @product.product_group_id.nil? %>
+           <% else %>
+           <% @productgroup = ProductGroup.find(@product.product_group_id) %>
+             <%= @productgroup.name %>
+           <% end %>
+      </td>
+    </tr>
+    
+    <tr>
+      <td align="right" valign="middle">Supplier </td>
+      <td align="center" valign="middle">:</td>
+      <td>  
+          <% if @product.supplier_id.nil? %>
+            <% else %>
+            <% @supplier = Supplier.find(@product.supplier_id) %>
+              <%= @supplier.account_reference %>
+            <% end %>
+      </td>
+    </tr>
+    
+    <tr>
+      <td align="right" valign="middle">Range Name </td>
+      <td align="center" valign="middle">:</td>
+      <td> <%= @product.range_name %> </td>
+    </tr>
+    
+    <tr>
+      <td align="right" valign="middle">Product Fibre </td>
+      <td align="center" valign="middle">:</td>
+      <td>  
+          <% if @product.product_fibre_id.nil? %>
+            <% else %>
+            <% @productfibre = ProductFibre.find(@product.product_fibre_id) %>
+              <%= @productfibre.name_1 %> <% @productfibre.name_2 %>
+            <% end %>
+      </td>
+    </tr>
+    
+    <tr>
+      <td align="right" valign="middle">Product Backing </td>
+      <td align="center" valign="middle">:</td>
+      <td>  
+          <% if  @product.product_banking_id.nil? %>
+             <% else %>
+             <% @productbacking = ProductBacking.find(@product.product_banking_id) %>
+               <%= @productbacking.name_1 %> <% @productbacking.name_2 %>
+          <% end %>
+      </td>
+    </tr>
+    
+    <tr>
+      <td align="right" valign="middle">Pile Height Gauge </td>
+      <td align="center" valign="middle">:</td>
+      <td> <%= @product.pile_height_gauge %> </td>
+    </tr>
+    
+    <tr>
+      <td align="right" valign="middle">Pile Weight </td>
+      <td align="center" valign="middle">:</td>
+      <td> <%= @product.pile_weight %> </td>
+    </tr>
+    
+    <tr>
+      <td align="right" valign="middle">Unit Weight </td>
+      <td align="center" valign="middle">:</td>
+      <td> <%= @product.unit_weight %> </td>
+    </tr>
+    
+    <tr>
+      <td align="right" valign="middle">Product Wear </td>
+      <td align="center" valign="middle">:</td>
+      <td>  
+          <% if  @product.product_wear_id.nil? %>
+             <% else %>
+             <% @productwear = ProductWear.find(@product.product_wear_id) %>
+               <%= @productwear.name_1 %> <%= @productwear.name_2 %>
+          <% end %>
+      </td>
+    </tr>
+    
+    <tr>
+      <td align="right" valign="middle">Product Style Type </td>
+      <td align="center" valign="middle">:</td>
+      <td>  
+          <% if  @product.product_style_type_id.nil? %>
+             <% else %>
+             <% @productstyletype = ProductStyleType.find(@product.product_style_type_id) %>
+               <%= @productstyletype.name_1 %>  <% @productstyletype.name_2 %>
+          <% end %>
+      </td>
+    </tr>
+    
+    <tr>
+      <td align="right" valign="middle">Is Published </td>
+      <td align="center" valign="middle">:</td>
+      <td> <%= @product.is_published %> </td>
+    </tr>
+    
+    <tr>
+      <td align="right" valign="middle">Description </td>
+      <td align="center" valign="middle">:</td>
+      <td> <%= @product.full_description %> </td>
+    </tr>
+    
+    <tr>
+      <td align="right" valign="middle">Notes </td>
+      <td align="center" valign="middle">:</td>
+      <td> <%= @product.notes %> </td>
+    </tr>
+    
+    <tr>
+      <td align="right" valign="middle">Colour Name </td>
+      <td align="center" valign="middle">:</td>
+      <td> <%= @product.colour_name %> </td>
+    </tr>
+    
+    <tr>
+      <td align="right" valign="middle">Colour Number </td>
+      <td align="center" valign="middle">:</td>
+      <td> <%= @product.colour_number %> </td>
+    </tr>
+    
+    <% for product_prices in @product.product_prices %>
+    <tr>
+      <td align="right" valign="middle">Item Cost </td>
+      <td align="center" valign="middle">:</td>
+      <td> <%= product_prices.item_cost %> </td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Item Special </td>
+      <td align="center" valign="middle">:</td>
+      <td> <%= product_prices.item_special %> </td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Special Price Description </td>
+      <td align="center" valign="middle">:</td>
+      <td> <%= product_prices.special_price_description %> </td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Roll Net </td>
+      <td align="center" valign="middle">:</td>
+      <td> <%= product_prices.roll_net %> </td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Discount Roll Net </td>
+      <td align="center" valign="middle">:</td>
+      <td> <%= product_prices.discount_roll_net %> </td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Cut Net </td>
+      <td align="center" valign="middle">:</td>
+      <td> <%= product_prices.cut_net %> </td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Discount Cut Net </td>
+      <td align="center" valign="middle">:</td>
+      <td> <%= product_prices.discount_cu_net %> </td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Start Date </td>
+      <td align="center" valign="middle">:</td>
+      <td> <%= product_prices.start_date %> </td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Expiry Date </td>
+      <td align="center" valign="middle">:</td>
+      <td> <%= product_prices.expiry_date %> </td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Srp </td>
+      <td align="center" valign="middle">:</td>
+      <td> <%= product_prices.srp %> </td>
+    </tr>
  <% end %>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+
+  <% for uoms in @product.uoms %>
+   <tr>
+     <td align="right" valign="middle">Roll </td>
+     <td align="center" valign="middle">:</td>
+     <td> <%= uoms.roll %> </td>
+   </tr>
+    <tr>
+      <td align="right" valign="middle">Roll Min </td>
+      <td align="center" valign="middle">:</td>
+      <td> <%= uoms.roll_min %> </td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Std Length </td>
+      <td align="center" valign="middle">:</td>
+      <td> <%= uoms.std_length %> </td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Std Width </td>
+      <td align="center" valign="middle">:</td>
+      <td> <%= uoms.std_width %> </td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Item Length </td>
+      <td align="center" valign="middle">:</td>
+      <td> <%= uoms.item_length %> </td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Item Width </td>
+      <td align="center" valign="middle">:</td>
+      <td> <%= uoms.item_width %> </td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Buy in Multiples </td>
+      <td align="center" valign="middle">:</td>
+      <td> <%= uoms.buy_in_multiples %> </td>
+    </tr>
+    <tr>
+      <td align="right" valign="middle">Sale In Multiples </td>
+      <td align="center" valign="middle">:</td>
+      <td> <%= uoms.sale_in_multiples %> </td>
+    </tr>
+ 
+ <% end %>
+  </table>
+ </div>
+ </div>
+
+</div>
+</div>

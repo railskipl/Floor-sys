@@ -48,7 +48,7 @@ class ProductGroupsController < ApplicationController
 
     respond_to do |format|
       if @product_group.save
-        format.html { redirect_to(@product_group, :notice => 'Product group was successfully created.') }
+        format.html { redirect_to(product_groups_path, :notice => 'Product group was successfully created.') }
         format.xml  { render :xml => @product_group, :status => :created, :location => @product_group }
       else
         format.html { render :action => "new" }
@@ -64,7 +64,7 @@ class ProductGroupsController < ApplicationController
 
     respond_to do |format|
       if @product_group.update_attributes(params[:product_group])
-        format.html { redirect_to(@product_group, :notice => 'Product group was successfully updated.') }
+        format.html { redirect_to(product_groups_path, :notice => 'Product group was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

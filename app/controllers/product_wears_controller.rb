@@ -48,7 +48,7 @@ class ProductWearsController < ApplicationController
 
     respond_to do |format|
       if @product_wear.save
-        format.html { redirect_to(@product_wear, :notice => 'Product wear was successfully created.') }
+        format.html { redirect_to(product_wears_path, :notice => 'Product wear was successfully created.') }
         format.xml  { render :xml => @product_wear, :status => :created, :location => @product_wear }
       else
         format.html { render :action => "new" }
@@ -64,7 +64,7 @@ class ProductWearsController < ApplicationController
 
     respond_to do |format|
       if @product_wear.update_attributes(params[:product_wear])
-        format.html { redirect_to(@product_wear, :notice => 'Product wear was successfully updated.') }
+        format.html { redirect_to(product_wears_path, :notice => 'Product wear was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

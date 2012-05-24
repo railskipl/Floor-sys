@@ -11,7 +11,7 @@ class Product < ActiveRecord::Base
   # join relationship for categories and products model
   has_and_belongs_to_many :categories
   
-  delegate :account_reference, :to => :supplier, :prefix => true
+  delegate :name, :to => :supplier, :prefix => true
   
   scope :ordered_by_product_name, :order => 'product_name'
   

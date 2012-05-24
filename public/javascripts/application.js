@@ -1,18 +1,7 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 
-function remove_fields(link) {
-  $(link).previous("input[type=hidden]").value = "1";
-  $(link).up(".fields").hide();
-}
 
-function add_fields(link, association, content) {
-  var new_id = new Date().getTime();
-  var regexp = new RegExp("new_" + association, "g")
-  $(link).up().insert({
-    before: content.replace(regexp, new_id)
-  });
-}
 
 jQuery(document).ready(function() {
   jQuery("#new_company").validate({
@@ -663,6 +652,28 @@ jQuery(document).ready(function() {
 	
 			"product_type[name]":{
 	required: "This field is required."
+			}
+		
+		}
+	});
+});
+
+
+jQuery(document).ready(function() {
+  jQuery("#new_product_group").validate({
+	errorElement:'div',
+	rules: {
+	
+		
+		"product_group[name]":{
+						required:true
+		}
+
+		},
+	messages: {
+	
+			"product_group[name]":{
+					required: "This field is required."
 			}
 		
 		}

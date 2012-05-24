@@ -8,7 +8,5 @@ class PurchaseOrderItem < ActiveRecord::Base
     product.purchase_price * quantity
   end
 
-  def gst
-    product.gst_purchase_price * quantity
-  end
+ 
 end

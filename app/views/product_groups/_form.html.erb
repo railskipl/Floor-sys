@@ -1,7 +1,9 @@
+
+<div class="formbox">
 <%= form_for(@product_group) do |f| %>
   <% if @product_group.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@product_group.errors.count, "error") %> prohibited this product_group from being saved:</h2>
+      <h2><%= pluralize(@product_group.errors.count, "error") %> prohibited this product_type from being saved:</h2>
 
       <ul>
       <% @product_group.errors.full_messages.each do |msg| %>
@@ -10,15 +12,22 @@
       </ul>
     </div>
   <% end %>
+  
+  <table width="60%" border="0" cellspacing="10" cellpadding="5">
+    <tr>
+      <td align="right" valign="middle">Name </td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_field :name %>
+        <%= f.hidden_field :company_id, :value=>"#{current_user.company_id}" %>
+      </td>
+    </tr>
+    <tr> 
+      <td align="right" valign="middle">&nbsp;</td>
+      <td align="center" valign="middle">&nbsp;</td>
+      <td><%= f.submit "submit", :class =>'button'%></td>
+  </tr>
+  </table>
+  <% end %>
+  </div>
+  
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-  <%= f.hidden_field :company_id, :value=>"#{current_user.company_id}" %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>

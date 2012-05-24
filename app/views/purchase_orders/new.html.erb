@@ -1,11 +1,33 @@
 <div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
-<div id="blank"></div>
-<div id="right">
-</div>
-<h1>Purchase Order </h1>
+  <div id="blank"></div>
+    <div id="right">
+      <div class="leftarrow_contacts" style="float:left"></div>
+      <div id="smoothmenu1" class="ddsmoothmenu">
+       <ul class="rightcorner">
 
-<div id="right2">
-<%= form_tag add_basket_item_purchase_order_url(:id => @company.id), :method => :put do %>
+        <% if can? :new, PurchaseOrder %>
+        <li><%= link_to "PurchaseOrder", purchase_orders_path %>
+         <ul>
+
+         <li> <%= link_to 'New', new_purchase_order_path %></li>
+
+
+         </ul>
+         </li>
+         <% end %>
+       
+       
+      </ul>
+
+      <br style="clear: left" />
+      </div>
+      </div>
+
+      <div id="right2">
+      <h1>New Purchase Order </h1>
+
+
+      <%= form_tag add_basket_item_purchase_order_url(:id => @company.id), :method => :put do %>
 
 
 <table cellspacing="5" cellpadding="0" border="0">
@@ -13,7 +35,8 @@
     <td>Product</td>
       <td>
               
-                <%= select_tag "product_id", options_from_collection_for_select(@product, "id", "product_name"), {:prompt => "Select something"} %>
+                <%= select_tag "product_id", options_from_collection_for_select(@product, "id", "product_name"), { :include_blank => "-- Select---" } %>
+                
             </td>
       </tr>
       <tr>

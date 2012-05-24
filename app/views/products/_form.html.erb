@@ -1,116 +1,170 @@
-<%= form_for(@product) do |f| %>
-  <% if @product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+<div class="tabscontainer">
+   <div class="tabs">
+       <div class="tab selected first" id="tab_menu_1">
+           <div class="link">General</div>
+           <div class="arrow"></div>
+       </div>
+       <div class="tab" id="tab_menu_2">
+           <div class="link">Product Color</div>
+           <div class="arrow"></div>
+       </div>
+       <div class="tab" id="tab_menu_3">
+           <div class="link">Product Price </div>
+           <div class="arrow"></div>
+       </div>
+       <div class="tab" id="tab_menu_4">
+            <div class="link">UOM </div>
+            <div class="arrow"></div>
+        </div>
+	 
+  </div>
 
-      <ul>
-      <% @product.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+  <%= form_for(@product) do |f| %>
+  
+    <div class="curvedContainer">
+  		<div class="tabcontent" id="tab_content_1" style="display:block">
+      <table width="60%" border="0" cellspacing="10" cellpadding="10">
+          <tr>
+            <td align="right" valign="middle">Category </td>
+            <td align="center" valign="middle">:</td>
+            <td><%= select_tag("category_ids[]", options_for_select(Category.find(:all).collect { |cat| [cat.category_name, cat.id] }, @product.categories.collect { |cat| cat.id}), {:multiple=>true, :size=>6}) %></td>
+          </tr>
+          <tr>
+            <td align="right" valign="middle">Product Name </td>
+            <td align="center" valign="middle">:</td>
+            <td><%= f.text_field :product_name %></td>
+          </tr>
+          <tr>
+            <td align="right" valign="middle">Product Code </td>
+            <td align="center" valign="middle">:</td>
+            <td><%= f.text_field :product_code %></td>
+          </tr>
+          <tr>
+            <td align="right" valign="middle">Product Type </td>
+            <td align="center" valign="middle">:</td>
+            <td><%= select :product, :product_type_id, @producttype.map {|c| ["#{c.name}", c.id]} %></td>
+          </tr>
+          <tr>
+            <td align="right" valign="middle">Product Group </td>
+            <td align="center" valign="middle">:</td>
+            <td><%= select :product, :product_group_id, @productgroup.map {|c| ["#{c.name}", c.id]} %></td>
+          </tr>
+          <tr>
+            <td align="right" valign="middle">Supplier</td>
+            <td align="center" valign="middle">:</td>
+            <td><%= select :product, :supplier_id, @supplier.map {|c| ["#{c.account_reference}", c.id]} %></td>
+          </tr>
+          <tr>
+            <td align="right" valign="middle">Range Name </td>
+            <td align="center" valign="middle">:</td>
+            <td><%= f.text_field :range_name %></td>
+          </tr>
+          <tr>
+            <td align="right" valign="middle">Product Fiber </td>
+            <td align="center" valign="middle">:</td>
+            <td><%= select :product, :product_fibre_id, @productfibre.map {|c| ["#{c.name_1} #{c.name_2}", c.id]} %></td>
+          </tr>
+          <tr>
+            <td align="right" valign="middle">Product Banking </td>
+            <td align="center" valign="middle">:</td>
+            <td><%= select :product, :product_banking_id, @productbacking.map {|c| ["#{c.name_1} #{c.name_2}", c.id]} %></td>
+          </tr>
+          <tr>
+            <td align="right" valign="middle">Range Name </td>
+            <td align="center" valign="middle">:</td>
+            <td><%= f.text_field :range_name %></td>
+          </tr>
+          <tr>
+            <td align="right" valign="middle">Pile Height Gauge </td>
+            <td align="center" valign="middle">:</td>
+            <td><%= f.text_field :pile_height_gauge %></td>
+          </tr>
+          <tr>
+            <td align="right" valign="middle">Pile Weight </td>
+            <td align="center" valign="middle">:</td>
+            <td><%= f.text_field :pile_weight %></td>
+          </tr>
+          <tr>
+            <td align="right" valign="middle">Unit Weight </td>
+            <td align="center" valign="middle">:</td>
+            <td><%= f.text_field :unit_weight %></td>
+          </tr>
+          <tr>
+            <td align="right" valign="middle">Product Wear </td>
+            <td align="center" valign="middle">:</td>
+            <td><%= select :product, :product_wear_id, @productwear.map {|c| ["#{c.name_1} #{c.name_2}", c.id]} %></td>
+          </tr>
+          <tr>
+            <td align="right" valign="middle">Product Style Type </td>
+            <td align="center" valign="middle">:</td>
+            <td><%= select :product, :product_style_type_id, @productstyletype.map {|c| ["#{c.name_1} #{c.name_2}", c.id]} %></td>
+          </tr>
+          <tr>
+            <td align="right" valign="middle">Published </td>
+            <td align="center" valign="middle">:</td>
+            <td><%= f.check_box :is_published %></td>
+          </tr>
+          <tr>
+            <td align="right" valign="middle">Description </td>
+            <td align="center" valign="middle">:</td>
+            <td><%= f.text_area :full_description, :rows=>"2" %></td>
+          </tr>
+          <tr>
+            <td align="right" valign="middle">Notes </td>
+            <td align="center" valign="middle">:</td>
+            <td><%= f.text_area :notes %></td>
+          </tr>
+          </table>
+    		</div>
+    		<div class="tabcontent" id="tab_content_2">
+    			<table width="60%" border="0" cellspacing="10" cellpadding="5">
+            <tr>
+              <td align="right" valign="middle">Color Name</td>
+              <td align="center" valign="middle">:</td>
+              <td><%= f.text_field :colour_name %></td>
+            </tr>
+            <tr>
+              <td align="right" valign="middle">Color Number</td>
+              <td align="center" valign="middle">:</td>
+              <td><%= f.text_field :colour_number %>
+              <%= f.hidden_field :company_id, :value=>"#{current_user.company_id}" %>
+              </td>
+            </tr>
+            </table>
+      	</div>
+      	<div class="tabcontent" id="tab_content_3">
+    			<table width="60%" border="0" cellspacing="10" cellpadding="5">
+            <tr>
+              <td align="right" valign="middle" colspan="3">
+              
+                <%= f.fields_for :product_prices do |builder| %>
+                  <%= render "product_price_fields", :f => builder %>
+           	    <% end %>
+           	    <p><%= link_to_add_fields "Add Price", f, :product_prices %></p>
+              
+              </td>
+            </tr>
+            </table>
+      	</div>
+      	<div class="tabcontent" id="tab_content_4">
+    			<table width="60%" border="0" cellspacing="10" cellpadding="5">
+            <tr>
+              <td align="right" valign="middle" colspan="3">
+              
+                <%= f.fields_for :uoms do |builder| %>
+                  <%= render "uom_fields", :f => builder %>
+           	    <% end %>
+              
+              </td>
+            </tr>
+            </table>
+      	</div>
+      		
+        <div align="center"><%= f.submit "Submit", :class=>"button" %></div>
+
+    	</div>
+    	<% end %>
+
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :category_id %><br />
-    <%= select_tag("category_ids[]", options_for_select(Category.find(:all).collect { |cat| [cat.category_name, cat.id] }, @product.categories.collect { |cat| cat.id}), {:multiple=>true, :size=>6})%>
-  </div>
   
-  <div class="field">
-    <%= f.label :product_name %><br/>
-    <%= f.text_field :product_name %>
-  </div>
-  <div class="field">
-    <%= f.label :product_code %><br/>
-    <%= f.text_field :product_code %>
-  </div>
-  <div class="field">
-    <%= f.label :product_type_id %><br/>
-    <%= select :product, :product_type_id, @producttype.map {|c| ["#{c.name}", c.id]} %>
-    
-  </div>
-  <div class="field">
-    <%= f.label :product_group_id %><br/>
-    <%= select :product, :product_group_id, @productgroup.map {|c| ["#{c.name}", c.id]} %>
-  </div>
-  <div class="field">
-    <%= f.label :supplier_id %><br />
-    <%= select :product, :supplier_id, @supplier.map {|c| ["#{c.account_reference}", c.id]} %>
-  </div>
-  <div class="field">
-    <%= f.label :range_name %><br />
-    <%= f.text_field :range_name %>
-  </div>
-  <div class="field">
-    <%= f.label :product_fibre_id %><br />
-    <%= select :product, :product_fibre_id, @productfibre.map {|c| ["#{c.name_1} #{c.name_2}", c.id]} %>
-  </div>
-  <div class="field">
-    <%= f.label :product_banking_id %><br />
-    <%= select :product, :product_banking_id, @productbacking.map {|c| ["#{c.name_1} #{c.name_2}", c.id]} %>
-  </div>
-  <div class="field">
-    <%= f.label :pile_height_gauge %><br />
-    <%= f.text_field :pile_height_gauge %>
-  </div>
-  <div class="field">
-    <%= f.label :pile_weight %><br />
-    <%= f.text_field :pile_weight %>
-  </div>
-  <div class="field">
-    <%= f.label :unit_weight %><br />
-    <%= f.text_field :unit_weight %>
-  </div>
-  <div class="field">
-    <%= f.label :product_wear_id %><br />
-    <%= select :product, :product_wear_id, @productwear.map {|c| ["#{c.name_1} #{c.name_2}", c.id]} %>
-    
-  </div>
-  <div class="field">
-    <%= f.label :product_style_type_id %><br />
-    <%= select :product, :product_style_type_id, @productstyletype.map {|c| ["#{c.name_1} #{c.name_2}", c.id]} %>
-    
-  </div>
-  <div class="field">
-    <%= f.label :is_published %><br />
-    <%= f.check_box :is_published %>
-  </div>
-  <div class="field">
-    <%= f.label :full_description %><br />
-    <%= f.text_area :full_description %>
-  </div>
-  <div class="field">
-    <%= f.label :notes %><br />
-    <%= f.text_area :notes %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :colour_name %><br />
-    <%= f.text_field :colour_name %>
-  </div>
-  <div class="field">
-    <%= f.label :colour_number %><br />
-    <%= f.text_field :colour_number %>
-  </div>
-  <div class="field">
-      <%= f.fields_for :product_prices do |builder| %>
-        <%= render "product_price_fields", :f => builder %>
- 	    <% end %>
- 	    <p><%= link_to_add_fields "Add Price", f, :product_prices %></p>
- 	</div>
- 	
- 	<div class="field">
- 	    <p>UOM</p>
-      <%= f.fields_for :uoms do |builder| %>
-        <%= render "uom_fields", :f => builder %>
- 	    <% end %>
- 	    
- 	</div>
- 	
-  <div class="field">
-    <%= f.hidden_field :company_id, :value=>"#{current_user.company_id}" %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+ 
