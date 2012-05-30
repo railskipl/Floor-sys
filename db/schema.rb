@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120522060709) do
+ActiveRecord::Schema.define(:version => 20120530114041) do
 
   create_table "categories", :force => true do |t|
     t.string   "category_name"
@@ -256,6 +256,7 @@ ActiveRecord::Schema.define(:version => 20120522060709) do
     t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "invoiced",             :default => false, :null => false
   end
 
   create_table "quotations", :force => true do |t|

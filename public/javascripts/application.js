@@ -1,7 +1,31 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 
+jQuery(document).ready(function() {
 
+     jQuery(".tabs .tab[id^=tab_menu]").click(function() {
+         var curMenu=jQuery(this);
+         jQuery(".tabs .tab[id^=tab_menu]").removeClass("selected");
+         curMenu.addClass("selected");
+
+         var index=curMenu.attr("id").split("tab_menu_")[1];
+         jQuery(".curvedContainer .tabcontent").css("display","none");
+         jQuery(".curvedContainer #tab_content_"+index).css("display","block");
+     });
+ });
+
+function remove_fields(link) {
+   $(link).previous("input[type=hidden]").value = "1";
+   $(link).up(".fields").hide();
+ }
+
+ function add_fields(link, association, content) {
+   var new_id = new Date().getTime();
+   var regexp = new RegExp("new_" + association, "g")
+   $(link).up().insert({
+     before: content.replace(regexp, new_id)
+   });
+ }
 
 jQuery(document).ready(function() {
   jQuery("#new_company").validate({

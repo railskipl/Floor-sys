@@ -8,37 +8,11 @@
 
  <%= stylesheet_link_tag 'style', 'ddsmoothmenu', 'screen', 'ddlevelsmenu-topbar', 'login', 'left_menu', 'tab' %>
 
- <%= javascript_include_tag "jquerycssmenu","login","menucontents","ddlevelsmenu","ddsmoothmenu", "jquery-1.5.2.min" %>
+ <%= javascript_include_tag "jquery-1.5.2.min", "ddlevelsmenu","ddsmoothmenu", "jquerycssmenu","login","menucontents",  'jquery.validate.min', 'prototype', 'application' %>
 
  
 
- <script language="JavaScript">
- function remove_fields(link) {
-   $(link).previous("input[type=hidden]").value = "1";
-   $(link).up(".fields").hide();
- }
-
- function add_fields(link, association, content) {
-   var new_id = new Date().getTime();
-   var regexp = new RegExp("new_" + association, "g")
-   $(link).up().insert({
-     before: content.replace(regexp, new_id)
-   });
- }
  
- $(document).ready(function() {
-
-     $(".tabs .tab[id^=tab_menu]").click(function() {
-         var curMenu=$(this);
-         $(".tabs .tab[id^=tab_menu]").removeClass("selected");
-         curMenu.addClass("selected");
-
-         var index=curMenu.attr("id").split("tab_menu_")[1];
-         $(".curvedContainer .tabcontent").css("display","none");
-         $(".curvedContainer #tab_content_"+index).css("display","block");
-     });
- });
- </script>
 
 
 </head>
@@ -109,7 +83,7 @@
   </div>
   
   
-   <%= javascript_include_tag :all %>
+   
 
    <div id="wrap">
       <div id="left">
@@ -153,14 +127,13 @@
 
 
 
-  <li class="topmenu"><a href="#" title="Suppliers" style="width: 100px;"><span><img src="/images/supplier.png" alt="Product info" style="padding-right:0px"><br />
-       Suppliers</span></a>
+  <li class="topmenu"><a class="suppliers" href="#" title="Suppliers"> Suppliers</a>
   	<div class="submenu" style="width:250px;">
   	<div class="leftarrow"></div>
   	<div class="column" style="width:100%">
   	<ul>
 
-  		<li><a href="#" title="Features"><img src="/images/so.png">Purchase Orders</a></li>
+  		<li><a href="/purchase_orders" title="Features"><img src="/images/so.png">Purchase Orders</a></li>
 
   		<li><a href="#" title="Parameters info"><img src="/images/si.png">Purchase Invoices</a></li>
 

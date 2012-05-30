@@ -4,6 +4,7 @@ gem 'rails', '3.0.9'
 
 gem 'sqlite3'
 gem 'ruby-mysql'
+gem 'prawn'
 gem "devise", "1.2.rc"
 
 

@@ -1,116 +1,130 @@
 <div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
-  <div id="blank"></div>
-    <div id="right">
-      <div class="leftarrow_contacts" style="float:left"></div>
-      <div id="smoothmenu1" class="ddsmoothmenu">
-       <ul class="rightcorner">
+<div id="blank"></div>
+<div id="right">
+    <div class="leftarrow_contacts" style="float:left"></div>
+    <div id="smoothmenu1" class="ddsmoothmenu">
+      <ul class="rightcorner">
+      
+      <% if can? :new, PurchaseOrder %>
+      <li><%= link_to "Purchase Order", purchase_orders_path %>
+       <ul>
 
-        <% if can? :new, PurchaseOrder %>
-        <li><%= link_to "PurchaseOrder", purchase_orders_path %>
-         <ul>
-
-         <li> <%= link_to 'New', new_purchase_order_path %></li>
+       <li> <%= link_to 'New', new_purchase_order_path %></li>
 
 
-         </ul>
-         </li>
-         <% end %>
+       </ul>
+       </li>
+       <% end %>
        
-       
-      </ul>
+	     </ul>
+	     <br style="clear: left" />
+	     </div>
+ </div>
 
-      <br style="clear: left" />
-      </div>
-      </div>
 
-      <div id="right2">
-      <h1>New Purchase Order </h1>
-
+	<div id="right2">
+	<h1>New Purchase Order</h1>
+	
+	<div id="profilebox">
 
       <%= form_tag add_basket_item_purchase_order_url(:id => @company.id), :method => :put do %>
-
-
-<table cellspacing="5" cellpadding="0" border="0">
-  <tbody><tr>
-    <td>Product</td>
-      <td>
-              
-                <%= select_tag "product_id", options_from_collection_for_select(@product, "id", "product_name"), { :include_blank => "-- Select---" } %>
-                
+  	  <table width="100%" border="0" cellspacing="10" cellpadding="5">
+          <tr>
+            <td align="left" valign="middle">Product</td>
+            </tr>
+          <tr>
+            <td align="left" valign="middle">
+              <%= select_tag "product_id", options_from_collection_for_select(@product, "id", "product_name"), { :include_blank => "-- Select---" } %>
             </td>
-      </tr>
-      <tr>
-            <td>Quantity</td>
-            <td><%= text_field_tag :quantity %></td>
-      </tr>
-  </tbody></table>
-    <%= submit_tag "Submit" %>
-<% end %>
+          </tr>
+          <tr>
+            <td align="left" valign="middle">Quantity</td>
+          </tr>
+          <tr>
+            <td align="left" valign="middle"><%= text_field_tag :quantity %></td>
+          </tr>
+          <tr>
+            <td align="left" valign="middle"><%= submit_tag "Submit", :class=>"button" %></td>
+            </tr>
+        </table>
+      <% end %> 
+        
 
-
-
-  
-  
-  <table width="100%" class="listing">
-  <tr>
-      <th>Item</th>
-      <th>Supplier</th>
-      
-      <th>Product</th>
-      <th>Unit Price</th>
-      <th>Quantity</th>
-      <th>Total Price</th>
-      
-      <th></th>
-   </tr>
-   <% item_index = 1 %>
-   <% @basket.items.each do |item| %>
-     <tr class="odd">
-                 <td class="status"><%= item_index %></td>
-                 <td class="text"><%= item.supplier_name %></td>
-                 
-                 <td class="text"><%= item.product_name %></td>
-                 <td class="number"><%= item.price %></td>
-                 <td class="status"><%= item.quantity.to_d %></td>
-                 <td class="number"><%= item.total_price %></td>
-                 
-                 <td class="status">
-                   
-                   <%= link_to "Delete", {:action => 'remove_basket_item', :id => @company.id, :array_position => item_index}, :confirm => 'Delete - Are you sure?', :method => :delete %>
-                </td>
-     </tr>
-     <% item_index += 1 %>
-    <% end %>
-   <tr>
-              <td colspan="5" align="right">
-                <b>TOTAL : </b>
+  	  <table border="0" width="100%" cellpadding="5" cellspacing="0" style="border-bottom:1px solid #D2D2D2; margin:20px 0 20px 0">
+            <tr>
+              <th align="center" valign="middle" class="tdheading">Item</th>
+              <th align="center" valign="middle" class="tdheading">Supplier</th>
+              <th align="center" valign="middle" class="tdheading">Product</th>
+              <th align="center" valign="middle" class="tdheading">Unit Price</th>
+              <th align="center" valign="middle" class="tdheading">Quantity</th>
+              <th align="center" valign="middle" class="tdheading">Total Price</th>
+              <th align="center" valign="middle" class="tdheading"></th>
+            </tr>
+            <% item_index = 1 %>
+             <% @basket.items.each do |item| %>
+            <tr>
+              <td class="tddata"><%= item_index %></td>
+              <td class="tddata"><%= item.supplier_name %></td>
+              <td class="tddata"><%= item.product_name %></td>
+              <td class="tddata"><%= item.price %></td>
+              <td class="tddata"><%= item.quantity.to_d %></td>
+              <td class="tddata"><%= item.total_price %></td>
+              <td align="left" valign="middle" class="tddata">
+                
+                <%= link_to "", {:action => 'remove_basket_item', :id => @company.id, :array_position => item_index}, :confirm => 'Delete - Are you sure?', :method => :delete, :class=>"delete_products" %>
               </td>
-              <td class="number_bothline">
-                <b><%= @basket.total_price %></b>
-              </td>
-    </tr>
+            </tr>
+            <% item_index += 1 %>
+            <% end %>
+            
+  		      <tr class="alternate-row">
+              <td class="tddata" colspan="4">&nbsp;</td>
+              <td class="tddata2">Total</td>
+              <td class="tddata2"><%= @basket.total_price %></td>
+              
+              <td align="left" valign="middle" class="tddata"></td>
+            </tr>
+          </table>
 
-        </tbody></table>
-    
-    <%= form_tag :action => 'create', :company_id => @company.id do %>
-    
-    <p>Deliver to</p>   
-    <p><%= text_field_tag :deliver_to %></p><br />
-    <p>Deliver Phone</p>
-    <p><%= text_field_tag :deliver_phone %></p> <br />
-    <p>Order Date</p>
-    <p><%= date_select :order_date, params[:order_date] %></p><br />
-    <p>Expected Date</p>
-    <p><%= date_select :expected_date, params[:expected_date] %></p><br />
-    <p>Purchase order notes</p>
-    <p><%= text_area_tag :purchase_order_notes, nil, :rows => 4, :cols => 80 %></p><br />
-     <%= submit_tag "Submit" %>
-    <% end %>
-    
-    </div>
- 
-  </div>
-  
- </div>
-    
-    
+      <%= form_tag :action => 'create', :company_id => @company.id do %>
+  		<table width="100%" border="0" cellspacing="10" cellpadding="5">
+          <tr>
+            <td align="left" valign="middle">Deliver to :</td>
+            </tr>
+          <tr>
+            <td align="left" valign="middle"><%= text_field_tag :deliver_to %></td>
+            </tr>
+          <tr>
+            <td align="left" valign="middle">Deliver Phone :</td>
+          </tr>
+          <tr>
+            <td align="left" valign="middle"><%= text_field_tag :deliver_phone %></td>
+          </tr>
+          <tr>
+            <td align="left" valign="middle">Order Date :</td>
+          </tr>
+          <tr>
+            <td align="left" valign="middle"><%= date_select :order_date, params[:order_date] %></td>
+          </tr>
+          <tr>
+            <td align="left" valign="middle">Expected Date :</td>
+          </tr>
+          <tr>
+            <td align="left" valign="middle"><%= date_select :expected_date, params[:expected_date] %></td>
+          </tr>
+          <tr>
+            <td align="left" valign="middle">Purchase order notes :</td>
+          </tr>
+          <tr>
+            <td align="left" valign="middle"><%= text_area_tag :purchase_order_notes, nil, :rows => 4, :cols => 80 %></td>
+          </tr>
+          <tr>
+            <td align="left" valign="middle"><%= submit_tag "Submit", :class=>"button" %></td>
+            </tr>
+        </table>
+        <% end %>
+        
+        </div>
+	
+	
+	</div>

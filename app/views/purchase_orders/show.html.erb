@@ -1,0 +1,80 @@
+<div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
+<div id="blank"></div>
+<div id="right">
+    <div class="leftarrow_contacts" style="float:left"></div>
+    <div id="smoothmenu1" class="ddsmoothmenu">
+      <ul class="rightcorner">
+      
+      <% if can? :new, PurchaseOrder %>
+      <li><%= link_to "Purchase Order", purchase_orders_path %>
+       <ul>
+
+       <li> <%= link_to 'New', new_purchase_order_path %></li>
+
+
+       </ul>
+       </li>
+       <% end %>
+       
+	     </ul>
+	     <br style="clear: left" />
+	     </div>
+ </div>
+
+
+	<div id="right2">
+  <h1>Listing Purchase Orders</h1>
+
+  <div class="formbox">
+  
+  <table border="0" width="100%" cellpadding="5" cellspacing="0" style="border-bottom:1px solid #D2D2D2; margin:20px 0 20px 0">
+      <tr>
+          <th align="center" valign="middle" class="tdheading">Item</th>
+          <th align="center" valign="middle" class="tdheading">Supplier</th>
+          <th align="center" valign="middle" class="tdheading">Product</th>
+          <th align="center" valign="middle" class="tdheading">Unit Price</th>
+          <th align="center" valign="middle" class="tdheading">Quantity</th>
+          <th align="center" valign="middle" class="tdheading">Total Price</th>
+          
+      </tr>
+      
+  <% item_index = 1 %>
+      <% @purchase_order.purchase_order_items.each do |item| %>
+      <tr>
+        <td class="tddata"><%= item_index %></td>
+        <td class="tddata"><%= item.product.supplier.name %></td>
+        <td class="tddata"><%= item.product.product_name %></td>
+        <td class="tddata"><%= item.product.purchase_price %></td>
+        <td class="tddata"><%= item.quantity %></td>
+        <td class="tddata"><%= item.price %></td>
+        
+     </tr>
+      <% item_index += 1 %>
+  <% end %>
+      
+   <tr class="alternate-row">
+     <td class="tddata" colspan="4">&nbsp;</td>
+     <td class="tddata2">Total</td>
+     <td class="tddata2"><%= @purchase_order.total_price %></td>
+   </tr>
+ </table>
+  
+  
+  
+    <table width="100%" border="0" cellspacing="10" cellpadding="5">
+    <tr>
+        <td align="left" valign="middle">
+          
+          <%= link_to 'Download', {:controller => 'purchase_orders', :action => 'invoice_pdf', :id => @purchase_order.id}, :class => 'button' %>
+  		    
+  		    <%= link_to "Edit", edit_purchase_order_url(@purchase_order), :class =>"button" %>
+  		   <input name="button2" type="button" class="button" value="Convert to Invoice"/>
+  		   
+
+  		  </td>
+    </tr>
+    </table>
+        
+  </div>
+
+  </div>

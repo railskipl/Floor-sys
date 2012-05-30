@@ -42,17 +42,17 @@
           <tr>
             <td align="right" valign="middle">Product Type </td>
             <td align="center" valign="middle">:</td>
-            <td><%= select :product, :product_type_id, @producttype.map {|c| ["#{c.name}", c.id]} %></td>
+            <td><%= select :product, :product_type_id, @producttype.map {|c| ["#{c.name}", c.id]}, { :include_blank => "-- Select---" } %></td>
           </tr>
           <tr>
             <td align="right" valign="middle">Product Group </td>
             <td align="center" valign="middle">:</td>
-            <td><%= select :product, :product_group_id, @productgroup.map {|c| ["#{c.name}", c.id]} %></td>
+            <td><%= select :product, :product_group_id, @productgroup.map {|c| ["#{c.name}", c.id]}, { :include_blank => "-- Select---" } %></td>
           </tr>
           <tr>
             <td align="right" valign="middle">Supplier</td>
             <td align="center" valign="middle">:</td>
-            <td><%= select :product, :supplier_id, @supplier.map {|c| ["#{c.account_reference}", c.id]} %></td>
+            <td><%= select :product, :supplier_id, @supplier.map {|c| ["#{c.account_reference}", c.id]}, { :include_blank => "-- Select---" } %></td>
           </tr>
           <tr>
             <td align="right" valign="middle">Range Name </td>
@@ -62,12 +62,12 @@
           <tr>
             <td align="right" valign="middle">Product Fiber </td>
             <td align="center" valign="middle">:</td>
-            <td><%= select :product, :product_fibre_id, @productfibre.map {|c| ["#{c.name_1} #{c.name_2}", c.id]} %></td>
+            <td><%= select :product, :product_fibre_id, @productfibre.map {|c| ["#{c.name_1} #{c.name_2}", c.id]}, { :include_blank => "-- Select---" } %></td>
           </tr>
           <tr>
             <td align="right" valign="middle">Product Banking </td>
             <td align="center" valign="middle">:</td>
-            <td><%= select :product, :product_banking_id, @productbacking.map {|c| ["#{c.name_1} #{c.name_2}", c.id]} %></td>
+            <td><%= select :product, :product_banking_id, @productbacking.map {|c| ["#{c.name_1} #{c.name_2}", c.id]}, { :include_blank => "-- Select---" } %></td>
           </tr>
           <tr>
             <td align="right" valign="middle">Range Name </td>
@@ -92,12 +92,12 @@
           <tr>
             <td align="right" valign="middle">Product Wear </td>
             <td align="center" valign="middle">:</td>
-            <td><%= select :product, :product_wear_id, @productwear.map {|c| ["#{c.name_1} #{c.name_2}", c.id]} %></td>
+            <td><%= select :product, :product_wear_id, @productwear.map {|c| ["#{c.name_1} #{c.name_2}", c.id]}, { :include_blank => "-- Select---" } %></td>
           </tr>
           <tr>
             <td align="right" valign="middle">Product Style Type </td>
             <td align="center" valign="middle">:</td>
-            <td><%= select :product, :product_style_type_id, @productstyletype.map {|c| ["#{c.name_1} #{c.name_2}", c.id]} %></td>
+            <td><%= select :product, :product_style_type_id, @productstyletype.map {|c| ["#{c.name_1} #{c.name_2}", c.id]}, { :include_blank => "-- Select---" } %></td>
           </tr>
           <tr>
             <td align="right" valign="middle">Published </td>
@@ -140,7 +140,7 @@
                 <%= f.fields_for :product_prices do |builder| %>
                   <%= render "product_price_fields", :f => builder %>
            	    <% end %>
-           	    <p><%= link_to_add_fields "Add Price", f, :product_prices %></p>
+           	    <p align="left"><strong><%= link_to_add_fields "Add Price", f, :product_prices %></strong></p>
               
               </td>
             </tr>

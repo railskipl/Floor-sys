@@ -1,9 +1,9 @@
 // Login Form
 
 $(function() {
-    var button = $('#loginButton');
-    var box = $('#loginBox');
-    var form = $('#loginForm');
+    var button = jQuery('#loginButton');
+    var box = jQuery('#loginBox');
+    var form = jQuery('#loginForm');
     button.removeAttr('href');
     button.mouseup(function(login) {
         box.toggle();
@@ -12,8 +12,8 @@ $(function() {
     form.mouseup(function() { 
         return false;
     });
-    $(this).mouseup(function(login) {
-        if(!($(login.target).parent('#loginButton').length > 0)) {
+    jQuery(this).mouseup(function(login) {
+        if(!(jQuery(login.target).parent('#loginButton').length > 0)) {
             button.removeClass('active');
             box.hide();
         }

@@ -1,12 +1,12 @@
 <div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
 <div id="blank"></div>
 <div id="right">
-    <div class="leftarrow_contacts" style="float:left"></div>
+    <div class="leftarrow_purchase_orders" style="float:left"></div>
     <div id="smoothmenu1" class="ddsmoothmenu">
       <ul class="rightcorner">
       
       <% if can? :new, PurchaseOrder %>
-      <li><%= link_to "PurchaseOrder", purchase_orders_path %>
+      <li><%= link_to "Purchase Order", purchase_orders_path %>
        <ul>
 
        <li> <%= link_to 'New', new_purchase_order_path %></li>
@@ -39,7 +39,7 @@
           <td><%= purchase_order.total_price %></td>
           
           
-          <td><%= link_to "Edit", edit_purchase_order_url(purchase_order),  %>
+          <td><%= link_to '', purchase_order, :class =>"icon-1 info-tooltip" %> <%= link_to "", edit_purchase_order_url(purchase_order), :class =>"icon-2 info-tooltip"  %> <%= link_to '', {:controller=>"purchase_orders", :action=>"destroy", :id=>"#{purchase_order.id}"}, :confirm => 'Are you sure?',  :class => "icon-3 info-tooltip" %>
           </td>
     </tr>
   <% end %>

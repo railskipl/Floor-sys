@@ -1,3 +1,4 @@
+require 'format_helper'
 class PurchaseOrdersController < ApplicationController
   
   before_filter :authenticate_user!
@@ -12,7 +13,6 @@ class PurchaseOrdersController < ApplicationController
   end
   
   def new
-   
       @company = Company.find(current_user.company_id)
       @product = Product.find_all_by_company_id(current_user.company_id)  
   end
@@ -47,16 +47,20 @@ class PurchaseOrdersController < ApplicationController
       render :edit
     end
   end
+  
+  
+  def show
+    @product = Product.find_all_by_company_id(current_user.company_id)
+  end
 
   
 
   def invoice_pdf
-    report = @sales_order.create_invoice_pdf
-    if @sales_order.invoiced?
-      filename = 'Invoice-' + @sales_order.customer.pretty_name + '-' + FormatHelper.format_date(@sales_order.invoiced_at) + '.pdf'
-    else
-      filename = 'UN-INVOICED-' + @sales_order.customer.pretty_name + '.pdf'
-    end
+    report = @purchase_order.create_invoice_pdf
+    
+     
+      filename = 'Purchase-order-' + @purchase_order.deliver_to + '.pdf'
+    
     send_data report.render, :filename => filename, :type => "application/pdf"
   end
   
@@ -104,10 +108,27 @@ class PurchaseOrdersController < ApplicationController
     @basket.add_product_quantity(Product.find(params[:product_id]), BigDecimal.new(params[:quantity]))
     redirect_to new_purchase_order_url(:id => params[:id])
   end 
+  
+  def destroy
+    @purchase_order = PurchaseOrder.find(params[:id])
+    @purchase_order.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(purchase_orders_url) }
+      format.xml  { head :ok }
+    end
+  end
 
   def remove_basket_item
     @basket.items.delete_at(params[:array_position].to_i - 1)
     redirect_to new_purchase_order_url(:id => params[:id])
+  end
+  
+  def toggle_order_invoiced_status
+    @purchase_order.update_invoice_time unless @purchase_order.invoiced?
+    @purchase_order.invoiced = !@purchase_order.invoiced?
+    @purchase_order.save!
+    redirect_to(:controller => 'purchase_orders', :action => 'show', :id => params[:id])
   end
 
   protected

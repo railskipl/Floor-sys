@@ -485,3 +485,35 @@ background: url(../images/right.gif) no-repeat 97% 50%;
     color: #FE1717;
     font: 13px "Trebuchet MS",Arial,Helvetica,sans-serif,sans-serif;
 }
+
+
+.tdheading{ background: url(../images/table/table_header_repeat.jpg)
+repeat-x;border-left: 1px solid #D2D2D2;
+   border-right: 1px solid #D2D2D2;
+   border-top: 1px solid #D2D2D2; text-align:center; color:#434343}
+
+	.tddata{ background:#FFFFFF ;border-left: 1px solid #D2D2D2;
+   border-right: 1px solid #D2D2D2;
+   border-top: 1px solid #D2D2D2; color:#000; padding:10px}
+
+		.tddata2{ background:#D2D2D2 ;border-left: 1px solid #D2D2D2;
+   border-right: 1px solid #D2D2D2; font-size:14px; font-weight:bold;
+   border-top: 1px solid #D2D2D2; color:#000; padding:10px}
+
+
+.field2 {
+   border-color: #C1C1C1 #EBEBEB #EBEBEB #C1C1C1;
+   border-radius: 3px 3px 3px 3px; font-size:12px;
+   border-style: solid;
+   border-width: 1px;
+   color: #666666;
+   font-family: arial,verdana;
+   padding: 5px;
+   width: 500px; background:#fff}
+
+	.tdlink{ color:#505050; text-decoration:underline}
+	.tdlink:hover{ color:#000000;}
+	
+	.delete_products{ background:url(../images/delete.png) no-repeat; width:16px;
+	height:16px; display:block}
+	#profilebox{ width:70%; height:auto; float:left; border:1px solid #dedede; background:#f8f8f8; padding:20px; text-align:left; border-radius: 10px 10px 10px 10px;}
