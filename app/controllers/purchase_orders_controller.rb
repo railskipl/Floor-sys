@@ -129,7 +129,7 @@ class PurchaseOrdersController < ApplicationController
     
     @purchase_order.invoiced = !@purchase_order.invoiced?
     @purchase_order.save!
-    redirect_to(:controller => 'purchase_orders', :action => 'show', :id => params[:id])
+    redirect_to(:controller => 'purchase_orders', :action => 'index')
   end
 
   protected
