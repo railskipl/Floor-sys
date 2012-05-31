@@ -50,6 +50,12 @@
             <td><%= select :product, :product_group_id, @productgroup.map {|c| ["#{c.name}", c.id]}, { :include_blank => "-- Select---" } %></td>
           </tr>
           <tr>
+            <td align="right" valign="middle">Product Price </td>
+            <td align="center" valign="middle">:</td>
+            <td><%= f.text_field :purchase_price %></td>
+          </tr>
+          
+          <tr>
             <td align="right" valign="middle">Supplier</td>
             <td align="center" valign="middle">:</td>
             <td><%= select :product, :supplier_id, @supplier.map {|c| ["#{c.account_reference}", c.id]}, { :include_blank => "-- Select---" } %></td>
