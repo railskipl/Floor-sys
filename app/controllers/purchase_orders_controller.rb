@@ -7,6 +7,7 @@ class PurchaseOrdersController < ApplicationController
   
   before_filter :find_basket, :only => [:add_basket_item, :remove_basket_item]
   before_filter :empty_basket, :only => [:edit, :destroy]
+  before_filter :find_invoice, :only => [:toggle_order_invoiced_status]
   
   def index
     @purchase_orders = PurchaseOrder.order('created_at DESC')
@@ -125,7 +126,7 @@ class PurchaseOrdersController < ApplicationController
   end
   
   def toggle_order_invoiced_status
-    @purchase_order.update_invoice_time unless @purchase_order.invoiced?
+    
     @purchase_order.invoiced = !@purchase_order.invoiced?
     @purchase_order.save!
     redirect_to(:controller => 'purchase_orders', :action => 'show', :id => params[:id])
@@ -133,6 +134,10 @@ class PurchaseOrdersController < ApplicationController
 
   protected
     def find_order
+      @purchase_order = PurchaseOrder.find(params[:id])
+    end
+    
+    def find_invoice
       @purchase_order = PurchaseOrder.find(params[:id])
     end
 
