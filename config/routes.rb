@@ -4,6 +4,7 @@ Floorsys::Application.routes.draw do|map|
   map.connect '/purchase_orders/:id/remove_basket_item', :controller=>'purchase_orders', :action=>'remove_basket_item'
   map.connect '/purchase_orders/:id/remove_purchase_order_item/:id2', :controller=>'purchase_orders', :action=>'remove_purchase_order_item'
   map.connect '/purchase_orders/:id/delete', :controller=>'purchase_orders', :action=>'destroy'
+  map.connect '/purchase_invoices', :controller=>'purchase_orders', :action=>'invoice'
   
   resources :purchase_orders do
     member do

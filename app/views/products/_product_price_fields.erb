@@ -70,11 +70,7 @@
       <td align="center" valign="middle">:</td>
       <td><%= select :product, :supplier_id, @supplier.map {|c| ["#{c.account_reference}", c.id]} %></td>
     </tr>
-    <tr>
-      <td align="right" valign="middle"> </td>
-      <td align="center" valign="middle"></td>
-      <td><strong><%= link_to_remove_fields "remove", f %></strong></td>
-    </tr>
+    
   </table>
     
 </div>

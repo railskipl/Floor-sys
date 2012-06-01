@@ -13,6 +13,13 @@ class PurchaseOrdersController < ApplicationController
     @purchase_orders = PurchaseOrder.order('created_at DESC')
   end
   
+  def invoice
+    @purchase_orders = PurchaseOrder.find(:all, :conditions=>"invoiced='1'", :order=>"created_at DESC")
+    
+  end
+  
+  
+  
   def new
       @company = Company.find(current_user.company_id)
       @product = Product.find_all_by_company_id(current_user.company_id)  

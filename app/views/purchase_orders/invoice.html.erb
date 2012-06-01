@@ -17,8 +17,10 @@
        <% end %>
        
        <% if can? :new, PurchaseOrder %>
-        <li><%= link_to "Purchase Invoice", {:controller=>"purchase_orders", :action=>"invoice"} %></li>
-         <% end %>
+       <li><%= link_to "Purchase Invoice", {:controller=>"purchase_orders", :action=>"invoice"} %></li>
+        <% end %>
+       
+       
        
 	     </ul>
 	     <br style="clear: left" />
@@ -35,7 +37,7 @@
   <tr>
       <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Deliver</a></th>
       <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Purchase Price</a></th>
-      <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Invoiced?</a></th>
+      
       <th align="center" valign="middle" class="table-header-options line-left"><a href="">Action</a></th>
   </tr>
   <% @purchase_orders.each do |purchase_order| %>
@@ -43,7 +45,7 @@
         <td><%= purchase_order.deliver_to %></td>
           <td><%= purchase_order.total_price %></td>
           
-          <td><%= link_to format_boolean(purchase_order.invoiced?), {:controller => 'purchase_orders', :action => 'toggle_order_invoiced_status', :id => purchase_order.id} %></td>
+          
           <td><%= link_to '', purchase_order, :class =>"icon-1 info-tooltip" %> <%= link_to "", edit_purchase_order_url(purchase_order), :class =>"icon-2 info-tooltip"  %> <%= link_to '', {:controller=>"purchase_orders", :action=>"destroy", :id=>"#{purchase_order.id}"}, :confirm => 'Are you sure?',  :class => "icon-3 info-tooltip" %>
           </td>
     </tr>
@@ -56,4 +58,3 @@
   </div>
 
 
- 

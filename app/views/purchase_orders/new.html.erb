@@ -16,6 +16,10 @@
        </li>
        <% end %>
        
+       <% if can? :new, PurchaseOrder %>
+        <li><%= link_to "Purchase Invoice", {:controller=>"purchase_orders", :action=>"invoice"} %></li>
+         <% end %>
+       
 	     </ul>
 	     <br style="clear: left" />
 	     </div>
