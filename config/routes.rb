@@ -1,5 +1,7 @@
 Floorsys::Application.routes.draw do|map|
   
+  resources :sale_estimates
+
   map.connect '/purchase_orders/:id/toggle_order_invoiced_status', :controller=>'purchase_orders', :action=>'toggle_order_invoiced_status'
   map.connect '/purchase_orders/:id/remove_basket_item', :controller=>'purchase_orders', :action=>'remove_basket_item'
   map.connect '/purchase_orders/:id/remove_purchase_order_item/:id2', :controller=>'purchase_orders', :action=>'remove_purchase_order_item'

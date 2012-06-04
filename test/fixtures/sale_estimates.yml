@@ -1,0 +1,29 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  contact_id: 1
+  deliver_to: MyString
+  deliver_phone: MyString
+  estimate_no: MyString
+  date: 2012-06-04
+  expiry_date: 2012-06-04
+  measure_date: 2012-06-04
+  sales_person: MyString
+  customer_ref_no: MyString
+  product_id: 1
+  estimate_note: MyText
+  company_id: 1
+
+two:
+  contact_id: 1
+  deliver_to: MyString
+  deliver_phone: MyString
+  estimate_no: MyString
+  date: 2012-06-04
+  expiry_date: 2012-06-04
+  measure_date: 2012-06-04
+  sales_person: MyString
+  customer_ref_no: MyString
+  product_id: 1
+  estimate_note: MyText
+  company_id: 1

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120601120331) do
+ActiveRecord::Schema.define(:version => 20120604052819) do
 
   create_table "categories", :force => true do |t|
     t.string   "category_name"
@@ -279,6 +279,23 @@ ActiveRecord::Schema.define(:version => 20120601120331) do
   create_table "roles_users", :id => false, :force => true do |t|
     t.integer "role_id"
     t.integer "user_id"
+  end
+
+  create_table "sale_estimates", :force => true do |t|
+    t.integer  "contact_id"
+    t.string   "deliver_to"
+    t.string   "deliver_phone"
+    t.string   "estimate_no"
+    t.date     "date"
+    t.date     "expiry_date"
+    t.date     "measure_date"
+    t.string   "sales_person"
+    t.string   "customer_ref_no"
+    t.integer  "product_id"
+    t.text     "estimate_note"
+    t.integer  "company_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "sale_representatives", :force => true do |t|

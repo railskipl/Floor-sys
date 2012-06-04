@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Contact:</b>
+  <%= @sale_estimate.contact_id %>
+</p>
+
+<p>
+  <b>Deliver to:</b>
+  <%= @sale_estimate.deliver_to %>
+</p>
+
+<p>
+  <b>Deliver phone:</b>
+  <%= @sale_estimate.deliver_phone %>
+</p>
+
+<p>
+  <b>Estimate no:</b>
+  <%= @sale_estimate.estimate_no %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @sale_estimate.date %>
+</p>
+
+<p>
+  <b>Expiry date:</b>
+  <%= @sale_estimate.expiry_date %>
+</p>
+
+<p>
+  <b>Measure date:</b>
+  <%= @sale_estimate.measure_date %>
+</p>
+
+<p>
+  <b>Sales person:</b>
+  <%= @sale_estimate.sales_person %>
+</p>
+
+<p>
+  <b>Customer ref no:</b>
+  <%= @sale_estimate.customer_ref_no %>
+</p>
+
+<p>
+  <b>Product:</b>
+  <%= @sale_estimate.product_id %>
+</p>
+
+<p>
+  <b>Estimate note:</b>
+  <%= @sale_estimate.estimate_note %>
+</p>
+
+<p>
+  <b>Company:</b>
+  <%= @sale_estimate.company_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_sale_estimate_path(@sale_estimate) %> |
+<%= link_to 'Back', sale_estimates_path %>

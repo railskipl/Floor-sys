@@ -1,0 +1,65 @@
+<%= form_for(@sale_estimate) do |f| %>
+  <% if @sale_estimate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sale_estimate.errors.count, "error") %> prohibited this sale_estimate from being saved:</h2>
+
+      <ul>
+      <% @sale_estimate.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :contact_id %><br />
+    <%= f.text_field :contact_id %>
+  </div>
+  <div class="field">
+    <%= f.label :deliver_to %><br />
+    <%= f.text_field :deliver_to %>
+  </div>
+  <div class="field">
+    <%= f.label :deliver_phone %><br />
+    <%= f.text_field :deliver_phone %>
+  </div>
+  <div class="field">
+    <%= f.label :estimate_no %><br />
+    <%= f.text_field :estimate_no %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.date_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :expiry_date %><br />
+    <%= f.date_select :expiry_date %>
+  </div>
+  <div class="field">
+    <%= f.label :measure_date %><br />
+    <%= f.date_select :measure_date %>
+  </div>
+  <div class="field">
+    <%= f.label :sales_person %><br />
+    <%= f.text_field :sales_person %>
+  </div>
+  <div class="field">
+    <%= f.label :customer_ref_no %><br />
+    <%= f.text_field :customer_ref_no %>
+  </div>
+  <div class="field">
+    <%= f.label :product_id %><br />
+    <%= f.text_field :product_id %>
+  </div>
+  <div class="field">
+    <%= f.label :estimate_note %><br />
+    <%= f.text_area :estimate_note %>
+  </div>
+  <div class="field">
+    <%= f.label :company_id %><br />
+    <%= f.text_field :company_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
