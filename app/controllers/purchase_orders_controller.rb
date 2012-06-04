@@ -21,7 +21,7 @@ class PurchaseOrdersController < ApplicationController
   
   
   def new
-      @company = Company.find_all_by_company_id(current_user.company_id)
+      @company = Company.find(2)
       @product = Product.find_all_by_company_id(current_user.company_id)  
   end
 
