@@ -31,7 +31,7 @@
 	
 	<div id="profilebox">
 
-      <%= form_tag add_basket_item_purchase_order_url(:id => @company.id), :method => :put do %>
+      <%= form_tag add_basket_item_purchase_order_url(:id => current_user.company_id), :method => :put do %>
   	  <table width="100%" border="0" cellspacing="10" cellpadding="5">
           <tr>
             <td align="left" valign="middle">Product</td>
@@ -75,7 +75,7 @@
               <td class="tddata"><%= item.total_price %></td>
               <td align="left" valign="middle" class="tddata">
                 
-                <%= link_to "", {:action => 'remove_basket_item', :id => @company.id, :array_position => item_index}, :confirm => 'Delete - Are you sure?', :method => :delete, :class=>"delete_products" %>
+                <%= link_to "", {:action => 'remove_basket_item', :id => current_user.company_id, :array_position => item_index}, :confirm => 'Delete - Are you sure?', :method => :delete, :class=>"delete_products" %>
               </td>
             </tr>
             <% item_index += 1 %>
@@ -90,7 +90,7 @@
             </tr>
           </table>
 
-      <%= form_tag :action => 'create', :company_id => @company.id do %>
+      <%= form_tag :action => 'create', :company_id => current_user.company_id do %>
   		<table width="100%" border="0" cellspacing="10" cellpadding="5">
           <tr>
             <td align="left" valign="middle">Deliver to :</td>
