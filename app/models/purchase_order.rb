@@ -20,9 +20,9 @@ class PurchaseOrder < ActiveRecord::Base
     helper.add_spacer(pdf)
     helper.add_spacer(pdf)
 
-    helper.add_title(pdf, "TAX INVOICE")
+    helper.add_title(pdf, "Purchase Order")
 
-    helper.add_sub_title(pdf, "*** Invoice Overdue ***") 
+    helper.add_sub_title(pdf, "*** Invoice Overview ***") 
     helper.add_spacer(pdf)
     helper.add_spacer(pdf)
     helper.add_spacer(pdf)

@@ -133,7 +133,6 @@ class PurchaseOrdersController < ApplicationController
   end
   
   def toggle_order_invoiced_status
-    
     @purchase_order.invoiced = !@purchase_order.invoiced?
     @purchase_order.save!
     redirect_to(:controller => 'purchase_orders', :action => 'index')
@@ -153,8 +152,6 @@ class PurchaseOrdersController < ApplicationController
     end
 
     def prepare_common_variables
-      
-      
       @available_products = []
       @basket = find_basket
     end

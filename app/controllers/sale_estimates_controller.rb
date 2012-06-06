@@ -1,4 +1,9 @@
 class SaleEstimatesController < ApplicationController
+  
+before_filter :authenticate_user!
+before_filter :prepare_common_variables, :only => [:new, :show, :edit]
+before_filter :find_basket, :only => [:add_basket_item, :remove_basket_item]
+
   # GET /sale_estimates
   # GET /sale_estimates.xml
   def index
@@ -24,12 +29,11 @@ class SaleEstimatesController < ApplicationController
   # GET /sale_estimates/new
   # GET /sale_estimates/new.xml
   def new
+    
+    @contacts = Contact.find_all_by_company_id(current_user.company_id)
+    @product = Product.find_all_by_company_id(current_user.company_id) 
     @sale_estimate = SaleEstimate.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @sale_estimate }
-    end
   end
 
   # GET /sale_estimates/1/edit
@@ -37,8 +41,7 @@ class SaleEstimatesController < ApplicationController
     @sale_estimate = SaleEstimate.find(params[:id])
   end
 
-  # POST /sale_estimates
-  # POST /sale_estimates.xml
+  
   def create
     @sale_estimate = SaleEstimate.new(params[:sale_estimate])
 
@@ -54,7 +57,6 @@ class SaleEstimatesController < ApplicationController
   end
 
   # PUT /sale_estimates/1
-  # PUT /sale_estimates/1.xml
   def update
     @sale_estimate = SaleEstimate.find(params[:id])
 
@@ -80,4 +82,26 @@ class SaleEstimatesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def remove_basket_item
+    @basket.items.delete_at(params[:array_position].to_i - 1)
+    redirect_to new_sale_estimate_url
+  end
+  
+  def add_basket_item
+    @basket.add_product_quantity(Product.find(params[:product_id]), BigDecimal.new(params[:quantity]))
+    redirect_to new_sale_estimate_url(:id => params[:id])
+  end
+  
+  def find_basket
+    @basket = session[:basket] ||= Basket.new
+  end
+  
+  protected
+  
+  def prepare_common_variables
+    @available_products = []
+    @basket = find_basket
+  end
+  
 end

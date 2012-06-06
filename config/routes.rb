@@ -1,6 +1,14 @@
 Floorsys::Application.routes.draw do|map|
   
-  resources :sale_estimates
+  map.connect '/sale_estimates/:id/remove_basket_item', :controller=>'sale_estimates', :action=>'remove_basket_item'
+  resources :sale_estimates do
+    member do
+      get 'invoice_pdf'
+      put 'add_basket_item'
+      put 'add_purchase_order_item'
+      delete 'remove_purchase_order_item'
+    end
+  end
 
   map.connect '/purchase_orders/:id/toggle_order_invoiced_status', :controller=>'purchase_orders', :action=>'toggle_order_invoiced_status'
   map.connect '/purchase_orders/:id/remove_basket_item', :controller=>'purchase_orders', :action=>'remove_basket_item'

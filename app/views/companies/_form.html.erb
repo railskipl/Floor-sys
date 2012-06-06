@@ -16,7 +16,7 @@
         <tr>
           <td align="right" valign="middle">User</td>
           <td align="center" valign="middle">:</td>
-          <td> <%= select :company, :user_id, @user.map {|c| ["#{c.first_name} #{c.surname}", c.id]} %></td>
+          <td> <%= select :company, :user_id, @user.map {|c| ["#{c.first_name} #{c.surname}", c.id]}, { :include_blank => "-- Select---" } %></td>
         </tr>
         <tr>
           <td align="right" valign="middle">Company Name</td>

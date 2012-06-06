@@ -1,7 +1,37 @@
-<h1>Listing sale_estimates</h1>
+<div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
+<div id="blank"></div>
+<div id="right">
+    <div class="leftarrow_purchase_orders" style="float:left"></div>
+    <div id="smoothmenu1" class="ddsmoothmenu">
+      <ul class="rightcorner">
+      
+      <% if can? :new, SaleEstimate %>
+      <li><%= link_to "Sales Estimate", sale_estimates_path %>
+       <ul>
 
-<table>
+       <li> <%= link_to 'New', new_sale_estimate_path %></li>
+
+
+       </ul>
+       </li>
+       <% end %>
+       
+       
+       
+	     </ul>
+	     <br style="clear: left" />
+	     </div>
+ </div>
+
+
+	<div id="right2">
+  <h1>Listing sale_estimates</h1>
+  
+  <div class="formbox">
+  
+  <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
   <tr>
+
     <th>Contact</th>
     <th>Deliver to</th>
     <th>Deliver phone</th>
@@ -13,7 +43,6 @@
     <th>Customer ref no</th>
     <th>Product</th>
     <th>Estimate note</th>
-    <th>Company</th>
     <th></th>
     <th></th>
     <th></th>
@@ -32,7 +61,6 @@
     <td><%= sale_estimate.customer_ref_no %></td>
     <td><%= sale_estimate.product_id %></td>
     <td><%= sale_estimate.estimate_note %></td>
-    <td><%= sale_estimate.company_id %></td>
     <td><%= link_to 'Show', sale_estimate %></td>
     <td><%= link_to 'Edit', edit_sale_estimate_path(sale_estimate) %></td>
     <td><%= link_to 'Destroy', sale_estimate, :confirm => 'Are you sure?', :method => :delete %></td>
@@ -40,6 +68,12 @@
 <% end %>
 </table>
 
-<br />
 
-<%= link_to 'New Sale estimate', new_sale_estimate_path %>
+
+
+
+
+    </div>
+
+    </div>
+    
