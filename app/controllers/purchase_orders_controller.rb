@@ -1,4 +1,5 @@
 require 'format_helper'
+
 class PurchaseOrdersController < ApplicationController
   
   before_filter :authenticate_user!
@@ -8,43 +9,53 @@ class PurchaseOrdersController < ApplicationController
   before_filter :find_basket, :only => [:add_basket_item, :remove_basket_item]
   before_filter :empty_basket, :only => [:edit, :destroy]
   before_filter :find_invoice, :only => [:toggle_order_invoiced_status]
+
   
   def index
     @purchase_orders = PurchaseOrder.order('created_at DESC')
   end
+ 
+                                                
+  def invoice       
+    @purchase_orders = PurchaseOrder.find(:all, :conditions=>"invoiced='1'", :order=>"created_at DESC")    
+  end
   
-  def invoice
-    @purchase_orders = PurchaseOrder.find(:all, :conditions=>"invoiced='1'", :order=>"created_at DESC")
     
+  def new     
+    @product = Product.find_all_by_company_id(current_user.company_id)  
+    @contact = Contact.find_all_by_company_id(current_user.company_id) 
   end
-  
-  
-  
-  def new
-     
-      @product = Product.find_all_by_company_id(current_user.company_id)  
-  end
+
 
   def create
     basket = find_basket
 
-    # Create Purchase Order
+    
+    # Update the contact selected to supplier group  
+    @congroup = ContactGroup.find_by_contact_id(params[:contact_id])    
+    @congroup.update_attribute(:group_id, '3')
+    
+    
+    # Create Purchase Order    
     purchase_order = PurchaseOrder.create(:deliver_to => params[:deliver_to], :deliver_phone => params[:deliver_phone], :order_date => "#{params[:order_date]}", :expected_date => "#{params[:expected_date__1i]}-#{params[:expected_date__2i]}-#{params[:expected_date__3i]}", :company_id => params[:company_id], :purchase_order_notes => params[:purchase_order_notes])
       
     # Create Purchase Order Items
-    basket.items.each do |item|
-      
+    
+    basket.items.each do |item|      
       purchase_order_items = purchase_order.purchase_order_items.build(:product_id => item.product_id, :quantity => item.quantity)
       purchase_order_items.save
     end
+ 
     empty_basket
     redirect_to("/purchase_orders")
   end
+  
   
   def edit
     @company = Company.find(current_user.company_id)
     @product = Product.find_all_by_company_id(current_user.company_id)
   end
+
 
   def update
     if @purchase_order.update_attributes(params[:purchase_order])
@@ -55,6 +66,7 @@ class PurchaseOrdersController < ApplicationController
       render :edit
     end
   end
+ 
   
   
   def show
@@ -65,10 +77,7 @@ class PurchaseOrdersController < ApplicationController
 
   def invoice_pdf
     report = @purchase_order.create_invoice_pdf
-    
-     
-      filename = 'Purchase-order-' + @purchase_order.deliver_to + '.pdf'
-    
+    filename = 'Purchase-order-' + @purchase_order.deliver_to + '.pdf'
     send_data report.render, :filename => filename, :type => "application/pdf"
   end
   
@@ -88,6 +97,7 @@ class PurchaseOrdersController < ApplicationController
     end
   end
 
+
   def find_products_for_selection
     if params[:product_type]
       product_type = ProductType.find(params[:product_type])
@@ -100,10 +110,12 @@ class PurchaseOrdersController < ApplicationController
     end
   end
 
+
   def add_purchase_order_item
     @purchase_order.purchase_order_items.create(:product_id => params[:product_id], :quantity => BigDecimal.new(params[:quantity]))
     redirect_to :action => :edit, :id => params[:id]
   end
+
 
   def remove_purchase_order_item
     @purchase_order_item = PurchaseOrderItem.find(params[:id2])
@@ -112,10 +124,12 @@ class PurchaseOrdersController < ApplicationController
     redirect_to :action => :edit, :id => params[:id]
   end
 
+ 
   def add_basket_item
     @basket.add_product_quantity(Product.find(params[:product_id]), BigDecimal.new(params[:quantity]))
     redirect_to new_purchase_order_url(:id => params[:id])
   end 
+
   
   def destroy
     @purchase_order = PurchaseOrder.find(params[:id])
@@ -127,16 +141,19 @@ class PurchaseOrdersController < ApplicationController
     end
   end
 
+
   def remove_basket_item
     @basket.items.delete_at(params[:array_position].to_i - 1)
     redirect_to new_purchase_order_url(:id => params[:id])
   end
+ 
   
   def toggle_order_invoiced_status
     @purchase_order.invoiced = !@purchase_order.invoiced?
     @purchase_order.save!
     redirect_to(:controller => 'purchase_orders', :action => 'index')
   end
+
 
   protected
     def find_order

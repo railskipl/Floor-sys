@@ -1,5 +1,7 @@
 Floorsys::Application.routes.draw do|map|
   
+  resources :groups
+
   map.connect '/sale_estimates/:id/remove_basket_item', :controller=>'sale_estimates', :action=>'remove_basket_item'
   resources :sale_estimates do
     member do

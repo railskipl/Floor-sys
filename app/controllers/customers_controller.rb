@@ -39,7 +39,7 @@ class CustomersController < ApplicationController
       format.xml  { render :xml => @customer }
     end
   end
-
+ 
   # GET /customers/1/edit
   def edit
     @customer = Customer.find(params[:id])

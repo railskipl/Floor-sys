@@ -40,7 +40,7 @@
             <td align="left" valign="middle">
               <%= select_tag "product_id", options_from_collection_for_select(@product, "id", "product_name"), { :include_blank => "-- Select---" } %>
             </td>
-          </tr>
+        
           <tr>
             <td align="left" valign="middle">Quantity</td>
           </tr>
@@ -92,6 +92,15 @@
 
       <%= form_tag :action => 'create', :company_id => current_user.company_id do %>
   		<table width="100%" border="0" cellspacing="10" cellpadding="5">
+  			
+  			   <tr>
+            <td align="left" valign="middle">Contact:</td>
+            </tr>
+          <tr>
+            <td align="left" valign="middle"> <%= select_tag "contact_id", options_from_collection_for_select(@contact, "id", "contact_name"), { :include_blank => "-- Select---" } %></td>
+            </tr>
+  			
+  			
           <tr>
             <td align="left" valign="middle">Deliver to :</td>
             </tr>

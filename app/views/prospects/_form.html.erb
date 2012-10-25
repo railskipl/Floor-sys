@@ -46,7 +46,7 @@
     <tr>
       <td align="right" valign="middle">Notes </td>
       <td align="center" valign="middle">:</td>
-      <td><%= f.text_area :notes, :rows=>2 %>
+      <td><%= f.text_area :notes, :rows=>2 ,:class =>"field1" %>
         <%= f.hidden_field :company_id, :value=>"#{current_user.company_id}" %>
       </td>
     </tr>

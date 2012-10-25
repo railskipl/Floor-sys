@@ -16,37 +16,7 @@
        </li>
        <% end %>
        
-       <% if can? :new, Customer %>
-       <li><%= link_to "Customer", customers_path %>
-          <ul>
-                  <li> <%= link_to 'New', new_customer_path %></li>
-          </ul>
-       </li>
-       <% end %>
-       
-       <% if can? :new, Prospect %>
-        <li><%= link_to "Prospect", prospects_path %>
-           <ul>
-                   <li> <%= link_to 'New', new_prospect_path %></li>
-           </ul>
-        </li>
-        <% end %>
-        
-        <% if can? :new, Subcontractor %>
-          <li><%= link_to "Subcontractor", subcontractors_path %>
-             <ul>
-                     <li> <%= link_to 'New', new_subcontractor_path %></li>
-             </ul>
-          </li>
-        <% end %>
-        
-        <% if can? :new, SaleRepresentative %>
-          <li><%= link_to "Sale Representative", sale_representatives_path %>
-             <ul>
-                     <li> <%= link_to 'New', new_sale_representative_path %></li>
-             </ul>
-          </li>
-        <% end %>
+     
 
 	     </ul>
 	     <br style="clear: left" />
@@ -63,14 +33,21 @@
     <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
         <tr>
           <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Name</a> </th>
-          <th align="center" valign="middle" class="table-header-repeat line-left"><a href="">Position</a></th>
+          <th align="center" valign="middle" class="table-header-repeat line-left"><a href="">Email</a></th>
+          <th align="center" valign="middle" class="table-header-repeat line-left"><a href="">Phone Number</a></th>
+          <th align="center" valign="middle" class="table-header-repeat line-left"><a href="">Outstanding Balance</a></th>
+          <th align="center" valign="middle" class="table-header-repeat line-left"><a href="">Overdue</a></th>
           <th align="center" valign="middle" class="table-header-options line-left"><a href="">Action</a></th>
         </tr>
         <tr>
          <% @contacts.each do |contact| %>
         
           <td><%= contact.contact_name %></td>
-          <td><a href=""><%= contact.contact_position %></a></td>     
+          <td><%= contact.contact_email %></td> 
+          <td><%= contact.contact_telephone %></td>
+          <td></td>
+          <td></td>
+               
           <td class="options-width"> <%= link_to '', contact_path(contact), :class => "icon-1 info-tooltip" %><%= link_to '', edit_contact_path(contact), :class =>"icon-2 info-tooltip" %> <%= link_to '', {:controller=>"contacts", :action=>"destroy", :id=>"#{contact.id}"}, :confirm => 'Are you sure?',  :class => "icon-3 info-tooltip" %></td>
         </tr>
      

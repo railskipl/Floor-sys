@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120604052819) do
+ActiveRecord::Schema.define(:version => 20121025053022) do
 
   create_table "categories", :force => true do |t|
     t.string   "category_name"
@@ -43,8 +43,19 @@ ActiveRecord::Schema.define(:version => 20120604052819) do
     t.string   "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
     t.string   "country_name"
     t.string   "companylogo"
+  end
+
+  create_table "contact_groups", :force => true do |t|
+    t.integer  "contact_id"
+    t.integer  "group_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "contacts", :force => true do |t|
@@ -67,6 +78,11 @@ ActiveRecord::Schema.define(:version => 20120604052819) do
     t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "contacts_groups", :id => false, :force => true do |t|
+    t.integer "group_id"
+    t.integer "contact_id"
   end
 
   create_table "countries", :force => true do |t|
@@ -109,6 +125,12 @@ ActiveRecord::Schema.define(:version => 20120604052819) do
     t.datetime "updated_at"
     t.text     "attachement_detail"
     t.string   "added_by_customer"
+  end
+
+  create_table "groups", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "outgoing_types", :force => true do |t|
