@@ -52,8 +52,8 @@ class PurchaseOrdersController < ApplicationController
   
   
   def edit
-    @company = Company.find(current_user.company_id)
-    @product = Product.find_all_by_company_id(current_user.company_id)
+    @contact = Contact.find_all_by_company_id(current_user.company_id) 
+   @product = Product.find_all_by_company_id(current_user.company_id)  
   end
 
 
