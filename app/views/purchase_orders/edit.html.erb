@@ -93,9 +93,9 @@
 
      <%= form_for @purchase_order do |f| %>
  		<table width="100%" border="0" cellspacing="10" cellpadding="5">
- 				   <tr>
+ 		 <tr>
             <td align="left" valign="middle">Contact:</td>
-            </tr>
+         </tr>
           <tr>
             <td align="left" valign="middle"> <%= select_tag "contact_id", options_from_collection_for_select(@contact, "id", "contact_name"), { :include_blank => "-- Select---" } %></td>
             </tr>
