@@ -1075,5 +1075,3 @@ setInterval("getthedate()",1000)
 }
 
 
-
-

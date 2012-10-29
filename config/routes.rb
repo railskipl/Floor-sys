@@ -1,6 +1,6 @@
 Floorsys::Application.routes.draw do|map|
   
-  resources :groups
+ 
 
   map.connect '/sale_estimates/:id/remove_basket_item', :controller=>'sale_estimates', :action=>'remove_basket_item'
   resources :sale_estimates do
@@ -73,7 +73,12 @@ Floorsys::Application.routes.draw do|map|
 
   map.connect '/contacts/:id/delete', :controller=>'contacts', :action=>'destroy'
   resources :contacts
-
+  
+  
+  map.connect '/stocks/:id/delete', :controller=>'stocks', :action=>'destroy'
+  resources :stocks
+  
+  
   
   map.connect '/vats/company.id/delete', :controller=>'vats', :action=>'destroy'
   map.connect '/users/:id/delete', :controller=>'users', :action=>'destroy'
@@ -91,6 +96,18 @@ Floorsys::Application.routes.draw do|map|
   resources :categories
 
   resources :companies
+
+   
+
+  resources :groups
+  map.connect '/stocks/find', :controller=>'stocks', :action=>'find'
+  map.connect '/stocks/uom', :controller=>'stocks', :action=>'uom'
+
+
+
+
+
+
 
   devise_for :users
   resources :users
