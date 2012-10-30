@@ -1,12 +1,12 @@
 
 <div class="formbox">
-<%= form_for(@stock) do |f| %>
-  <% if @stock.errors.any? %>
+<%= form_for(@defective_product) do |f| %>
+  <% if @defective_product.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@stock.errors.count, "error") %> prohibited this stock from being saved:</h2>
+      <h2><%= pluralize(@defective_product.errors.count, "error") %> prohibited this defective_product from being saved:</h2>
 
       <ul>
-      <% @stock.errors.full_messages.each do |msg| %>
+      <% @defective_product.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -17,9 +17,13 @@
     <tr>
       <td align="right" valign="middle">Product </td>
       <td align="center" valign="middle">:</td>
-      <td> <%= f.select "product_id", options_from_collection_for_select(@product, "id", "product_name"),{ :include_blank => "-- Select---" }, :onchange => remote_function(:url => {:action => :find }, :with => "'product_id='+value" ) %></td>
+      <td> <%= f.select "product_id", options_from_collection_for_select(@product, "id", "product_name"),{ :include_blank => "-- Select---" }, :onchange => remote_function(:url => {:action => :find1 }, :with => "'product_id='+value" ) %></td>
     </tr>
-    
+    <tr>
+      <td align="right" valign="middle">Notes </td>
+      <td align="center" valign="middle">:</td>
+      <td><%= f.text_area :notes, :rows => 3,:class =>"field1" %></td>
+    </tr>
      <div id="uom">
      	  	
      </div>
@@ -31,7 +35,7 @@
   
   
     <tr>        
-        <%= f.hidden_field :sold_units, :value => 0 %>
+     
         <%= f.hidden_field :company_id, :value =>"#{current_user.company_id}" %>               
     </tr>
  
@@ -44,5 +48,5 @@
   </table>
   <% end %>
 
- <%= link_to 'Back', stocks_path %>  
+<%= link_to 'Back', defective_products_path %>
  </div>

@@ -78,7 +78,8 @@ Floorsys::Application.routes.draw do|map|
   map.connect '/stocks/:id/delete', :controller=>'stocks', :action=>'destroy'
   resources :stocks
   
-  
+  map.connect '/defective_products/:id/delete', :controller=>'defective_products', :action=>'destroy'
+  resources :defective_products
   
   map.connect '/vats/company.id/delete', :controller=>'vats', :action=>'destroy'
   map.connect '/users/:id/delete', :controller=>'users', :action=>'destroy'
@@ -96,12 +97,12 @@ Floorsys::Application.routes.draw do|map|
   resources :categories
 
   resources :companies
-
+  
    
 
   resources :groups
   map.connect '/stocks/find', :controller=>'stocks', :action=>'find'
-  map.connect '/stocks/uom', :controller=>'stocks', :action=>'uom'
+  map.connect '/defective_products/find1', :controller=>'defective_products', :action=>'find1'
 
 
 

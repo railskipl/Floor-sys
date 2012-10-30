@@ -82,7 +82,7 @@ class StocksController < ApplicationController
       end
     end
   end
-
+ 
   # DELETE /stocks/1
   # DELETE /stocks/1.xml
   def destroy
