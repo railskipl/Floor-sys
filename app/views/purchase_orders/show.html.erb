@@ -59,7 +59,7 @@
    <tr class="alternate-row">
      <td class="tddata" colspan="4">&nbsp;</td>
      <td class="tddata2">Total</td>
-     <td class="tddata2"><%= @purchase_order.total_price %></td>
+     <td class="tddata2"><%= @purchase_order.total_price rescue " "%></td>
    </tr>
  </table>
   
