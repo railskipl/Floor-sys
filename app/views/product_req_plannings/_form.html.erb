@@ -13,15 +13,15 @@
 
   <div class="field">
     <%= f.label :notes %><br />
-    <%= f.text_area :notes %>
+    <%= f.text_area :notes,:class =>"field1"  %>
   </div>
   <div class="field">
    <%= f.label :product_id %><br/>
-    <%= select :product_req_planning, :product_id, @product.map {|c| ["#{c.product_name}", c.id]} %> 
+    <%= select :product_req_planning, :product_id,  @product.map {|c| ["#{c.product_name}", c.id]} %> 
   </div>
   <div class="field">
   <%= f.label :uom_id %><br/>
-   <%= select :product_req_planning, :uom_id, @uom.map {|c| ["#{c.roll_min}", c.id]} %>
+   <%= select :product_req_planning, :uom_id,  @uom.map {|c| ["#{c.roll_min}", c.id]} %>
   </div>
   <div class="field">
     <%= f.hidden_field :company_id, :value=>"#{current_user.company_id}" %>

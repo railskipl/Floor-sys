@@ -6,15 +6,14 @@ class SaleRepresentativesController < ApplicationController
   # GET /sale_representatives
   # GET /sale_representatives.xml
   def index
-    @sale_representatives = SaleRepresentative.find_all_by_company_id(current_user.company_id)
-    
+    @sale_representatives = SaleRepresentative.find_all_by_company_id(current_user.company_id)    
 
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @sale_representatives }
     end
   end
-
+  
   # GET /sale_representatives/1
   # GET /sale_representatives/1.xml
   def show
@@ -48,7 +47,6 @@ class SaleRepresentativesController < ApplicationController
   # POST /sale_representatives.xml
   def create
     @sale_representative = SaleRepresentative.new(params[:sale_representative])
-
     respond_to do |format|
       if @sale_representative.save
         format.html { redirect_to(@sale_representative, :notice => 'Sale representative was successfully created.') }

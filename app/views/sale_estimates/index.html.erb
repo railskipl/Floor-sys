@@ -24,31 +24,28 @@
  </div>
 
 
-	<div id="right2">
-  <h1>Listing sale_estimates</h1>
-  
-  <div class="formbox">
-  
-  <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
-  <tr>
 
-    <th>Contact</th>
-    <th>Deliver to</th>
-    <th>Deliver phone</th>
-    <th>Estimate no</th>
-    <th>Date</th>
-    <th>Expiry date</th>
-    <th>Measure date</th>
-    <th>Sales person</th>
-    <th>Customer ref no</th>
-    <th>Product</th>
-    <th>Estimate note</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @sale_estimates.each do |sale_estimate| %>
+ <div id="right2">
+<h1>Listing sale_estimates</h1>
+    <div class="formbox">
+ 
+    <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+      <tr>
+        <th>Contact </th>
+        <th>Deliver to</th>
+        <th>Deliver phone</th>
+        <th>Estimate no</th>
+        <th>Date</th>
+        <th>Expiry date</th>
+        <th>Measure date</th>
+        <th>Sales person</th>
+        <th>Customer ref no</th>
+        <th>Product</th>
+        <th>Estimate note</th>
+        <th>Action</th>
+      </tr>
+      <tr>
+  <% @sale_estimates.each do |sale_estimate| %>
   <tr>
     <td><%= sale_estimate.contact_id %></td>
     <td><%= sale_estimate.deliver_to %></td>
@@ -61,19 +58,16 @@
     <td><%= sale_estimate.customer_ref_no %></td>
     <td><%= sale_estimate.product_id %></td>
     <td><%= sale_estimate.estimate_note %></td>
-    <td><%= link_to 'Show', sale_estimate %></td>
-    <td><%= link_to 'Edit', edit_sale_estimate_path(sale_estimate) %></td>
-    <td><%= link_to 'Destroy', sale_estimate, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-
-
-
-
-
+                      
+        <td class="options-width"> <%= link_to '', sale_estimate, :class => "icon-1 info-tooltip" %> 
+        <a href="/sale_estimates/<%= sale_estimate.id %>/delete" class = "icon-3 info-tooltip" onclick="if(confirm('Are you sure you want to delete?'))  return true;  else  return false;"></a>
+          
+         
+        </td>
+      </tr>
+      
+      <% end %>
+    </table>
     </div>
-
     </div>
-    
+   </div>  

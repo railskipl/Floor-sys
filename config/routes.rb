@@ -2,7 +2,10 @@ Floorsys::Application.routes.draw do|map|
   
  
 
+  resources :sale_orders
+
   map.connect '/sale_estimates/:id/remove_basket_item', :controller=>'sale_estimates', :action=>'remove_basket_item'
+  map.connect '/sale_estimates/:id/delete', :controller=>'sale_estimates', :action=>'destroy'
   resources :sale_estimates do
     member do
       get 'invoice_pdf'
@@ -12,6 +15,7 @@ Floorsys::Application.routes.draw do|map|
     end
   end
 
+  
   map.connect '/purchase_orders/:id/toggle_order_invoiced_status', :controller=>'purchase_orders', :action=>'toggle_order_invoiced_status'
   map.connect '/purchase_orders/:id/remove_basket_item', :controller=>'purchase_orders', :action=>'remove_basket_item'
   map.connect '/purchase_orders/:id/remove_purchase_order_item/:id2', :controller=>'purchase_orders', :action=>'remove_purchase_order_item'
@@ -93,6 +97,7 @@ Floorsys::Application.routes.draw do|map|
   resources :sales_types
 
   resources :vats
+  
   map.connect '/categories/:id/delete', :controller=>'categories', :action=>'destroy'
   resources :categories
 
@@ -103,7 +108,7 @@ Floorsys::Application.routes.draw do|map|
   resources :groups
   map.connect '/stocks/find', :controller=>'stocks', :action=>'find'
   map.connect '/defective_products/find1', :controller=>'defective_products', :action=>'find1'
-
+ 
 
 
 

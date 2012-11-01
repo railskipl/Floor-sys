@@ -24,19 +24,23 @@
       <td align="center" valign="middle">:</td>
       <td><%= f.text_area :notes, :rows => 3,:class =>"field1" %></td>
     </tr>
-     <div id="uom">
-     	  	
-     </div>
-
+    <tr>
+      <td align="right" valign="middle"></td>
+      <td align="center" valign="middle"></td>
+      <td><div id="uom"> </div></td>
+    </tr>
+   
+   <tr>
+      <td align="right" valign="middle"></td>
+      <td align="center" valign="middle"></td>
+      <td><div id="unit"> </div></td>
+    </tr>
   
-     <div id="unit">
-    	
-     </div>
+   
   
   
     <tr>        
-     
-        <%= f.hidden_field :company_id, :value =>"#{current_user.company_id}" %>               
+       <%= f.hidden_field :company_id, :value =>"#{current_user.company_id}" %>               
     </tr>
  
     <tr> 

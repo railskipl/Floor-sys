@@ -1,0 +1,21 @@
+<h1>Listing sale_orders</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sale_orders.each do |sale_order| %>
+  <tr>
+    <td><%= link_to 'Show', sale_order %></td>
+    <td><%= link_to 'Edit', edit_sale_order_path(sale_order) %></td>
+    <td><%= link_to 'Destroy', sale_order, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Sale order', new_sale_order_path %>

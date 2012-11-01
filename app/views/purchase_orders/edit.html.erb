@@ -69,7 +69,7 @@
           <% @purchase_order.purchase_order_items.each do |item| %>
           <tr>
             <td class="tddata"><%= item_index %></td>
-            <td class="tddata"><%= item.product.supplier.name %></td>
+            <td class="tddata"><%= item.product.supplier.name rescue " "%></td>
             <td class="tddata"><%= item.product.product_name %></td>
             <td class="tddata"><%= item.product.purchase_price %></td>
             <td class="tddata"><%= item.quantity %></td>

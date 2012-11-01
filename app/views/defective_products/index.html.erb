@@ -1,6 +1,6 @@
    
-   <div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
-   	<div id="blank"></div>
+<div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
+<div id="blank"></div>
 <div id="right">
 <div class="leftarrow_setting" style="float:left"></div>
    <div id="smoothmenu1" class="ddsmoothmenu">
@@ -19,6 +19,8 @@
          <li><%= link_to "Defective Products", defective_products_path %>
       <ul>
 
+     
+     
       <li> <%= link_to 'New', new_defective_product_path %></li>
       
 
@@ -48,6 +50,7 @@
           <th align="center" valign="middle" class="table-header-options line-left"><a href="">Action</a></th>
       </tr>
       <tr>
+      	
       <% @defective_products.each do |dp| %>
       	
         <td><%= dp.product_id %> </td>

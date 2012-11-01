@@ -17,12 +17,12 @@
     <tr>
       <td align="right" valign="middle">Name1 </td>
       <td align="center" valign="middle">:</td>
-      <td><%= f.text_field :name_1 %> </td>
+      <td><%= f.text_field :name_1,:class =>"field1"  %> </td>
     </tr>
     <tr>
       <td align="right" valign="middle">Name2 </td>
       <td align="center" valign="middle">:</td>
-      <td><%= f.text_field :name_2 %>
+      <td><%= f.text_field :name_2 ,:class =>"field1" %>
         <%= f.hidden_field :company_id, :value=>"#{current_user.company_id}" %>
       </td>
     </tr>

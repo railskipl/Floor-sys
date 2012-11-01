@@ -1,65 +1,94 @@
-<p id="notice"><%= notice %></p>
+<div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
+<div id="blank"></div>
+<div id="right">
+  <div class="leftarrow_contacts" style="float:left"></div>
 
-<p>
-  <b>Contact:</b>
-  <%= @sale_estimate.contact_id %>
-</p>
-
-<p>
-  <b>Deliver to:</b>
-  <%= @sale_estimate.deliver_to %>
-</p>
-
-<p>
-  <b>Deliver phone:</b>
-  <%= @sale_estimate.deliver_phone %>
-</p>
-
-<p>
-  <b>Estimate no:</b>
-  <%= @sale_estimate.estimate_no %>
-</p>
-
-<p>
-  <b>Date:</b>
-  <%= @sale_estimate.date %>
-</p>
-
-<p>
-  <b>Expiry date:</b>
-  <%= @sale_estimate.expiry_date %>
-</p>
-
-<p>
-  <b>Measure date:</b>
-  <%= @sale_estimate.measure_date %>
-</p>
-
-<p>
-  <b>Sales person:</b>
-  <%= @sale_estimate.sales_person %>
-</p>
-
-<p>
-  <b>Customer ref no:</b>
-  <%= @sale_estimate.customer_ref_no %>
-</p>
-
-<p>
-  <b>Product:</b>
-  <%= @sale_estimate.product_id %>
-</p>
-
-<p>
-  <b>Estimate note:</b>
-  <%= @sale_estimate.estimate_note %>
-</p>
-
-<p>
-  <b>Company:</b>
-  <%= @sale_estimate.company_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_sale_estimate_path(@sale_estimate) %> |
+ </div>
+ 
+ <div id="right2">
+	 
+      <h1>Sale Estimate</h1>
+      <div class="formbox">
+      <table width="60%" border="0" cellspacing="10" cellpadding="5">
+        
+        <tr>
+          <td align="right" valign="middle">Contact </td>
+          <td align="center" valign="middle">:</td>
+          <td>   <%= @sale_estimate.contact_id %></td>
+        </tr>
+        
+        <tr>
+          <td align="right" valign="middle">Deliver to</td>
+          <td align="center" valign="middle">:</td>
+          <td> <%= @sale_estimate.deliver_to %></td>
+        </tr>
+        
+          <tr>
+          <td align="right" valign="middle">Deliver phone</td>
+          <td align="center" valign="middle">:</td>
+          <td> <%= @sale_estimate.deliver_phone %></td>
+        </tr>
+          <tr>
+          <td align="right" valign="middle">Estimate no</td>
+          <td align="center" valign="middle">:</td>
+          <td><%= @sale_estimate.estimate_no %></td>
+        </tr>
+       <tr>
+          <td align="right" valign="middle">Date</td>
+          <td align="center" valign="middle">:</td>
+          <td> <%= @sale_estimate.date %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Expiry date</td>
+          <td align="center" valign="middle">:</td>
+          <td><%= @sale_estimate.expiry_date %></td>
+        </tr>
+     <tr>
+          <td align="right" valign="middle">Measure date</td>
+          <td align="center" valign="middle">:</td>
+          <td><%= @sale_estimate.measure_date %></td>
+        </tr>
+        <tr>
+          <td align="right" valign="middle">Sales person</td>
+          <td align="center" valign="middle">:</td>
+          <td>  <%= @sale_estimate.sales_person %></td>
+        </tr>
+         <tr>
+          <td align="right" valign="middle">Customer ref no</td>
+          <td align="center" valign="middle">:</td>
+          <td>  <%= @sale_estimate.customer_ref_no %></td>
+        </tr>
+         <tr>
+          <td align="right" valign="middle">Product</td>
+          <td align="center" valign="middle">:</td>
+          <td>  <%= @sale_estimate.product_id %></td>
+        </tr>
+         <tr>
+          <td align="right" valign="middle">Estimate note</td>
+          <td align="center" valign="middle">:</td>
+          <td>   <%= @sale_estimate.estimate_note %></td>
+        </tr>
+         <tr>
+          <td align="right" valign="middle">Company</td>
+          <td align="center" valign="middle">:</td>
+          <td>   <%= @sale_estimate.company_id %></td>
+        </tr>
+        
+      </table>
+      
 <%= link_to 'Back', sale_estimates_path %>
+      </div>
+      </div>
+   
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+

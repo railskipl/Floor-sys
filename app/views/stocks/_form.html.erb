@@ -19,27 +19,28 @@
       <td align="center" valign="middle">:</td>
       <td> <%= f.select "product_id", options_from_collection_for_select(@product, "id", "product_name"),{ :include_blank => "-- Select---" }, :onchange => remote_function(:url => {:action => :find }, :with => "'product_id='+value" ) %></td>
     </tr>
-    
-     <div id="uom">
-     	  	
-     </div>
-
-  
-     <div id="unit">
-    	
-     </div>
-  
+     <tr>
+      <td align="right" valign="middle"></td>
+      <td align="center" valign="middle"></td>
+      <td><div id="uom"> </div></td>
+    </tr>
+   
+   <tr>
+      <td align="right" valign="middle"></td>
+      <td align="center" valign="middle"></td>
+      <td><div id="unit"> </div></td>
+    </tr>
   
     <tr>        
         <%= f.hidden_field :sold_units, :value => 0 %>
-        <%= f.hidden_field :company_id, :value =>"#{current_user.company_id}" %>               
+        <%= f.hidden_field :company_id, :value => "#{current_user.company_id}" %>               
     </tr>
  
     <tr> 
       <td align="right" valign="middle">&nbsp;</td>
       <td align="center" valign="middle">&nbsp;</td>
       <td><%= f.submit "submit", :class =>'button'%></td>
-   </tr>
+    </tr>
    
   </table>
   <% end %>
