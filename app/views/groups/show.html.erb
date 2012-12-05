@@ -311,7 +311,15 @@
 
 </script>
 
-
+<script type="text/javascript">
+function validate(){
+if (document.getElementById('group_contact_ids_').checked){
+       jQuery.facebox({ div: '#TEST100' });
+}else{
+alert("please select")
+}
+}
+</script>
 <style>
 #facebox {
   position: absolute;
@@ -394,7 +402,7 @@ jQuery.each(jQuery("input[name='group[contact_ids][]']:checked"), function() {
 
       <div id="right2">
   <div class="formbox" style="width: 80%">
-<a href="#" onclick="jQuery.facebox({ div: '#TEST100' }); return false;">
+<a href="#" onclick="validate(); return false;">
 	Move to group
 </a>
    

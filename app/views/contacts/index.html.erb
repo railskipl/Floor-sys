@@ -12,7 +12,17 @@
 <%= stylesheet_link_tag 'facebox'  %>
 
  <%= javascript_include_tag 'facebox' %>
+ <script type="text/javascript">
+function validate(){
+if (document.getElementById('group_contact_ids_').checked){
+       jQuery.facebox({ div: '#TEST10' });
+}else{
+alert("please select")
+}
+}
+</script>
 <script language="JavaScript">
+
 jQuery(document).ready(function()
 {
 	jQuery("#checkall").click(function()
@@ -91,7 +101,7 @@ jQuery.each(jQuery("input[name='group[contact_ids][]']:checked"), function() {
 
    <div class="formbox" style="width: 80%">
 
-<a href="#" onclick="jQuery.facebox({ div: '#TEST10' }); return false;">
+<a href="#" onclick="validate();"   return false;">
 	Add to group
 </a>
 
