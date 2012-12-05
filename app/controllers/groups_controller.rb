@@ -1,5 +1,8 @@
 
 class GroupsController < ApplicationController
+    before_filter :authenticate_user!, :except => []
+  load_and_authorize_resource
+  
    layout :resolve_layout
 
   # ...
@@ -54,12 +57,15 @@ class GroupsController < ApplicationController
        recipients_array.each do |r|
         ContactGroup.create(:contact_id => r,:group_id => @a)
        end
+        
        redirect_to contacts_path  
       
     else
       if @group.save 
+          flash[:notice] = "created and added in that group"
         redirect_to  contacts_path  
       else 
+         flash[:notice] = "Present already in that group"
         redirect_to contacts_path  
       end
     end
