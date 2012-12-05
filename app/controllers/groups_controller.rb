@@ -116,17 +116,12 @@ class GroupsController < ApplicationController
          
          @contact_group = ContactGroup.find_by_contact_id(r)
          
-        if   @contact_group.update_attributes(params[:contact_groups])
-          flash[:notice] = "Present already in that group"
-          redirect_to :controller=>"groups", :action=>"show", :id=>params[:group_id]
-      
-        else
-          redirect_to :controller=>"groups", :action=>"show", :id=>params[:group_id]
-
-
+          @contact_group.update_attributes(params[:contact_groups])
+          
+        
        end
-       
-        end
+           redirect_to :controller=>"groups", :action=>"show", :id=>params[:group_id]
+  
          
 
   end
