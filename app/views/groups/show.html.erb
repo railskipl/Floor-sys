@@ -311,15 +311,7 @@
 
 </script>
 
-<script type="text/javascript">
-function validate(){
-if (document.getElementById('group_contact_ids_').checked){
-       jQuery.facebox({ div: '#TEST100' });
-}else{
-alert("please select")
-}
-}
-</script>
+
 <style>
 #facebox {
   position: absolute;
@@ -348,6 +340,30 @@ jQuery(document).ready(function()
 	});
 	
 	
+	  jQuery(".check").click(function(){
+   	
+   	
+	var flag = false;
+	
+	jQuery("input[type=checkbox]").each(function()
+    {
+              if(this.checked == true)
+              {
+              	flag = true;
+              }
+                          
+     });
+                
+         if (flag == false) {
+                        alert("Please Select Checkbox.");
+                        return false;
+                }
+                if (flag == true) {
+                        jQuery.facebox({ div: '#TEST100' });
+                        
+                }
+                
+     });  
 
  });   
 </script>
@@ -402,9 +418,10 @@ jQuery.each(jQuery("input[name='group[contact_ids][]']:checked"), function() {
 
       <div id="right2">
   <div class="formbox" style="width: 80%">
-<a href="#" onclick="validate(); return false;">
+<a href="javascript:void(0);" class="check"  return false;">
 	Move to group
 </a>
+
    
     	<%= form_for :group, :url => {:controller => "groups" , :action => "move_to" }, :html=>{:id=>'contactform'} do |form| %>
   

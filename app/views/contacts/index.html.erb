@@ -8,19 +8,11 @@
   text-align: left;
 }
 
-</style>
-<%= stylesheet_link_tag 'facebox'  %>
+	</style>
+	<%= stylesheet_link_tag 'facebox'  %>
 
  <%= javascript_include_tag 'facebox' %>
- <script type="text/javascript">
-function validate(){
-if (document.getElementById('group_contact_ids_').checked){
-       jQuery.facebox({ div: '#TEST10' });
-}else{
-alert("please select")
-}
-}
-</script>
+ 
 <script language="JavaScript">
 
 jQuery(document).ready(function()
@@ -36,9 +28,31 @@ jQuery(document).ready(function()
 		});
 	});
 	
+   jQuery(".check").click(function(){
+   	
+   	
+	var flag = false;
 	
-
- });   
+	jQuery("input[type=checkbox]").each(function()
+    {
+              if(this.checked == true)
+              {
+              	flag = true;
+              }
+                          
+     });
+                
+         if (flag == false) {
+                        alert("Please Select Checkbox.");
+                        return false;
+                }
+                if (flag == true) {
+                        jQuery.facebox({ div: '#TEST10' });
+                        
+                }
+                
+     });  
+   }); 
 </script>
 
  <script language="javascript">
@@ -101,7 +115,7 @@ jQuery.each(jQuery("input[name='group[contact_ids][]']:checked"), function() {
 
    <div class="formbox" style="width: 80%">
 
-<a href="#" onclick="validate();"   return false;">
+<a href="javascript:void(0);" class="check"  return false;">
 	Add to group
 </a>
 

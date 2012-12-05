@@ -107,13 +107,21 @@ class GroupsController < ApplicationController
        recipients_array = params[:group]['contact_ids']
         
        recipients_array.each do |r|
-       
-         ContactGroup.connection.execute(%Q{ UPDATE  contact_groups SET group_id =  #{params[:contact_groups][:group_id]} WHERE contact_id = #{r}})
+         
+         @contact_group = ContactGroup.find_by_contact_id(r)
+         
+        if   @contact_group.update_attributes(params[:contact_groups])
+          flash[:notice] = "Present already in that group"
+          redirect_to :controller=>"groups", :action=>"show", :id=>params[:group_id]
+      
+        else
+          redirect_to :controller=>"groups", :action=>"show", :id=>params[:group_id]
+
 
        end
        
-          redirect_to :controller=>"groups", :action=>"show", :id=>params[:group_id]
-       
+        end
+         
 
   end
 
