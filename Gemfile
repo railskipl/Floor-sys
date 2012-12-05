@@ -7,7 +7,8 @@ gem 'ruby-mysql'
 gem 'prawn'
 gem "devise", "1.2.rc"
 
-
+gem 'execjs'
+gem 'therubyracer'
 gem 'cancan'
 
 gem 'ancestry'

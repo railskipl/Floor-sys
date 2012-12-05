@@ -1,10 +1,81 @@
-<p id="notice"><%= notice %></p>
+<div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
+<div id="blank"></div>
+<div id="right">
+    <div class="leftarrow_contacts" style="float:left"></div>
+    <div id="smoothmenu1" class="ddsmoothmenu">
+      <ul class="rightcorner">
+   
+      
+      <% if can? :new, Contact %>
+      <li><%= link_to "Add new Contact", new_contact_path %>
+   
+       </li>
+       <% end %>
+       
+        <% if can? :new, Contact %>
+      <li><%= link_to "All", contacts_path %> </li>
+    
+      	<% Group.all.each do |group| %>
+		<li ><%= link_to group.name, group_path(group.id) %>     </li>
+		
+		<% end %>
+      	
+     
+       <% end %>
+       
+       	     </ul>
+	     <br style="clear: left" />
+	     </div>
+ </div>
 
-<p>
+      <div id="right2">
+<!--    <h1>Move to group</h1> -->
+   
+    	<!-- <%= form_for :group, :url => {:controller => "groups" , :action => "move_to" }, :html=>{:id=>'contactform'} do |form| %>
+    
+            <%= hidden_field_tag :group_id, @group.id %>
+     	    <%= collection_select "contact_groups", "group_id" ,Group.all(:order => "id") , :id,:name,:prompt => "Select Group" %>
+ 
+   
+   			<%= submit_tag %>
+   
+    -->
+   
+   
+   
+<p id="notice"><%= notice %></p>
+<br/>
+<h1>
   <b>Name:</b>
   <%= @group.name %>
-</p>
+</h1>
 
 
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+<table border="0" width= "100%" cellpadding="0" cellspacing="0" id="product-table">
+        <tr>
+         <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Name</a> </th>
+          <th align="center" valign="middle" class="table-header-repeat line-left"><a href="">Email</a></th>
+          <th align="center" valign="middle" class="table-header-repeat line-left"><a href="">Phone Number</a></th>
+          <th align="center" valign="middle" class="table-header-repeat line-left"><a href="">Outstanding Balance</a></th>
+          <th align="center" valign="middle" class="table-header-repeat line-left"><a href="">Overdue</a></th>
+        </tr>
+   
+        <% for title in @group.contact_groups %>
+          <tr>
+          <td><%= title.contact.contact_name %></td>
+		  <td><%= title.contact.contact_email %></td> 
+		  <td><%= title.contact.contact_telephone %></td>
+		  <td></td>
+		  <td></td>
+		</tr> 
+		<% end %>
+
+<!-- 			 
+ <% end %> -->
+<%= link_to 'Back', contacts_path %>
+
+</table>
+</div></div>
+
+
+

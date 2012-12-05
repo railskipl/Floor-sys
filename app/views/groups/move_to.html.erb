@@ -1,0 +1,24 @@
+<div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
+<div id="blank"></div>
+<div id="right">
+    <div class="leftarrow_contacts" style="float:left"></div>
+    <div id="smoothmenu1" class="ddsmoothmenu">
+      <ul class="rightcorner">
+
+</ul>
+   <br style="clear: left" />
+</div>
+</div>
+<div id="right2">
+	<br/>
+	
+  	<%= form_for :group, :url => {:controller => "groups" , :action => "move_to" }, :html=>{:id=>'contactform'} do |form| %>
+    
+       <%= form.text_field :name, :class => "rtf" %>
+     	    <%= collection_select "contact_groups", "group_id" ,Group.all(:order => "id") , :id,:name,:prompt => "Select Group" %>
+ 	
+    <% end %>
+    
+
+	</div>
+</div>

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Group:</b>
+  <%= @add_to_group.group_id %>
+</p>
+
+<p>
+  <b>Contact:</b>
+  <%= @add_to_group.contact_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_add_to_group_path(@add_to_group) %> |
+<%= link_to 'Back', add_to_groups_path %>

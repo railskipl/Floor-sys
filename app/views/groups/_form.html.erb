@@ -14,8 +14,13 @@
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
+    
   </div>
+  <div style="display: none">
+    <%= collection_select "contact_groups", "group_id" ,Group.all(:order => "id") , :id,:name,:prompt => "Select Group" %>
+</div>
+
   <div class="actions">
-    <%= f.submit %>
-  </div>
+    <%= f.submit "Save" ,:class => "button"%>
+  </div><br/>
 <% end %>

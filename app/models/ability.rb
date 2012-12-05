@@ -14,6 +14,7 @@ class Ability
       can :read,   [User]
       can :create, [User]
       can :manage, [Contact]
+      can :manage, [Group]
       can :manage, [Customer] 
       can :manage, [Category]
       can :manage, [Prospect]
@@ -39,6 +40,7 @@ class Ability
       can :read,   [User]
       can :create, [User]
       can :manage, [Contact]
+      can :manage, [Group]
       can :manage, [Customer]
       can :manage, [Category]
       can :manage, [Prospect]
@@ -62,6 +64,7 @@ class Ability
     else
       can :manage, [Role]
       can :manage, [Contact]
+      can :manage, [Group]
       can :manage, [Customer]
       can :manage, [Prospect]
       can :manage, [SaleRepresentative]

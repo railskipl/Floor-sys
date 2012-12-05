@@ -1,4 +1,9 @@
+
 class GroupsController < ApplicationController
+   layout :resolve_layout
+
+  # ...
+
   # GET /groups
   # GET /groups.xml
   def index
@@ -41,21 +46,29 @@ class GroupsController < ApplicationController
   # POST /groups.xml
   def create
     @group = Group.new(params[:group])
-
-    respond_to do |format|
-      if @group.save
-        format.html { redirect_to(@group, :notice => 'Group was successfully created.') }
-        format.xml  { render :xml => @group, :status => :created, :location => @group }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @group.errors, :status => :unprocessable_entity }
+    if !params[:contact_groups][:group_id].blank? 
+      @a = params[:contact_groups][:group_id]
+      @b  = params[:group]['contact_ids']
+   
+       recipients_array = params[:group]['contact_ids']
+       recipients_array.each do |r|
+        ContactGroup.create(:contact_id => r,:group_id => @a)
+       end
+       redirect_to contacts_path  
+      
+    else
+      if @group.save 
+        redirect_to  contacts_path  
+      else 
+        redirect_to contacts_path  
       end
     end
-  end
+ end
 
   # PUT /groups/1
   # PUT /groups/1.xml
   def update
+  
     @group = Group.find(params[:id])
 
     respond_to do |format|
@@ -69,6 +82,8 @@ class GroupsController < ApplicationController
     end
   end
 
+
+
   # DELETE /groups/1
   # DELETE /groups/1.xml
   def destroy
@@ -80,4 +95,38 @@ class GroupsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+
+  # def move_to
+#        
+       # @a = params[:contact_groups][:group_id]
+#       
+       # @b  = params[:group]['contact_ids']
+#        
+#        
+       # recipients_array = params[:group]['contact_ids']
+#         
+       # recipients_array.each do |r|
+#        
+#       
+        # ContactGroup.find_by_sql(%q{ UPDATE  contact_groups SET group_id =  #{@a} WHERE contact_id = #{r}})
+#          
+       # end
+#        
+          # redirect_to :controller=>"groups", :action=>"show", :id=>params[:group_id]
+#        
+# 
+  # end
+
+  private
+
+  def resolve_layout
+    case action_name
+    when "new", "create"
+      "group"
+    else
+      "application"
+    end
+  end
+
 end

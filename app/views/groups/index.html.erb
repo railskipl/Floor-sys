@@ -1,19 +1,26 @@
-<h1>Listing groups</h1>
+<div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
+<div id="blank"></div>
+<div id="right">
+    <div class="leftarrow_contacts" style="float:left"></div>
+  
+ </div>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
+	<div id="right2">
+<h1>Listing groups</h1>
+   
+   <div class="formbox">
+
+  <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+        <tr>
+     <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Name</a></th>
+      <th align="center" valign="middle" class="table-header-options line-left"><a href="">Action</a></th>
   </tr>
 
 <% @groups.each do |group| %>
   <tr>
     <td><%= group.name %></td>
-    <td><%= link_to 'Show', group %></td>
-    <td><%= link_to 'Edit', edit_group_path(group) %></td>
-    <td><%= link_to 'Destroy', group, :confirm => 'Are you sure?', :method => :delete %></td>
+ 
+    <td class="options-width"><%= link_to '', edit_group_path(group), :class =>"icon-2 info-tooltip" %> <%= link_to '', {:controller=>"groups", :action=>"destroy", :id=>"#{group.id}"}, :confirm => 'Are you sure?',  :class => "icon-3 info-tooltip" %></td>
   </tr>
 <% end %>
 </table>

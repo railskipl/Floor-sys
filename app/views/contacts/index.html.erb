@@ -1,3 +1,54 @@
+<style>
+#facebox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  margin: 80px;
+  text-align: left;
+}
+
+</style>
+<%= stylesheet_link_tag 'facebox'  %>
+
+ <%= javascript_include_tag 'facebox' %>
+<script language="JavaScript">
+jQuery(document).ready(function()
+{
+	jQuery("#checkall").click(function()
+	{
+		
+		var checked_status = this.checked;
+		jQuery("input[type=checkbox]").each(function()
+		{
+			this.checked = checked_status;
+			
+		});
+	});
+	
+	
+
+ });   
+</script>
+
+ <script language="javascript">
+  
+ 
+ jQuery(document).ready(function($) {
+ 	  $('a[rel*=facebox]').facebox()
+    var values = new Array();
+    
+ 
+jQuery.each(jQuery("input[name='group[contact_ids][]']:checked"), function() {
+  values.push(jQuery(this).val());
+  // or you can do something to the actual checked checkboxes by working directly with  'this'
+  // something like $(this).hide() (only something useful, probably) :P
+  
+
+});
+   
+});
+</script>
 <div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
 <div id="blank"></div>
 <div id="right">
@@ -6,15 +57,22 @@
       <ul class="rightcorner">
       
       <% if can? :new, Contact %>
-      <li><%= link_to "Contact", contacts_path %>
-       <ul>
-
-       <li> <%= link_to 'New', new_contact_path %></li>
-
-
-       </ul>
+      <li><%= link_to "Add new Contact", new_contact_path %>
+   
        </li>
        <% end %>
+       
+        <% if can? :new, Contact %>
+      <li><%= link_to "All", contacts_path %> </li>
+    
+      	<% Group.all.each do |group| %>
+		<li ><%= link_to group.name, group_path(group.id) %>	
+		<% end %>
+      	
+      </li>
+       <% end %>
+       
+       
        
      
 
@@ -26,12 +84,61 @@
 
 	<div id="right2">
 	
-	 <h1>Contacts</h1>
-   
-   <div class="formbox">
+	 <h1><% @group = Group.new %>
+	 	  <% a = url_for(:controller => "groups", :action => "new") %>
+		  <%= link_to "Add New Group" ,new_group_path,:onclick => a,:rel => "facebox" %>  
+	</h1>
+
+   <div class="formbox" style="width: 80%">
+
+<a href="#" onclick="jQuery.facebox({ div: '#TEST10' }); return false;">
+	Add to group
+</a>
+
+
+	<%= form_for(@group) do |f| %>
+  <% if @group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@group.errors.count, "error") %> prohibited this group from being saved:</h2>
+
+      <ul>
+      <% @group.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div id="TEST10" style="display: none;">
+                                   
+                                  
+    Add To Exising Group : 
+    <%= collection_select "contact_groups", "group_id" ,Group.all(:order => "id") , :id,:name,:prompt => "Select Group" %>
+	<br/>
+	OR
+	<br/>
+  <div class="field">
+    <%= f.label :name ,"New Group" %><br />
+    <%= f.text_field :name %>
+    
+  </div>
+  
+  
+  <div class="actions">
+    <%= f.submit "Save" ,:class => "button"%>
+  </div><br/>
+
+ 
+	  </div>
+
+<div style="margin-bottom: 10px;">
 	 
+	 
+
     <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
         <tr>
+        <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1">
+        	<input type="checkbox" id="checkall" />
+        	<a href="">Select </a> </th>
           <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Name</a> </th>
           <th align="center" valign="middle" class="table-header-repeat line-left"><a href="">Email</a></th>
           <th align="center" valign="middle" class="table-header-repeat line-left"><a href="">Phone Number</a></th>
@@ -40,23 +147,25 @@
           <th align="center" valign="middle" class="table-header-options line-left"><a href="">Action</a></th>
         </tr>
         <tr>
+        	
+
          <% @contacts.each do |contact| %>
-        
-          <td><%= contact.contact_name %></td>
-          <td><%= contact.contact_email %></td> 
-          <td><%= contact.contact_telephone %></td>
-          <td></td>
-          <td></td>
+
+	        	<td><%= check_box_tag "group[contact_ids][]", contact.id %>
+		        <td><%= contact.contact_name %></td>
+		        <td><%= contact.contact_email %></td> 
+		        <td><%= contact.contact_telephone %></td>
+		        <td></td>
+		     	<td></td>
                
           <td class="options-width"> <%= link_to '', contact_path(contact), :class => "icon-1 info-tooltip" %><%= link_to '', edit_contact_path(contact), :class =>"icon-2 info-tooltip" %> <%= link_to '', {:controller=>"contacts", :action=>"destroy", :id=>"#{contact.id}"}, :confirm => 'Are you sure?',  :class => "icon-3 info-tooltip" %></td>
         </tr>
      
         <%end%>
       </table>
-      
+      <% end %>
       </div>
    
     </div>
-    
 
-   
+

@@ -1,6 +1,12 @@
 Floorsys::Application.routes.draw do|map|
   
-  resources :groups
+  resources :add_to_groups
+
+    map.connect '/groups/:id/delete', :controller=>'groups', :action=>'destroy'
+    
+      match '/move_to'  => 'groups#move_to' ,:via => :post
+   
+    resources :groups
 
   map.connect '/sale_estimates/:id/remove_basket_item', :controller=>'sale_estimates', :action=>'remove_basket_item'
   resources :sale_estimates do
@@ -72,6 +78,7 @@ Floorsys::Application.routes.draw do|map|
   resources :customers
 
   map.connect '/contacts/:id/delete', :controller=>'contacts', :action=>'destroy'
+  
   resources :contacts
 
   

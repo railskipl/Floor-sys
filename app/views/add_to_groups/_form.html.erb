@@ -1,0 +1,31 @@
+
+
+<%= form_for(@add_to_group) do |f| %>
+  <% if @add_to_group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@add_to_group.errors.count, "error") %> prohibited this add_to_group from being saved:</h2>
+
+      <ul>
+      <% @add_to_group.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :group_id %><br />
+
+    <%= f.collection_select :group_id,Group.all(:order => "id") , :id,:name  %>
+  </div>
+<br/>
+ <% Contact.all.each do |c|%>
+      <%= check_box_tag "group[contact_ids][]", c.id %>
+
+       <% end %>
+
+  <div class="actions">
+    <%= f.submit "Add",:class => "button"%>
+    
+  </div>
+<% end %>

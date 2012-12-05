@@ -7,7 +7,7 @@ class ContactsController < ApplicationController
   # GET /contacts.xml
   def index
     @contacts = Contact.find_all_by_company_id(current_user.company_id)
-    
+    @group = Group.new
 
     respond_to do |format|
       format.html # index.html.erb
