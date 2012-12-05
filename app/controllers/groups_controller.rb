@@ -97,26 +97,25 @@ class GroupsController < ApplicationController
   end
 
 
-  # def move_to
-#        
-       # @a = params[:contact_groups][:group_id]
-#       
-       # @b  = params[:group]['contact_ids']
-#        
-#        
-       # recipients_array = params[:group]['contact_ids']
-#         
-       # recipients_array.each do |r|
-#        
-#       
-        # ContactGroup.find_by_sql(%q{ UPDATE  contact_groups SET group_id =  #{@a} WHERE contact_id = #{r}})
-#          
-       # end
-#        
-          # redirect_to :controller=>"groups", :action=>"show", :id=>params[:group_id]
-#        
-# 
-  # end
+  def move_to
+       
+       @a = params[:contact_groups][:group_id]
+      
+       @b  = params[:group]['contact_ids']
+       
+       
+       recipients_array = params[:group]['contact_ids']
+        
+       recipients_array.each do |r|
+       
+         ContactGroup.connection.execute(%Q{ UPDATE  contact_groups SET group_id =  #{params[:contact_groups][:group_id]} WHERE contact_id = #{r}})
+
+       end
+       
+          redirect_to :controller=>"groups", :action=>"show", :id=>params[:group_id]
+       
+
+  end
 
   private
 
