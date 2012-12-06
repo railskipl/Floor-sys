@@ -10,6 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+
 ActiveRecord::Schema.define(:version => 20121206062902) do
 
   create_table "add_to_groups", :force => true do |t|
@@ -18,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20121206062902) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
 
   create_table "categories", :force => true do |t|
     t.string   "category_name"
@@ -85,8 +87,10 @@ ActiveRecord::Schema.define(:version => 20121206062902) do
     t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+
     t.integer  "group_id"
     t.boolean  "status"
+
   end
 
   create_table "countries", :force => true do |t|
@@ -129,6 +133,16 @@ ActiveRecord::Schema.define(:version => 20121206062902) do
     t.datetime "updated_at"
     t.text     "attachement_detail"
     t.string   "added_by_customer"
+  end
+
+  create_table "defective_products", :force => true do |t|
+    t.integer  "product_id"
+    t.integer  "uom_id"
+    t.integer  "units"
+    t.text     "notes"
+    t.integer  "company_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "groups", :force => true do |t|
@@ -341,6 +355,16 @@ ActiveRecord::Schema.define(:version => 20121206062902) do
   create_table "sales_types", :force => true do |t|
     t.string   "code"
     t.string   "name"
+    t.integer  "company_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "stocks", :force => true do |t|
+    t.integer  "product_id"
+    t.integer  "uom_id"
+    t.integer  "units"
+    t.integer  "sold_units"
     t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -35,6 +35,8 @@ class Ability
       can :manage, [Vat]
       can :manage, [PurchaseOrder] 
       can :manage, [SaleEstimate]
+      can :manage, [Stock]
+      can :manage, [DefectiveProduct]
       # check if user is staff grant only 'read & 'manage' permissions
     elsif user.role? :staff
       can :read,   [User]
@@ -61,6 +63,8 @@ class Ability
       can :manage, [Vat]
       can :manage, [PurchaseOrder]
       can :manage, [SaleEstimate]
+      can :manage, [Stock]
+       can :manage, [DefectiveProduct]
     else
       can :manage, [Role]
       can :manage, [Contact]
@@ -79,6 +83,8 @@ class Ability
       can :manage, [Product]
       can :manage, [ProductReqPlanning]
       can :manage, [Quotation] 
+      can :manage, [Stock]
+       can :manage, [DefectiveProduct]
     end
   end
   

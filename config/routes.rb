@@ -1,5 +1,6 @@
 Floorsys::Application.routes.draw do|map|
   
+
   resources :add_to_groups
 
     map.connect '/groups/:id/delete', :controller=>'groups', :action=>'destroy'
@@ -8,7 +9,13 @@ Floorsys::Application.routes.draw do|map|
    
     resources :groups
 
+ 
+
+  resources :sale_orders
+
+
   map.connect '/sale_estimates/:id/remove_basket_item', :controller=>'sale_estimates', :action=>'remove_basket_item'
+  map.connect '/sale_estimates/:id/delete', :controller=>'sale_estimates', :action=>'destroy'
   resources :sale_estimates do
     member do
       get 'invoice_pdf'
@@ -18,6 +25,7 @@ Floorsys::Application.routes.draw do|map|
     end
   end
 
+  
   map.connect '/purchase_orders/:id/toggle_order_invoiced_status', :controller=>'purchase_orders', :action=>'toggle_order_invoiced_status'
   map.connect '/purchase_orders/:id/remove_basket_item', :controller=>'purchase_orders', :action=>'remove_basket_item'
   map.connect '/purchase_orders/:id/remove_purchase_order_item/:id2', :controller=>'purchase_orders', :action=>'remove_purchase_order_item'
@@ -78,6 +86,7 @@ Floorsys::Application.routes.draw do|map|
   resources :customers
 
   map.connect '/contacts/:id/delete', :controller=>'contacts', :action=>'destroy'
+<<<<<<< HEAD
   
   resources :contacts do
     get :restore, :on => :collection
@@ -90,6 +99,16 @@ Floorsys::Application.routes.draw do|map|
       
       
  
+
+
+  resources :contacts
+  
+  
+  map.connect '/stocks/:id/delete', :controller=>'stocks', :action=>'destroy'
+  resources :stocks
+  
+  map.connect '/defective_products/:id/delete', :controller=>'defective_products', :action=>'destroy'
+  resources :defective_products
 
   
   map.connect '/vats/company.id/delete', :controller=>'vats', :action=>'destroy'
@@ -104,10 +123,23 @@ Floorsys::Application.routes.draw do|map|
   resources :sales_types
 
   resources :vats
+  
   map.connect '/categories/:id/delete', :controller=>'categories', :action=>'destroy'
   resources :categories
 
   resources :companies
+  
+   
+
+  resources :groups
+  map.connect '/stocks/find', :controller=>'stocks', :action=>'find'
+  map.connect '/defective_products/find1', :controller=>'defective_products', :action=>'find1'
+ 
+
+
+
+
+
 
   devise_for :users
   resources :users

@@ -17,7 +17,7 @@
     <tr>
       <td align="right" valign="middle">Name </td>
       <td align="center" valign="middle">:</td>
-      <td><%= f.text_field :name %>
+      <td><%= f.text_field :name,:class =>"field1"  %>
         <%= f.hidden_field :company_id, :value=>"#{current_user.company_id}" %>
       </td>
     </tr>

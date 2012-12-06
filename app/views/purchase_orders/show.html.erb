@@ -45,12 +45,12 @@
   <% item_index = 1 %>
       <% @purchase_order.purchase_order_items.each do |item| %>
       <tr>
-        <td class="tddata"><%= item_index %></td>
-        <td class="tddata"><%= item.product.supplier.name %></td>
-        <td class="tddata"><%= item.product.product_name %></td>
-        <td class="tddata"><%= item.product.purchase_price %></td>
-        <td class="tddata"><%= item.quantity %></td>
-        <td class="tddata"><%= item.price %></td>
+        <td class="tddata"><%= item_index rescue " "%></td>
+        <td class="tddata"><%= item.product.supplier.name rescue " " %></td>
+        <td class="tddata"><%= item.product.product_name rescue " " %></td>
+        <td class="tddata"><%= item.product.purchase_price rescue " "%></td>
+        <td class="tddata"><%= item.quantity rescue " "%></td>
+        <td class="tddata"><%= item.price rescue " "%></td>
         
      </tr>
       <% item_index += 1 %>
@@ -59,7 +59,7 @@
    <tr class="alternate-row">
      <td class="tddata" colspan="4">&nbsp;</td>
      <td class="tddata2">Total</td>
-     <td class="tddata2"><%= @purchase_order.total_price %></td>
+     <td class="tddata2"><%= @purchase_order.total_price rescue " "%></td>
    </tr>
  </table>
   

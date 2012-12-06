@@ -8,9 +8,7 @@
        <ul>
 
         <li><%= link_to 'New', new_user_path %></li>
-
-
-        </ul>
+     </ul>
       </li>
          <% if can? :new, Company %>
            <li><%= link_to "Company", companies_path %>

@@ -1,0 +1,48 @@
+
+<div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
+<div id="blank"></div>
+<div id="right">
+  <div class="leftarrow_contacts" style="float:left"></div>
+
+ </div>
+ 
+ <div id="right2">
+	 
+      <h1>Defective Product</h1>
+      <div class="formbox">
+      <table width="60%" border="0" cellspacing="10" cellpadding="5">
+        
+        <tr>
+          <td align="right" valign="middle">Product </td>
+          <td align="center" valign="middle">:</td>
+          <td>  <%= @defective_product.product_id %> </td>
+        </tr>
+        
+        <tr>
+          <td align="right" valign="middle">Uom Id</td>
+          <td align="center" valign="middle">:</td>
+          <td>  <%= @defective_product.uom_id %></td>
+        </tr>
+        
+          <tr>
+          <td align="right" valign="middle">Units</td>
+          <td align="center" valign="middle">:</td>
+          <td> <%= @defective_product.units %></td>
+        </tr>
+          <tr>
+          <td align="right" valign="middle">Notes</td>
+          <td align="center" valign="middle">:</td>
+          <td>    <%= @defective_product.notes %></td>
+        </tr>
+       
+     
+      </table>
+      
+<%= link_to 'Back', defective_products_path %>
+      </div>
+      </div>
+   
+    </div>
+    </div>
+    
+    

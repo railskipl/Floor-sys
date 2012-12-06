@@ -32,12 +32,12 @@
           <tr>
             <td align="right" valign="middle">Product Name </td>
             <td align="center" valign="middle">:</td>
-            <td><%= f.text_field :product_name %></td>
+            <td><%= f.text_field :product_name,:class =>"field1"  %></td>
           </tr>
           <tr>
             <td align="right" valign="middle">Product Code </td>
             <td align="center" valign="middle">:</td>
-            <td><%= f.text_field :product_code %></td>
+            <td><%= f.text_field :product_code,:class =>"field1"  %></td>
           </tr>
           <tr>
             <td align="right" valign="middle">Product Type </td>
@@ -52,7 +52,7 @@
           <tr>
             <td align="right" valign="middle">Product Price </td>
             <td align="center" valign="middle">:</td>
-            <td><%= f.text_field :purchase_price %></td>
+            <td><%= f.text_field :purchase_price,:class =>"field1"  %></td>
           </tr>
           
           <tr>
@@ -63,7 +63,7 @@
           <tr>
             <td align="right" valign="middle">Range Name </td>
             <td align="center" valign="middle">:</td>
-            <td><%= f.text_field :range_name %></td>
+            <td><%= f.text_field :range_name,:class =>"field1"  %></td>
           </tr>
           <tr>
             <td align="right" valign="middle">Product Fiber </td>
@@ -78,22 +78,22 @@
           <tr>
             <td align="right" valign="middle">Range Name </td>
             <td align="center" valign="middle">:</td>
-            <td><%= f.text_field :range_name %></td>
+            <td><%= f.text_field :range_name,:class =>"field1"  %></td>
           </tr>
           <tr>
             <td align="right" valign="middle">Pile Height Gauge </td>
             <td align="center" valign="middle">:</td>
-            <td><%= f.text_field :pile_height_gauge %></td>
+            <td><%= f.text_field :pile_height_gauge,:class =>"field1"  %></td>
           </tr>
           <tr>
             <td align="right" valign="middle">Pile Weight </td>
             <td align="center" valign="middle">:</td>
-            <td><%= f.text_field :pile_weight %></td>
+            <td><%= f.text_field :pile_weight,:class =>"field1"  %></td>
           </tr>
           <tr>
             <td align="right" valign="middle">Unit Weight </td>
             <td align="center" valign="middle">:</td>
-            <td><%= f.text_field :unit_weight %></td>
+            <td><%= f.text_field :unit_weight,:class =>"field1"  %></td>
           </tr>
           <tr>
             <td align="right" valign="middle">Product Wear </td>
@@ -113,12 +113,12 @@
           <tr>
             <td align="right" valign="middle">Description </td>
             <td align="center" valign="middle">:</td>
-            <td><%= f.text_area :full_description, :rows=>"2", :cols=>"33" %></td>
+            <td><%= f.text_area :full_description, :rows=>"2", :cols=>"33",:class =>"field1"  %></td>
           </tr>
           <tr>
             <td align="right" valign="middle">Notes </td>
             <td align="center" valign="middle">:</td>
-            <td><%= f.text_area :notes, :rows=>"2", :cols=>"33" %></td>
+            <td><%= f.text_area :notes, :rows=>"2", :cols=>"33" ,:class =>"field1" %></td>
           </tr>
           </table>
     		</div>
@@ -127,12 +127,12 @@
             <tr>
               <td align="right" valign="middle">Color Name</td>
               <td align="center" valign="middle">:</td>
-              <td><%= f.text_field :colour_name %></td>
+              <td><%= f.text_field :colour_name ,:class =>"field1" %></td>
             </tr>
             <tr>
               <td align="right" valign="middle">Color Number</td>
               <td align="center" valign="middle">:</td>
-              <td><%= f.text_field :colour_number %>
+              <td><%= f.text_field :colour_number ,:class =>"field1" %>
               <%= f.hidden_field :company_id, :value=>"#{current_user.company_id}" %>
               </td>
             </tr>

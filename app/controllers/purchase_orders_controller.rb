@@ -33,7 +33,7 @@ class PurchaseOrdersController < ApplicationController
     
     # Update the contact selected to supplier group  
     @congroup = ContactGroup.find_by_contact_id(params[:contact_id])    
-    @congroup.update_attribute(:group_id, '3')
+    @congroup.update_attribute(:group_id, '3') rescue " "
     
     
     # Create Purchase Order    
@@ -52,8 +52,8 @@ class PurchaseOrdersController < ApplicationController
   
   
   def edit
-    @company = Company.find(current_user.company_id)
-    @product = Product.find_all_by_company_id(current_user.company_id)
+    @contact = Contact.find_all_by_company_id(current_user.company_id) 
+    @product = Product.find_all_by_company_id(current_user.company_id)  
   end
 
 

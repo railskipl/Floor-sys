@@ -6,6 +6,7 @@ before_filter :find_basket, :only => [:add_basket_item, :remove_basket_item]
 
   # GET /sale_estimates
   # GET /sale_estimates.xml
+ 
   def index
     @sale_estimates = SaleEstimate.all
 
@@ -83,19 +84,23 @@ before_filter :find_basket, :only => [:add_basket_item, :remove_basket_item]
     end
   end
   
+  
   def remove_basket_item
     @basket.items.delete_at(params[:array_position].to_i - 1)
     redirect_to new_sale_estimate_url
   end
+
   
   def add_basket_item
     @basket.add_product_quantity(Product.find(params[:product_id]), BigDecimal.new(params[:quantity]))
     redirect_to new_sale_estimate_url(:id => params[:id])
   end
+
   
   def find_basket
     @basket = session[:basket] ||= Basket.new
   end
+
   
   protected
   

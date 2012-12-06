@@ -45,7 +45,7 @@
             <td align="left" valign="middle">Quantity</td>
           </tr>
           <tr>
-            <td align="left" valign="middle"><%= text_field_tag :quantity %></td>
+            <td align="left" valign="middle"><%= text_field_tag :quantity , nil, :class =>"field1" %></td>
           </tr>
           <tr>
             <td align="left" valign="middle"><%= submit_tag "Submit", :class=>"button" %></td>
@@ -105,13 +105,13 @@
             <td align="left" valign="middle">Deliver to :</td>
             </tr>
           <tr>
-            <td align="left" valign="middle"><%= text_field_tag :deliver_to %></td>
+            <td align="left" valign="middle"><%= text_field_tag :deliver_to, nil, :class =>"field1"  %></td>
             </tr>
           <tr>
             <td align="left" valign="middle">Deliver Phone :</td>
           </tr>
           <tr>
-            <td align="left" valign="middle"><%= text_field_tag :deliver_phone %></td>
+            <td align="left" valign="middle"><%= text_field_tag :deliver_phone , nil, :class =>"field1" %></td>
           </tr>
           <tr>
             <td align="left" valign="middle">Order Date :</td>
@@ -122,14 +122,16 @@
           <tr>
             <td align="left" valign="middle">Expected Date :</td>
           </tr>
+          
           <tr>
             <td align="left" valign="middle"><%= date_select :expected_date, params[:expected_date] %></td>
           </tr>
+          
           <tr>
             <td align="left" valign="middle">Purchase order notes :</td>
           </tr>
           <tr>
-            <td align="left" valign="middle"><%= text_area_tag :purchase_order_notes, nil, :rows => 4, :cols => 80 %></td>
+            <td align="left" valign="middle"><%= text_area_tag :purchase_order_notes, nil, :rows => 4, :cols => 80,:class =>"field1"  %></td>
           </tr>
           <tr>
             <td align="left" valign="middle"><%= submit_tag "Submit", :class=>"button" %></td>
