@@ -1,0 +1,94 @@
+
+<div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
+<div id="blank"></div>
+<div id="right">
+    <div class="leftarrow_contacts" style="float:left"></div>
+    <div id="smoothmenu1" class="ddsmoothmenu">
+      <ul class="rightcorner">
+      
+      <% if can? :new, Contact %>
+      <li><%= link_to "Add new Contact", new_contact_path %>
+   
+       </li>
+       <% end %>
+       
+        <% if can? :new, Contact %>
+      <li><%= link_to "All", contacts_path %> </li>
+          	
+       <% end %>
+       <% if can? :new, Group %>
+      <li><%= link_to "Groups", '#' %>
+       <ul>
+           	<% Group.all.each do |group| %>
+		<li ><%= link_to group.name, group_path(group.id) %>	</li>
+		<% end %>
+      	
+       </ul>
+      </li>
+      
+       <% if can? :new, Contact %>
+      <li>       <%= link_to "Archived" ,restore_contacts_path %> </li>
+       <% end %>
+      <% end %>   
+       
+       
+     
+
+	     </ul>
+	     <br style="clear: left" />
+	     </div>
+ </div>
+
+
+	<div id="right2">
+	
+	 <h1> 
+	</h1>
+
+   <div class="formbox" style="width: 90%">
+
+
+
+
+  
+
+  
+
+<div style="margin-bottom: 10px;">
+	 
+	 
+
+    <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table" style="margin-top: 10px;">
+        <tr>
+       
+          <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Name</a> </th>
+          <th align="center" valign="middle" class="table-header-repeat line-left"><a href="">Email</a></th>
+          <th align="center" valign="middle" class="table-header-repeat line-left"><a href="">Phone Number</a></th>
+          <th align="center" valign="middle" class="table-header-repeat line-left"><a href="">Outstanding Balance</a></th>
+          <th align="center" valign="middle" class="table-header-options line-left"><a href="">Action</a></th>
+          <th align="center" valign="middle" class="table-header-repeat line-left"><a href=""></a></th>
+
+        </tr>
+        <tr>
+        	
+
+         <% @contacts.each do |contact| %>
+
+	        	
+		        <td><%= contact.contact_name %></td>
+		        <td><%= contact.contact_email %></td> 
+		        <td><%= contact.contact_telephone %></td>
+		      	<td></td>
+		     	<td class="options-width"> <%= link_to '', contact_path(contact), :class => "icon-1 info-tooltip" %><%= link_to '', edit_contact_path(contact), :class =>"icon-2 info-tooltip" %> <%= link_to '', {:controller=>"contacts", :action=>"destroy", :id=>"#{contact.id}"}, :confirm => 'Are you sure?',  :class => "icon-3 info-tooltip" %></td>
+
+				<td><%= link_to "Restore", {:controller => 'contacts', :action => 'toggled_status', :id => contact.id} %></td>               
+        </tr>
+     
+        <%end%>
+      </table>
+
+      </div>
+   
+    </div>
+
+

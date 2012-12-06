@@ -79,7 +79,17 @@ Floorsys::Application.routes.draw do|map|
 
   map.connect '/contacts/:id/delete', :controller=>'contacts', :action=>'destroy'
   
-  resources :contacts
+  resources :contacts do
+    get :restore, :on => :collection
+  end
+ 
+      match '/contacts/:id/status', :to => "contacts#toggled_status"
+      
+
+      
+      
+      
+ 
 
   
   map.connect '/vats/company.id/delete', :controller=>'vats', :action=>'destroy'

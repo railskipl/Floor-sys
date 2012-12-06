@@ -6,7 +6,7 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.xml
   def index
-    @contacts = Contact.find_all_by_company_id(current_user.company_id)
+    @contacts = Contact.find_all_by_company_id_and_status(current_user.company_id,false)
     @group = Group.new
 
     respond_to do |format|
@@ -85,4 +85,16 @@ class ContactsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def  toggled_status
+    @contact = Contact.find(params[:id])
+    @contact.status = !@contact.status?
+    @contact.save!
+    redirect_to contacts_path
+  end
+  
+  def restore
+      @contacts = Contact.find_all_by_company_id_and_status(current_user.company_id,true)
+  end
+ 
 end
