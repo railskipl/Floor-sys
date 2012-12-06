@@ -117,7 +117,7 @@
           <%= f.hidden_field :company_id, :value=>"#{current_user.company_id}" %>
       </td>
     </tr>
-  <%= hidden_field_tag "contact[group_ids][]", 1 %>
+  <%= f.hidden_field :status, :value => 0 %>
     <tr> 
       <td align="right" valign="middle">&nbsp;</td>
       <td align="center" valign="middle">&nbsp;</td>

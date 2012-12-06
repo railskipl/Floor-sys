@@ -413,6 +413,9 @@ jQuery.each(jQuery("input[name='group[contact_ids][]']:checked"), function() {
       	
        </ul>
       </li>
+       <% if can? :new, Contact %>
+      <li>       <%= link_to "Archived" ,restore_contacts_path %> </li>
+       <% end %>
       <% end %>   
        	     </ul>
 	     <br style="clear: left" />
