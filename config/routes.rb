@@ -13,7 +13,6 @@ Floorsys::Application.routes.draw do|map|
 
   resources :sale_orders
 
-
   map.connect '/sale_estimates/:id/remove_basket_item', :controller=>'sale_estimates', :action=>'remove_basket_item'
   map.connect '/sale_estimates/:id/delete', :controller=>'sale_estimates', :action=>'destroy'
   resources :sale_estimates do
@@ -86,7 +85,7 @@ Floorsys::Application.routes.draw do|map|
   resources :customers
 
   map.connect '/contacts/:id/delete', :controller=>'contacts', :action=>'destroy'
-<<<<<<< HEAD
+
   
   resources :contacts do
     get :restore, :on => :collection
