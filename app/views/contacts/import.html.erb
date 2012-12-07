@@ -1,0 +1,30 @@
+<div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
+<div id="blank"></div>
+<div id="right">
+  <div class="leftarrow_contacts" style="float:left"></div>
+
+ </div>
+	<div id="right2">
+	    <div class="formbox" style="width: 90%">
+	   <h3>Upload CSV format, while importing please keep in your mind that you have all the contact fields in your csv and keep status 0</h3>
+<%= form_for :dump, :url=>{:controller=>"contacts", :action=>"csv_import"}, :html => { :multipart => true } do |f| %>
+ <table">
+   <tr>
+     <td>
+      <label for="dump_file">
+        Select a CSV File :
+      </label>
+     </td>
+     <td >
+       <%= f.file_field :file %>
+     </td>
+   </tr>
+   <tr>
+     <td colspan='2'>
+       <%= submit_tag 'Submit' %>
+     </td>
+   </tr>
+ </table>
+<% end %>
+
+</div></div></div>

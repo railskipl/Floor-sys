@@ -8,10 +8,12 @@ class ContactsController < ApplicationController
   def index
     @contacts = Contact.find_all_by_company_id_and_status(current_user.company_id,false)
     @group = Group.new
-
+    
+   
     respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @contacts }
+        format.html
+       format.csv { send_data Contact.to_csv }
+       format.xls { send_data Contact.to_csv(col_sep: "\t") }
     end
   end
 
@@ -95,6 +97,19 @@ class ContactsController < ApplicationController
   
   def restore
       @contacts = Contact.find_all_by_company_id_and_status(current_user.company_id,true)
+  end
+ 
+   def csv_import  
+      if request.post? && params[:dump][:file].present?
+         infile = params[:dump][:file].read
+       
+         CSV.parse(infile, :headers => true).each do |row|
+           Contact.create!(row.to_hash)
+         end
+           redirect_to contacts_path
+      else
+        redirect_to root_path
+      end
   end
  
 end

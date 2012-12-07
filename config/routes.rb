@@ -89,6 +89,8 @@ Floorsys::Application.routes.draw do|map|
   
   resources :contacts do
     get :restore, :on => :collection
+    get :import, :on => :collection 
+    post :csv_import ,:on => :collection
   end
  
       match '/contacts/:id/status', :to => "contacts#toggled_status"

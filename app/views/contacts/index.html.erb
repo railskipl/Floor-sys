@@ -108,7 +108,19 @@ jQuery.each(jQuery("input[name='group[contact_ids][]']:checked"), function() {
          <% if can? :new, Contact %>
       <li>       <%= link_to "Archived" ,restore_contacts_path %> </li>
        <% end %>
+  
+ <% if can? :new, Contact %>
+      <li>      <%= link_to "CSV", contacts_path(format: "csv") %> </li>
        <% end %>
+
+
+       
+        <% if can? :new, Contact %>
+      <li>    <%= link_to "Import", import_contacts_path %>  </li>
+       <% end %>
+              
+       
+        <% end %>
        
        
        
