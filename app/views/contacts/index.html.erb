@@ -110,7 +110,7 @@ jQuery.each(jQuery("input[name='group[contact_ids][]']:checked"), function() {
        <% end %>
   
  <% if can? :new, Contact %>
-      <li>      <%= link_to "CSV", contacts_path(format: "csv") %> </li>
+      <li>      <%= link_to "Export", contacts_path(format: "csv") %> </li>
        <% end %>
 
 
