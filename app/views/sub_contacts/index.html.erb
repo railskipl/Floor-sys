@@ -1,0 +1,62 @@
+<div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
+<div id="blank"></div>
+<div id="right">
+  <div class="leftarrow_contacts" style="float:left"></div>
+<%= javascript_include_tag :defaults %>
+ </div>
+	<div id="right2">
+	 
+<h1>Listing sub_contacts</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Position</th>
+    <th>Address1</th>
+    <th>Address2</th>
+    <th>Town</th>
+    <th>Country</th>
+    <th>Post code</th>
+    <th>Vat number</th>
+    <th>Phone no</th>
+    <th>Fax</th>
+    <th>Email</th>
+    <th>Nominal code</th>
+    <th>Vat sales</th>
+    <th>Vat purchase</th>
+    <th>Skype</th>
+    <th>Msn</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sub_contacts.each do |sub_contact| %>
+  <tr>
+    <td><%= sub_contact.name %></td>
+    <td><%= sub_contact.position %></td>
+    <td><%= sub_contact.address1 %></td>
+    <td><%= sub_contact.address2 %></td>
+    <td><%= sub_contact.town %></td>
+    <td><%= sub_contact.country %></td>
+    <td><%= sub_contact.post_code %></td>
+    <td><%= sub_contact.vat_number %></td>
+    <td><%= sub_contact.phone_no %></td>
+    <td><%= sub_contact.fax %></td>
+    <td><%= sub_contact.email %></td>
+    <td><%= sub_contact.nominal_code %></td>
+    <td><%= sub_contact.vat_sales %></td>
+    <td><%= sub_contact.vat_purchase %></td>
+    <td><%= sub_contact.skype %></td>
+    <td><%= sub_contact.msn %></td>
+    <td><%= link_to 'Show', contact_sub_contact_path(params[:contact_id],sub_contact.id) %></td>
+    <td><%= link_to 'Edit', edit_contact_sub_contact_path(params[:contact_id],sub_contact.id) %></td>
+    <td><%= link_to 'Destroy', contact_sub_contact_path(params[:contact_id],sub_contact.id), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Sub contact', new_contact_sub_contact_path %>
+</div></div>

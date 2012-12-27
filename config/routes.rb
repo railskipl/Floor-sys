@@ -1,5 +1,6 @@
 Floorsys::Application.routes.draw do|map|
   
+  
 
   resources :add_to_groups
 
@@ -9,7 +10,8 @@ Floorsys::Application.routes.draw do|map|
    
     resources :groups
 
- 
+
+
 
   resources :sale_orders
 
@@ -90,9 +92,20 @@ Floorsys::Application.routes.draw do|map|
   resources :contacts do
     get :restore, :on => :collection
     get :import, :on => :collection 
+    get :search, :on => :collection
+    put :complete, :on => :collection
     post :csv_import ,:on => :collection
+    resources :sub_contacts
+    resources :notes
+    resources :credit_controls
+    match '/sub_contacts/:id/delete', :to => "sub_contacts#destroy"
+    match '/credit_controls/:id/delete', :to => "credit_controls#destroy"
+    match '/notes/:id/delete', :to => "notes#destroy"
   end
- 
+      
+      
+
+      
       match '/contacts/:id/status', :to => "contacts#toggled_status"
       
 

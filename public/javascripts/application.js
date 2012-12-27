@@ -160,7 +160,7 @@ jQuery(document).ready(function() {
 	rules: {
 		"contact[contact_name]":{
 					                   required: true,
-                        			character:true,
+                        			
      					                maxlength:49
 			},
 				"contact[contact_address1]":{
@@ -235,6 +235,15 @@ jQuery(document).ready(function() {
 		}
 	});
 });
+
+
+
+
+
+
+
+
+
 
 jQuery(document).ready(function() {
   jQuery("#new_customer").validate({
@@ -703,6 +712,106 @@ jQuery(document).ready(function() {
 		}
 	});
 });
+
+
+
+
+jQuery(document).ready(function() {
+  jQuery("#new_product_type").validate({
+	errorElement:'div',
+	rules: {
+	
+		
+		"product_type[name]":{
+						required:true
+		}
+
+		},
+	messages: {
+	
+			"product_type[name]":{
+	required: "This field is required."
+			}
+		
+		}
+	});
+});
+
+
+jQuery(document).ready(function() {
+  jQuery("#notes").validate({
+	errorElement:'div',
+	rules: {
+	
+		
+		"note[note]":{
+						required:true
+		}
+
+		},
+	messages: {
+	
+			"note[note]":{
+					required: "This field is required."
+			}
+		
+		}
+	});
+});
+
+jQuery(document).ready(function() {
+  jQuery("#credit_control").validate({
+	errorElement:'div',
+	rules: {
+	
+		
+		"credit_control[credit_limit]":{
+						required:true
+		}
+
+		},
+	messages: {
+	
+			"credit_control[credit_limit]":{
+					required: "This field is required."
+			}
+		
+		}
+	});
+});
+
+jQuery(document).ready(function() {
+  jQuery("#sub_contact").validate({
+	errorElement:'div',
+	rules: {
+	
+		"sub_contact[name]":{
+						required:true
+		},
+		
+		"sub_contact[email]":{
+						required:true,
+						email:true
+		}
+
+		},
+	messages: {
+	
+			"sub_contact[name]":{
+					required: "This field is required."
+			},
+			
+		
+		"sub_contact[email]":{
+						required:"This field is required."
+		}
+		
+		}
+	});
+});
+
+
+
 
 
 jQuery(document).ready(function() {

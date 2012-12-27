@@ -1,0 +1,25 @@
+<h1>Listing credit_controls</h1>
+
+<table>
+  <tr>
+    <th>Credit limit</th>
+    <th>Contact</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @credit_controls.each do |credit_control| %>
+  <tr>
+    <td><%= credit_control.credit_limit %></td>
+    <td><%= credit_control.contact_id %></td>
+    <td><%= link_to 'Show', credit_control %></td>
+    <td><%= link_to 'Edit', edit_credit_control_path(credit_control) %></td>
+    <td><%= link_to 'Destroy', credit_control, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Credit control', new_credit_control_path %>

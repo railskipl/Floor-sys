@@ -1,0 +1,44 @@
+<div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
+<div id="blank"></div>
+<div id="right">
+  <div class="leftarrow_contacts" style="float:left"></div>
+	  <div id="smoothmenu1" class="ddsmoothmenu">
+      <ul class="rightcorner">
+      
+      <% if can? :new, Contact %>
+      <li><%= link_to "General", contact_path(params[:contact_id]) %>   </li>
+       <% end %>
+ 	 <% if can? :new, Contact %>
+      <li><%= link_to "Notes", new_contact_note_path(params[:contact_id]) %>   </li>
+       <% end %>
+        <% if can? :new, Contact %>
+      <li><%= link_to "Credit Control", new_contact_credit_control_path(params[:contact_id]) %>   </li>
+       <% end %>
+	  </ul>
+	     <br style="clear: left" />
+	     </div>
+ </div>
+<div id="right2">
+<h1>New note</h1>
+
+<%= render 'form' %><br/>
+<% @contact = Contact.find_by_id(params[:contact_id]) %>
+    <table border="0" width="70%" cellpadding="0" cellspacing="0" id="product-table" style="margin-top: 10px;">
+	<tr>
+	 <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Notes</a></th>
+ 	 <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Time</a></th>
+ 	 <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Action</a></th>
+	</tr>
+<% @contact.notes.each do |note| %>
+<tr>
+	<td><%= note.note %></td>
+	<td>Added by <%= note.contact.contact_name  %> on <%= note.created_at.strftime("%d %b. %Y") %></td>
+	<td><%= link_to 'Edit', edit_contact_note_path(params[:contact_id],note.id) %> | 
+		<a href="/contacts/<%= note.contact_id %>/notes/<%= note.id %>/delete" onclick="if(confirm('Are you sure you want to delete this contact?'))  return true;  else  return false;" >Destroy</a>
+	</td>
+</tr>
+<% end %>
+</table><br/>
+<%= link_to 'Back', contacts_path,:class => "button" %>
+</div></div>
+

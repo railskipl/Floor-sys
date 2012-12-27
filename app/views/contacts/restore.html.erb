@@ -6,6 +6,81 @@
 }
 
 </style>
+
+<script language="JavaScript">
+
+jQuery(document).ready(function()
+{
+	jQuery("#checkall").click(function()
+	{
+		
+		var checked_status = this.checked;
+		jQuery("input[type=checkbox]").each(function()
+		{
+			this.checked = checked_status;
+			
+		});
+	});
+	
+   jQuery(".check").click(function(){
+   	
+   	
+	var flag = false;
+	
+	jQuery("input[type=checkbox]").each(function()
+    {
+              if(this.checked == true)
+              {
+              	flag = true;
+              }
+                          
+     });
+                
+         if (flag == false) {
+                        alert("Please Select Contact");
+                        return false;
+                }
+                if (flag == true) {
+                        jQuery.facebox({ div: '#TEST10' });
+                        
+                }
+                
+     });  
+     
+     
+        jQuery(".check1").click(function(){
+   	
+   	
+	var flag = false;
+	
+	jQuery("input[type=checkbox]").each(function()
+    {
+              if(this.checked == true)
+              {
+              	flag = true;
+              }
+                          
+     });
+                
+         if (flag == false) {
+                        alert("Please Select Contact!");
+                        return false;
+                }
+                if (flag == true) {
+                       
+                        
+                }
+                
+     }); 
+     
+     
+     
+     
+     
+     
+   }); 
+</script>
+
 <div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
 <div id="blank"></div>
 <div id="right">
@@ -53,21 +128,14 @@
 	</h1>
 
    <div class="formbox" style="width: 90%">
-
-
-
-
-  
-
-  
-
-<div style="margin-bottom: 10px;">
+		<div style="margin-bottom: 10px;">
 	 
 	 
 
     <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table" style="margin-top: 10px;">
         <tr>
-       
+	      <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1">        	<input type="checkbox" id="checkall" />
+<a href="">Select</a> </th>
           <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Name</a> </th>
           <th align="center" valign="middle" class="table-header-repeat line-left"><a href="">Email</a></th>
           <th align="center" valign="middle" class="table-header-repeat line-left"><a href="">Phone Number</a></th>
@@ -77,25 +145,26 @@
 
         </tr>
         <tr>
-        	
+        		<%= form_for(@group) do |f| %>
+    <%= f.submit "Restore" ,:name => "hello" ,:class=>"check1 button a" %>
 
          <% @contacts.each do |contact| %>
 
-	        	
+	        	<td><%= check_box_tag "group[contact_ids][]", contact.id %>
 		        <td><%= contact.contact_name %></td>
 		        <td><%= contact.contact_email %></td> 
 		        <td><%= contact.contact_telephone %></td>
 		      	<td></td>
 		     	<td class="options-width"> <%= link_to '', contact_path(contact), :class => "icon-1 info-tooltip" %><%= link_to '', edit_contact_path(contact), :class =>"icon-2 info-tooltip" %> <%= link_to '', {:controller=>"contacts", :action=>"destroy", :id=>"#{contact.id}"}, :confirm => 'Are you sure?',  :class => "icon-3 info-tooltip" %></td>
 
-				<td><%= link_to "Restore", {:controller => 'contacts', :action => 'toggled_status', :id => contact.id} ,:class => "link"%></td>               
         </tr>
      
         <%end%>
       </table>
-
+  <%end%>
       </div>
    
     </div>
 
-
+    </div>
+    

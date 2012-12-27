@@ -1,0 +1,90 @@
+<%= stylesheet_link_tag "table"%>
+<div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
+<div id="blank"></div>
+<div id="right">
+  <div class="leftarrow_contacts" style="float:left"></div>
+
+ </div>
+	<div id="right2">
+	
+
+<p id="notice"><%= notice %></p>
+<table  width="30%">
+<tr>
+<th align="right">Name:</th>
+<td align="left"><%= @sub_contact.name %></td>
+</tr>
+<tr>
+<th align="right">Position:</th>
+<td align="left"><%= @sub_contact.position %></td>
+</tr>
+<th align="right">Address1:</th>
+<td align="left"><%= @sub_contact.address1 %></td>
+
+<tr>
+<th align="right">Address2:</th>
+<td align="left"><%= @sub_contact.address2 %></td>
+</tr>
+
+<tr>
+<th align="right">Town:</th>
+<td align="left"><%= @sub_contact.town %></td>
+</tr>
+
+<tr>
+<th align="right">Country:</th>
+<td align="left"><%= @sub_contact.country %></td>
+</tr>
+
+<tr>
+<th align="right">Post code:</th>
+<td align="left"><%= @sub_contact.post_code %></td>
+</tr>
+
+<tr>
+<th align="right">Vat number:</th>
+<td align="left"><%= @sub_contact.vat_number %></td>
+</tr>
+
+<tr>
+<th align="right">Phone no:</th>
+<td align="left"><%= @sub_contact.phone_no %></td>
+</tr>
+
+<tr>
+<th align="right">Fax:</th>
+<td align="left"><%= @sub_contact.fax %></td>
+</tr>
+
+<tr>
+<th align="right">Email:</th>
+<td align="left"><%= @sub_contact.email %></td>
+</tr>
+
+<tr>
+<th align="right">Nominal code:</th>
+<td align="left"><%= @sub_contact.nominal_code %></td>
+</tr>
+
+<tr>
+<th align="right">Vat sales:</th>
+<td align="left"><%= @sub_contact.vat_sales %></td>
+</tr>
+
+<tr>
+<th align="right">Vat purchase:</th>
+<td align="left"><%= @sub_contact.vat_purchase %></td>
+</tr>
+
+<tr>
+<th align="right">Skype:</th>
+<td align="left"><%= @sub_contact.skype %></td>
+</tr>
+
+<tr>
+<th align="right">Msn:</th>
+<td align="left"><%= @sub_contact.msn %></td>
+</tr>
+</table><br/>
+<%= link_to 'Edit', edit_contact_sub_contact_path(@sub_contact),:class => "button" %>
+</div></div>

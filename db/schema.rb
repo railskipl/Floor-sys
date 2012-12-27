@@ -10,8 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-
-ActiveRecord::Schema.define(:version => 20121206062902) do
+ActiveRecord::Schema.define(:version => 20121227050219) do
 
   create_table "add_to_groups", :force => true do |t|
     t.integer  "group_id"
@@ -19,7 +18,6 @@ ActiveRecord::Schema.define(:version => 20121206062902) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
 
   create_table "categories", :force => true do |t|
     t.string   "category_name"
@@ -87,16 +85,22 @@ ActiveRecord::Schema.define(:version => 20121206062902) do
     t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-
     t.integer  "group_id"
     t.boolean  "status"
-
   end
 
   create_table "countries", :force => true do |t|
     t.string   "country_name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "credit_controls", :force => true do |t|
+    t.string   "credit_limit"
+    t.integer  "contact_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "account_hold"
   end
 
   create_table "customers", :force => true do |t|
@@ -147,6 +151,13 @@ ActiveRecord::Schema.define(:version => 20121206062902) do
 
   create_table "groups", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notes", :force => true do |t|
+    t.text     "note"
+    t.integer  "contact_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -338,6 +349,11 @@ ActiveRecord::Schema.define(:version => 20121206062902) do
     t.datetime "updated_at"
   end
 
+  create_table "sale_orders", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "sale_representatives", :force => true do |t|
     t.integer  "contact_id"
     t.datetime "communication_date"
@@ -368,6 +384,28 @@ ActiveRecord::Schema.define(:version => 20121206062902) do
     t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "sub_contacts", :force => true do |t|
+    t.string   "name"
+    t.string   "position"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "town"
+    t.string   "country"
+    t.string   "post_code"
+    t.string   "vat_number"
+    t.string   "phone_no"
+    t.string   "fax"
+    t.string   "email"
+    t.string   "nominal_code"
+    t.string   "vat_sales"
+    t.string   "vat_purchase"
+    t.string   "skype"
+    t.string   "msn"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "contact_id"
   end
 
   create_table "subcontractors", :force => true do |t|

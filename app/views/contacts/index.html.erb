@@ -49,7 +49,7 @@ jQuery(document).ready(function()
      });
                 
          if (flag == false) {
-                        alert("Please Select Checkbox.");
+                        alert("Please Select Contact");
                         return false;
                 }
                 if (flag == true) {
@@ -58,6 +58,38 @@ jQuery(document).ready(function()
                 }
                 
      });  
+     
+     
+        jQuery(".check1").click(function(){
+   	
+   	
+	var flag = false;
+	
+	jQuery("input[type=checkbox]").each(function()
+    {
+              if(this.checked == true)
+              {
+              	flag = true;
+              }
+                          
+     });
+                
+         if (flag == false) {
+                        alert("Please Select Contact!");
+                        return false;
+                }
+                if (flag == true) {
+                       
+                        
+                }
+                
+     }); 
+     
+     
+     
+     
+     
+     
    }); 
 </script>
 
@@ -90,7 +122,14 @@ jQuery.each(jQuery("input[name='group[contact_ids][]']:checked"), function() {
       <li><%= link_to "Add new Contact", new_contact_path %>   </li>
        <% end %>
       
-        <% if can? :new, Contact %>
+       <% if can? :new, Contact %>
+      <li><% @group = Group.new %>
+	 	  <% a = url_for(:controller => "groups", :action => "new") %>
+		  <%= link_to "Add New Group" ,new_group_path,:onclick => a,:rel => "facebox" %>    </li>
+       <% end %>
+      
+      
+        <% if can? :new, Group %>
       <li><%= link_to "All", contacts_path %> </li>
     
       
@@ -109,7 +148,7 @@ jQuery.each(jQuery("input[name='group[contact_ids][]']:checked"), function() {
       <li>       <%= link_to "Archived" ,restore_contacts_path %> </li>
        <% end %>
   
- <% if can? :new, Contact %>
+ 		<% if can? :new, Contact %>
       <li>      <%= link_to "Export", contacts_path(format: "csv") %> </li>
        <% end %>
 
@@ -133,20 +172,34 @@ jQuery.each(jQuery("input[name='group[contact_ids][]']:checked"), function() {
 
 
 	<div id="right2">
+
 	
-	 <h1><% @group = Group.new %>
-	 	  <% a = url_for(:controller => "groups", :action => "new") %>
-		  <%= link_to "Add New Group" ,new_group_path,:onclick => a,:rel => "facebox" %>  
-	</h1>
 
    <div class="formbox" style="width: 90%">
+<h2>
+<%= link_to "123", search_contacts_path(:search => 123 ) %>&nbsp;
 
+<%  ("A".."Z").each do |alphabet| %>
+<%= link_to alphabet, search_contacts_path(:name => alphabet ) %>
+<% end %> </h2><br/>
 <a href="javascript:void(0);" class="check button"  return false;">
-	Add to group 
+	Add to group  
 </a>	
- 
- 
 	<%= form_for(@group) do |f| %>
+ 	<div id="TEST100" style="margin: -18px 16px 23px 92px;" >
+    <%= f.submit "Archive" ,:name => "hello" ,:class=>"check1 button aa" %>
+     </div>
+<style>
+.aa{
+	font-size: 11.5px;
+	padding:1px 2px;
+	margin:1px;
+	}
+</style>
+
+
+
+	
   <% if @group.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@group.errors.count, "error") %> prohibited this group from being saved:</h2>
@@ -173,13 +226,16 @@ jQuery.each(jQuery("input[name='group[contact_ids][]']:checked"), function() {
     
   </div>
   
-  
+
   <div class="actions">
     <%= f.submit "Save" ,:class => "button"%>
   </div><br/>
 
+	
  
 	  </div>
+
+
 
 <div style="margin-bottom: 10px;">
 	 
@@ -190,12 +246,11 @@ jQuery.each(jQuery("input[name='group[contact_ids][]']:checked"), function() {
         <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1">
         	<input type="checkbox" id="checkall" />
         	<a href="">Select </a> </th>
-          <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Name</a> </th>
-          <th align="center" valign="middle" class="table-header-repeat line-left"><a href="">Email</a></th>
-          <th align="center" valign="middle" class="table-header-repeat line-left"><a href="">Phone Number</a></th>
+          <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href=""><%= sortable "contact_name" %></a> </th>
+          <th align="center" valign="middle" class="table-header-repeat line-left"><a href=""><%= sortable "contact_email" %></a></th>
+          <th align="center" valign="middle" class="table-header-repeat line-left"><a href=""><%= sortable "contact_telephone" %></a></th>
           <th align="center" valign="middle" class="table-header-repeat line-left"><a href="">Outstanding Balance</a></th>
           <th align="center" valign="middle" class="table-header-options line-left"><a href="">Action</a></th>
-          <th align="center" valign="middle" class="table-header-repeat line-left"><a href=""></a></th>
 
         </tr>
         <tr>
@@ -203,14 +258,13 @@ jQuery.each(jQuery("input[name='group[contact_ids][]']:checked"), function() {
 
          <% @contacts.each do |contact| %>
 
-	        	<td><%= check_box_tag "group[contact_ids][]", contact.id %>
-		        <td><%= contact.contact_name %></td>
+	        	<td><%= check_box_tag "group[contact_ids][]", contact.id %></td>
+		        <td><b><u><%= link_to contact.contact_name ,contact_path(contact)%></u></b></td>
 		        <td><%= contact.contact_email %></td> 
 		        <td><%= contact.contact_telephone %></td>
 		      	<td></td>
-		     	<td class="options-width"> <%= link_to '', contact_path(contact), :class => "icon-1 info-tooltip" %><%= link_to '', edit_contact_path(contact), :class =>"icon-2 info-tooltip" %> <%= link_to '', {:controller=>"contacts", :action=>"destroy", :id=>"#{contact.id}"}, :confirm => 'Are you sure?',  :class => "icon-3 info-tooltip" %></td>
+		     	<td class="options-width"><%= link_to '', edit_contact_path(contact), :class =>"icon-2 info-tooltip" %> <%= link_to '', {:controller=>"contacts", :action=>"destroy", :id=>"#{contact.id}"}, :confirm => 'Are you sure?',  :class => "icon-3 info-tooltip",:method => :delete %></td>
 
-				<td><%= link_to "Move to Archive", {:controller => 'contacts', :action => 'toggled_status', :id => contact.id}, :class => "link" %></td>               
         </tr>
      
         <%end%>
@@ -220,4 +274,4 @@ jQuery.each(jQuery("input[name='group[contact_ids][]']:checked"), function() {
    
     </div>
 
-
+  </div>

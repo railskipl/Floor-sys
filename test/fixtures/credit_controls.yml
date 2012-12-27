@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  credit_limit: MyString
+  contact_id: 1
+
+two:
+  credit_limit: MyString
+  contact_id: 1

@@ -1,0 +1,86 @@
+<div class="formbox">
+<%= form_for([:contact,@sub_contact], :html => {:id => "sub_contact"}) do |f| %>
+  <% if @sub_contact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sub_contact.errors.count, "error") %> prohibited this sub_contact from being saved:</h2>
+
+      <ul>
+      <% @sub_contact.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name,:class =>"field1" %>
+  </div>
+  <div class="field">
+    <%= f.label :position %><br />
+    <%= f.text_field :position ,:class =>"field1" %>
+  </div>
+  <div class="field">
+    <%= f.label :address1 %><br />
+    <%= f.text_field :address1 ,:class =>"field1" %>
+  </div>
+  <div class="field">
+    <%= f.label :address2 %><br />
+    <%= f.text_field :address2 ,:class =>"field1" %>
+  </div>
+  <div class="field">
+    <%= f.label :town %><br />
+    <%= f.text_field :town ,:class =>"field1" %>
+  </div>
+  <div class="field">
+    <%= f.label :country %><br />
+    <%= select :sub_contact, :country, Country.all.map {|c| [c.country_name]} %>
+  </div>
+  <div class="field">
+    <%= f.label :post_code %><br />
+    <%= f.text_field :post_code ,:class =>"field1" %>
+  </div>
+  <div class="field">
+    <%= f.label :vat_number %><br />
+    <%= f.text_field :vat_number ,:class =>"field1" %>
+  </div>
+  <div class="field">
+    <%= f.label :phone_no %><br />
+    <%= f.text_field :phone_no ,:class =>"field1" %>
+  </div>
+  <div class="field">
+    <%= f.label :fax %><br />
+    <%= f.text_field :fax ,:class =>"field1" %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email ,:class =>"field1" %>
+  </div>
+  <div class="field">
+    <%= f.label :nominal_code %><br />
+    <%= f.text_field :nominal_code ,:class =>"field1" %>
+  </div>
+  <div class="field">
+    <%= f.label :vat_sales %><br />
+    <%= f.text_field :vat_sales ,:class =>"field1" %>
+  </div>
+  <div class="field">
+    <%= f.label :vat_purchase %><br />
+    <%= f.text_field :vat_purchase ,:class =>"field1" %>
+  </div>
+  <div class="field">
+    <%= f.label :skype %><br />
+    <%= f.text_field :skype ,:class =>"field1" %>
+  </div>
+  <div class="field">
+    <%= f.label :msn %><br />
+    <%= f.text_field :msn ,:class =>"field1" %>
+  </div>
+  <% if @sub_contact.contact_id.nil? %>
+  <%= f.hidden_field :contact_id, :value => params[:contact_id] %>
+  <% end %>
+  <div class="actions">
+    <%= f.submit "Save" ,:class => "button" %>
+  </div>
+<% end %>
+</div>

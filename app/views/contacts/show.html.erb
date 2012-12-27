@@ -1,103 +1,83 @@
+ <%= javascript_include_tag "checkbox" %>
+
+
 <div style="width:90%; float:right; position: static; left:10%; overflow:hidden">
 <div id="blank"></div>
 <div id="right">
   <div class="leftarrow_contacts" style="float:left"></div>
-
+	  <div id="smoothmenu1" class="ddsmoothmenu">
+      <ul class="rightcorner">
+      
+      <% if can? :new, Contact %>
+      <li><%= link_to "General", contact_path %>   </li>
+      <% end %>
+ 	  <% if can? :new, Contact %>
+      <li><%= link_to "Notes", new_contact_note_path(@contact.id) %>   </li>
+      <% end %>
+      <% if can? :new, Contact %>
+      <li><%= link_to "Credit Control", new_contact_credit_control_path(@contact.id) %>   </li>
+       <% end %>
+	  </ul>
+	     <br style="clear: left" />
+	     </div>
  </div>
 	<div id="right2">
 	 
-	 
+	 <style>
+	 	.del{
+	 		padding :1px;
+	 	}
+	 </style>
       <h1>Contact</h1>
-      <div class="formbox">
-      <table width="60%" border="0" cellspacing="10" cellpadding="5">
+      <div class="formbox" style="width: 95%">
+       <% form_tag complete_contacts_path, :method => :put do %>
+		<h2>
+      	<%= link_to "Add person",new_contact_sub_contact_path(@contact.id), :class => "button" %>
+      	<%= submit_tag "Delete Person",:class => "check button del" %> 
+      	</h2>
+    <table border="0" width="100%" cellpadding="" cellspacing="" id="product-table" style="margin-top: 10px;">
         
         <tr>
-          <td align="right" valign="middle">Contact Name </td>
-          <td align="center" valign="middle">:</td>
-          <td> <%= @contact.contact_name %> </td>
-        </tr>
-        
-        <tr>
-          <td align="right" valign="middle">Contact Position </td>
-          <td align="center" valign="middle">:</td>
-          <td> <%= @contact.contact_position %></td>
-        </tr>
-        
-          <tr>
-          <td align="right" valign="middle">Address1</td>
-          <td align="center" valign="middle">:</td>
-          <td>  <%= @contact.contact_address1 %></td>
-        </tr>
-          <tr>
-          <td align="right" valign="middle">Address2</td>
-          <td align="center" valign="middle">:</td>
-          <td>  <%= @contact.contact_address2 %></td>
-        </tr>
-          <tr>
-          <td align="right" valign="middle"> Town</td>
-          <td align="center" valign="middle">:</td>
-          <td>  <%= @contact.contact_town %></td>
-        </tr>
+          <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><input type="checkbox" id="checkall" /><a href="">Select</a></th>
+          <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Contact Name</a></th>
+          <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Contact Position</a> </th>
+          <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Address1</a></th>
+          <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Town</a></th>
+		  <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Country</a></th>   
+          <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Post Code</a></th>
+          <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Fax</a></th>
+          <th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Email</a></th>
+
+         </tr>
          <tr>
-          <td align="right" valign="middle">Country</td>
-          <td align="center" valign="middle">:</td>
-          <td>  <%= @contact.contact_country %></td>
-        </tr>
-          <tr>
-          <td align="right" valign="middle">Post Code</td>
-          <td align="center" valign="middle">:</td>
-          <td>  <%= @contact.contact_postcode %></td>
-        </tr>
-          <tr>
-          <td align="right" valign="middle">Vat Number</td>
-          <td align="center" valign="middle">:</td>
-          <td>   <%= @contact.contact_vat_number %></td>
-        </tr>
+          <td></td>
+          <td><%= @contact.contact_name %> </td>
+          <td><%= @contact.contact_position %></td>
+          <td><%= @contact.contact_address1 %></td>
+          <td><%= @contact.contact_town %></td>
+          <td><%= @contact.contact_country %></td>
+          <td><%= @contact.contact_postcode %></td>
+     	  <td><%= @contact.contact_fax %></td>
+     	  <td><%= @contact.contact_email %></td>
+      
+    	 </tr>
+    	 <% @sub_contact = SubContact.new %>
+       <% @contact.sub_contacts.each do |sub| %>
         <tr>
-          <td align="right" valign="middle">Telephone</td>
-          <td align="center" valign="middle">:</td>
-          <td>   <%= @contact.contact_telephone %></td>
-        </tr>
-     
-             <tr>
-          <td align="right" valign="middle">Fax</td>
-          <td align="center" valign="middle">:</td>
-          <td>  <%= @contact.contact_fax %></td>
-        </tr>
-                <tr>
-          <td align="right" valign="middle">Email</td>
-          <td align="center" valign="middle">:</td>
-          <td>   <%= @contact.contact_email %></td>
-        </tr>
-        <tr>
-          <td align="right" valign="middle">Nominal code</td>
-          <td align="center" valign="middle">:</td>
-          <td>  <%= @contact.nominal_code %></td>
-        </tr>
-        <tr>
-          <td align="right" valign="middle">Vat rate sales </td>
-          <td align="center" valign="middle">:</td>
-          <td> <%= @contact.vat_rate_sales %></td>
-        </tr>
-        <tr>
-          <td align="right" valign="middle">Vat rate purchases</td>
-          <td align="center" valign="middle">:</td>
-          <td><%= @contact.vat_rate_purchases %></td>
-        </tr>
-        <tr>
-          <td align="right" valign="middle">Skype</td>
-          <td align="center" valign="middle">:</td>
-          <td>  <%= @contact.skype %></td>
-        </tr>
-        
-        <tr>
-          <td align="right" valign="middle">Msn</td>
-          <td align="center" valign="middle">:</td>
-          <td> <%= @contact.msn %></td>
-        </tr>
-     
-         
-<%= link_to "Back" ,contacts_path%>
+          <td><%= check_box_tag "sub_contact[contact_ids][]", sub.id %></td>
+          <td><b><u><%=link_to sub.name, contact_sub_contact_path(sub.contact_id,sub.id) %></u></b></td>
+	      <td><%= sub.position %></td>
+	      <td><%= sub.address1 %></td>
+	      <td><%= sub.town %></td>
+	      <td><%= sub.country %></td>
+	      <td><%= sub.post_code %></td>
+	      <td><%= sub.fax %></td>
+	      <td><%= sub.email %></td>
+       </tr>
+      <%end %>
+      <%= hidden_field_tag :contact_id , @contact.id %>
+          
+  <%end %>
       </table>
       </div>
       </div>

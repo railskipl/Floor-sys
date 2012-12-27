@@ -49,26 +49,38 @@ class GroupsController < ApplicationController
   # POST /groups.xml
   def create
     @group = Group.new(params[:group])
-    if !params[:contact_groups][:group_id].blank? 
-      @a = params[:contact_groups][:group_id]
-      @b  = params[:group]['contact_ids']
-   
-       recipients_array = params[:group]['contact_ids']
-       recipients_array.each do |r|
-        ContactGroup.create(:contact_id => r,:group_id => @a)
-       end
-        
-       redirect_to contacts_path  
-      
-    else
-      if @group.save 
-          flash[:notice] = "created and added in that group"
-        redirect_to  contacts_path  
-      else 
-         flash[:notice] = "Present already in that group"
-        redirect_to contacts_path  
-      end
+    
+    if params[:hello]
+    @contact = Contact.find_all_by_id(params[:group]['contact_ids'])
+    @contact.each do |s|
+    s.status = !s.status?
+    s.save!
     end
+    redirect_to contacts_path
+          
+    else
+    
+              if !params[:contact_groups][:group_id].blank? 
+                @a = params[:contact_groups][:group_id]
+                @b  = params[:group]['contact_ids']
+             
+                 recipients_array = params[:group]['contact_ids']
+                 recipients_array.each do |r|
+                  ContactGroup.create(:contact_id => r,:group_id => @a)
+                 end
+                  
+                 redirect_to contacts_path  
+                
+              else
+                if @group.save 
+                    flash[:notice] = "created and added in that group"
+                  redirect_to  contacts_path  
+                else 
+                   flash[:notice] = "Present already in that group"
+                  redirect_to contacts_path  
+                end
+              end
+       end
  end
 
   # PUT /groups/1
