@@ -115,7 +115,7 @@ class ContactsController < ApplicationController
         
   def search
     if  params[:name]
-    @contacts = Contact.find(:all, :conditions=> ['substr(contact_name,1,1) = ?', params[:name].downcase])
+    @contacts = Contact.find(:all, :conditions=> ['substr(contact_name,1,1) = ? OR substr(contact_name,1,1) = ?', params[:name].downcase, params[:name]])
     else
     @contacts = Contact.find(:all, :conditions=>["contact_name LIKE ? OR contact_name LIKE ? OR contact_name LIKE ? OR contact_name LIKE ? OR contact_name LIKE ? OR contact_name LIKE ? OR contact_name LIKE ? OR contact_name LIKE ? OR contact_name LIKE ?","1%", "2%","3%","4%","5%","6%","7%","8%","9%" ])
     end
