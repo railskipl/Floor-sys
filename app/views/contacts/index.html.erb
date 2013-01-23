@@ -173,15 +173,23 @@ jQuery.each(jQuery("input[name='group[contact_ids][]']:checked"), function() {
 
 	<div id="right2">
 
-	
+	  <div class ="paginate">
+	    <ul>
+	      <li>
+	          
+              <%= link_to "123", search_contacts_path(:search => 123 ) %>&nbsp;
+                  <%  ("A".."Z").each do |alphabet| %>
+                    <%= link_to alphabet, search_contacts_path(:name => alphabet ) %>
+                  <% end %> 
+            
+	      </li>
+	    </ul>
+	  </div>
 
    <div class="formbox" style="width: 90%">
-<h2>
-<%= link_to "123", search_contacts_path(:search => 123 ) %>&nbsp;
+  
 
-<%  ("A".."Z").each do |alphabet| %>
-<%= link_to alphabet, search_contacts_path(:name => alphabet ) %>
-<% end %> </h2><br/>
+
 <a href="javascript:void(0);" class="check button"  return false;">
 	Add to group  
 </a>	

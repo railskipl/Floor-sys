@@ -13,8 +13,8 @@
        database: floorsys_new
        pool: 5
        username: root
-       password: 
-       socket: /var/run/mysqld/mysqld.sock 
+       password: root
+       # socket: /var/run/mysqld/mysqld.sock 
 
 
       # Warning: The database defined as "test" will be erased and
@@ -27,8 +27,8 @@
        database: floorsys_new
        pool: 5
        username: root
-       password: 
-       socket: /var/run/mysqld/mysqld.sock 
+       password: root
+      # socket: /var/run/mysqld/mysqld.sock 
 
 
       production:
@@ -38,7 +38,7 @@
        database: floorsys_new
        pool: 5
        username: root
-       password: 
-       socket: /var/run/mysqld/mysqld.sock 
+       password: root
+       # socket: /var/run/mysqld/mysqld.sock 
 
   

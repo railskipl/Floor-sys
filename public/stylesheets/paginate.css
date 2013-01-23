@@ -1,0 +1,74 @@
+/* CSS Document */
+
+.paginate {
+    text-align: center; float:left; margin:20px 0 10px 0
+}
+.paginate ul {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+.paginate li {
+    display: inline;
+}
+.paginate a {
+    background-color: rgb(245, 245, 245);
+    background-image: -moz-linear-gradient(center top , rgb(249, 249, 249), rgb(234, 234, 234));
+    border-radius: 3px 3px 3px 3px;
+    border-top: 1px solid rgb(255, 255, 255);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+    color: rgb(113, 113, 113) !important;
+    display: inline-block;
+    font-family: "Helvetica Neueu",Helvetica,Arial,sans-serif;
+    font-size: smaller !important;
+    margin: 1px 2px;
+    padding: 5px 10px;
+    text-decoration: none !important;
+    text-shadow: 0 1px 0 white;
+}
+.paginate a:first-child, .paginate a.first {
+    margin-left: 0;
+}
+.paginate a:last-child, .paginate a.last {
+    margin-right: 0;
+}
+.paginate a:hover, .paginate a:focus {
+    background-color: rgb(253, 253, 253);
+    background-image: -moz-linear-gradient(center top , rgb(254, 254, 254), rgb(250, 250, 250));
+    border-color: rgb(255, 255, 255);
+}
+.paginate a.more {
+    background: none repeat scroll 0 0 transparent !important;
+    border: 0 none !important;
+    box-shadow: none;
+    margin-left: 0;
+    margin-right: 0;
+}
+.paginate a.active {
+    background-color: rgb(103, 103, 103);
+    background-image: -moz-linear-gradient(center top , rgb(95, 95, 95), rgb(92, 92, 92));
+    border-color: rgb(80, 80, 80) !important;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.75) inset;
+    color: rgb(242, 242, 242) !important;
+    text-shadow: 0 1px 0 black;
+}
+.paginate-dark a {
+    background-color: rgb(78, 84, 88);
+    background-image: -moz-linear-gradient(center top , rgb(87, 94, 99), rgb(63, 67, 71));
+    border-top: 1px solid rgb(98, 104, 109);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3);
+    color: rgb(255, 255, 255) !important;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75);
+}
+.paginate-dark a:hover, .paginate-dark a:focus {
+    background-color: rgb(77, 99, 116);
+    background-image: -moz-linear-gradient(center top , rgb(86, 111, 130), rgb(62, 80, 94));
+    border-color: rgb(97, 120, 138);
+}
+.paginate-dark a.active {
+    background-color: rgb(48, 51, 56);
+    background-image: -moz-linear-gradient(center top , rgb(48, 51, 56), rgb(45, 48, 52));
+    border-color: rgb(45, 48, 53) !important;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.75) inset;
+}

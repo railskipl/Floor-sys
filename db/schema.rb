@@ -89,6 +89,11 @@ ActiveRecord::Schema.define(:version => 20121227050219) do
     t.boolean  "status"
   end
 
+  create_table "contacts_groups", :id => false, :force => true do |t|
+    t.integer "group_id"
+    t.integer "contact_id"
+  end
+
   create_table "countries", :force => true do |t|
     t.string   "country_name"
     t.datetime "created_at"
