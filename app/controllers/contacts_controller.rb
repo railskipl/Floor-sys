@@ -6,7 +6,7 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.xml
   def index
-    @contacts = Contact.order(sort_column + " " + sort_direction).find_all_by_company_id_and_status(current_user.company_id,false)
+    @contacts = Contact.order(sort_column + " " + sort_direction).find_all_by_company_id_and_status(current_user.company_id,false).paginate(:per_page => 2, :page => params[:page])
     @group = Group.new
     
    

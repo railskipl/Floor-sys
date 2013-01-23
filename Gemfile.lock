@@ -133,6 +133,7 @@ GEM
     uuidtools (2.1.3)
     warden (1.0.6)
       rack (>= 1.0)
+    will_paginate (3.0.pre2)
     xml-simple (1.1.2)
 
 PLATFORMS
@@ -154,3 +155,4 @@ DEPENDENCIES
   rmagick
   ruby-mysql
   therubyracer
+  will_paginate (= 3.0.pre2)
