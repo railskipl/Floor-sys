@@ -32,6 +32,7 @@
 		        <td><%= contact.contact_name %></td>
 		        <td><%= contact.contact_email %></td> 
 		        <td><%= contact.contact_telephone %></td>
+		        
 		      	<td></td>
 		     	<td class="options-width"> <%= link_to '', contact_path(contact), :class => "icon-1 info-tooltip" %><%= link_to '', edit_contact_path(contact), :class =>"icon-2 info-tooltip" %> <%= link_to '', {:controller=>"contacts", :action=>"destroy", :id=>"#{contact.id}"}, :confirm => 'Are you sure?',  :class => "icon-3 info-tooltip" %></td>
 

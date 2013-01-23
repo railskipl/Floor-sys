@@ -269,7 +269,7 @@ jQuery.each(jQuery("input[name='group[contact_ids][]']:checked"), function() {
 	        	<td><%= check_box_tag "group[contact_ids][]", contact.id %></td>
 		        <td><b><u><%= link_to contact.contact_name ,contact_path(contact)%></u></b></td>
 		        <td><a href ="mailto:<%= contact.contact_email %>"><%= contact.contact_email %></a></td> 
-		        <td><%= contact.contact_telephone %></td>
+		        <td><a href="callto:<%= contact.contact_telephone %>"><%= contact.contact_telephone %></a></td>
 		      	<td></td>
 		     	<td class="options-width"><%= link_to '', edit_contact_path(contact), :class =>"icon-2 info-tooltip" %> <%= link_to '', {:controller=>"contacts", :action=>"destroy", :id=>"#{contact.id}"}, :confirm => 'Are you sure?',  :class => "icon-3 info-tooltip",:method => :delete %></td>
 
