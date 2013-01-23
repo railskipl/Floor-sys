@@ -58,7 +58,7 @@
           <td><%= @contact.contact_country %></td>
           <td><%= @contact.contact_postcode %></td>
      	  <td><%= @contact.contact_fax %></td>
-     	  <td><%= @contact.contact_email %></td>
+     	  <td><a href ="mailto:<%= @contact.contact_email %>"><%= @contact.contact_email %></a></td>
       
     	 </tr>
     	 <% @sub_contact = SubContact.new %>
