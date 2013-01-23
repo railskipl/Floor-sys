@@ -9,7 +9,7 @@
 </div>
 <div id="right2">
 	<br/>
-	
+	<div class="formbox" style="width: 90%">
  <% if @contacts.empty? %>
 	<p style="color: #5A6563;">Sorry! Record Not Found</p>
  <% else %>
@@ -43,8 +43,9 @@
 	
 	
 <% end %>
+
 <br/>
  <%= link_to "Back", contacts_path,:class =>"button" %>
 </div>
 </div>
-
+</div>
